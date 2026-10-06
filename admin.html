@@ -1,1 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koral Admin Console</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08080a;--bg-1:#0e0e11;--bg-2:#131317;--bg-3:#1a1a20;--bg-4:#22222a;
+  --line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.14);
+  --lime:#c8f542;--lime-2:#d9ff5e;--lime-dim:rgba(200,245,66,.1);--lime-line:rgba(200,245,66,.3);
+  --cyan:#5eead4;--red:#ff5f57;--green:#28c840;--amber:#febc2e;
+  --txt:#f0f0f0;--txt-2:#8f8f8f;--txt-3:#5a5a5a;--txt-4:#3a3a3a;
+  --display:'Outfit',sans-serif;--body:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--body);background:var(--bg);color:var(--txt);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+input,textarea,select{outline:none}
 
+.app{display:grid;grid-template-columns:280px 1fr;height:100vh;overflow:hidden}
+
+/* SIDEBAR */
+.sidebar{background:var(--bg-1);border-right:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
+.sidebar__head{padding:22px 22px 18px;border-bottom:1px solid var(--line)}
+.sidebar__logo{font-family:var(--display);font-size:1.15rem;font-weight:800;letter-spacing:.14em}
+.sidebar__logo span{background:linear-gradient(120deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sidebar__sub{font-size:.7rem;color:var(--txt-3);margin-top:4px;letter-spacing:.1em;text-transform:uppercase}
+.sidebar__nav{flex:1;overflow-y:auto;padding:16px 12px}
+.sidebar__group{margin-bottom:22px}
+.sidebar__group-label{font-size:.62rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-4);padding:0 10px;margin-bottom:8px}
+.sidebar__item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;font-size:.85rem;color:var(--txt-2);cursor:pointer;transition:.15s var(--ease);width:100%;text-align:left}
+.sidebar__item:hover{background:var(--bg-3);color:var(--txt)}
+.sidebar__item.is-active{background:var(--lime-dim);color:var(--lime);font-weight:600}
+.sidebar__item svg{width:15px;height:15px;flex-shrink:0;stroke-width:1.8}
+.sidebar__foot{padding:14px 18px;border-top:1px solid var(--line);font-size:.72rem;color:var(--txt-3);display:flex;align-items:center;gap:8px}
+.status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px currentColor}
+.status-dot.warn{background:var(--amber)}
+.status-dot.err{background:var(--red)}
+
+/* MAIN */
+.main{display:flex;flex-direction:column;overflow:hidden}
+.topbar{height:62px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:var(--bg-1);flex-shrink:0;gap:20px}
+.topbar__title{font-family:var(--display);font-size:1.05rem;font-weight:600}
+.topbar__title small{color:var(--txt-3);font-weight:400;font-size:.78rem;font-family:var(--body);margin-left:10px}
+.topbar__actions{display:flex;gap:8px;align-items:center}
+.content{flex:1;overflow-y:auto;padding:32px 40px 80px;max-width:1100px;width:100%}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;padding:9px 16px;border-radius:8px;transition:.2s var(--ease);white-space:nowrap;border:1px solid transparent}
+.btn svg{width:14px;height:14px;stroke-width:2}
+.btn--primary{background:var(--lime);color:#08080a}
+.btn--primary:hover{background:var(--lime-2);box-shadow:0 0 20px rgba(200,245,66,.25)}
+.btn--ghost{border-color:var(--line-2);color:var(--txt)}
+.btn--ghost:hover{border-color:var(--lime-line);color:var(--lime);background:var(--lime-dim)}
+.btn--danger{border-color:rgba(255,95,87,.3);color:var(--red)}
+.btn--danger:hover{background:rgba(255,95,87,.1)}
+.btn--sm{padding:6px 11px;font-size:.73rem}
+
+/* FORM */
+.section-card{background:var(--bg-1);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
+.section-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.section-card__title{font-family:var(--display);font-size:.95rem;font-weight:600}
+.section-card__desc{font-size:.78rem;color:var(--txt-3);margin-top:3px;line-height:1.55}
+.field{margin-bottom:18px}
+.field:last-child{margin-bottom:0}
+.field__label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);margin-bottom:7px}
+.field__hint{font-size:.72rem;color:var(--txt-4);margin-top:5px;line-height:1.5}
+.field__input,.field__textarea,.field__select{width:100%;padding:10px 13px;border-radius:8px;background:var(--bg-2);border:1px solid var(--line-2);color:var(--txt);font-size:.85rem;transition:.15s var(--ease);font-family:var(--body)}
+.field__textarea{resize:vertical;min-height:80px;line-height:1.6}
+.field__input:focus,.field__textarea:focus,.field__select:focus{border-color:var(--lime-line);box-shadow:0 0 0 3px var(--lime-dim)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* MEDIA PREVIEW */
+.media-preview{margin-top:10px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg-2);position:relative;min-height:60px;display:grid;place-items:center}
+.media-preview img,.media-preview video{width:100%;max-height:220px;object-fit:cover;display:block}
+.media-preview__empty{padding:20px;text-align:center;color:var(--txt-4);font-size:.75rem}
+.media-preview__badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.75);color:var(--lime);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px}
+
+/* LIST */
+.list-item{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px;background:var(--bg-2);transition:.2s var(--ease)}
+.list-item:hover{border-color:var(--line-2)}
+.list-item__head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.list-item__title{font-size:.78rem;font-weight:600;color:var(--lime);letter-spacing:.08em;text-transform:uppercase}
+.list-item__controls{display:flex;gap:4px}
+.list-item__btn{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;color:var(--txt-3);transition:.15s var(--ease)}
+.list-item__btn:hover{background:var(--bg-4);color:var(--txt)}
+.list-item__btn--danger:hover{color:var(--red);background:rgba(255,95,87,.1)}
+.list-add{display:flex;align-items:center;gap:8px;padding:12px 16px;border:1px dashed var(--line-2);border-radius:10px;color:var(--txt-2);font-size:.8rem;font-weight:500;transition:.2s var(--ease);width:100%;justify-content:center}
+.list-add:hover{border-color:var(--lime-line);color:var(--lime);background:var(--lime-dim)}
+
+/* EMAIL BANNER */
+.email-banner{background:linear-gradient(135deg,rgba(94,234,212,.08),rgba(200,245,66,.05));border:1px solid rgba(94,234,212,.28);border-radius:10px;padding:16px 20px;margin-bottom:22px;display:flex;gap:14px;align-items:flex-start}
+.email-banner svg{width:20px;height:20px;color:var(--cyan);flex-shrink:0;margin-top:1px;stroke-width:2}
+.email-banner__text{font-size:.8rem;color:var(--txt-2);line-height:1.6}
+.email-banner__text strong{color:var(--cyan);display:block;margin-bottom:3px;font-weight:600}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:250;display:none;place-items:center;padding:24px}
+.modal.is-open{display:grid}
+.modal__dialog{background:var(--bg-1);border:1px solid var(--line-2);border-radius:16px;padding:28px;max-width:480px;width:100%}
+.modal__title{font-family:var(--display);font-size:1.1rem;font-weight:600;margin-bottom:10px}
+.modal__text{font-size:.85rem;color:var(--txt-2);line-height:1.65;margin-bottom:22px}
+.modal__actions{display:flex;gap:10px;justify-content:flex-end}
+
+/* TOAST */
+.toast-stack{position:fixed;bottom:24px;right:24px;z-index:300;display:flex;flex-direction:column;gap:10px;pointer-events:none}
+.toast{background:var(--bg-3);border:1px solid var(--line-2);border-radius:10px;padding:12px 18px;font-size:.83rem;color:var(--txt);box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;align-items:center;gap:10px;pointer-events:auto;min-width:260px;max-width:420px;animation:toastIn .3s var(--ease)}
+.toast--success{border-color:rgba(40,200,64,.3)}
+.toast--success .toast__icon{color:var(--green)}
+.toast--error{border-color:rgba(255,95,87,.3)}
+.toast--error .toast__icon{color:var(--red)}
+.toast--info .toast__icon{color:var(--cyan)}
+.toast__icon{width:18px;height:18px;flex-shrink:0}
+@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* BOOT / ERROR SCREEN */
+.boot{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:9999;text-align:center;padding:40px}
+.boot__inner{max-width:600px}
+.boot__logo{font-family:var(--display);font-size:1.4rem;font-weight:800;letter-spacing:.14em;margin-bottom:24px}
+.boot__logo span{background:linear-gradient(120deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.boot__spinner{width:32px;height:32px;border:3px solid var(--line-2);border-top-color:var(--lime);border-radius:50%;margin:0 auto 20px;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.boot__msg{font-size:.9rem;color:var(--txt-2);line-height:1.6}
+.boot__error{background:var(--bg-2);border:1px solid rgba(255,95,87,.3);border-radius:12px;padding:22px;margin-top:20px;text-align:left}
+.boot__error pre{font-family:var(--mono);font-size:.78rem;color:var(--red);white-space:pre-wrap;word-break:break-word;line-height:1.6}
+.boot--hidden{display:none}
+
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--bg-4);border-radius:5px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--line-2)}
+
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  .sidebar{position:fixed;inset:0 25% 0 0;z-index:100;transform:translateX(-100%);transition:.3s var(--ease)}
+  .sidebar.is-open{transform:none}
+  .content{padding:24px 20px 80px}
+  .field-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- BOOT SCREEN -->
+<div class="boot" id="boot">
+  <div class="boot__inner">
+    <div class="boot__logo"><span>KORAL</span></div>
+    <div class="boot__spinner"></div>
+    <div class="boot__msg" id="bootMsg">Loading admin console...</div>
+    <div id="bootError" style="display:none"></div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app" style="display:none">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__head">
+      <div class="sidebar__logo"><span>KORAL</span></div>
+      <div class="sidebar__sub">Admin Console</div>
+    </div>
+    <nav class="sidebar__nav" id="sidebarNav"></nav>
+    <div class="sidebar__foot">
+      <span class="status-dot" id="saveStatus"></span>
+      <span id="saveStatusText">Ready</span>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar__title" id="pageTitle">Home Page <small>Edit all content without touching code</small></div>
+      <div class="topbar__actions">
+        <button class="btn btn--ghost btn--sm" id="btnPreview">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Preview
+        </button>
+        <button class="btn btn--ghost btn--sm" id="btnReset">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v6h6"/></svg>
+          Reset
+        </button>
+        <button class="btn btn--ghost btn--sm" id="btnDownload">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export JSON
+        </button>
+        <button class="btn btn--primary btn--sm" id="btnPublish">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><polyline points="5 12 12 5 19 12"/></svg>
+          Publish to GitHub
+        </button>
+      </div>
+    </header>
+    <div class="content" id="contentArea"></div>
+  </main>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="modal" id="confirmModal">
+  <div class="modal__dialog">
+    <h2 class="modal__title" id="confirmTitle">Are you sure?</h2>
+    <p class="modal__text" id="confirmText"></p>
+    <div class="modal__actions">
+      <button class="btn btn--ghost" id="confirmCancel">Cancel</button>
+      <button class="btn btn--danger" id="confirmOk">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- PUBLISH MODAL -->
+<div class="modal" id="publishModal">
+  <div class="modal__dialog" style="max-width:560px">
+    <h2 class="modal__title">Publish to GitHub</h2>
+    <p class="modal__text">Commits <code style="font-family:var(--mono);background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--lime)">content.json</code> directly to your repository. GitHub Pages rebuilds automatically.</p>
+
+    <div class="field">
+      <label class="field__label">Repository (owner/name)</label>
+      <input class="field__input" id="ghRepo" placeholder="username/koral-site">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label class="field__label">Branch</label>
+        <input class="field__input" id="ghBranch" value="main">
+      </div>
+      <div class="field">
+        <label class="field__label">File Path</label>
+        <input class="field__input" id="ghPath" value="content.json">
+      </div>
+    </div>
+    <div class="field">
+      <label class="field__label">Personal Access Token</label>
+      <input class="field__input" id="ghToken" type="password" placeholder="ghp_...">
+      <div class="field__hint">Generate at github.com/settings/tokens with "repo" scope. Stored locally.</div>
+    </div>
+    <div class="field">
+      <label class="field__label">Commit Message</label>
+      <input class="field__input" id="ghMessage" value="Update site content">
+    </div>
+
+    <div class="modal__actions">
+      <button class="btn btn--ghost" id="publishCancel">Cancel</button>
+      <button class="btn btn--primary" id="publishConfirm">Publish Now</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script>
+/* ============================================================
+   KORAL ADMIN CONSOLE — standalone
+   ============================================================ */
+(function(){
+  'use strict';
+
+  // Show boot screen first — hides only after successful init
+  const boot = document.getElementById('boot');
+  const bootMsg = document.getElementById('bootMsg');
+  const bootError = document.getElementById('bootError');
+
+  window.addEventListener('error', e => {
+    showBootError('Unexpected error: ' + e.message);
+  });
+
+  function showBootError(msg) {
+    bootMsg.textContent = 'Failed to start.';
+    bootError.style.display = 'block';
+    bootError.innerHTML = '<div class="boot__error"><pre>' + String(msg).replace(/</g,'&lt;') + '</pre></div>';
+  }
+
+  const LS_KEY = 'koral-content-v1';
+  const LS_GH = 'koral-github-config';
+
+  // ============ DEFAULT CONTENT ============
+  const DEFAULT_CONTENT = {
+    site: {
+      brandName: "KORAL",
+      brandTagline: "Portable solar-powered energy ecosystems. Built for a world beyond the grid."
+    },
+    email: {
+      formRecipient: "partners@koral.energy",
+      replyTo: "partners@koral.energy",
+      formSubject: "New partnership enquiry from {name}",
+      autoReplyEnabled: true,
+      autoReplySubject: "Thanks for reaching out to Koral",
+      autoReplyBody: "Hi {firstName},\n\nThanks for contacting Koral. We've received your enquiry and a member of our partnerships team will respond within two business days.\n\n— The Koral Team",
+      smtpHost: "",
+      smtpPort: "587",
+      smtpUser: "",
+      smtpPassword: ""
+    },
+    home: {
+      hero: {
+        label: "Next-Gen Energy Ecosystem",
+        title: "Redefining Energy Freedom, Untethered.",
+        subtitle: "Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",
+        stats: [
+          { value: "2.4 kW", label: "Solar Generation" },
+          { value: "0", label: "Grid Dependence" },
+          { value: "100%", label: "Renewable Input" },
+          { value: "24/7", label: "Autonomous Power" }
+        ]
+      },
+      marquee: ["Solar Harvesting","LFP Storage","Off-Grid EV Charging","Trevoli EMS","Fleet Depots","Disaster Response","Remote Industry"],
+      decentralized: {
+        eyebrow: "Autonomous Infrastructure",
+        title: "Powering a Decentralized Future.",
+        text: "As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",
+        pills: ["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"]
+      },
+      carousel: {
+        slides: [
+          { title: "Koral Nomad", text: "Foldable 400W solar array paired with a 2.4 kWh LFP pack.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", posterUrl: "https://picsum.photos/seed/koral-nomad/1280/720" },
+          { title: "Koral Depot", text: "Containerised 60 kWh buffer storage for commercial EV fleets.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", posterUrl: "https://picsum.photos/seed/koral-depot/1280/720" },
+          { title: "Koral Responder", text: "Towable 18 kWh energy unit for disaster zones.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", posterUrl: "https://picsum.photos/seed/koral-responder/1280/720" },
+          { title: "Trevoli EMS", text: "Predictive load balancing and fleet telemetry.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4", posterUrl: "https://picsum.photos/seed/trevoli-ems/1280/720" }
+        ]
+      },
+      features: {
+        eyebrow: "Core Technology",
+        title: "Engineered for Uncompromised Reliability.",
+        items: [
+          { title: "Proprietary Storage Cells", text: "Advanced Lithium Iron Phosphate chemistries and high-efficiency MPPT controllers." },
+          { title: "Complete Off-Grid Autonomy", text: "Self-replenishing ecosystems integrating solar generation, storage reserves and fast charging." },
+          { title: "Plug-and-Play Simplicity", text: "Pre-configured hardware modules engineered for straightforward deployment." },
+          { title: "Sustainable Lifecycle", text: "Recyclable materials, non-toxic compositions and zero direct emissions." }
+        ]
+      },
+      productsTeaser: {
+        eyebrow: "Hardware Line",
+        title: "Built for the Edge of the Grid.",
+        text: "Three platforms. One ecosystem.",
+        items: [
+          { code: "KRL-01", tag: "Portable", title: "Koral Nomad", desc: "Foldable 400W solar array paired with a 2.4 kWh LFP pack." },
+          { code: "KRL-02", tag: "Stationary", title: "Koral Depot", desc: "Containerised buffer storage for commercial EV fleets." },
+          { code: "KRL-03", tag: "Rapid Response", title: "Koral Responder", desc: "Towable energy unit for disaster zones." }
+        ]
+      },
+      stats: {
+        eyebrow: "Benchmarks",
+        title: "Performance Metrics.",
+        items: [
+          { category: "System Efficiency", koral: "92%", industry: "68%" },
+          { category: "Cycle Durability", koral: "88/100", industry: "62/100" },
+          { category: "Operational Ease", koral: "95/100", industry: "58/100" }
+        ]
+      },
+      industries: {
+        eyebrow: "Use Cases",
+        title: "Deployed Across Critical Industries.",
+        items: [
+          { title: "Commercial Fleets", text: "Rapid battery buffer depots for delivery logistics." },
+          { title: "Emergency Response", text: "Instant, disaster-resilient mobile energy for medical posts." },
+          { title: "Remote Industry", text: "Continuous power for off-grid mining and construction." }
+        ]
+      },
+      trevoliTeaser: {
+        eyebrow: "Software Layer",
+        title: "Trevoli Manages Every Watt.",
+        text: "Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control.",
+        badgeValue: "Trevoli",
+        badgeLabel: "Smart Energy OS"
+      },
+      testimonials: {
+        eyebrow: "Field Reports",
+        title: "Trusted Where the Grid Ends.",
+        items: [
+          { quote: "We eliminated a six-figure trenching quote by deploying Koral Depot units.", initials: "MR", name: "M. Reyes", role: "Fleet Director" },
+          { quote: "The Responder units powered our field hospital for nine days.", initials: "AK", name: "A. Kaur", role: "Logistics Lead" },
+          { quote: "Trevoli gives us per-asset telemetry we simply never had.", initials: "JT", name: "J. Thompson", role: "Operations Manager" }
+        ]
+      },
+      cta: { eyebrow: "Get Started", title: "Power Shouldn't Be Bound by the Grid.", text: "Join the next generation of energy independence with Koral." }
+    },
+    about: {
+      hero: { eyebrow: "Our Story", title: "We Build Power That Doesn't Ask Permission.", subtitle: "Koral exists because energy access shouldn't be a function of geography." },
+      mission: { eyebrow: "Mission", title: "Decentralize the Grid. Permanently.", text1: "Centralised energy infrastructure was designed for a different century.", text2: "We build the entire stack ourselves.", badgeValue: "2030", badgeLabel: "1 GWh Deployed Target" },
+      values: { eyebrow: "Principles", title: "What We Optimize For.", items: [
+        { num: "01", title: "Field Reliability", text: "If it can't survive a dust storm, it doesn't ship." },
+        { num: "02", title: "Radical Simplicity", text: "Complex systems fail at the seams." },
+        { num: "03", title: "Full Lifecycle", text: "Recyclability is a design constraint." },
+        { num: "04", title: "Open Telemetry", text: "Customers own their operational data." }
+      ]},
+      timeline: { eyebrow: "Trajectory", title: "How We Got Here.", items: [
+        { year: "2021", title: "Founded in a Workshop", text: "Three engineers, one prototype LFP pack." },
+        { year: "2022", title: "First Field Deployment", text: "Koral Nomad units deployed with survey teams." },
+        { year: "2023", title: "Koral Depot Goes Live", text: "Containerised 60 kWh buffer storage installed." },
+        { year: "2024", title: "Trevoli Platform Launch", text: "Energy management OS ships." },
+        { year: "2025", title: "Solid-State Program", text: "R&D transitions toward solid-state cells." }
+      ]},
+      numbers: { eyebrow: "By the Numbers", title: "Where We Stand Today.", items: [
+        { value: "14", label: "Countries Deployed" },
+        { value: "340+", label: "Units in Field" },
+        { value: "99.2%", label: "Fleet Uptime" },
+        { value: "4.1 GWh", label: "Clean Energy Served" }
+      ]},
+      team: { eyebrow: "The Team", title: "Engineers First.", text: "Power electronics, battery chemistry and embedded software.", items: [
+        { initials: "SN", name: "S. Nakamura", role: "Co-Founder & CEO" },
+        { initials: "DO", name: "D. Okonkwo", role: "Co-Founder & CTO" },
+        { initials: "LF", name: "L. Ferreira", role: "Head of Storage Systems" },
+        { initials: "PH", name: "P. Halvorsen", role: "Head of Trevoli" }
+      ]},
+      cta: { title: "Build the Decentralized Grid With Us.", text: "We're hiring engineers and partnering with operators worldwide." }
+    },
+    products: {
+      hero: { eyebrow: "Hardware Line", title: "Three Platforms. One Ecosystem.", subtitle: "Every Koral unit generates, stores and delivers its own power." },
+      items: [
+        { category: "portable", code: "KRL-01", tag: "Portable", title: "Koral Nomad", desc: "Foldable 400W solar array paired with a 2.4 kWh LFP pack." },
+        { category: "stationary", code: "KRL-02", tag: "Stationary", title: "Koral Depot", desc: "Containerised 60 kWh buffer storage for commercial EV fleets." },
+        { category: "rapid", code: "KRL-03", tag: "Rapid Response", title: "Koral Responder", desc: "Towable 18 kWh energy unit for disaster zones." },
+        { category: "portable", code: "KRL-04", tag: "Portable", title: "Koral Array 400", desc: "Standalone foldable photovoltaic array." },
+        { category: "stationary", code: "KRL-05", tag: "Stationary", title: "Koral Depot XL", desc: "Cascadable 180 kWh storage block." },
+        { category: "rapid", code: "KRL-06", tag: "Rapid Response", title: "Koral Relay", desc: "Backpack-portable 900 Wh unit." }
+      ],
+      comparison: { eyebrow: "Side by Side", title: "Platform Comparison.",
+        headers: ["Specification", "Nomad", "Depot", "Responder"],
+        rows: [
+          ["Usable Capacity", "2.4 kWh", "60 kWh", "18 kWh"],
+          ["Continuous Output", "3.6 kW", "22 kW", "9 kW"],
+          ["Cell Chemistry", "LFP", "LFP", "LFP"],
+          ["Cycle Life", "4,000", "6,000", "4,500"],
+          ["Ingress Rating", "IP67", "IP65", "IP66"]
+        ]
+      },
+      deepDive: { eyebrow: "Inside the Enclosure", title: "Every Component Is Ours.", text: "The BMS, the MPPT controller, and the firmware are all designed and validated in-house.", items: ["Custom battery management system","High-efficiency MPPT tracking","Passive and active thermal regulation","Over-the-air firmware updates"], badgeValue: "IP65+", badgeLabel: "Environmental Rating" },
+      faq: { eyebrow: "Questions", title: "Frequently Asked.", items: [
+        { q: "Do Koral units need any grid connection?", a: "No. Every platform generates and stores its own power from solar input." },
+        { q: "How long does installation take?", a: "Nomad and Responder units deploy in under ten minutes with one person." },
+        { q: "What happens during cloudy weather?", a: "Every system is sized with a reserve margin based on your regional irradiance." },
+        { q: "Can I monitor multiple sites?", a: "Yes. Trevoli aggregates telemetry across your entire fleet." },
+        { q: "What is the warranty period?", a: "Storage systems carry a 10-year performance warranty." }
+      ]},
+      cta: { title: "Need a Configuration for Your Site?", text: "Send us your load profile and we'll size a system within 48 hours." }
+    },
+    trevoli: {
+      hero: { eyebrow: "Software Layer", title: "Trevoli Manages Every Watt.", subtitle: "Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control." },
+      dashboard: { title: "trevoli.koral — fleet overview", sidebar: ["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],
+        stats: [{ label: "Fleet State of Charge", value: "87%" },{ label: "Active Assets", value: "342" },{ label: "Alerts", value: "2" }],
+        chartTitle: "Daily Harvest — Last 12 Days", chartUnit: "kWh", chartData: "42,55,48,67,72,61,80,88,76,91,84,96"
+      },
+      capabilities: { eyebrow: "Capabilities", title: "Built Into Every Unit.", items: [
+        { title: "Predictive Load Balancing", text: "Forecasts demand against irradiance and stored reserve." },
+        { title: "Real-Time Telemetry", text: "Per-cell voltage, temperature, cycle count streamed continuously." },
+        { title: "Biometric Access Control", text: "Restrict access to authorised operators." },
+        { title: "Over-the-Air Updates", text: "Firmware deploys to the entire fleet remotely." },
+        { title: "Anomaly Detection", text: "Deviation from expected curves triggers an alert." },
+        { title: "Reporting & Export", text: "Exportable to CSV, JSON or your BI tooling." }
+      ]},
+      architecture: { eyebrow: "Architecture", title: "How Trevoli Works.", text: "A lightweight edge controller runs on every Koral unit.", pills: ["Edge-first","Offline capable","Encrypted sync","Open export"], steps: [
+        { title: "Sense", text: "The edge controller samples cell voltage and current." },
+        { title: "Decide", text: "Local models balance charge distribution." },
+        { title: "Sync", text: "Telemetry syncs to your Trevoli workspace." },
+        { title: "Optimize", text: "New parameters push down to each unit over the air." }
+      ]},
+      security: { eyebrow: "Security", title: "Your Data Stays Yours.", text: "Telemetry is encrypted in transit and at rest.", items: ["Role-based access","Full audit trail","Biometric verification","No third-party resale"], badgeValue: "AES-256", badgeLabel: "End-to-End Encryption" },
+      cta: { title: "See Trevoli Running on Your Fleet.", text: "Book a walkthrough with our team." }
+    },
+    partner: {
+      hero: { eyebrow: "Partner Program", title: "Let's Deploy Power Together.", subtitle: "Tell us about your site and we'll size a system within 48 hours." },
+      types: { eyebrow: "Who We Work With", title: "Four Ways to Partner.", items: [
+        { title: "Fleet Operators", text: "Transit authorities and delivery fleets looking to electrify depots." },
+        { title: "Systems Integrators", text: "Engineering firms specifying autonomous power." },
+        { title: "Distributors", text: "Regional energy and equipment distributors." },
+        { title: "Deployment Partners", text: "Installation and field service organisations." }
+      ], benefits: ["Dedicated technical contact","Volume pricing and co-marketing","Certified training","Direct engineering escalation"] },
+      form: { eyebrow: "Enquiry", title: "Tell Us About Your Project.", note: "We respond to all enquiries within two business days." },
+      process: { eyebrow: "Process", title: "From Enquiry to Energized.", items: [
+        { title: "Discovery Call", text: "A 30-minute call to understand your load profile." },
+        { title: "System Sizing", text: "We model your irradiance data and load curve." },
+        { title: "Quotation", text: "You receive a full bill of materials." },
+        { title: "Deployment", text: "Units ship pre-configured." },
+        { title: "Ongoing Support", text: "Continuous remote monitoring." }
+      ]},
+      contact: { items: [
+        { title: "Sales & Partnerships", email: "partners@koral.energy" },
+        { title: "Technical Support", email: "support@koral.energy" },
+        { title: "Press & Media", email: "press@koral.energy" }
+      ]},
+      cta: { title: "Power Shouldn't Be Bound by the Grid.", text: "Start your deployment conversation today." }
+    },
+    footer: {
+      brand: { name: "KORAL", tagline: "Portable solar-powered energy ecosystems.", socials: [{ label: "in", url: "#" },{ label: "X", url: "#" },{ label: "YT", url: "#" }] },
+      company: { title: "Company", links: [{ label: "About Us", nav: "about" },{ label: "Careers", nav: "about" },{ label: "Contact", nav: "partner" }] },
+      products: { title: "Products", links: [{ label: "Koral Nomad", nav: "products" },{ label: "Koral Depot", nav: "products" },{ label: "Koral Responder", nav: "products" },{ label: "Trevoli", nav: "trevoli" }] },
+      resources: { title: "Resources", links: [{ label: "Specifications", nav: "products" },{ label: "FAQ", nav: "products" },{ label: "Partner Program", nav: "partner" }] },
+      copyright: { name: "Koral", legal: "Privacy · Terms" }
+    }
+  };
+
+  // ============ STATE ============
+  let content = JSON.parse(JSON.stringify(DEFAULT_CONTENT));
+  let currentSection = 'home';
+  let saveTimeout = null;
+
+  const sections = [
+    { id: 'site', label: 'Site Settings', icon: '<circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6M4.2 19.8l4.3-4.3M15.5 8.5l4.3-4.3"/>' },
+    { id: 'email', label: 'Email & Backend', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
+    { id: 'home', label: 'Home Page', icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>' },
+    { id: 'about', label: 'About Page', icon: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>' },
+    { id: 'products', label: 'Products Page', icon: '<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>' },
+    { id: 'trevoli', label: 'Trevoli Page', icon: '<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>' },
+    { id: 'partner', label: 'Partner Page', icon: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>' },
+    { id: 'footer', label: 'Footer', icon: '<line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="17" x2="21" y2="17"/><line x1="3" y1="13" x2="21" y2="13"/>' }
+  ];
+
+  // ============ INIT ============
+  function init() {
+    try {
+      bootMsg.textContent = 'Rendering sidebar...';
+      renderSidebar();
+
+      bootMsg.textContent = 'Loading content...';
+      loadContent();
+
+      bootMsg.textContent = 'Rendering section...';
+      renderSection('home');
+
+      bindTopbar();
+      bindPublishModal();
+      loadGitHubConfig();
+
+      // Success — hide boot, show app
+      boot.classList.add('boot--hidden');
+      document.getElementById('app').style.display = 'grid';
+      setStatus('ok', 'Ready');
+    } catch (err) {
+      console.error(err);
+      showBootError(err.message + '\n\n' + (err.stack || ''));
+    }
+  }
+
+  function loadContent() {
+    // 1. Try localStorage (unsaved changes)
+    try {
+      const saved = localStorage.getItem(LS_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        content = deepMerge(JSON.parse(JSON.stringify(DEFAULT_CONTENT)), parsed);
+        console.info('Loaded from localStorage');
+        return;
+      }
+    } catch (e) {
+      console.warn('localStorage load failed:', e);
+      localStorage.removeItem(LS_KEY);
+    }
+    // 2. Use embedded defaults (no fetch — works from file://)
+    console.info('Using embedded defaults');
+  }
+
+  function deepMerge(target, source) {
+    if (!source || typeof source !== 'object') return target;
+    for (const key of Object.keys(source)) {
+      const sv = source[key];
+      const tv = target[key];
+      if (Array.isArray(sv)) {
+        target[key] = sv;
+      } else if (sv && typeof sv === 'object' && tv && typeof tv === 'object' && !Array.isArray(tv)) {
+        deepMerge(tv, sv);
+      } else {
+        target[key] = sv;
+      }
+    }
+    return target;
+  }
+
+  // ============ SIDEBAR ============
+  function renderSidebar() {
+    const nav = document.getElementById('sidebarNav');
+    const groups = [
+      { label: 'Configuration', items: ['site', 'email'] },
+      { label: 'Pages', items: ['home', 'about', 'products', 'trevoli', 'partner'] },
+      { label: 'Global', items: ['footer'] }
+    ];
+    nav.innerHTML = groups.map(g => `
+      <div class="sidebar__group">
+        <div class="sidebar__group-label">${g.label}</div>
+        ${g.items.map(id => {
+          const s = sections.find(x => x.id === id);
+          const active = id === currentSection ? 'is-active' : '';
+          return `<button class="sidebar__item ${active}" data-section="${id}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">${s.icon}</svg>
+            ${s.label}
+          </button>`;
+        }).join('')}
+      </div>
+    `).join('');
+
+    nav.querySelectorAll('[data-section]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentSection = btn.dataset.section;
+        nav.querySelectorAll('.sidebar__item').forEach(b => b.classList.toggle('is-active', b.dataset.section === currentSection));
+        renderSection(currentSection);
+      });
+    });
+  }
+
+  // ============ SECTION RENDER ============
+  function renderSection(id) {
+    const titles = { site: 'Site Settings', email: 'Email & Backend', home: 'Home Page', about: 'About Page', products: 'Products Page', trevoli: 'Trevoli Page', partner: 'Partner Page', footer: 'Footer' };
+    document.getElementById('pageTitle').innerHTML = `${titles[id] || id} <small>Edit all content without touching code</small>`;
+
+    const area = document.getElementById('contentArea');
+    let html = '';
+    try {
+      switch (id) {
+        case 'site':     html = renderSite(); break;
+        case 'email':    html = renderEmail(); break;
+        case 'home':     html = renderHome(); break;
+        case 'about':    html = renderAbout(); break;
+        case 'products': html = renderProducts(); break;
+        case 'trevoli':  html = renderTrevoli(); break;
+        case 'partner':  html = renderPartner(); break;
+        case 'footer':   html = renderFooter(); break;
+        default: html = '<div class="section-card"><p>Unknown section.</p></div>';
+      }
+    } catch (err) {
+      console.error('Render error:', err);
+      html = `<div class="section-card" style="border-color:rgba(255,95,87,.3)"><div class="section-card__title" style="color:var(--red)">Render error</div><div class="section-card__desc" style="color:var(--txt-2);margin-top:8px;font-family:var(--mono);font-size:.78rem">${esc(err.message)}</div></div>`;
+    }
+    area.innerHTML = html;
+    bindSectionEvents();
+  }
+
+  // ============ SITE ============
+  function renderSite() {
+    return `
+      ${card('Brand Identity', 'Site name and tagline.', [
+        field('Brand Name', 'text', 'site.brandName', content.site.brandName),
+        field('Brand Tagline', 'textarea', 'site.brandTagline', content.site.brandTagline)
+      ])}
+    `;
+  }
+
+  // ============ EMAIL ============
+  function renderEmail() {
+    const e = content.email;
+    return `
+      <div class="email-banner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <div class="email-banner__text">
+          <strong>Static hosting note</strong>
+          GitHub Pages can't run server-side code. To actually receive submissions, connect the form to
+          <a href="https://web3forms.com" target="_blank" style="color:var(--lime)">Web3Forms</a>,
+          <a href="https://formspree.io" target="_blank" style="color:var(--lime)">Formspree</a>, or
+          <a href="https://www.netlify.com/products/forms/" target="_blank" style="color:var(--lime)">Netlify Forms</a>.
+          The fields below configure which email receives the notification.
+        </div>
+      </div>
+
+      ${card('Form Delivery', 'Where contact form submissions are sent.', [
+        field('Form Recipient Email', 'email', 'email.formRecipient', e.formRecipient),
+        field('Reply-To Address', 'email', 'email.replyTo', e.replyTo),
+        field('Email Subject Line', 'text', 'email.formSubject', e.formSubject)
+      ])}
+
+      ${card('Auto-Reply', 'Automatic confirmation sent to the submitter.', [
+        field('Enable Auto-Reply', 'select', 'email.autoReplyEnabled', e.autoReplyEnabled, null, [
+          { value: 'true', label: 'Enabled' },
+          { value: 'false', label: 'Disabled' }
+        ]),
+        field('Auto-Reply Subject', 'text', 'email.autoReplySubject', e.autoReplySubject),
+        field('Auto-Reply Body', 'textarea', 'email.autoReplyBody', e.autoReplyBody)
+      ])}
+
+      ${card('SMTP Relay (optional)', 'Only needed with a custom backend or serverless function.', [
+        field('SMTP Host', 'text', 'email.smtpHost', e.smtpHost),
+        field('SMTP Port', 'text', 'email.smtpPort', e.smtpPort),
+        field('SMTP Username', 'text', 'email.smtpUser', e.smtpUser),
+        field('SMTP Password', 'password', 'email.smtpPassword', e.smtpPassword)
+      ])}
+    `;
+  }
+
+  // ============ HOME ============
+  function renderHome() {
+    const h = content.home;
+    return `
+      ${card('Hero Section', 'Main headline at top of home page.', [
+        field('Eyebrow Label', 'text', 'home.hero.label', h.hero.label),
+        field('Main Title', 'text', 'home.hero.title', h.hero.title),
+        field('Subtitle', 'textarea', 'home.hero.subtitle', h.hero.subtitle)
+      ])}
+
+      ${listCard('Hero Stats', 'Numbered stats under the hero.', 'home.hero.stats', h.hero.stats, [
+        { key: 'value', label: 'Value', type: 'text' },
+        { key: 'label', label: 'Label', type: 'text' }
+      ])}
+
+      ${listCard('Marquee Items', 'Scrolling ticker text.', 'home.marquee', h.marquee, [
+        { key: '', label: 'Text', type: 'text' }
+      ], 'simple')}
+
+      ${card('Decentralized Section', 'Section 2 — above the video carousel.', [
+        field('Eyebrow', 'text', 'home.decentralized.eyebrow', h.decentralized.eyebrow),
+        field('Title', 'text', 'home.decentralized.title', h.decentralized.title),
+        field('Description', 'textarea', 'home.decentralized.text', h.decentralized.text)
+      ])}
+
+      ${listCard('Section 2 Pills', 'Small tags under the description.', 'home.decentralized.pills', h.decentralized.pills, [
+        { key: '', label: 'Text', type: 'text' }
+      ], 'simple')}
+
+      ${carouselCard()}
+
+      ${card('Features Header', '', [
+        field('Eyebrow', 'text', 'home.features.eyebrow', h.features.eyebrow),
+        field('Title', 'text', 'home.features.title', h.features.title)
+      ])}
+
+      ${listCard('Feature Cards', '', 'home.features.items', h.features.items, [
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'text', label: 'Description', type: 'textarea' },
+        { key: 'imageUrl', label: 'Image URL (optional)', type: 'media', mediaType: 'image' }
+      ])}
+
+      ${card('Products Teaser Header', '', [
+        field('Eyebrow', 'text', 'home.productsTeaser.eyebrow', h.productsTeaser.eyebrow),
+        field('Title', 'text', 'home.productsTeaser.title', h.productsTeaser.title),
+        field('Description', 'textarea', 'home.productsTeaser.text', h.productsTeaser.text)
+      ])}
+
+      ${listCard('Product Cards', '', 'home.productsTeaser.items', h.productsTeaser.items, [
+        { key: 'code', label: 'Product Code', type: 'text' },
+        { key: 'tag', label: 'Tag', type: 'text' },
+        { key: 'title', label: 'Product Name', type: 'text' },
+        { key: 'desc', label: 'Description', type: 'textarea' },
+        { key: 'imageUrl', label: 'Image URL', type: 'media', mediaType: 'image' }
+      ])}
+
+      ${card('Stats Header', '', [
+        field('Eyebrow', 'text', 'home.stats.eyebrow', h.stats.eyebrow),
+        field('Title', 'text', 'home.stats.title', h.stats.title)
+      ])}
+
+      ${listCard('Stat Comparisons', 'Koral vs Industry Avg.', 'home.stats.items', h.stats.items, [
+        { key: 'category', label: 'Category', type: 'text' },
+        { key: 'koral', label: 'Koral Value', type: 'text' },
+        { key: 'industry', label: 'Industry Value', type: 'text' }
+      ])}
+
+      ${card('Industries Header', '', [
+        field('Eyebrow', 'text', 'home.industries.eyebrow', h.industries.eyebrow),
+        field('Title', 'text', 'home.industries.title', h.industries.title)
+      ])}
+
+      ${listCard('Industry Cards', '', 'home.industries.items', h.industries.items, [
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'text', label: 'Description', type: 'textarea' },
+        { key: 'imageUrl', label: 'Image URL', type: 'media', mediaType: 'image' }
+      ])}
+
+      ${card('Trevoli Teaser', '', [
+        field('Eyebrow', 'text', 'home.trevoliTeaser.eyebrow', h.trevoliTeaser.eyebrow),
+        field('Title', 'text', 'home.trevoliTeaser.title', h.trevoliTeaser.title),
+        field('Description', 'textarea', 'home.trevoliTeaser.text', h.trevoliTeaser.text),
+        field('Badge Value', 'text', 'home.trevoliTeaser.badgeValue', h.trevoliTeaser.badgeValue),
+        field('Badge Label', 'text', 'home.trevoliTeaser.badgeLabel', h.trevoliTeaser.badgeLabel),
+        field('Visual Image URL', 'media', 'home.trevoliTeaser.imageUrl', h.trevoliTeaser.imageUrl, 'image')
+      ])}
+
+      ${card('Testimonials Header', '', [
+        field('Eyebrow', 'text', 'home.testimonials.eyebrow', h.testimonials.eyebrow),
+        field('Title', 'text', 'home.testimonials.title', h.testimonials.title)
+      ])}
+
+      ${listCard('Testimonials', '', 'home.testimonials.items', h.testimonials.items, [
+        { key: 'quote', label: 'Quote', type: 'textarea' },
+        { key: 'initials', label: 'Initials', type: 'text' },
+        { key: 'name', label: 'Name', type: 'text' },
+        { key: 'role', label: 'Role', type: 'text' },
+        { key: 'avatarUrl', label: 'Avatar Image URL', type: 'media', mediaType: 'image' }
+      ])}
+
+      ${card('Bottom CTA', '', [
+        field('Eyebrow', 'text', 'home.cta.eyebrow', h.cta.eyebrow),
+        field('Title', 'text', 'home.cta.title', h.cta.title),
+        field('Description', 'textarea', 'home.cta.text', h.cta.text)
+      ])}
+    `;
+  }
+
+  function carouselCard() {
+    const slides = content.home.carousel.slides;
+    return `
+      <div class="section-card">
+        <div class="section-card__head">
+          <div>
+            <div class="section-card__title">Video Carousel</div>
+            <div class="section-card__desc">Videos that play in section 2. Paste any MP4 URL or CDN link.</div>
+          </div>
+          <div><button class="btn btn--ghost btn--sm" data-add="home.carousel.slides">+ Add Slide</button></div>
+        </div>
+        ${slides.map((s, i) => `
+          <div class="list-item">
+            <div class="list-item__head">
+              <div class="list-item__title">Slide ${i+1}</div>
+              <div class="list-item__controls">
+                <button class="list-item__btn list-item__btn--danger" data-remove-list="home.carousel.slides" data-index="${i}" title="Delete">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label class="field__label">Title</label>
+                <input class="field__input" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="title" value="${esc(s.title)}">
+              </div>
+              <div class="field">
+                <label class="field__label">Video URL (MP4)</label>
+                <input class="field__input" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="videoUrl" value="${esc(s.videoUrl)}">
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label">Description</label>
+              <textarea class="field__textarea" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="text">${esc(s.text)}</textarea>
+            </div>
+            <div class="field">
+              <label class="field__label">Poster Image URL</label>
+              <input class="field__input" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="posterUrl" value="${esc(s.posterUrl)}">
+              ${s.posterUrl ? `<div class="media-preview"><img src="${esc(s.posterUrl)}" alt="" loading="lazy"><span class="media-preview__badge">Poster Preview</span></div>` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  function renderAbout() {
+    const a = content.about;
+    return `
+      ${card('Hero Section', '', [
+        field('Eyebrow', 'text', 'about.hero.eyebrow', a.hero.eyebrow),
+        field('Title', 'text', 'about.hero.title', a.hero.title),
+        field('Subtitle', 'textarea', 'about.hero.subtitle', a.hero.subtitle)
+      ])}
+      ${card('Mission Section', '', [
+        field('Eyebrow', 'text', 'about.mission.eyebrow', a.mission.eyebrow),
+        field('Title', 'text', 'about.mission.title', a.mission.title),
+        field('Paragraph 1', 'textarea', 'about.mission.text1', a.mission.text1),
+        field('Paragraph 2', 'textarea', 'about.mission.text2', a.mission.text2),
+        field('Badge Value', 'text', 'about.mission.badgeValue', a.mission.badgeValue),
+        field('Badge Label', 'text', 'about.mission.badgeLabel', a.mission.badgeLabel),
+        field('Visual Image URL', 'media', 'about.mission.imageUrl', a.mission.imageUrl, 'image')
+      ])}
+      ${card('Values Header', '', [
+        field('Eyebrow', 'text', 'about.values.eyebrow', a.values.eyebrow),
+        field('Title', 'text', 'about.values.title', a.values.title)
+      ])}
+      ${listCard('Value Cards', '', 'about.values.items', a.values.items, [
+        { key: 'num', label: 'Number', type: 'text' },
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'text', label: 'Description', type: 'textarea' }
+      ])}
+      ${card('Timeline Header', '', [
+        field('Eyebrow', 'text', 'about.timeline.eyebrow', a.timeline.eyebrow),
+        field('Title', 'text', 'about.timeline.title', a.timeline.title)
+      ])}
+      ${listCard('Timeline Items', '', 'about.timeline.items', a.timeline.items, [
+        { key: 'year', label: 'Year', type: 'text' },
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'text', label: 'Description', type: 'textarea' }
+      ])}
+      ${card('Numbers Header', '', [
+        field('Eyebrow', 'text', 'about.numbers.eyebrow', a.numbers.eyebrow),
+        field('Title', 'text', 'about.numbers.title', a.numbers.title)
+      ])}
+      ${listCard('Number Cards', '', 'about.numbers.items', a.numbers.items, [
+        { key: 'value', label: 'Value', type: 'text' },
+        { key: 'label', label: 'Label', type: 'text' }
+      ])}
+      ${card('Team Header', '', [
+        field('Eyebrow', 'text', 'about.team.eyebrow', a.team.eyebrow),
+        field('Title', 'text', 'about.team.title', a.team.title),
+        field('Description', 'textarea', 'about.team.text', a.team.text)
+      ])}
+      ${listCard('Team Members', '', 'about.team.items', a.team.items, [
+        { key: 'initials', label: 'Initials', type: 'text' },
+        { key: 'name', label: 'Name', type: 'text' },
+        { key: 'role', label: 'Role', type: 'text' },
+        { key: 'avatarUrl', label: 'Photo URL', type: 'media', mediaType: 'image' }
+      ])}
+      ${card('CTA', '', [
+        field('Title', 'text', 'about.cta.title', a.cta.title),
+        field('Description', 'textarea', 'about.cta.text', a.cta.text)
+      ])}
+    `;
+  }
+
+  function renderProducts() {
+    const p = content.products;
+    return `
+      ${card('Hero Section', '', [
+        field('Eyebrow', 'text', 'products.hero.eyebrow', p.hero.eyebrow),
+        field('Title', 'text', 'products.hero.title', p.hero.title),
+        field('Subtitle', 'textarea', 'products.hero.subtitle', p.hero.subtitle)
+      ])}
+      ${listCard('Product Catalog', 'Shown in the tabbed catalog.', 'products.items', p.items, [
+        { key: 'category', label: 'Category (portable/stationary/rapid)', type: 'text' },
+        { key: 'code', label: 'Product Code', type: 'text' },
+        { key: 'tag', label: 'Tag', type: 'text' },
+        { key: 'title', label: 'Product Name', type: 'text' },
+        { key: 'desc', label: 'Description', type: 'textarea' },
+        { key: 'imageUrl', label: 'Image URL', type: 'media', mediaType: 'image' }
+      ])}
+      ${card('Comparison Table Header', '', [
+        field('Eyebrow', 'text', 'products.comparison.eyebrow', p.comparison.eyebrow),
+        field('Title', 'text', 'products.comparison.title', p.comparison.title)
+      ])}
+      ${card('Deep Dive Section', '', [
+        field('Eyebrow', 'text', 'products.deepDive.eyebrow', p.deepDive.eyebrow),
+        field('Title', 'text', 'products.deepDive.title', p.deepDive.title),
+        field('Description', 'textarea', 'products.deepDive.text', p.deepDive.text),
+        field('Badge Value', 'text', 'products.deepDive.badgeValue', p.deepDive.badgeValue),
+        field('Badge Label', 'text', 'products.deepDive.badgeLabel', p.deepDive.badgeLabel),
+        field('Visual Image URL', 'media', 'products.deepDive.imageUrl', p.deepDive.imageUrl, 'image')
+      ])}
+      ${listCard('Deep Dive Bullets', '', 'products.deepDive.items', p.deepDive.items, [
+        { key: '', label: 'Text', type: 'text' }
+      ], 'simple')}
+      ${card('FAQ Header', '', [
+        field('Eyebrow', 'text', 'products.faq.eyebrow', p.faq.eyebrow),
+        field('Title', 'text', 'products.faq.title', p.faq.title)
+      ])}
+      ${listCard('FAQ Items', '', 'products.faq.items', p.faq.items, [
+        { key: 'q', label: 'Question', type: 'text' },
+        { key: 'a', label: 'Answer', type: 'textarea' }
+      ])}
+      ${card('CTA', '', [
+        field('Title', 'text', 'products.cta.title', p.cta.title),
+        field('Description', 'textarea', 'products.cta.text', p.cta.text)
+      ])}
+    `;
+  }
+
+  function renderTrevoli() {
+    const t = content.trevoli;
+    return `
+      ${card('Hero Section', '', [
+        field('Eyebrow', 'text', 'trevoli.hero.eyebrow', t.hero.eyebrow),
+        field('Title', 'text', 'trevoli.hero.title', t.hero.title),
+        field('Subtitle', 'textarea', 'trevoli.hero.subtitle', t.hero.subtitle)
+      ])}
+      ${card('Dashboard Mockup', 'The fake app interface preview.', [
+        field('Window Title', 'text', 'trevoli.dashboard.title', t.dashboard.title),
+        field('Chart Title', 'text', 'trevoli.dashboard.chartTitle', t.dashboard.chartTitle),
+        field('Chart Unit', 'text', 'trevoli.dashboard.chartUnit', t.dashboard.chartUnit),
+        field('Chart Data (comma-separated)', 'text', 'trevoli.dashboard.chartData', t.dashboard.chartData)
+      ])}
+      ${listCard('Sidebar Items', '', 'trevoli.dashboard.sidebar', t.dashboard.sidebar, [
+        { key: '', label: 'Label', type: 'text' }
+      ], 'simple')}
+      ${listCard('Dashboard Stats', '', 'trevoli.dashboard.stats', t.dashboard.stats, [
+        { key: 'label', label: 'Label', type: 'text' },
+        { key: 'value', label: 'Value', type: 'text' }
+      ])}
+      ${card('Capabilities Header', '', [
+        field('Eyebrow', 'text', 'trevoli.capabilities.eyebrow', t.capabilities.eyebrow),
+        field('Title', 'text', 'trevoli.capabilities.title', t.capabilities.title)
+      ])}
+      ${listCard('Capability Cards', '', 'trevoli.capabilities.items', t.capabilities.items, [
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'text', label: 'Description', type: 'textarea' }
+      ])}
+      ${card('Architecture Section', '', [
+        field('Eyebrow', 'text', 'trevoli.architecture.eyebrow', t.architecture.eyebrow),
+        field('Title', 'text', 'trevoli.architecture.title', t.architecture.title),
+        field('Description', 'textarea', 'trevoli.architecture.text', t.architecture.text)
+      ])}
+      ${listCard('Architecture Pills', '', 'trevoli.architecture.pills', t.architecture.pills, [
+        { key: '', label: 'Text', type: 'text' }
+      ], 'simple')}
+      ${listCard('Architecture Steps', '', 'trevoli.architecture.steps', t.architecture.steps, [
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'text', label: 'Description', type: 'textarea' }
+      ])}
+      ${card('Security Section', '', [
+        field('Eyebrow', 'text', 'trevoli.security.eyebrow', t.security.eyebrow),
+        field('Title', 'text', 'trevoli.security.title', t.security.title),
+        field('Description', 'textarea', 'trevoli.security.text', t.security.text),
+        field('Badge Value', 'text', 'trevoli.security.badgeValue', t.security.badgeValue),
+        field('Badge Label', 'text', 'trevoli.security.badgeLabel', t.security.badgeLabel),
+        field('Visual Image URL', 'media', 'trevoli.security.imageUrl', t.security.imageUrl, 'image')
+      ])}
+      ${listCard('Security Bullets', '', 'trevoli.security.items', t.security.items, [
+        { key: '', label: 'Text', type: 'text' }
+      ], 'simple')}
+      ${card('CTA', '', [
+        field('Title', 'text', 'trevoli.cta.title', t.cta.title),
+        field('Description', 'textarea', 'trevoli.cta.text', t.cta.text)
+      ])}
+    `;
+  }
+
+  function renderPartner() {
+    const p = content.partner;
+    return `
+      ${card('Hero Section', '', [
+        field('Eyebrow', 'text', 'partner.hero.eyebrow', p.hero.eyebrow),
+        field('Title', 'text', 'partner.hero.title', p.hero.title),
+        field('Subtitle', 'textarea', 'partner.hero.subtitle', p.hero.subtitle)
+      ])}
+      ${card('Partner Types Header', '', [
+        field('Eyebrow', 'text', 'partner.types.eyebrow', p.types.eyebrow),
+        field('Title', 'text', 'partner.types.title', p.types.title)
+      ])}
+      ${listCard('Partner Type Cards', '', 'partner.types.items', p.types.items, [
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'text', label: 'Description', type: 'textarea' }
+      ])}
+      ${listCard('Partner Benefits', '', 'partner.types.benefits', p.types.benefits, [
+        { key: '', label: 'Text', type: 'text' }
+      ], 'simple')}
+      ${card('Form Section', '', [
+        field('Eyebrow', 'text', 'partner.form.eyebrow', p.form.eyebrow),
+        field('Title', 'text', 'partner.form.title', p.form.title),
+        field('Footer Note', 'textarea', 'partner.form.note', p.form.note)
+      ])}
+      ${card('Process Header', '', [
+        field('Eyebrow', 'text', 'partner.process.eyebrow', p.process.eyebrow),
+        field('Title', 'text', 'partner.process.title', p.process.title)
+      ])}
+      ${listCard('Process Steps', '', 'partner.process.items', p.process.items, [
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'text', label: 'Description', type: 'textarea' }
+      ])}
+      ${listCard('Contact Cards', '', 'partner.contact.items', p.contact.items, [
+        { key: 'title', label: 'Department', type: 'text' },
+        { key: 'email', label: 'Email Address', type: 'text' }
+      ])}
+      ${card('CTA', '', [
+        field('Title', 'text', 'partner.cta.title', p.cta.title),
+        field('Description', 'textarea', 'partner.cta.text', p.cta.text)
+      ])}
+    `;
+  }
+
+  function renderFooter() {
+    const f = content.footer;
+    return `
+      ${card('Brand', '', [
+        field('Brand Name', 'text', 'footer.brand.name', f.brand.name),
+        field('Tagline', 'textarea', 'footer.brand.tagline', f.brand.tagline)
+      ])}
+      ${listCard('Social Links', '', 'footer.brand.socials', f.brand.socials, [
+        { key: 'label', label: 'Label', type: 'text' },
+        { key: 'url', label: 'URL', type: 'text' }
+      ])}
+      ${card('Column Headings', '', [
+        field('Company Column Title', 'text', 'footer.company.title', f.company.title),
+        field('Products Column Title', 'text', 'footer.products.title', f.products.title),
+        field('Resources Column Title', 'text', 'footer.resources.title', f.resources.title)
+      ])}
+      ${listCard('Company Links', '', 'footer.company.links', f.company.links, [
+        { key: 'label', label: 'Link Text', type: 'text' },
+        { key: 'nav', label: 'Target Page', type: 'text' }
+      ])}
+      ${listCard('Products Links', '', 'footer.products.links', f.products.links, [
+        { key: 'label', label: 'Link Text', type: 'text' },
+        { key: 'nav', label: 'Target Page', type: 'text' }
+      ])}
+      ${listCard('Resources Links', '', 'footer.resources.links', f.resources.links, [
+        { key: 'label', label: 'Link Text', type: 'text' },
+        { key: 'nav', label: 'Target Page', type: 'text' }
+      ])}
+      ${card('Copyright', '', [
+        field('Brand Name', 'text', 'footer.copyright.name', f.copyright.name),
+        field('Legal Text', 'text', 'footer.copyright.legal', f.copyright.legal)
+      ])}
+    `;
+  }
+
+  // ============ HELPERS ============
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function card(title, desc, fields) {
+    return `
+      <div class="section-card">
+        <div class="section-card__head">
+          <div>
+            <div class="section-card__title">${title}</div>
+            ${desc ? `<div class="section-card__desc">${desc}</div>` : ''}
+          </div>
+        </div>
+        ${fields.filter(Boolean).join('')}
+      </div>
+    `;
+  }
+
+  function field(label, type, path, value, mediaType, options) {
+    const v = esc(value);
+    if (type === 'textarea') {
+      return `<div class="field"><label class="field__label">${label}</label><textarea class="field__textarea" data-path="${path}">${v}</textarea></div>`;
+    }
+    if (type === 'select' && options) {
+      return `<div class="field"><label class="field__label">${label}</label><select class="field__select" data-path="${path}">${options.map(o => `<option value="${o.value}" ${String(value) === String(o.value) ? 'selected' : ''}>${o.label}</option>`).join('')}</select></div>`;
+    }
+    if (type === 'media') {
+      const preview = value
+        ? (mediaType === 'video'
+            ? `<video src="${v}" muted playsinline preload="metadata"></video><span class="media-preview__badge">Video Preview</span>`
+            : `<img src="${v}" alt="" loading="lazy"><span class="media-preview__badge">Image Preview</span>`)
+        : `<div class="media-preview__empty">No ${mediaType || 'media'} set — paste a URL above</div>`;
+      return `<div class="field"><label class="field__label">${label}</label><input class="field__input" data-path="${path}" value="${v}" placeholder="https://..."><div class="media-preview">${preview}</div></div>`;
+    }
+    return `<div class="field"><label class="field__label">${label}</label><input class="field__input" type="${type}" data-path="${path}" value="${v}"></div>`;
+  }
+
+  function listCard(title, desc, path, items, itemFields, mode) {
+    const isSimple = mode === 'simple';
+    const listItems = (items || []).map((item, i) => {
+      const valueGetter = (key) => {
+        if (isSimple || key === '') return typeof item === 'object' ? (item.value ?? '') : item;
+        return item[key];
+      };
+      return `
+        <div class="list-item">
+          <div class="list-item__head">
+            <div class="list-item__title">Item ${i+1}</div>
+            <div class="list-item__controls">
+              <button class="list-item__btn" data-move="up" data-list="${path}" data-index="${i}" title="Move up">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+              </button>
+              <button class="list-item__btn" data-move="down" data-list="${path}" data-index="${i}" title="Move down">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <button class="list-item__btn list-item__btn--danger" data-remove-list="${path}" data-index="${i}" title="Delete">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+              </button>
+            </div>
+          </div>
+          ${itemFields.map(f => {
+            const key = f.key;
+            const val = isSimple ? valueGetter(key) : valueGetter(key);
+            if (f.type === 'textarea') {
+              return `<div class="field"><label class="field__label">${f.label}</label><textarea class="field__textarea" data-list-path="${path}" data-list-index="${i}" data-list-key="${key}">${esc(val)}</textarea></div>`;
+            }
+            if (f.type === 'media') {
+              const preview = val ? `<img src="${esc(val)}" alt="" loading="lazy">` : `<div class="media-preview__empty">No ${f.mediaType || 'media'} set</div>`;
+              return `<div class="field"><label class="field__label">${f.label}</label><input class="field__input" data-list-path="${path}" data-list-index="${i}" data-list-key="${key}" value="${esc(val)}" placeholder="https://..."><div class="media-preview">${preview}</div></div>`;
+            }
+            return `<div class="field"><label class="field__label">${f.label}</label><input class="field__input" data-list-path="${path}" data-list-index="${i}" data-list-key="${key}" value="${esc(val)}"></div>`;
+          }).join('')}
+        </div>
+      `;
+    }).join('');
+
+    return `
+      <div class="section-card">
+        <div class="section-card__head">
+          <div>
+            <div class="section-card__title">${title}</div>
+            ${desc ? `<div class="section-card__desc">${desc}</div>` : ''}
+          </div>
+          <div><button class="btn btn--ghost btn--sm" data-add="${path}" data-add-simple="${isSimple ? '1' : '0'}">+ Add</button></div>
+        </div>
+        ${listItems || '<div style="padding:20px 0;color:var(--txt-3);font-size:.85rem;text-align:center">No items yet. Click "+ Add" to create one.</div>'}
+      </div>
+    `;
+  }
+
+  // ============ EVENT BINDING ============
+  function bindSectionEvents() {
+    const area = document.getElementById('contentArea');
+
+    area.querySelectorAll('[data-path]').forEach(el => {
+      el.addEventListener('input', onFieldInput);
+      el.addEventListener('change', onFieldInput);
+    });
+
+    area.querySelectorAll('[data-list-path]').forEach(el => {
+      el.addEventListener('input', onListFieldInput);
+      el.addEventListener('change', onListFieldInput);
+    });
+
+    area.querySelectorAll('[data-add]').forEach(btn => {
+      btn.addEventListener('click', () => addListItem(btn.dataset.add, btn.dataset.addSimple === '1'));
+    });
+
+    area.querySelectorAll('[data-remove-list]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        confirmAction('Delete this item?', 'This will remove it from the content.', () => {
+          removeListItem(btn.dataset.removeList, parseInt(btn.dataset.index, 10));
+        });
+      });
+    });
+
+    area.querySelectorAll('[data-move]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const dir = btn.dataset.move === 'up' ? -1 : 1;
+        moveListItem(btn.dataset.list, parseInt(btn.dataset.index, 10), dir);
+      });
+    });
+  }
+
+  function onFieldInput(e) {
+    const path = e.target.dataset.path;
+    let value = e.target.value;
+    if (path === 'email.autoReplyEnabled') value = value === 'true';
+    setByPath(content, path, value);
+    scheduleSave();
+  }
+
+  function onListFieldInput(e) {
+    const path = e.target.dataset.listPath;
+    const idx = parseInt(e.target.dataset.listIndex, 10);
+    const key = e.target.dataset.listKey;
+    const arr = getByPath(content, path);
+    if (!arr || arr[idx] === undefined) return;
+    const value = e.target.value;
+    if (typeof arr[idx] === 'object' && arr[idx] !== null && !Array.isArray(arr[idx])) {
+      arr[idx][key] = value;
+    } else {
+      // Simple array of strings
+      arr[idx] = value;
+    }
+    scheduleSave();
+  }
+
+  function setByPath(obj, path, value) {
+    const keys = path.split('.');
+    let cur = obj;
+    for (let i = 0; i < keys.length - 1; i++) {
+      if (!(keys[i] in cur)) cur[keys[i]] = {};
+      cur = cur[keys[i]];
+    }
+    cur[keys[keys.length - 1]] = value;
+  }
+
+  function getByPath(obj, path) {
+    return path.split('.').reduce((o, k) => (o ? o[k] : undefined), obj);
+  }
+
+  function addListItem(path, isSimple) {
+    const arr = getByPath(content, path);
+    if (!Array.isArray(arr)) return;
+    if (isSimple) {
+      arr.push('');
+    } else {
+      let newItem = {};
+      if (arr.length > 0 && typeof arr[0] === 'object' && arr[0] !== null) {
+        for (const k of Object.keys(arr[0])) {
+          const v = arr[0][k];
+          newItem[k] = typeof v === 'string' ? '' : (typeof v === 'number' ? 0 : (Array.isArray(v) ? [] : {}));
+        }
+      }
+      arr.push(newItem);
+    }
+    scheduleSave();
+    renderSection(currentSection);
+    toast('Item added', 'success');
+  }
+
+  function removeListItem(path, idx) {
+    const arr = getByPath(content, path);
+    if (!Array.isArray(arr)) return;
+    arr.splice(idx, 1);
+    scheduleSave();
+    renderSection(currentSection);
+    toast('Item removed', 'success');
+  }
+
+  function moveListItem(path, idx, dir) {
+    const arr = getByPath(content, path);
+    if (!Array.isArray(arr)) return;
+    const newIdx = idx + dir;
+    if (newIdx < 0 || newIdx >= arr.length) return;
+    const [item] = arr.splice(idx, 1);
+    arr.splice(newIdx, 0, item);
+    scheduleSave();
+    renderSection(currentSection);
+  }
+
+  // ============ SAVE ============
+  function scheduleSave() {
+    setStatus('warn', 'Saving...');
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(() => {
+      try {
+        localStorage.setItem(LS_KEY, JSON.stringify(content));
+        setStatus('ok', 'Saved locally');
+      } catch (e) {
+        setStatus('err', 'Save failed');
+        toast('Could not save: ' + e.message, 'error');
+      }
+    }, 400);
+  }
+
+  function setStatus(kind, text) {
+    const dot = document.getElementById('saveStatus');
+    if (!dot) return;
+    dot.className = 'status-dot' + (kind === 'warn' ? ' warn' : kind === 'err' ? ' err' : '');
+    const label = document.getElementById('saveStatusText');
+    if (label) label.textContent = text;
+  }
+
+  // ============ TOPBAR ============
+  function bindTopbar() {
+    document.getElementById('btnPreview').addEventListener('click', () => {
+      localStorage.setItem(LS_KEY, JSON.stringify(content));
+      toast('Saved to localStorage. Open your site in a new tab and add ?preview=1 to the URL.', 'info');
+    });
+
+    document.getElementById('btnReset').addEventListener('click', () => {
+      confirmAction(
+        'Discard all local changes?',
+        'This will delete everything you have edited but not yet exported.',
+        () => {
+          localStorage.removeItem(LS_KEY);
+          content = JSON.parse(JSON.stringify(DEFAULT_CONTENT));
+          renderSection(currentSection);
+          toast('Reset to defaults', 'success');
+        }
+      );
+    });
+
+    document.getElementById('btnDownload').addEventListener('click', downloadJSON);
+    document.getElementById('btnPublish').addEventListener('click', () => {
+      document.getElementById('publishModal').classList.add('is-open');
+    });
+  }
+
+  function downloadJSON() {
+    const blob = new Blob([JSON.stringify(content, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'content.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast('content.json downloaded — commit it to your repo', 'success');
+  }
+
+  // ============ PUBLISH ============
+  function bindPublishModal() {
+    const modal = document.getElementById('publishModal');
+    document.getElementById('publishCancel').addEventListener('click', () => modal.classList.remove('is-open'));
+    modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('is-open'); });
+    document.getElementById('publishConfirm').addEventListener('click', publishToGitHub);
+    ['ghRepo','ghBranch','ghPath','ghToken','ghMessage'].forEach(id => {
+      document.getElementById(id).addEventListener('change', saveGitHubConfig);
+    });
+  }
+
+  function loadGitHubConfig() {
+    try {
+      const cfg = JSON.parse(localStorage.getItem(LS_GH) || '{}');
+      const map = { repo: 'ghRepo', branch: 'ghBranch', path: 'ghPath', token: 'ghToken', message: 'ghMessage' };
+      for (const [k, id] of Object.entries(map)) {
+        const el = document.getElementById(id);
+        if (el && cfg[k]) el.value = cfg[k];
+      }
+    } catch (e) {}
+  }
+
+  function saveGitHubConfig() {
+    const cfg = {
+      repo: document.getElementById('ghRepo').value.trim(),
+      branch: document.getElementById('ghBranch').value.trim(),
+      path: document.getElementById('ghPath').value.trim(),
+      token: document.getElementById('ghToken').value.trim(),
+      message: document.getElementById('ghMessage').value.trim()
+    };
+    localStorage.setItem(LS_GH, JSON.stringify(cfg));
+  }
+
+  async function publishToGitHub() {
+    const repo = document.getElementById('ghRepo').value.trim();
+    const branch = document.getElementById('ghBranch').value.trim() || 'main';
+    const path = document.getElementById('ghPath').value.trim() || 'content.json';
+    const token = document.getElementById('ghToken').value.trim();
+    const message = document.getElementById('ghMessage').value.trim() || 'Update site content';
+
+    if (!repo || !token) { toast('Repository and token are required', 'error'); return; }
+    if (!/^[^/]+\/[^/]+$/.test(repo)) { toast('Repository must be in owner/repo format', 'error'); return; }
+
+    const btn = document.getElementById('publishConfirm');
+    btn.disabled = true;
+    btn.textContent = 'Publishing...';
+
+    try {
+      const getUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
+      let sha = null;
+      const getRes = await fetch(getUrl, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } });
+      if (getRes.ok) { const j = await getRes.json(); sha = j.sha; }
+      else if (getRes.status !== 404) { throw new Error(`Cannot read current file (${getRes.status})`); }
+
+      const contentStr = JSON.stringify(content, null, 2);
+      const encoded = btoa(unescape(encodeURIComponent(contentStr)));
+
+      const putUrl = `https://api.github.com/repos/${repo}/contents/${path}`;
+      const putRes = await fetch(putUrl, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message, content: encoded, branch, ...(sha ? { sha } : {}) })
+      });
+
+      if (!putRes.ok) {
+        const err = await putRes.json().catch(() => ({}));
+        throw new Error(err.message || `GitHub returned ${putRes.status}`);
+      }
+
+      toast('Published to GitHub! Pages will rebuild in ~1 minute', 'success');
+      document.getElementById('publishModal').classList.remove('is-open');
+    } catch (e) {
+      toast('Publish failed: ' + e.message, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Publish Now';
+    }
+  }
+
+  // ============ CONFIRM ============
+  let confirmCallback = null;
+  function confirmAction(title, text, onOk) {
+    document.getElementById('confirmTitle').textContent = title;
+    document.getElementById('confirmText').textContent = text;
+    document.getElementById('confirmModal').classList.add('is-open');
+    confirmCallback = onOk;
+  }
+  document.getElementById('confirmCancel').addEventListener('click', () => {
+    document.getElementById('confirmModal').classList.remove('is-open');
+    confirmCallback = null;
+  });
+  document.getElementById('confirmOk').addEventListener('click', () => {
+    if (confirmCallback) confirmCallback();
+    document.getElementById('confirmModal').classList.remove('is-open');
+    confirmCallback = null;
+  });
+
+  // ============ TOAST ============
+  function toast(message, kind) {
+    kind = kind || 'info';
+    const stack = document.getElementById('toastStack');
+    const el = document.createElement('div');
+    el.className = 'toast toast--' + kind;
+    const icons = {
+      success: '<polyline points="20 6 9 17 4 12"/>',
+      error: '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>',
+      info: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>'
+    };
+    el.innerHTML = `<svg class="toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icons[kind]}</svg><span>${esc(message)}</span>`;
+    stack.appendChild(el);
+    setTimeout(() => {
+      el.style.transition = '.3s cubic-bezier(.22,.61,.36,1)';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(10px)';
+      setTimeout(() => el.remove(), 300);
+    }, 3500);
+  }
+
+  // ============ BOOT ============
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+</body>
+</html>

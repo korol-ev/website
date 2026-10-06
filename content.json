@@ -1,1 +1,31 @@
-
+{
+  "site": {
+    "brandName": "KORAL",
+    "brandTagline": "Portable solar-powered energy ecosystems. Built for a world beyond the grid."
+  },
+  "email": {
+    "formRecipient": "partners@koral.energy",
+    "replyTo": "partners@koral.energy",
+    "formSubject": "New partnership enquiry from {name}",
+    "autoReplyEnabled": true,
+    "autoReplySubject": "Thanks for reaching out to Koral",
+    "autoReplyBody": "Hi {firstName},\n\nThanks for contacting Koral. We've received your enquiry and a member of our partnerships team will respond within two business days.\n\n— The Koral Team",
+    "smtpHost": "",
+    "smtpPort": "587",
+    "smtpUser": "",
+    "smtpPassword": ""
+  },
+  "home": {
+    "hero": {
+      "label": "Next-Gen Energy Ecosystem",
+      "title": "Redefining Energy Freedom, Untethered.",
+      "subtitle": "Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",
+      "stats": [
+        { "value": "2.4 kW", "label": "Solar Generation" },
+        { "value": "0", "label": "Grid Dependence" },
+        { "value": "100%", "label": "Renewable Input" },
+        { "value": "24/7", "label": "Autonomous Power" }
+      ]
+    }
+  }
+}

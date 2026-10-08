@@ -1,8 +1,8 @@
 {
   "site": {
-    "brandName": "KOROL",
+    "brandName": "KORAL",
     "brandTagline": "Portable solar-powered energy ecosystems. Built for a world beyond the grid.",
-    "logoUrl": ""
+    "logoUrl": "assets/images/1791459807935-logo1.png"
   },
   "email": {
     "formRecipient": "partners@koral.energy",
@@ -863,5 +863,6 @@
       "name": "Koral",
       "legal": "Privacy · Terms"
     }
-  }
+  },
+  "customSections": []
 }

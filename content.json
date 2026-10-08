@@ -21,11 +21,730 @@
       "title": "Redefining Energy Freedom, Untethered.",
       "subtitle": "Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",
       "stats": [
-        { "value": "2.4 kW", "label": "Solar Generation" },
-        { "value": "0", "label": "Grid Dependence" },
-        { "value": "100%", "label": "Renewable Input" },
-        { "value": "24/7", "label": "Autonomous Power" }
+        {
+          "value": "2.4 kW",
+          "label": "Solar Generation"
+        },
+        {
+          "value": "0",
+          "label": "Grid Dependence"
+        },
+        {
+          "value": "100%",
+          "label": "Renewable Input"
+        },
+        {
+          "value": "24/7",
+          "label": "Autonomous Power"
+        }
       ]
+    },
+    "marquee": [
+      "Solar Harvesting",
+      "LFP Storage",
+      "Off-Grid EV Charging",
+      "Trevoli EMS",
+      "Fleet Depots",
+      "Disaster Response",
+      "Remote Industry"
+    ],
+    "decentralized": {
+      "eyebrow": "Autonomous Infrastructure",
+      "title": "Powering a Decentralized Future.",
+      "text": "As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",
+      "pills": [
+        "MPPT Controllers",
+        "LFP Chemistry",
+        "Weather-Sealed",
+        "Zero Emissions"
+      ]
+    },
+    "carousel": {
+      "slides": [
+        {
+          "title": "Koral Nomad",
+          "text": "Foldable 400W solar array paired with a 2.4 kWh LFP pack.",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+          "posterUrl": "https://picsum.photos/seed/koral-nomad/1280/720"
+        },
+        {
+          "title": "Koral Depot",
+          "text": "Containerised 60 kWh buffer storage for commercial EV fleets.",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+          "posterUrl": "https://picsum.photos/seed/koral-depot/1280/720"
+        },
+        {
+          "title": "Koral Responder",
+          "text": "Towable 18 kWh energy unit for disaster zones.",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          "posterUrl": "https://picsum.photos/seed/koral-responder/1280/720"
+        },
+        {
+          "title": "Trevoli EMS",
+          "text": "Predictive load balancing and fleet telemetry.",
+          "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+          "posterUrl": "https://picsum.photos/seed/trevoli-ems/1280/720"
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "Core Technology",
+      "title": "Engineered for Uncompromised Reliability.",
+      "items": [
+        {
+          "title": "Proprietary Storage Cells",
+          "text": "Advanced Lithium Iron Phosphate chemistries and high-efficiency MPPT controllers."
+        },
+        {
+          "title": "Complete Off-Grid Autonomy",
+          "text": "Self-replenishing ecosystems integrating solar generation, storage reserves and fast charging."
+        },
+        {
+          "title": "Plug-and-Play Simplicity",
+          "text": "Pre-configured hardware modules engineered for straightforward deployment."
+        },
+        {
+          "title": "Sustainable Lifecycle",
+          "text": "Recyclable materials, non-toxic compositions and zero direct emissions."
+        }
+      ]
+    },
+    "productsTeaser": {
+      "eyebrow": "Hardware Line",
+      "title": "Built for the Edge of the Grid.",
+      "text": "Three platforms. One ecosystem.",
+      "items": [
+        {
+          "code": "KRL-01",
+          "tag": "Portable",
+          "title": "Koral Nomad",
+          "desc": "Foldable 400W solar array paired with a 2.4 kWh LFP pack."
+        },
+        {
+          "code": "KRL-02",
+          "tag": "Stationary",
+          "title": "Koral Depot",
+          "desc": "Containerised buffer storage for commercial EV fleets."
+        },
+        {
+          "code": "KRL-03",
+          "tag": "Rapid Response",
+          "title": "Koral Responder",
+          "desc": "Towable energy unit for disaster zones."
+        }
+      ]
+    },
+    "stats": {
+      "eyebrow": "Benchmarks",
+      "title": "Performance Metrics.",
+      "items": [
+        {
+          "category": "System Efficiency",
+          "koral": "92%",
+          "industry": "68%"
+        },
+        {
+          "category": "Cycle Durability",
+          "koral": "88/100",
+          "industry": "62/100"
+        },
+        {
+          "category": "Operational Ease",
+          "koral": "95/100",
+          "industry": "58/100"
+        }
+      ]
+    },
+    "industries": {
+      "eyebrow": "Use Cases",
+      "title": "Deployed Across Critical Industries.",
+      "items": [
+        {
+          "title": "Commercial Fleets",
+          "text": "Rapid battery buffer depots for delivery logistics."
+        },
+        {
+          "title": "Emergency Response",
+          "text": "Instant, disaster-resilient mobile energy for medical posts."
+        },
+        {
+          "title": "Remote Industry",
+          "text": "Continuous power for off-grid mining and construction."
+        }
+      ]
+    },
+    "trevoliTeaser": {
+      "eyebrow": "Software Layer",
+      "title": "Trevoli Manages Every Watt.",
+      "text": "Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control.",
+      "badgeValue": "Trevoli",
+      "badgeLabel": "Smart Energy OS"
+    },
+    "testimonials": {
+      "eyebrow": "Field Reports",
+      "title": "Trusted Where the Grid Ends.",
+      "items": [
+        {
+          "quote": "We eliminated a six-figure trenching quote by deploying Koral Depot units.",
+          "initials": "MR",
+          "name": "M. Reyes",
+          "role": "Fleet Director"
+        },
+        {
+          "quote": "The Responder units powered our field hospital for nine days.",
+          "initials": "AK",
+          "name": "A. Kaur",
+          "role": "Logistics Lead"
+        },
+        {
+          "quote": "Trevoli gives us per-asset telemetry we simply never had.",
+          "initials": "JT",
+          "name": "J. Thompson",
+          "role": "Operations Manager"
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Get Started",
+      "title": "Power Shouldn't Be Bound by the Grid.",
+      "text": "Join the next generation of energy independence with Koral."
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Our Story",
+      "title": "We Build Power That Doesn't Ask Permission.",
+      "subtitle": "Koral exists because energy access shouldn't be a function of geography."
+    },
+    "mission": {
+      "eyebrow": "Mission",
+      "title": "Decentralize the Grid. Permanently.",
+      "text1": "Centralised energy infrastructure was designed for a different century.",
+      "text2": "We build the entire stack ourselves.",
+      "badgeValue": "2030",
+      "badgeLabel": "1 GWh Deployed Target"
+    },
+    "values": {
+      "eyebrow": "Principles",
+      "title": "What We Optimize For.",
+      "items": [
+        {
+          "num": "01",
+          "title": "Field Reliability",
+          "text": "If it can't survive a dust storm, it doesn't ship."
+        },
+        {
+          "num": "02",
+          "title": "Radical Simplicity",
+          "text": "Complex systems fail at the seams."
+        },
+        {
+          "num": "03",
+          "title": "Full Lifecycle",
+          "text": "Recyclability is a design constraint."
+        },
+        {
+          "num": "04",
+          "title": "Open Telemetry",
+          "text": "Customers own their operational data."
+        }
+      ]
+    },
+    "timeline": {
+      "eyebrow": "Trajectory",
+      "title": "How We Got Here.",
+      "items": [
+        {
+          "year": "2021",
+          "title": "Founded in a Workshop",
+          "text": "Three engineers, one prototype LFP pack."
+        },
+        {
+          "year": "2022",
+          "title": "First Field Deployment",
+          "text": "Koral Nomad units deployed with survey teams."
+        },
+        {
+          "year": "2023",
+          "title": "Koral Depot Goes Live",
+          "text": "Containerised 60 kWh buffer storage installed."
+        },
+        {
+          "year": "2024",
+          "title": "Trevoli Platform Launch",
+          "text": "Energy management OS ships."
+        },
+        {
+          "year": "2025",
+          "title": "Solid-State Program",
+          "text": "R&D transitions toward solid-state cells."
+        }
+      ]
+    },
+    "numbers": {
+      "eyebrow": "By the Numbers",
+      "title": "Where We Stand Today.",
+      "items": [
+        {
+          "value": "14",
+          "label": "Countries Deployed"
+        },
+        {
+          "value": "340+",
+          "label": "Units in Field"
+        },
+        {
+          "value": "99.2%",
+          "label": "Fleet Uptime"
+        },
+        {
+          "value": "4.1 GWh",
+          "label": "Clean Energy Served"
+        }
+      ]
+    },
+    "team": {
+      "eyebrow": "The Team",
+      "title": "Engineers First.",
+      "text": "Power electronics, battery chemistry and embedded software.",
+      "items": [
+        {
+          "initials": "SN",
+          "name": "S. Nakamura",
+          "role": "Co-Founder & CEO"
+        },
+        {
+          "initials": "DO",
+          "name": "D. Okonkwo",
+          "role": "Co-Founder & CTO"
+        },
+        {
+          "initials": "LF",
+          "name": "L. Ferreira",
+          "role": "Head of Storage Systems"
+        },
+        {
+          "initials": "PH",
+          "name": "P. Halvorsen",
+          "role": "Head of Trevoli"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Build the Decentralized Grid With Us.",
+      "text": "We're hiring engineers and partnering with operators worldwide."
+    }
+  },
+  "products": {
+    "hero": {
+      "eyebrow": "Hardware Line",
+      "title": "Three Platforms. One Ecosystem.",
+      "subtitle": "Every Koral unit generates, stores and delivers its own power."
+    },
+    "items": [
+      {
+        "category": "portable",
+        "code": "KRL-01",
+        "tag": "Portable",
+        "title": "Koral Nomad",
+        "desc": "Foldable 400W solar array paired with a 2.4 kWh LFP pack."
+      },
+      {
+        "category": "stationary",
+        "code": "KRL-02",
+        "tag": "Stationary",
+        "title": "Koral Depot",
+        "desc": "Containerised 60 kWh buffer storage for commercial EV fleets."
+      },
+      {
+        "category": "rapid",
+        "code": "KRL-03",
+        "tag": "Rapid Response",
+        "title": "Koral Responder",
+        "desc": "Towable 18 kWh energy unit for disaster zones."
+      },
+      {
+        "category": "portable",
+        "code": "KRL-04",
+        "tag": "Portable",
+        "title": "Koral Array 400",
+        "desc": "Standalone foldable photovoltaic array."
+      },
+      {
+        "category": "stationary",
+        "code": "KRL-05",
+        "tag": "Stationary",
+        "title": "Koral Depot XL",
+        "desc": "Cascadable 180 kWh storage block."
+      },
+      {
+        "category": "rapid",
+        "code": "KRL-06",
+        "tag": "Rapid Response",
+        "title": "Koral Relay",
+        "desc": "Backpack-portable 900 Wh unit."
+      }
+    ],
+    "comparison": {
+      "eyebrow": "Side by Side",
+      "title": "Platform Comparison.",
+      "headers": [
+        "Specification",
+        "Nomad",
+        "Depot",
+        "Responder"
+      ],
+      "rows": [
+        [
+          "Usable Capacity",
+          "2.4 kWh",
+          "60 kWh",
+          "18 kWh"
+        ],
+        [
+          "Continuous Output",
+          "3.6 kW",
+          "22 kW",
+          "9 kW"
+        ],
+        [
+          "Cell Chemistry",
+          "LFP",
+          "LFP",
+          "LFP"
+        ],
+        [
+          "Cycle Life",
+          "4,000",
+          "6,000",
+          "4,500"
+        ],
+        [
+          "Ingress Rating",
+          "IP67",
+          "IP65",
+          "IP66"
+        ]
+      ]
+    },
+    "deepDive": {
+      "eyebrow": "Inside the Enclosure",
+      "title": "Every Component Is Ours.",
+      "text": "The BMS, the MPPT controller, and the firmware are all designed and validated in-house.",
+      "items": [
+        "Custom battery management system",
+        "High-efficiency MPPT tracking",
+        "Passive and active thermal regulation",
+        "Over-the-air firmware updates"
+      ],
+      "badgeValue": "IP65+",
+      "badgeLabel": "Environmental Rating"
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "title": "Frequently Asked.",
+      "items": [
+        {
+          "q": "Do Koral units need any grid connection?",
+          "a": "No. Every platform generates and stores its own power from solar input."
+        },
+        {
+          "q": "How long does installation take?",
+          "a": "Nomad and Responder units deploy in under ten minutes with one person."
+        },
+        {
+          "q": "What happens during cloudy weather?",
+          "a": "Every system is sized with a reserve margin based on your regional irradiance."
+        },
+        {
+          "q": "Can I monitor multiple sites?",
+          "a": "Yes. Trevoli aggregates telemetry across your entire fleet."
+        },
+        {
+          "q": "What is the warranty period?",
+          "a": "Storage systems carry a 10-year performance warranty."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Need a Configuration for Your Site?",
+      "text": "Send us your load profile and we'll size a system within 48 hours."
+    }
+  },
+  "trevoli": {
+    "hero": {
+      "eyebrow": "Software Layer",
+      "title": "Trevoli Manages Every Watt.",
+      "subtitle": "Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control."
+    },
+    "dashboard": {
+      "title": "trevoli.koral — fleet overview",
+      "sidebar": [
+        "Overview",
+        "Assets",
+        "Energy Flow",
+        "Diagnostics",
+        "Access Control",
+        "Reports"
+      ],
+      "stats": [
+        {
+          "label": "Fleet State of Charge",
+          "value": "87%"
+        },
+        {
+          "label": "Active Assets",
+          "value": "342"
+        },
+        {
+          "label": "Alerts",
+          "value": "2"
+        }
+      ],
+      "chartTitle": "Daily Harvest — Last 12 Days",
+      "chartUnit": "kWh",
+      "chartData": "42,55,48,67,72,61,80,88,76,91,84,96"
+    },
+    "capabilities": {
+      "eyebrow": "Capabilities",
+      "title": "Built Into Every Unit.",
+      "items": [
+        {
+          "title": "Predictive Load Balancing",
+          "text": "Forecasts demand against irradiance and stored reserve."
+        },
+        {
+          "title": "Real-Time Telemetry",
+          "text": "Per-cell voltage, temperature, cycle count streamed continuously."
+        },
+        {
+          "title": "Biometric Access Control",
+          "text": "Restrict access to authorised operators."
+        },
+        {
+          "title": "Over-the-Air Updates",
+          "text": "Firmware deploys to the entire fleet remotely."
+        },
+        {
+          "title": "Anomaly Detection",
+          "text": "Deviation from expected curves triggers an alert."
+        },
+        {
+          "title": "Reporting & Export",
+          "text": "Exportable to CSV, JSON or your BI tooling."
+        }
+      ]
+    },
+    "architecture": {
+      "eyebrow": "Architecture",
+      "title": "How Trevoli Works.",
+      "text": "A lightweight edge controller runs on every Koral unit.",
+      "pills": [
+        "Edge-first",
+        "Offline capable",
+        "Encrypted sync",
+        "Open export"
+      ],
+      "steps": [
+        {
+          "title": "Sense",
+          "text": "The edge controller samples cell voltage and current."
+        },
+        {
+          "title": "Decide",
+          "text": "Local models balance charge distribution."
+        },
+        {
+          "title": "Sync",
+          "text": "Telemetry syncs to your Trevoli workspace."
+        },
+        {
+          "title": "Optimize",
+          "text": "New parameters push down to each unit over the air."
+        }
+      ]
+    },
+    "security": {
+      "eyebrow": "Security",
+      "title": "Your Data Stays Yours.",
+      "text": "Telemetry is encrypted in transit and at rest.",
+      "items": [
+        "Role-based access",
+        "Full audit trail",
+        "Biometric verification",
+        "No third-party resale"
+      ],
+      "badgeValue": "AES-256",
+      "badgeLabel": "End-to-End Encryption"
+    },
+    "cta": {
+      "title": "See Trevoli Running on Your Fleet.",
+      "text": "Book a walkthrough with our team."
+    }
+  },
+  "partner": {
+    "hero": {
+      "eyebrow": "Partner Program",
+      "title": "Let's Deploy Power Together.",
+      "subtitle": "Tell us about your site and we'll size a system within 48 hours."
+    },
+    "types": {
+      "eyebrow": "Who We Work With",
+      "title": "Four Ways to Partner.",
+      "items": [
+        {
+          "title": "Fleet Operators",
+          "text": "Transit authorities and delivery fleets looking to electrify depots."
+        },
+        {
+          "title": "Systems Integrators",
+          "text": "Engineering firms specifying autonomous power."
+        },
+        {
+          "title": "Distributors",
+          "text": "Regional energy and equipment distributors."
+        },
+        {
+          "title": "Deployment Partners",
+          "text": "Installation and field service organisations."
+        }
+      ],
+      "benefits": [
+        "Dedicated technical contact",
+        "Volume pricing and co-marketing",
+        "Certified training",
+        "Direct engineering escalation"
+      ]
+    },
+    "form": {
+      "eyebrow": "Enquiry",
+      "title": "Tell Us About Your Project.",
+      "note": "We respond to all enquiries within two business days."
+    },
+    "process": {
+      "eyebrow": "Process",
+      "title": "From Enquiry to Energized.",
+      "items": [
+        {
+          "title": "Discovery Call",
+          "text": "A 30-minute call to understand your load profile."
+        },
+        {
+          "title": "System Sizing",
+          "text": "We model your irradiance data and load curve."
+        },
+        {
+          "title": "Quotation",
+          "text": "You receive a full bill of materials."
+        },
+        {
+          "title": "Deployment",
+          "text": "Units ship pre-configured."
+        },
+        {
+          "title": "Ongoing Support",
+          "text": "Continuous remote monitoring."
+        }
+      ]
+    },
+    "contact": {
+      "items": [
+        {
+          "title": "Sales & Partnerships",
+          "email": "partners@koral.energy"
+        },
+        {
+          "title": "Technical Support",
+          "email": "support@koral.energy"
+        },
+        {
+          "title": "Press & Media",
+          "email": "press@koral.energy"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Power Shouldn't Be Bound by the Grid.",
+      "text": "Start your deployment conversation today."
+    }
+  },
+  "footer": {
+    "brand": {
+      "name": "KORAL",
+      "tagline": "Portable solar-powered energy ecosystems.",
+      "socials": [
+        {
+          "label": "in",
+          "url": "#"
+        },
+        {
+          "label": "X",
+          "url": "#"
+        },
+        {
+          "label": "YT",
+          "url": "#"
+        }
+      ]
+    },
+    "company": {
+      "title": "Company",
+      "links": [
+        {
+          "label": "About Us",
+          "nav": "about"
+        },
+        {
+          "label": "Careers",
+          "nav": "about"
+        },
+        {
+          "label": "Contact",
+          "nav": "partner"
+        }
+      ]
+    },
+    "products": {
+      "title": "Products",
+      "links": [
+        {
+          "label": "Koral Nomad",
+          "nav": "products"
+        },
+        {
+          "label": "Koral Depot",
+          "nav": "products"
+        },
+        {
+          "label": "Koral Responder",
+          "nav": "products"
+        },
+        {
+          "label": "Trevoli",
+          "nav": "trevoli"
+        }
+      ]
+    },
+    "resources": {
+      "title": "Resources",
+      "links": [
+        {
+          "label": "Specifications",
+          "nav": "products"
+        },
+        {
+          "label": "FAQ",
+          "nav": "products"
+        },
+        {
+          "label": "Partner Program",
+          "nav": "partner"
+        }
+      ]
+    },
+    "copyright": {
+      "name": "Koral",
+      "legal": "Privacy · Terms"
     }
   }
 }

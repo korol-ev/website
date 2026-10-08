@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Koral Admin Console</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="robots" content="noindex, nofollow">
+<title>Koral — Admin Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#08080a;--bg-1:#0e0e11;--bg-2:#131317;--bg-3:#1a1a20;--bg-4:#22222a;
@@ -45,10 +48,10 @@ input,textarea,select{outline:none}
 .status-dot.err{background:var(--red)}
 
 /* MAIN */
-.main{display:flex;flex-direction:column;overflow:hidden}
+.main{display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
 .topbar{height:62px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:var(--bg-1);flex-shrink:0;gap:20px}
-.topbar__title{font-family:var(--display);font-size:1.05rem;font-weight:600}
-.topbar__title small{color:var(--txt-3);font-weight:400;font-size:.78rem;font-family:var(--body);margin-left:10px}
+.topbar__title{font-family:var(--display);font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+.topbar__title small{color:var(--txt-3);font-weight:400;font-size:.78rem;font-family:var(--body);margin-left:10px;letter-spacing:0;text-transform:none}
 .topbar__actions{display:flex;gap:8px;align-items:center}
 .content{flex:1;overflow-y:auto;padding:32px 40px 80px;max-width:1100px;width:100%}
 
@@ -62,12 +65,15 @@ input,textarea,select{outline:none}
 .btn--danger{border-color:rgba(255,95,87,.3);color:var(--red)}
 .btn--danger:hover{background:rgba(255,95,87,.1)}
 .btn--sm{padding:6px 11px;font-size:.73rem}
+.btn:disabled{opacity:.5;cursor:not-allowed}
 
 /* FORM */
 .section-card{background:var(--bg-1);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
 .section-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .section-card__title{font-family:var(--display);font-size:.95rem;font-weight:600}
 .section-card__desc{font-size:.78rem;color:var(--txt-3);margin-top:3px;line-height:1.55}
+.section-card__desc code{font-family:var(--mono);font-size:.72rem;background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--lime)}
+
 .field{margin-bottom:18px}
 .field:last-child{margin-bottom:0}
 .field__label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);margin-bottom:7px}
@@ -75,11 +81,13 @@ input,textarea,select{outline:none}
 .field__input,.field__textarea,.field__select{width:100%;padding:10px 13px;border-radius:8px;background:var(--bg-2);border:1px solid var(--line-2);color:var(--txt);font-size:.85rem;transition:.15s var(--ease);font-family:var(--body)}
 .field__textarea{resize:vertical;min-height:80px;line-height:1.6}
 .field__input:focus,.field__textarea:focus,.field__select:focus{border-color:var(--lime-line);box-shadow:0 0 0 3px var(--lime-dim)}
+.field__input[type="color"]{padding:4px;height:38px;cursor:pointer}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field-row--3{grid-template-columns:1fr 1fr 1fr}
 
 /* MEDIA PREVIEW */
 .media-preview{margin-top:10px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg-2);position:relative;min-height:60px;display:grid;place-items:center}
-.media-preview img,.media-preview video{width:100%;max-height:220px;object-fit:cover;display:block}
+.media-preview img,.media-preview video{width:100%;max-height:240px;object-fit:cover;display:block}
 .media-preview__empty{padding:20px;text-align:center;color:var(--txt-4);font-size:.75rem}
 .media-preview__badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.75);color:var(--lime);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px}
 
@@ -104,10 +112,11 @@ input,textarea,select{outline:none}
 /* MODAL */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:250;display:none;place-items:center;padding:24px}
 .modal.is-open{display:grid}
-.modal__dialog{background:var(--bg-1);border:1px solid var(--line-2);border-radius:16px;padding:28px;max-width:480px;width:100%}
+.modal__dialog{background:var(--bg-1);border:1px solid var(--line-2);border-radius:16px;padding:28px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto}
 .modal__title{font-family:var(--display);font-size:1.1rem;font-weight:600;margin-bottom:10px}
 .modal__text{font-size:.85rem;color:var(--txt-2);line-height:1.65;margin-bottom:22px}
-.modal__actions{display:flex;gap:10px;justify-content:flex-end}
+.modal__text code{font-family:var(--mono);font-size:.78rem;background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--lime)}
+.modal__actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px}
 
 /* TOAST */
 .toast-stack{position:fixed;bottom:24px;right:24px;z-index:300;display:flex;flex-direction:column;gap:10px;pointer-events:none}
@@ -119,14 +128,14 @@ input,textarea,select{outline:none}
 .toast--info .toast__icon{color:var(--cyan)}
 .toast__icon{width:18px;height:18px;flex-shrink:0}
 @keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-/* BOOT / ERROR SCREEN */
+/* BOOT */
 .boot{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:9999;text-align:center;padding:40px}
 .boot__inner{max-width:600px}
 .boot__logo{font-family:var(--display);font-size:1.4rem;font-weight:800;letter-spacing:.14em;margin-bottom:24px}
 .boot__logo span{background:linear-gradient(120deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .boot__spinner{width:32px;height:32px;border:3px solid var(--line-2);border-top-color:var(--lime);border-radius:50%;margin:0 auto 20px;animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
 .boot__msg{font-size:.9rem;color:var(--txt-2);line-height:1.6}
 .boot__error{background:var(--bg-2);border:1px solid rgba(255,95,87,.3);border-radius:12px;padding:22px;margin-top:20px;text-align:left}
 .boot__error pre{font-family:var(--mono);font-size:.78rem;color:var(--red);white-space:pre-wrap;word-break:break-word;line-height:1.6}
@@ -143,12 +152,13 @@ input,textarea,select{outline:none}
   .sidebar.is-open{transform:none}
   .content{padding:24px 20px 80px}
   .field-row{grid-template-columns:1fr}
+  .field-row--3{grid-template-columns:1fr}
+  .topbar__title small{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- BOOT SCREEN -->
 <div class="boot" id="boot">
   <div class="boot__inner">
     <div class="boot__logo"><span>KORAL</span></div>
@@ -158,9 +168,7 @@ input,textarea,select{outline:none}
   </div>
 </div>
 
-<!-- APP -->
 <div class="app" id="app" style="display:none">
-
   <aside class="sidebar" id="sidebar">
     <div class="sidebar__head">
       <div class="sidebar__logo"><span>KORAL</span></div>
@@ -199,7 +207,6 @@ input,textarea,select{outline:none}
   </main>
 </div>
 
-<!-- CONFIRM MODAL -->
 <div class="modal" id="confirmModal">
   <div class="modal__dialog">
     <h2 class="modal__title" id="confirmTitle">Are you sure?</h2>
@@ -211,11 +218,10 @@ input,textarea,select{outline:none}
   </div>
 </div>
 
-<!-- PUBLISH MODAL -->
 <div class="modal" id="publishModal">
-  <div class="modal__dialog" style="max-width:560px">
+  <div class="modal__dialog">
     <h2 class="modal__title">Publish to GitHub</h2>
-    <p class="modal__text">Commits <code style="font-family:var(--mono);background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--lime)">content.json</code> directly to your repository. GitHub Pages rebuilds automatically.</p>
+    <p class="modal__text">Commits <code>content.json</code> directly to your repository. GitHub Pages rebuilds automatically.</p>
 
     <div class="field">
       <label class="field__label">Repository (owner/name)</label>
@@ -234,7 +240,7 @@ input,textarea,select{outline:none}
     <div class="field">
       <label class="field__label">Personal Access Token</label>
       <input class="field__input" id="ghToken" type="password" placeholder="ghp_...">
-      <div class="field__hint">Generate at github.com/settings/tokens with "repo" scope. Stored locally.</div>
+      <div class="field__hint">Generate at github.com/settings/tokens with <strong>repo</strong> scope. Stored only in your browser.</div>
     </div>
     <div class="field">
       <label class="field__label">Commit Message</label>
@@ -251,16 +257,14 @@ input,textarea,select{outline:none}
 <div class="toast-stack" id="toastStack"></div>
 
 <script>
-/* ============================================================
-   KORAL ADMIN CONSOLE — standalone
-   ============================================================ */
 (function(){
   'use strict';
 
-  // Show boot screen first — hides only after successful init
   const boot = document.getElementById('boot');
   const bootMsg = document.getElementById('bootMsg');
   const bootError = document.getElementById('bootError');
+  const LS_KEY = 'koral-content-v1';
+  const LS_GH = 'koral-github-config';
 
   window.addEventListener('error', e => {
     showBootError('Unexpected error: ' + e.message);
@@ -272,10 +276,9 @@ input,textarea,select{outline:none}
     bootError.innerHTML = '<div class="boot__error"><pre>' + String(msg).replace(/</g,'&lt;') + '</pre></div>';
   }
 
-  const LS_KEY = 'koral-content-v1';
-  const LS_GH = 'koral-github-config';
-
-  // ============ DEFAULT CONTENT ============
+  // ============================================================
+  // DEFAULT CONTENT
+  // ============================================================
   const DEFAULT_CONTENT = {
     site: {
       brandName: "KORAL",
@@ -314,30 +317,30 @@ input,textarea,select{outline:none}
       },
       carousel: {
         slides: [
-          { title: "Koral Nomad", text: "Foldable 400W solar array paired with a 2.4 kWh LFP pack.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", posterUrl: "https://picsum.photos/seed/koral-nomad/1280/720" },
-          { title: "Koral Depot", text: "Containerised 60 kWh buffer storage for commercial EV fleets.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", posterUrl: "https://picsum.photos/seed/koral-depot/1280/720" },
-          { title: "Koral Responder", text: "Towable 18 kWh energy unit for disaster zones.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", posterUrl: "https://picsum.photos/seed/koral-responder/1280/720" },
-          { title: "Trevoli EMS", text: "Predictive load balancing and fleet telemetry.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4", posterUrl: "https://picsum.photos/seed/trevoli-ems/1280/720" }
+          { title: "Koral Nomad", text: "Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", posterUrl: "https://picsum.photos/seed/koral-nomad/1280/720" },
+          { title: "Koral Depot", text: "Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", posterUrl: "https://picsum.photos/seed/koral-depot/1280/720" },
+          { title: "Koral Responder", text: "Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", posterUrl: "https://picsum.photos/seed/koral-responder/1280/720" },
+          { title: "Trevoli EMS", text: "Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every Koral unit.", videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4", posterUrl: "https://picsum.photos/seed/trevoli-ems/1280/720" }
         ]
       },
       features: {
         eyebrow: "Core Technology",
         title: "Engineered for Uncompromised Reliability.",
         items: [
-          { title: "Proprietary Storage Cells", text: "Advanced Lithium Iron Phosphate chemistries and high-efficiency MPPT controllers." },
-          { title: "Complete Off-Grid Autonomy", text: "Self-replenishing ecosystems integrating solar generation, storage reserves and fast charging." },
-          { title: "Plug-and-Play Simplicity", text: "Pre-configured hardware modules engineered for straightforward deployment." },
-          { title: "Sustainable Lifecycle", text: "Recyclable materials, non-toxic compositions and zero direct emissions." }
+          { title: "Proprietary Storage Cells", text: "Advanced Lithium Iron Phosphate chemistries and high-efficiency MPPT controllers delivering maximum energy density and long cycle life.", imageUrl: "" },
+          { title: "Complete Off-Grid Autonomy", text: "Self-replenishing ecosystems integrating solar generation, storage reserves and fast charging in a single weather-sealed enclosure.", imageUrl: "" },
+          { title: "Plug-and-Play Simplicity", text: "Pre-configured hardware modules engineered for straightforward deployment, automated diagnostics and immediate power access.", imageUrl: "" },
+          { title: "Sustainable Lifecycle", text: "Recyclable materials, non-toxic compositions and zero direct emissions designed to reduce impact at every stage.", imageUrl: "" }
         ]
       },
       productsTeaser: {
         eyebrow: "Hardware Line",
         title: "Built for the Edge of the Grid.",
-        text: "Three platforms. One ecosystem.",
+        text: "Three platforms. One ecosystem. Every unit ships grid-independent.",
         items: [
-          { code: "KRL-01", tag: "Portable", title: "Koral Nomad", desc: "Foldable 400W solar array paired with a 2.4 kWh LFP pack." },
-          { code: "KRL-02", tag: "Stationary", title: "Koral Depot", desc: "Containerised buffer storage for commercial EV fleets." },
-          { code: "KRL-03", tag: "Rapid Response", title: "Koral Responder", desc: "Towable energy unit for disaster zones." }
+          { code: "KRL-01", tag: "Portable", title: "Koral Nomad", desc: "Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging.", imageUrl: "", specs: { Capacity: "2.4 kWh", Output: "3.6 kW" } },
+          { code: "KRL-02", tag: "Stationary", title: "Koral Depot", desc: "Containerised buffer storage for commercial EV fleets. Deploys without grid expansion or trenching.", imageUrl: "", specs: { Capacity: "60 kWh", Output: "22 kW" } },
+          { code: "KRL-03", tag: "Rapid Response", title: "Koral Responder", desc: "Towable energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.", imageUrl: "", specs: { Capacity: "18 kWh", Output: "9 kW" } }
         ]
       },
       stats: {
@@ -353,44 +356,45 @@ input,textarea,select{outline:none}
         eyebrow: "Use Cases",
         title: "Deployed Across Critical Industries.",
         items: [
-          { title: "Commercial Fleets", text: "Rapid battery buffer depots for delivery logistics." },
-          { title: "Emergency Response", text: "Instant, disaster-resilient mobile energy for medical posts." },
-          { title: "Remote Industry", text: "Continuous power for off-grid mining and construction." }
+          { title: "Commercial Fleets", text: "Rapid battery buffer depots for delivery logistics, municipal transit and commercial EV fleets — without expensive grid expansion.", imageUrl: "" },
+          { title: "Emergency Response", text: "Instant, disaster-resilient mobile energy for medical command posts, wildfire operations and civil defence during blackouts.", imageUrl: "" },
+          { title: "Remote Industry", text: "Continuous power for off-grid mining sites, agricultural machinery, remote construction and field research facilities.", imageUrl: "" }
         ]
       },
       trevoliTeaser: {
         eyebrow: "Software Layer",
         title: "Trevoli Manages Every Watt.",
-        text: "Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control.",
+        text: "Trevoli is the intelligence layer across the Koral ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",
         badgeValue: "Trevoli",
-        badgeLabel: "Smart Energy OS"
+        badgeLabel: "Smart Energy OS",
+        imageUrl: ""
       },
       testimonials: {
         eyebrow: "Field Reports",
         title: "Trusted Where the Grid Ends.",
         items: [
-          { quote: "We eliminated a six-figure trenching quote by deploying Koral Depot units.", initials: "MR", name: "M. Reyes", role: "Fleet Director" },
-          { quote: "The Responder units powered our field hospital for nine days.", initials: "AK", name: "A. Kaur", role: "Logistics Lead" },
-          { quote: "Trevoli gives us per-asset telemetry we simply never had.", initials: "JT", name: "J. Thompson", role: "Operations Manager" }
+          { quote: "We eliminated a six-figure trenching quote by deploying Koral Depot units at two depots. Charging uptime has been flawless for eleven months.", initials: "MR", name: "M. Reyes", role: "Fleet Director, Regional Transit", avatarUrl: "" },
+          { quote: "The Responder units powered our field hospital for nine days after the storm. Setup took one person and under ten minutes.", initials: "AK", name: "A. Kaur", role: "Logistics Lead, Civil Defence", avatarUrl: "" },
+          { quote: "Trevoli gives us per-asset telemetry we simply never had. We now schedule maintenance before failures instead of after.", initials: "JT", name: "J. Thompson", role: "Operations Manager, Mining", avatarUrl: "" }
         ]
       },
       cta: { eyebrow: "Get Started", title: "Power Shouldn't Be Bound by the Grid.", text: "Join the next generation of energy independence with Koral." }
     },
     about: {
-      hero: { eyebrow: "Our Story", title: "We Build Power That Doesn't Ask Permission.", subtitle: "Koral exists because energy access shouldn't be a function of geography." },
-      mission: { eyebrow: "Mission", title: "Decentralize the Grid. Permanently.", text1: "Centralised energy infrastructure was designed for a different century.", text2: "We build the entire stack ourselves.", badgeValue: "2030", badgeLabel: "1 GWh Deployed Target" },
+      hero: { eyebrow: "Our Story", title: "We Build Power That Doesn't Ask Permission.", subtitle: "Koral exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed." },
+      mission: { eyebrow: "Mission", title: "Decentralize the Grid. Permanently.", text1: "Centralised energy infrastructure was designed for a different century. It's expensive to extend, slow to permit and fragile under stress. Our mission is to make autonomous clean energy the default choice — not the backup plan — for fleets, industry and emergency services.", text2: "We do this by building the entire stack ourselves: solar harvesting, storage chemistry, power electronics and the software that orchestrates all of it.", badgeValue: "2030", badgeLabel: "1 GWh Deployed Target", imageUrl: "" },
       values: { eyebrow: "Principles", title: "What We Optimize For.", items: [
-        { num: "01", title: "Field Reliability", text: "If it can't survive a dust storm, it doesn't ship." },
-        { num: "02", title: "Radical Simplicity", text: "Complex systems fail at the seams." },
-        { num: "03", title: "Full Lifecycle", text: "Recyclability is a design constraint." },
-        { num: "04", title: "Open Telemetry", text: "Customers own their operational data." }
+        { num: "01", title: "Field Reliability", text: "If it can't survive a dust storm, a monsoon and a -20°C night, it doesn't ship. Every enclosure is tested beyond its rated envelope." },
+        { num: "02", title: "Radical Simplicity", text: "Complex energy systems fail at the seams. We reduce part counts, remove single points of failure and design for one-person deployment." },
+        { num: "03", title: "Full Lifecycle", text: "We account for the cell, the enclosure and the end-of-life recovery. Recyclability is a design constraint, not a marketing line." },
+        { num: "04", title: "Open Telemetry", text: "Customers own their operational data. Trevoli exports to any standard format — no lock-in, no proprietary black boxes." }
       ]},
       timeline: { eyebrow: "Trajectory", title: "How We Got Here.", items: [
-        { year: "2021", title: "Founded in a Workshop", text: "Three engineers, one prototype LFP pack." },
-        { year: "2022", title: "First Field Deployment", text: "Koral Nomad units deployed with survey teams." },
-        { year: "2023", title: "Koral Depot Goes Live", text: "Containerised 60 kWh buffer storage installed." },
-        { year: "2024", title: "Trevoli Platform Launch", text: "Energy management OS ships." },
-        { year: "2025", title: "Solid-State Program", text: "R&D transitions toward solid-state cells." }
+        { year: "2021", title: "Founded in a Workshop", text: "Three engineers, one prototype LFP pack and a problem statement: why does off-grid EV charging cost more than the vehicle?" },
+        { year: "2022", title: "First Field Deployment", text: "Koral Nomad units deployed with remote survey teams, logging 4,000+ hours of continuous off-grid operation." },
+        { year: "2023", title: "Koral Depot Goes Live", text: "Containerised 60 kWh buffer storage installed at two municipal transit depots, eliminating grid expansion costs entirely." },
+        { year: "2024", title: "Trevoli Platform Launch", text: "Our energy management OS ships with fleet telemetry, predictive load balancing and biometric access control." },
+        { year: "2025", title: "Solid-State Program", text: "R&D transitions toward solid-state cells for higher density and extended thermal stability in extreme climates." }
       ]},
       numbers: { eyebrow: "By the Numbers", title: "Where We Stand Today.", items: [
         { value: "14", label: "Countries Deployed" },
@@ -398,82 +402,90 @@ input,textarea,select{outline:none}
         { value: "99.2%", label: "Fleet Uptime" },
         { value: "4.1 GWh", label: "Clean Energy Served" }
       ]},
-      team: { eyebrow: "The Team", title: "Engineers First.", text: "Power electronics, battery chemistry and embedded software.", items: [
-        { initials: "SN", name: "S. Nakamura", role: "Co-Founder & CEO" },
-        { initials: "DO", name: "D. Okonkwo", role: "Co-Founder & CTO" },
-        { initials: "LF", name: "L. Ferreira", role: "Head of Storage Systems" },
-        { initials: "PH", name: "P. Halvorsen", role: "Head of Trevoli" }
+      team: { eyebrow: "The Team", title: "Engineers First.", text: "Power electronics, battery chemistry and embedded software — built in-house.", items: [
+        { initials: "SN", name: "S. Nakamura", role: "Co-Founder & CEO", avatarUrl: "" },
+        { initials: "DO", name: "D. Okonkwo", role: "Co-Founder & CTO", avatarUrl: "" },
+        { initials: "LF", name: "L. Ferreira", role: "Head of Storage Systems", avatarUrl: "" },
+        { initials: "PH", name: "P. Halvorsen", role: "Head of Trevoli", avatarUrl: "" }
       ]},
       cta: { title: "Build the Decentralized Grid With Us.", text: "We're hiring engineers and partnering with operators worldwide." }
     },
     products: {
-      hero: { eyebrow: "Hardware Line", title: "Three Platforms. One Ecosystem.", subtitle: "Every Koral unit generates, stores and delivers its own power." },
+      hero: { eyebrow: "Hardware Line", title: "Three Platforms. One Ecosystem.", subtitle: "Every Koral unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works." },
       items: [
-        { category: "portable", code: "KRL-01", tag: "Portable", title: "Koral Nomad", desc: "Foldable 400W solar array paired with a 2.4 kWh LFP pack." },
-        { category: "stationary", code: "KRL-02", tag: "Stationary", title: "Koral Depot", desc: "Containerised 60 kWh buffer storage for commercial EV fleets." },
-        { category: "rapid", code: "KRL-03", tag: "Rapid Response", title: "Koral Responder", desc: "Towable 18 kWh energy unit for disaster zones." },
-        { category: "portable", code: "KRL-04", tag: "Portable", title: "Koral Array 400", desc: "Standalone foldable photovoltaic array." },
-        { category: "stationary", code: "KRL-05", tag: "Stationary", title: "Koral Depot XL", desc: "Cascadable 180 kWh storage block." },
-        { category: "rapid", code: "KRL-06", tag: "Rapid Response", title: "Koral Relay", desc: "Backpack-portable 900 Wh unit." }
+        { category: "portable", code: "KRL-01", tag: "Portable", title: "Koral Nomad", desc: "Foldable 400W solar array paired with a 2.4 kWh LFP pack. Designed for field teams, survey crews and mobile EV top-up charging.", imageUrl: "", specs: { Capacity: "2.4 kWh", Output: "3.6 kW", Weight: "34 kg", Deploy: "5 min" } },
+        { category: "stationary", code: "KRL-02", tag: "Stationary", title: "Koral Depot", desc: "Containerised 60 kWh buffer storage for commercial EV fleets. Installs without grid expansion, trenching or permitting delays.", imageUrl: "", specs: { Capacity: "60 kWh", Output: "22 kW", Footprint: "1.8 m²", Rating: "IP65" } },
+        { category: "rapid", code: "KRL-03", tag: "Rapid Response", title: "Koral Responder", desc: "Towable 18 kWh energy unit for disaster zones and emergency medical posts. One person can deploy it in under ten minutes.", imageUrl: "", specs: { Capacity: "18 kWh", Output: "9 kW", "Tow Rating": "750 kg", Deploy: "10 min" } },
+        { category: "portable", code: "KRL-04", tag: "Portable", title: "Koral Array 400", desc: "Standalone foldable photovoltaic array. Stacks with any Koral storage unit to increase daily harvest without adding battery weight.", imageUrl: "", specs: { Peak: "400 W", Folded: "0.4 m²", Cell: "Monocrystalline", Rating: "IP67" } },
+        { category: "stationary", code: "KRL-05", tag: "Stationary", title: "Koral Depot XL", desc: "Cascadable 180 kWh storage block for industrial sites and multi-bay charging depots. Scales linearly with fleet size.", imageUrl: "", specs: { Capacity: "180 kWh", Output: "60 kW", Cascade: "Up to 8", Rating: "IP65" } },
+        { category: "rapid", code: "KRL-06", tag: "Rapid Response", title: "Koral Relay", desc: "Backpack-portable 900 Wh unit for single-operator field deployment. Powers radios, medical devices and laptops indefinitely.", imageUrl: "", specs: { Capacity: "900 Wh", Output: "1.2 kW", Weight: "9 kg", Rating: "IP66" } }
       ],
       comparison: { eyebrow: "Side by Side", title: "Platform Comparison.",
         headers: ["Specification", "Nomad", "Depot", "Responder"],
         rows: [
           ["Usable Capacity", "2.4 kWh", "60 kWh", "18 kWh"],
           ["Continuous Output", "3.6 kW", "22 kW", "9 kW"],
+          ["Solar Input", "400 W", "2.4 kW", "1.2 kW"],
           ["Cell Chemistry", "LFP", "LFP", "LFP"],
           ["Cycle Life", "4,000", "6,000", "4,500"],
-          ["Ingress Rating", "IP67", "IP65", "IP66"]
+          ["Ingress Rating", "IP67", "IP65", "IP66"],
+          ["Trevoli Enabled", "Yes", "Yes", "Yes"],
+          ["Grid Connection Required", "No", "No", "No"],
+          ["Single-Person Deploy", "Yes", "2 crew", "Yes"]
         ]
       },
-      deepDive: { eyebrow: "Inside the Enclosure", title: "Every Component Is Ours.", text: "The BMS, the MPPT controller, and the firmware are all designed and validated in-house.", items: ["Custom battery management system","High-efficiency MPPT tracking","Passive and active thermal regulation","Over-the-air firmware updates"], badgeValue: "IP65+", badgeLabel: "Environmental Rating" },
+      deepDive: { eyebrow: "Inside the Enclosure", title: "Every Component Is Ours.", text: "We didn't assemble off-the-shelf parts. The BMS, the MPPT controller, the thermal management layer and the firmware running on top are all designed and validated in-house — which is why we can guarantee the numbers on the datasheet.", items: ["Custom battery management system with per-cell monitoring","High-efficiency MPPT tracking with dual-input channel support","Passive and active thermal regulation for -20°C to 55°C operation","Over-the-air firmware updates via Trevoli"], badgeValue: "IP65+", badgeLabel: "Environmental Rating", imageUrl: "" },
       faq: { eyebrow: "Questions", title: "Frequently Asked.", items: [
-        { q: "Do Koral units need any grid connection?", a: "No. Every platform generates and stores its own power from solar input." },
-        { q: "How long does installation take?", a: "Nomad and Responder units deploy in under ten minutes with one person." },
-        { q: "What happens during cloudy weather?", a: "Every system is sized with a reserve margin based on your regional irradiance." },
-        { q: "Can I monitor multiple sites?", a: "Yes. Trevoli aggregates telemetry across your entire fleet." },
-        { q: "What is the warranty period?", a: "Storage systems carry a 10-year performance warranty." }
+        { q: "Do Koral units need any grid connection at all?", a: "No. Every platform generates and stores its own power from solar input. A grid connection is optional and only used if you want to top up during extended low-irradiance periods — the system operates fully without one." },
+        { q: "How long does installation take?", a: "Nomad and Responder units deploy in under ten minutes with one person. Depot installations typically complete within a single working day and require no trenching, permitting or civil works." },
+        { q: "What happens during extended cloudy weather?", a: "Every system is sized with a reserve margin based on your regional irradiance profile. Trevoli also provides predictive load balancing that prioritises critical loads as stored energy declines." },
+        { q: "Can I monitor multiple sites at once?", a: "Yes. Trevoli aggregates telemetry across your entire fleet into a single dashboard, with per-asset drill-down, alerting and exportable reporting." },
+        { q: "What is the warranty period?", a: "Storage systems carry a 10-year performance warranty. Power electronics carry 5 years. Full terms are provided with every quotation." }
       ]},
       cta: { title: "Need a Configuration for Your Site?", text: "Send us your load profile and we'll size a system within 48 hours." }
     },
     trevoli: {
-      hero: { eyebrow: "Software Layer", title: "Trevoli Manages Every Watt.", subtitle: "Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control." },
+      hero: { eyebrow: "Software Layer", title: "Trevoli Manages Every Watt.", subtitle: "The intelligence layer across the Koral ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system." },
       dashboard: { title: "trevoli.koral — fleet overview", sidebar: ["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],
-        stats: [{ label: "Fleet State of Charge", value: "87%" },{ label: "Active Assets", value: "342" },{ label: "Alerts", value: "2" }],
+        stats: [
+          { label: "Fleet State of Charge", value: "87%" },
+          { label: "Active Assets", value: "342" },
+          { label: "Alerts", value: "2" }
+        ],
         chartTitle: "Daily Harvest — Last 12 Days", chartUnit: "kWh", chartData: "42,55,48,67,72,61,80,88,76,91,84,96"
       },
       capabilities: { eyebrow: "Capabilities", title: "Built Into Every Unit.", items: [
-        { title: "Predictive Load Balancing", text: "Forecasts demand against irradiance and stored reserve." },
-        { title: "Real-Time Telemetry", text: "Per-cell voltage, temperature, cycle count streamed continuously." },
-        { title: "Biometric Access Control", text: "Restrict access to authorised operators." },
-        { title: "Over-the-Air Updates", text: "Firmware deploys to the entire fleet remotely." },
-        { title: "Anomaly Detection", text: "Deviation from expected curves triggers an alert." },
-        { title: "Reporting & Export", text: "Exportable to CSV, JSON or your BI tooling." }
+        { title: "Predictive Load Balancing", text: "Trevoli forecasts demand against irradiance and stored reserve, then shifts non-critical loads automatically as energy margins tighten." },
+        { title: "Real-Time Telemetry", text: "Per-cell voltage, temperature, cycle count and throughput streamed continuously from every asset in the fleet." },
+        { title: "Biometric Access Control", text: "Restrict charging and enclosure access to authorised operators using fingerprint or credential verification at the unit." },
+        { title: "Over-the-Air Updates", text: "Firmware improvements and new optimisation models deploy to the entire fleet remotely — no site visits required." },
+        { title: "Anomaly Detection", text: "Deviation from expected charge and discharge curves triggers an alert before it becomes a failure or a safety event." },
+        { title: "Reporting & Export", text: "Carbon avoided, energy served and uptime metrics exportable to CSV, JSON or your existing BI tooling." }
       ]},
-      architecture: { eyebrow: "Architecture", title: "How Trevoli Works.", text: "A lightweight edge controller runs on every Koral unit.", pills: ["Edge-first","Offline capable","Encrypted sync","Open export"], steps: [
-        { title: "Sense", text: "The edge controller samples cell voltage and current." },
-        { title: "Decide", text: "Local models balance charge distribution." },
-        { title: "Sync", text: "Telemetry syncs to your Trevoli workspace." },
-        { title: "Optimize", text: "New parameters push down to each unit over the air." }
+      architecture: { eyebrow: "Architecture", title: "How Trevoli Works.", text: "A lightweight edge controller runs on every Koral unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.", pills: ["Edge-first","Offline capable","Encrypted sync","Open export"], steps: [
+        { title: "Sense", text: "The edge controller samples cell voltage, current, temperature and irradiance at high frequency across every module." },
+        { title: "Decide", text: "Local models balance charge distribution, thermal load and output priority without waiting for a round trip to the cloud." },
+        { title: "Sync", text: "Aggregated telemetry syncs securely to your Trevoli workspace, where fleet-wide trends and alerts are generated." },
+        { title: "Optimize", text: "New optimisation parameters push back down to each unit over the air, improving performance without any site visit." }
       ]},
-      security: { eyebrow: "Security", title: "Your Data Stays Yours.", text: "Telemetry is encrypted in transit and at rest.", items: ["Role-based access","Full audit trail","Biometric verification","No third-party resale"], badgeValue: "AES-256", badgeLabel: "End-to-End Encryption" },
-      cta: { title: "See Trevoli Running on Your Fleet.", text: "Book a walkthrough with our team." }
+      security: { eyebrow: "Security", title: "Your Data Stays Yours.", text: "Telemetry is encrypted in transit and at rest. Customers retain full ownership of operational data, and every export format is open and documented — no proprietary lock-in, ever.", items: ["Role-based access with per-site permission scoping","Full audit trail for every access and configuration change","Biometric verification at the physical unit","No third-party data resale, at any tier"], badgeValue: "AES-256", badgeLabel: "End-to-End Encryption", imageUrl: "" },
+      cta: { title: "See Trevoli Running on Your Fleet.", text: "Book a walkthrough with our team and we'll model your site live." }
     },
     partner: {
-      hero: { eyebrow: "Partner Program", title: "Let's Deploy Power Together.", subtitle: "Tell us about your site and we'll size a system within 48 hours." },
+      hero: { eyebrow: "Partner Program", title: "Let's Deploy Power Together.", subtitle: "Whether you're a fleet operator, systems integrator, distributor or deployment partner — tell us about your site and we'll size a system within 48 hours." },
       types: { eyebrow: "Who We Work With", title: "Four Ways to Partner.", items: [
-        { title: "Fleet Operators", text: "Transit authorities and delivery fleets looking to electrify depots." },
-        { title: "Systems Integrators", text: "Engineering firms specifying autonomous power." },
-        { title: "Distributors", text: "Regional energy and equipment distributors." },
-        { title: "Deployment Partners", text: "Installation and field service organisations." }
-      ], benefits: ["Dedicated technical contact","Volume pricing and co-marketing","Certified training","Direct engineering escalation"] },
-      form: { eyebrow: "Enquiry", title: "Tell Us About Your Project.", note: "We respond to all enquiries within two business days." },
+        { title: "Fleet Operators", text: "Transit authorities, logistics companies and delivery fleets looking to electrify depots without grid expansion costs." },
+        { title: "Systems Integrators", text: "Engineering firms specifying autonomous power for remote sites, industrial facilities or critical infrastructure." },
+        { title: "Distributors", text: "Regional energy and equipment distributors with established channels into construction, agriculture or emergency services." },
+        { title: "Deployment Partners", text: "Installation and field service organisations delivering commissioning, maintenance and support in your territory." }
+      ], benefits: ["Dedicated technical contact and sizing support","Volume pricing and co-marketing opportunities","Certified installation and service training","Direct engineering escalation path"] },
+      form: { eyebrow: "Enquiry", title: "Tell Us About Your Project.", note: "We respond to all partnership enquiries within two business days. Technical sizing typically follows within 48 hours." },
       process: { eyebrow: "Process", title: "From Enquiry to Energized.", items: [
-        { title: "Discovery Call", text: "A 30-minute call to understand your load profile." },
-        { title: "System Sizing", text: "We model your irradiance data and load curve." },
-        { title: "Quotation", text: "You receive a full bill of materials." },
-        { title: "Deployment", text: "Units ship pre-configured." },
-        { title: "Ongoing Support", text: "Continuous remote monitoring." }
+        { title: "Discovery Call", text: "A 30-minute call to understand your load profile, site conditions, timeline and budget envelope." },
+        { title: "System Sizing", text: "Our engineering team models your irradiance data and load curve to specify the correct configuration and reserve margin." },
+        { title: "Quotation & Financing", text: "You receive a full bill of materials, performance projection and financing options including lease structures." },
+        { title: "Deployment & Commissioning", text: "Units ship pre-configured. Our team or your certified partner commissions the site and hands over Trevoli access." },
+        { title: "Ongoing Support", text: "Continuous remote monitoring, over-the-air updates and scheduled maintenance keep every asset at peak availability." }
       ]},
       contact: { items: [
         { title: "Sales & Partnerships", email: "partners@koral.energy" },
@@ -483,15 +495,25 @@ input,textarea,select{outline:none}
       cta: { title: "Power Shouldn't Be Bound by the Grid.", text: "Start your deployment conversation today." }
     },
     footer: {
-      brand: { name: "KORAL", tagline: "Portable solar-powered energy ecosystems.", socials: [{ label: "in", url: "#" },{ label: "X", url: "#" },{ label: "YT", url: "#" }] },
-      company: { title: "Company", links: [{ label: "About Us", nav: "about" },{ label: "Careers", nav: "about" },{ label: "Contact", nav: "partner" }] },
-      products: { title: "Products", links: [{ label: "Koral Nomad", nav: "products" },{ label: "Koral Depot", nav: "products" },{ label: "Koral Responder", nav: "products" },{ label: "Trevoli", nav: "trevoli" }] },
-      resources: { title: "Resources", links: [{ label: "Specifications", nav: "products" },{ label: "FAQ", nav: "products" },{ label: "Partner Program", nav: "partner" }] },
+      brand: { name: "KORAL", tagline: "Portable solar-powered energy ecosystems. Built for a world beyond the grid.", socials: [
+        { label: "in", url: "#" }, { label: "X", url: "#" }, { label: "YT", url: "#" }
+      ]},
+      company: { title: "Company", links: [
+        { label: "About Us", nav: "about" }, { label: "Careers", nav: "about" }, { label: "Contact", nav: "partner" }
+      ]},
+      products: { title: "Products", links: [
+        { label: "Koral Nomad", nav: "products" }, { label: "Koral Depot", nav: "products" }, { label: "Koral Responder", nav: "products" }, { label: "Trevoli", nav: "trevoli" }
+      ]},
+      resources: { title: "Resources", links: [
+        { label: "Specifications", nav: "products" }, { label: "FAQ", nav: "products" }, { label: "Partner Program", nav: "partner" }
+      ]},
       copyright: { name: "Koral", legal: "Privacy · Terms" }
     }
   };
 
-  // ============ STATE ============
+  // ============================================================
+  // STATE
+  // ============================================================
   let content = JSON.parse(JSON.stringify(DEFAULT_CONTENT));
   let currentSection = 'home';
   let saveTimeout = null;
@@ -507,23 +529,20 @@ input,textarea,select{outline:none}
     { id: 'footer', label: 'Footer', icon: '<line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="17" x2="21" y2="17"/><line x1="3" y1="13" x2="21" y2="13"/>' }
   ];
 
-  // ============ INIT ============
+  // ============================================================
+  // INIT
+  // ============================================================
   function init() {
     try {
       bootMsg.textContent = 'Rendering sidebar...';
       renderSidebar();
-
       bootMsg.textContent = 'Loading content...';
       loadContent();
-
       bootMsg.textContent = 'Rendering section...';
       renderSection('home');
-
       bindTopbar();
       bindPublishModal();
       loadGitHubConfig();
-
-      // Success — hide boot, show app
       boot.classList.add('boot--hidden');
       document.getElementById('app').style.display = 'grid';
       setStatus('ok', 'Ready');
@@ -534,21 +553,17 @@ input,textarea,select{outline:none}
   }
 
   function loadContent() {
-    // 1. Try localStorage (unsaved changes)
     try {
       const saved = localStorage.getItem(LS_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
         content = deepMerge(JSON.parse(JSON.stringify(DEFAULT_CONTENT)), parsed);
-        console.info('Loaded from localStorage');
         return;
       }
     } catch (e) {
       console.warn('localStorage load failed:', e);
       localStorage.removeItem(LS_KEY);
     }
-    // 2. Use embedded defaults (no fetch — works from file://)
-    console.info('Using embedded defaults');
   }
 
   function deepMerge(target, source) {
@@ -556,18 +571,16 @@ input,textarea,select{outline:none}
     for (const key of Object.keys(source)) {
       const sv = source[key];
       const tv = target[key];
-      if (Array.isArray(sv)) {
-        target[key] = sv;
-      } else if (sv && typeof sv === 'object' && tv && typeof tv === 'object' && !Array.isArray(tv)) {
-        deepMerge(tv, sv);
-      } else {
-        target[key] = sv;
-      }
+      if (Array.isArray(sv)) target[key] = sv;
+      else if (sv && typeof sv === 'object' && tv && typeof tv === 'object' && !Array.isArray(tv)) deepMerge(tv, sv);
+      else target[key] = sv;
     }
     return target;
   }
 
-  // ============ SIDEBAR ============
+  // ============================================================
+  // SIDEBAR
+  // ============================================================
   function renderSidebar() {
     const nav = document.getElementById('sidebarNav');
     const groups = [
@@ -598,7 +611,9 @@ input,textarea,select{outline:none}
     });
   }
 
-  // ============ SECTION RENDER ============
+  // ============================================================
+  // SECTION RENDER
+  // ============================================================
   function renderSection(id) {
     const titles = { site: 'Site Settings', email: 'Email & Backend', home: 'Home Page', about: 'About Page', products: 'Products Page', trevoli: 'Trevoli Page', partner: 'Partner Page', footer: 'Footer' };
     document.getElementById('pageTitle').innerHTML = `${titles[id] || id} <small>Edit all content without touching code</small>`;
@@ -625,7 +640,9 @@ input,textarea,select{outline:none}
     bindSectionEvents();
   }
 
-  // ============ SITE ============
+  // ============================================================
+  // SITE
+  // ============================================================
   function renderSite() {
     return `
       ${card('Brand Identity', 'Site name and tagline.', [
@@ -635,7 +652,9 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ EMAIL ============
+  // ============================================================
+  // EMAIL
+  // ============================================================
   function renderEmail() {
     const e = content.email;
     return `
@@ -675,7 +694,9 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ HOME ============
+  // ============================================================
+  // HOME
+  // ============================================================
   function renderHome() {
     const h = content.home;
     return `
@@ -711,10 +732,10 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'home.features.title', h.features.title)
       ])}
 
-      ${listCard('Feature Cards', '', 'home.features.items', h.features.items, [
+      ${listCard('Feature Cards', 'Four feature cards.', 'home.features.items', h.features.items, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' },
-        { key: 'imageUrl', label: 'Image URL (optional)', type: 'media', mediaType: 'image' }
+        { key: 'imageUrl', label: 'Image', type: 'media', mediaType: 'image' }
       ])}
 
       ${card('Products Teaser Header', '', [
@@ -723,15 +744,15 @@ input,textarea,select{outline:none}
         field('Description', 'textarea', 'home.productsTeaser.text', h.productsTeaser.text)
       ])}
 
-      ${listCard('Product Cards', '', 'home.productsTeaser.items', h.productsTeaser.items, [
+      ${listCard('Product Cards', 'Three product cards on home page.', 'home.productsTeaser.items', h.productsTeaser.items, [
         { key: 'code', label: 'Product Code', type: 'text' },
         { key: 'tag', label: 'Tag', type: 'text' },
         { key: 'title', label: 'Product Name', type: 'text' },
         { key: 'desc', label: 'Description', type: 'textarea' },
-        { key: 'imageUrl', label: 'Image URL', type: 'media', mediaType: 'image' }
+        { key: 'imageUrl', label: 'Product Image', type: 'media', mediaType: 'image' }
       ])}
 
-      ${card('Stats Header', '', [
+      ${card('Stats Comparison Header', '', [
         field('Eyebrow', 'text', 'home.stats.eyebrow', h.stats.eyebrow),
         field('Title', 'text', 'home.stats.title', h.stats.title)
       ])}
@@ -747,10 +768,10 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'home.industries.title', h.industries.title)
       ])}
 
-      ${listCard('Industry Cards', '', 'home.industries.items', h.industries.items, [
+      ${listCard('Industry Cards', 'Three industry use cases.', 'home.industries.items', h.industries.items, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' },
-        { key: 'imageUrl', label: 'Image URL', type: 'media', mediaType: 'image' }
+        { key: 'imageUrl', label: 'Image', type: 'media', mediaType: 'image' }
       ])}
 
       ${card('Trevoli Teaser', '', [
@@ -759,7 +780,7 @@ input,textarea,select{outline:none}
         field('Description', 'textarea', 'home.trevoliTeaser.text', h.trevoliTeaser.text),
         field('Badge Value', 'text', 'home.trevoliTeaser.badgeValue', h.trevoliTeaser.badgeValue),
         field('Badge Label', 'text', 'home.trevoliTeaser.badgeLabel', h.trevoliTeaser.badgeLabel),
-        field('Visual Image URL', 'media', 'home.trevoliTeaser.imageUrl', h.trevoliTeaser.imageUrl, 'image')
+        field('Visual Image', 'media', 'home.trevoliTeaser.imageUrl', h.trevoliTeaser.imageUrl, 'image')
       ])}
 
       ${card('Testimonials Header', '', [
@@ -767,12 +788,12 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'home.testimonials.title', h.testimonials.title)
       ])}
 
-      ${listCard('Testimonials', '', 'home.testimonials.items', h.testimonials.items, [
+      ${listCard('Testimonials', 'Customer quotes.', 'home.testimonials.items', h.testimonials.items, [
         { key: 'quote', label: 'Quote', type: 'textarea' },
         { key: 'initials', label: 'Initials', type: 'text' },
         { key: 'name', label: 'Name', type: 'text' },
         { key: 'role', label: 'Role', type: 'text' },
-        { key: 'avatarUrl', label: 'Avatar Image URL', type: 'media', mediaType: 'image' }
+        { key: 'avatarUrl', label: 'Avatar Photo', type: 'media', mediaType: 'image' }
       ])}
 
       ${card('Bottom CTA', '', [
@@ -790,7 +811,7 @@ input,textarea,select{outline:none}
         <div class="section-card__head">
           <div>
             <div class="section-card__title">Video Carousel</div>
-            <div class="section-card__desc">Videos that play in section 2. Paste any MP4 URL or CDN link.</div>
+            <div class="section-card__desc">Upload an MP4 directly, or paste a video URL. Uploaded videos save to <code>assets/videos/</code> on GitHub.</div>
           </div>
           <div><button class="btn btn--ghost btn--sm" data-add="home.carousel.slides">+ Add Slide</button></div>
         </div>
@@ -799,36 +820,54 @@ input,textarea,select{outline:none}
             <div class="list-item__head">
               <div class="list-item__title">Slide ${i+1}</div>
               <div class="list-item__controls">
+                <button class="list-item__btn" data-move="up" data-list="home.carousel.slides" data-index="${i}" title="Move up">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+                </button>
+                <button class="list-item__btn" data-move="down" data-list="home.carousel.slides" data-index="${i}" title="Move down">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
                 <button class="list-item__btn list-item__btn--danger" data-remove-list="home.carousel.slides" data-index="${i}" title="Delete">
                   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
                 </button>
               </div>
             </div>
-            <div class="field-row">
-              <div class="field">
-                <label class="field__label">Title</label>
-                <input class="field__input" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="title" value="${esc(s.title)}">
-              </div>
-              <div class="field">
-                <label class="field__label">Video URL (MP4)</label>
-                <input class="field__input" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="videoUrl" value="${esc(s.videoUrl)}">
-              </div>
+
+            <div class="field">
+              <label class="field__label">Title</label>
+              <input class="field__input" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="title" value="${esc(s.title)}">
             </div>
+
+            ${mediaFieldHTML({
+              label: 'Video (MP4, WebM, MOV)',
+              kind: 'video',
+              listPath: 'home.carousel.slides',
+              listIndex: i,
+              listKey: 'videoUrl',
+              value: s.videoUrl
+            })}
+
             <div class="field">
               <label class="field__label">Description</label>
               <textarea class="field__textarea" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="text">${esc(s.text)}</textarea>
             </div>
-            <div class="field">
-              <label class="field__label">Poster Image URL</label>
-              <input class="field__input" data-list-path="home.carousel.slides" data-list-index="${i}" data-list-key="posterUrl" value="${esc(s.posterUrl)}">
-              ${s.posterUrl ? `<div class="media-preview"><img src="${esc(s.posterUrl)}" alt="" loading="lazy"><span class="media-preview__badge">Poster Preview</span></div>` : ''}
-            </div>
+
+            ${mediaFieldHTML({
+              label: 'Poster Image (optional)',
+              kind: 'image',
+              listPath: 'home.carousel.slides',
+              listIndex: i,
+              listKey: 'posterUrl',
+              value: s.posterUrl
+            })}
           </div>
         `).join('')}
       </div>
     `;
   }
 
+  // ============================================================
+  // ABOUT
+  // ============================================================
   function renderAbout() {
     const a = content.about;
     return `
@@ -837,6 +876,7 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'about.hero.title', a.hero.title),
         field('Subtitle', 'textarea', 'about.hero.subtitle', a.hero.subtitle)
       ])}
+
       ${card('Mission Section', '', [
         field('Eyebrow', 'text', 'about.mission.eyebrow', a.mission.eyebrow),
         field('Title', 'text', 'about.mission.title', a.mission.title),
@@ -844,45 +884,54 @@ input,textarea,select{outline:none}
         field('Paragraph 2', 'textarea', 'about.mission.text2', a.mission.text2),
         field('Badge Value', 'text', 'about.mission.badgeValue', a.mission.badgeValue),
         field('Badge Label', 'text', 'about.mission.badgeLabel', a.mission.badgeLabel),
-        field('Visual Image URL', 'media', 'about.mission.imageUrl', a.mission.imageUrl, 'image')
+        field('Visual Image', 'media', 'about.mission.imageUrl', a.mission.imageUrl, 'image')
       ])}
+
       ${card('Values Header', '', [
         field('Eyebrow', 'text', 'about.values.eyebrow', a.values.eyebrow),
         field('Title', 'text', 'about.values.title', a.values.title)
       ])}
+
       ${listCard('Value Cards', '', 'about.values.items', a.values.items, [
         { key: 'num', label: 'Number', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
+
       ${card('Timeline Header', '', [
         field('Eyebrow', 'text', 'about.timeline.eyebrow', a.timeline.eyebrow),
         field('Title', 'text', 'about.timeline.title', a.timeline.title)
       ])}
+
       ${listCard('Timeline Items', '', 'about.timeline.items', a.timeline.items, [
         { key: 'year', label: 'Year', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
+
       ${card('Numbers Header', '', [
         field('Eyebrow', 'text', 'about.numbers.eyebrow', a.numbers.eyebrow),
         field('Title', 'text', 'about.numbers.title', a.numbers.title)
       ])}
+
       ${listCard('Number Cards', '', 'about.numbers.items', a.numbers.items, [
         { key: 'value', label: 'Value', type: 'text' },
         { key: 'label', label: 'Label', type: 'text' }
       ])}
+
       ${card('Team Header', '', [
         field('Eyebrow', 'text', 'about.team.eyebrow', a.team.eyebrow),
         field('Title', 'text', 'about.team.title', a.team.title),
         field('Description', 'textarea', 'about.team.text', a.team.text)
       ])}
+
       ${listCard('Team Members', '', 'about.team.items', a.team.items, [
         { key: 'initials', label: 'Initials', type: 'text' },
         { key: 'name', label: 'Name', type: 'text' },
         { key: 'role', label: 'Role', type: 'text' },
-        { key: 'avatarUrl', label: 'Photo URL', type: 'media', mediaType: 'image' }
+        { key: 'avatarUrl', label: 'Photo', type: 'media', mediaType: 'image' }
       ])}
+
       ${card('CTA', '', [
         field('Title', 'text', 'about.cta.title', a.cta.title),
         field('Description', 'textarea', 'about.cta.text', a.cta.text)
@@ -890,6 +939,9 @@ input,textarea,select{outline:none}
     `;
   }
 
+  // ============================================================
+  // PRODUCTS
+  // ============================================================
   function renderProducts() {
     const p = content.products;
     return `
@@ -898,37 +950,44 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'products.hero.title', p.hero.title),
         field('Subtitle', 'textarea', 'products.hero.subtitle', p.hero.subtitle)
       ])}
+
       ${listCard('Product Catalog', 'Shown in the tabbed catalog.', 'products.items', p.items, [
         { key: 'category', label: 'Category (portable/stationary/rapid)', type: 'text' },
         { key: 'code', label: 'Product Code', type: 'text' },
         { key: 'tag', label: 'Tag', type: 'text' },
         { key: 'title', label: 'Product Name', type: 'text' },
         { key: 'desc', label: 'Description', type: 'textarea' },
-        { key: 'imageUrl', label: 'Image URL', type: 'media', mediaType: 'image' }
+        { key: 'imageUrl', label: 'Product Image', type: 'media', mediaType: 'image' }
       ])}
+
       ${card('Comparison Table Header', '', [
         field('Eyebrow', 'text', 'products.comparison.eyebrow', p.comparison.eyebrow),
         field('Title', 'text', 'products.comparison.title', p.comparison.title)
       ])}
+
       ${card('Deep Dive Section', '', [
         field('Eyebrow', 'text', 'products.deepDive.eyebrow', p.deepDive.eyebrow),
         field('Title', 'text', 'products.deepDive.title', p.deepDive.title),
         field('Description', 'textarea', 'products.deepDive.text', p.deepDive.text),
         field('Badge Value', 'text', 'products.deepDive.badgeValue', p.deepDive.badgeValue),
         field('Badge Label', 'text', 'products.deepDive.badgeLabel', p.deepDive.badgeLabel),
-        field('Visual Image URL', 'media', 'products.deepDive.imageUrl', p.deepDive.imageUrl, 'image')
+        field('Visual Image', 'media', 'products.deepDive.imageUrl', p.deepDive.imageUrl, 'image')
       ])}
+
       ${listCard('Deep Dive Bullets', '', 'products.deepDive.items', p.deepDive.items, [
         { key: '', label: 'Text', type: 'text' }
       ], 'simple')}
+
       ${card('FAQ Header', '', [
         field('Eyebrow', 'text', 'products.faq.eyebrow', p.faq.eyebrow),
         field('Title', 'text', 'products.faq.title', p.faq.title)
       ])}
+
       ${listCard('FAQ Items', '', 'products.faq.items', p.faq.items, [
         { key: 'q', label: 'Question', type: 'text' },
         { key: 'a', label: 'Answer', type: 'textarea' }
       ])}
+
       ${card('CTA', '', [
         field('Title', 'text', 'products.cta.title', p.cta.title),
         field('Description', 'textarea', 'products.cta.text', p.cta.text)
@@ -936,6 +995,9 @@ input,textarea,select{outline:none}
     `;
   }
 
+  // ============================================================
+  // TREVOLI
+  // ============================================================
   function renderTrevoli() {
     const t = content.trevoli;
     return `
@@ -944,50 +1006,61 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'trevoli.hero.title', t.hero.title),
         field('Subtitle', 'textarea', 'trevoli.hero.subtitle', t.hero.subtitle)
       ])}
+
       ${card('Dashboard Mockup', 'The fake app interface preview.', [
         field('Window Title', 'text', 'trevoli.dashboard.title', t.dashboard.title),
         field('Chart Title', 'text', 'trevoli.dashboard.chartTitle', t.dashboard.chartTitle),
         field('Chart Unit', 'text', 'trevoli.dashboard.chartUnit', t.dashboard.chartUnit),
         field('Chart Data (comma-separated)', 'text', 'trevoli.dashboard.chartData', t.dashboard.chartData)
       ])}
+
       ${listCard('Sidebar Items', '', 'trevoli.dashboard.sidebar', t.dashboard.sidebar, [
         { key: '', label: 'Label', type: 'text' }
       ], 'simple')}
+
       ${listCard('Dashboard Stats', '', 'trevoli.dashboard.stats', t.dashboard.stats, [
         { key: 'label', label: 'Label', type: 'text' },
         { key: 'value', label: 'Value', type: 'text' }
       ])}
+
       ${card('Capabilities Header', '', [
         field('Eyebrow', 'text', 'trevoli.capabilities.eyebrow', t.capabilities.eyebrow),
         field('Title', 'text', 'trevoli.capabilities.title', t.capabilities.title)
       ])}
+
       ${listCard('Capability Cards', '', 'trevoli.capabilities.items', t.capabilities.items, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
+
       ${card('Architecture Section', '', [
         field('Eyebrow', 'text', 'trevoli.architecture.eyebrow', t.architecture.eyebrow),
         field('Title', 'text', 'trevoli.architecture.title', t.architecture.title),
         field('Description', 'textarea', 'trevoli.architecture.text', t.architecture.text)
       ])}
+
       ${listCard('Architecture Pills', '', 'trevoli.architecture.pills', t.architecture.pills, [
         { key: '', label: 'Text', type: 'text' }
       ], 'simple')}
+
       ${listCard('Architecture Steps', '', 'trevoli.architecture.steps', t.architecture.steps, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
+
       ${card('Security Section', '', [
         field('Eyebrow', 'text', 'trevoli.security.eyebrow', t.security.eyebrow),
         field('Title', 'text', 'trevoli.security.title', t.security.title),
         field('Description', 'textarea', 'trevoli.security.text', t.security.text),
         field('Badge Value', 'text', 'trevoli.security.badgeValue', t.security.badgeValue),
         field('Badge Label', 'text', 'trevoli.security.badgeLabel', t.security.badgeLabel),
-        field('Visual Image URL', 'media', 'trevoli.security.imageUrl', t.security.imageUrl, 'image')
+        field('Visual Image', 'media', 'trevoli.security.imageUrl', t.security.imageUrl, 'image')
       ])}
+
       ${listCard('Security Bullets', '', 'trevoli.security.items', t.security.items, [
         { key: '', label: 'Text', type: 'text' }
       ], 'simple')}
+
       ${card('CTA', '', [
         field('Title', 'text', 'trevoli.cta.title', t.cta.title),
         field('Description', 'textarea', 'trevoli.cta.text', t.cta.text)
@@ -995,6 +1068,9 @@ input,textarea,select{outline:none}
     `;
   }
 
+  // ============================================================
+  // PARTNER
+  // ============================================================
   function renderPartner() {
     const p = content.partner;
     return `
@@ -1003,34 +1079,42 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'partner.hero.title', p.hero.title),
         field('Subtitle', 'textarea', 'partner.hero.subtitle', p.hero.subtitle)
       ])}
+
       ${card('Partner Types Header', '', [
         field('Eyebrow', 'text', 'partner.types.eyebrow', p.types.eyebrow),
         field('Title', 'text', 'partner.types.title', p.types.title)
       ])}
+
       ${listCard('Partner Type Cards', '', 'partner.types.items', p.types.items, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
+
       ${listCard('Partner Benefits', '', 'partner.types.benefits', p.types.benefits, [
         { key: '', label: 'Text', type: 'text' }
       ], 'simple')}
+
       ${card('Form Section', '', [
         field('Eyebrow', 'text', 'partner.form.eyebrow', p.form.eyebrow),
         field('Title', 'text', 'partner.form.title', p.form.title),
         field('Footer Note', 'textarea', 'partner.form.note', p.form.note)
       ])}
+
       ${card('Process Header', '', [
         field('Eyebrow', 'text', 'partner.process.eyebrow', p.process.eyebrow),
         field('Title', 'text', 'partner.process.title', p.process.title)
       ])}
+
       ${listCard('Process Steps', '', 'partner.process.items', p.process.items, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
+
       ${listCard('Contact Cards', '', 'partner.contact.items', p.contact.items, [
         { key: 'title', label: 'Department', type: 'text' },
         { key: 'email', label: 'Email Address', type: 'text' }
       ])}
+
       ${card('CTA', '', [
         field('Title', 'text', 'partner.cta.title', p.cta.title),
         field('Description', 'textarea', 'partner.cta.text', p.cta.text)
@@ -1038,6 +1122,9 @@ input,textarea,select{outline:none}
     `;
   }
 
+  // ============================================================
+  // FOOTER
+  // ============================================================
   function renderFooter() {
     const f = content.footer;
     return `
@@ -1045,27 +1132,33 @@ input,textarea,select{outline:none}
         field('Brand Name', 'text', 'footer.brand.name', f.brand.name),
         field('Tagline', 'textarea', 'footer.brand.tagline', f.brand.tagline)
       ])}
+
       ${listCard('Social Links', '', 'footer.brand.socials', f.brand.socials, [
         { key: 'label', label: 'Label', type: 'text' },
         { key: 'url', label: 'URL', type: 'text' }
       ])}
+
       ${card('Column Headings', '', [
         field('Company Column Title', 'text', 'footer.company.title', f.company.title),
         field('Products Column Title', 'text', 'footer.products.title', f.products.title),
         field('Resources Column Title', 'text', 'footer.resources.title', f.resources.title)
       ])}
+
       ${listCard('Company Links', '', 'footer.company.links', f.company.links, [
         { key: 'label', label: 'Link Text', type: 'text' },
         { key: 'nav', label: 'Target Page', type: 'text' }
       ])}
+
       ${listCard('Products Links', '', 'footer.products.links', f.products.links, [
         { key: 'label', label: 'Link Text', type: 'text' },
         { key: 'nav', label: 'Target Page', type: 'text' }
       ])}
+
       ${listCard('Resources Links', '', 'footer.resources.links', f.resources.links, [
         { key: 'label', label: 'Link Text', type: 'text' },
         { key: 'nav', label: 'Target Page', type: 'text' }
       ])}
+
       ${card('Copyright', '', [
         field('Brand Name', 'text', 'footer.copyright.name', f.copyright.name),
         field('Legal Text', 'text', 'footer.copyright.legal', f.copyright.legal)
@@ -1073,7 +1166,9 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ HELPERS ============
+  // ============================================================
+  // COMPONENT HELPERS
+  // ============================================================
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
@@ -1101,21 +1196,52 @@ input,textarea,select{outline:none}
       return `<div class="field"><label class="field__label">${label}</label><select class="field__select" data-path="${path}">${options.map(o => `<option value="${o.value}" ${String(value) === String(o.value) ? 'selected' : ''}>${o.label}</option>`).join('')}</select></div>`;
     }
     if (type === 'media') {
-      const preview = value
-        ? (mediaType === 'video'
-            ? `<video src="${v}" muted playsinline preload="metadata"></video><span class="media-preview__badge">Video Preview</span>`
-            : `<img src="${v}" alt="" loading="lazy"><span class="media-preview__badge">Image Preview</span>`)
-        : `<div class="media-preview__empty">No ${mediaType || 'media'} set — paste a URL above</div>`;
-      return `<div class="field"><label class="field__label">${label}</label><input class="field__input" data-path="${path}" value="${v}" placeholder="https://..."><div class="media-preview">${preview}</div></div>`;
+      return mediaFieldHTML({
+        label: label,
+        kind: mediaType || 'image',
+        path: path,
+        value: value
+      });
     }
     return `<div class="field"><label class="field__label">${label}</label><input class="field__input" type="${type}" data-path="${path}" value="${v}"></div>`;
+  }
+
+  function mediaFieldHTML(opts) {
+    const isList = opts.listPath !== undefined && opts.listPath !== '' && opts.listIndex !== null && opts.listIndex !== undefined;
+    const attrs = isList
+      ? `data-list-path="${opts.listPath}" data-list-index="${opts.listIndex}" data-list-key="${opts.listKey}"`
+      : `data-path="${opts.path}"`;
+
+    const uploadAttrs = isList
+      ? `data-upload-kind="${opts.kind}" data-upload-list-path="${opts.listPath}" data-upload-list-index="${opts.listIndex}" data-upload-list-key="${opts.listKey}"`
+      : `data-upload-kind="${opts.kind}" data-upload-path="${opts.path}"`;
+
+    const preview = opts.value
+      ? (opts.kind === 'video'
+          ? `<video src="${esc(opts.value)}" muted playsinline preload="metadata"></video><span class="media-preview__badge">Video Preview</span>`
+          : `<img src="${esc(opts.value)}" alt="" loading="lazy"><span class="media-preview__badge">Image Preview</span>`)
+      : `<div class="media-preview__empty">No ${opts.kind === 'video' ? 'video' : 'image'} yet — paste a URL or click Upload</div>`;
+
+    return `
+      <div class="field">
+        <label class="field__label">${opts.label}</label>
+        <div style="display:flex;gap:8px;align-items:stretch">
+          <input class="field__input" style="flex:1" ${attrs} value="${esc(opts.value || '')}" placeholder="https://... or click Upload →">
+          <button type="button" class="btn btn--ghost upload-btn" ${uploadAttrs} style="white-space:nowrap">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Upload
+          </button>
+        </div>
+        <div class="media-preview">${preview}</div>
+      </div>
+    `;
   }
 
   function listCard(title, desc, path, items, itemFields, mode) {
     const isSimple = mode === 'simple';
     const listItems = (items || []).map((item, i) => {
       const valueGetter = (key) => {
-        if (isSimple || key === '') return typeof item === 'object' ? (item.value ?? '') : item;
+        if (isSimple || key === '') return typeof item === 'object' ? (item.value != null ? item.value : '') : item;
         return item[key];
       };
       return `
@@ -1136,13 +1262,19 @@ input,textarea,select{outline:none}
           </div>
           ${itemFields.map(f => {
             const key = f.key;
-            const val = isSimple ? valueGetter(key) : valueGetter(key);
+            const val = valueGetter(key);
             if (f.type === 'textarea') {
               return `<div class="field"><label class="field__label">${f.label}</label><textarea class="field__textarea" data-list-path="${path}" data-list-index="${i}" data-list-key="${key}">${esc(val)}</textarea></div>`;
             }
             if (f.type === 'media') {
-              const preview = val ? `<img src="${esc(val)}" alt="" loading="lazy">` : `<div class="media-preview__empty">No ${f.mediaType || 'media'} set</div>`;
-              return `<div class="field"><label class="field__label">${f.label}</label><input class="field__input" data-list-path="${path}" data-list-index="${i}" data-list-key="${key}" value="${esc(val)}" placeholder="https://..."><div class="media-preview">${preview}</div></div>`;
+              return mediaFieldHTML({
+                label: f.label,
+                kind: f.mediaType || 'image',
+                listPath: path,
+                listIndex: i,
+                listKey: key,
+                value: val
+              });
             }
             return `<div class="field"><label class="field__label">${f.label}</label><input class="field__input" data-list-path="${path}" data-list-index="${i}" data-list-key="${key}" value="${esc(val)}"></div>`;
           }).join('')}
@@ -1164,7 +1296,9 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ EVENT BINDING ============
+  // ============================================================
+  // EVENT BINDING
+  // ============================================================
   function bindSectionEvents() {
     const area = document.getElementById('contentArea');
 
@@ -1196,10 +1330,14 @@ input,textarea,select{outline:none}
         moveListItem(btn.dataset.list, parseInt(btn.dataset.index, 10), dir);
       });
     });
+
+    // Upload buttons
+    area.querySelectorAll('.upload-btn').forEach(btn => bindUploadButton(btn));
   }
 
   function onFieldInput(e) {
     const path = e.target.dataset.path;
+    if (!path) return;
     let value = e.target.value;
     if (path === 'email.autoReplyEnabled') value = value === 'true';
     setByPath(content, path, value);
@@ -1208,6 +1346,7 @@ input,textarea,select{outline:none}
 
   function onListFieldInput(e) {
     const path = e.target.dataset.listPath;
+    if (!path) return;
     const idx = parseInt(e.target.dataset.listIndex, 10);
     const key = e.target.dataset.listKey;
     const arr = getByPath(content, path);
@@ -1216,7 +1355,6 @@ input,textarea,select{outline:none}
     if (typeof arr[idx] === 'object' && arr[idx] !== null && !Array.isArray(arr[idx])) {
       arr[idx][key] = value;
     } else {
-      // Simple array of strings
       arr[idx] = value;
     }
     scheduleSave();
@@ -1276,7 +1414,125 @@ input,textarea,select{outline:none}
     renderSection(currentSection);
   }
 
-  // ============ SAVE ============
+  // ============================================================
+  // UPLOAD TO GITHUB
+  // ============================================================
+  async function uploadFileToGitHub(file, targetPath) {
+    const repo = document.getElementById('ghRepo').value.trim();
+    const branch = document.getElementById('ghBranch').value.trim() || 'main';
+    const token = document.getElementById('ghToken').value.trim();
+
+    if (!repo || !token) {
+      toast('Open "Publish to GitHub" first and enter your repo + token', 'error');
+      return null;
+    }
+    if (file.size > 100 * 1024 * 1024) {
+      toast('File is ' + (file.size/1048576).toFixed(1) + ' MB — GitHub max is 100 MB', 'error');
+      return null;
+    }
+    if (file.size > 25 * 1024 * 1024) {
+      toast('Large file (' + (file.size/1048576).toFixed(1) + ' MB) — may load slowly', 'info');
+    }
+
+    const base64 = await new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result.split(',')[1]);
+      r.onerror = () => reject(new Error('Could not read file'));
+      r.readAsDataURL(file);
+    });
+
+    let sha = null;
+    try {
+      const g = await fetch(
+        `https://api.github.com/repos/${repo}/contents/${targetPath}?ref=${branch}`,
+        { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } }
+      );
+      if (g.ok) sha = (await g.json()).sha;
+    } catch(e) {}
+
+    const putRes = await fetch(
+      `https://api.github.com/repos/${repo}/contents/${targetPath}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: 'Upload ' + targetPath,
+          content: base64,
+          branch,
+          ...(sha ? { sha } : {})
+        })
+      }
+    );
+
+    if (!putRes.ok) {
+      const err = await putRes.json().catch(() => ({}));
+      throw new Error(err.message || 'Upload failed (' + putRes.status + ')');
+    }
+    return targetPath;
+  }
+
+  function bindUploadButton(btn) {
+    btn.addEventListener('click', () => {
+      const kind = btn.dataset.uploadKind;
+      const path = btn.dataset.uploadPath;
+      const listPath = btn.dataset.uploadListPath;
+      const listIndex = btn.dataset.uploadListIndex ? parseInt(btn.dataset.uploadListIndex, 10) : null;
+      const listKey = btn.dataset.uploadListKey;
+
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = kind === 'video'
+        ? 'video/mp4,video/webm,video/quicktime'
+        : 'image/*';
+
+      input.addEventListener('change', async () => {
+        const file = input.files[0];
+        if (!file) return;
+
+        const safeName = file.name.toLowerCase()
+          .replace(/[^a-z0-9.\-_]/g, '-')
+          .replace(/-+/g, '-');
+        const folder = kind === 'video' ? 'assets/videos' : 'assets/images';
+        const targetPath = folder + '/' + Date.now() + '-' + safeName;
+
+        const originalHTML = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-3-6.7"/></svg> Uploading...';
+
+        try {
+          const result = await uploadFileToGitHub(file, targetPath);
+          if (result) {
+            if (listPath !== undefined && listPath !== '' && listIndex !== null && !isNaN(listIndex)) {
+              const arr = getByPath(content, listPath);
+              if (arr && arr[listIndex]) arr[listIndex][listKey] = result;
+            } else if (path) {
+              setByPath(content, path, result);
+            }
+            scheduleSave();
+            toast('Uploaded ' + (file.size/1048576).toFixed(1) + ' MB — now click "Publish to GitHub"', 'success');
+            renderSection(currentSection);
+          } else {
+            btn.disabled = false;
+            btn.innerHTML = originalHTML;
+          }
+        } catch(e) {
+          toast('Upload failed: ' + e.message, 'error');
+          btn.disabled = false;
+          btn.innerHTML = originalHTML;
+        }
+      });
+
+      input.click();
+    });
+  }
+
+  // ============================================================
+  // SAVE
+  // ============================================================
   function scheduleSave() {
     setStatus('warn', 'Saving...');
     clearTimeout(saveTimeout);
@@ -1299,11 +1555,14 @@ input,textarea,select{outline:none}
     if (label) label.textContent = text;
   }
 
-  // ============ TOPBAR ============
+  // ============================================================
+  // TOPBAR
+  // ============================================================
   function bindTopbar() {
     document.getElementById('btnPreview').addEventListener('click', () => {
       localStorage.setItem(LS_KEY, JSON.stringify(content));
-      toast('Saved to localStorage. Open your site in a new tab and add ?preview=1 to the URL.', 'info');
+      toast('Saved locally. Open your site and add ?preview=1 to the URL.', 'info');
+      window.open('../index.html?preview=1', '_blank');
     });
 
     document.getElementById('btnReset').addEventListener('click', () => {
@@ -1338,7 +1597,9 @@ input,textarea,select{outline:none}
     toast('content.json downloaded — commit it to your repo', 'success');
   }
 
-  // ============ PUBLISH ============
+  // ============================================================
+  // PUBLISH
+  // ============================================================
   function bindPublishModal() {
     const modal = document.getElementById('publishModal');
     document.getElementById('publishCancel').addEventListener('click', () => modal.classList.remove('is-open'));
@@ -1421,7 +1682,9 @@ input,textarea,select{outline:none}
     }
   }
 
-  // ============ CONFIRM ============
+  // ============================================================
+  // CONFIRM
+  // ============================================================
   let confirmCallback = null;
   function confirmAction(title, text, onOk) {
     document.getElementById('confirmTitle').textContent = title;
@@ -1439,7 +1702,9 @@ input,textarea,select{outline:none}
     confirmCallback = null;
   });
 
-  // ============ TOAST ============
+  // ============================================================
+  // TOAST
+  // ============================================================
   function toast(message, kind) {
     kind = kind || 'info';
     const stack = document.getElementById('toastStack');
@@ -1460,7 +1725,9 @@ input,textarea,select{outline:none}
     }, 3500);
   }
 
-  // ============ BOOT ============
+  // ============================================================
+  // BOOT
+  // ============================================================
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

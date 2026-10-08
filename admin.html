@@ -26,10 +26,7 @@ button{cursor:pointer;border:0;background:none}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
 input,textarea,select{outline:none}
-
 .app{display:grid;grid-template-columns:280px 1fr;height:100vh;overflow:hidden}
-
-/* SIDEBAR */
 .sidebar{background:var(--bg-1);border-right:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
 .sidebar__head{padding:22px 22px 18px;border-bottom:1px solid var(--line)}
 .sidebar__logo{font-family:var(--display);font-size:1.15rem;font-weight:800;letter-spacing:.14em}
@@ -46,16 +43,12 @@ input,textarea,select{outline:none}
 .status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px currentColor}
 .status-dot.warn{background:var(--amber)}
 .status-dot.err{background:var(--red)}
-
-/* MAIN */
 .main{display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
 .topbar{height:62px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:var(--bg-1);flex-shrink:0;gap:20px}
 .topbar__title{font-family:var(--display);font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
 .topbar__title small{color:var(--txt-3);font-weight:400;font-size:.78rem;font-family:var(--body);margin-left:10px;letter-spacing:0;text-transform:none}
 .topbar__actions{display:flex;gap:8px;align-items:center}
 .content{flex:1;overflow-y:auto;padding:32px 40px 80px;max-width:1100px;width:100%}
-
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;padding:9px 16px;border-radius:8px;transition:.2s var(--ease);white-space:nowrap;border:1px solid transparent}
 .btn svg{width:14px;height:14px;stroke-width:2}
 .btn--primary{background:var(--lime);color:#08080a}
@@ -66,14 +59,11 @@ input,textarea,select{outline:none}
 .btn--danger:hover{background:rgba(255,95,87,.1)}
 .btn--sm{padding:6px 11px;font-size:.73rem}
 .btn:disabled{opacity:.5;cursor:not-allowed}
-
-/* FORM */
 .section-card{background:var(--bg-1);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:20px}
 .section-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .section-card__title{font-family:var(--display);font-size:.95rem;font-weight:600}
 .section-card__desc{font-size:.78rem;color:var(--txt-3);margin-top:3px;line-height:1.55}
 .section-card__desc code{font-family:var(--mono);font-size:.72rem;background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--lime)}
-
 .field{margin-bottom:18px}
 .field:last-child{margin-bottom:0}
 .field__label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);margin-bottom:7px}
@@ -84,14 +74,10 @@ input,textarea,select{outline:none}
 .field__input[type="color"]{padding:4px;height:38px;cursor:pointer}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field-row--3{grid-template-columns:1fr 1fr 1fr}
-
-/* MEDIA PREVIEW */
 .media-preview{margin-top:10px;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--bg-2);position:relative;min-height:60px;display:grid;place-items:center}
 .media-preview img,.media-preview video{width:100%;max-height:240px;object-fit:cover;display:block}
 .media-preview__empty{padding:20px;text-align:center;color:var(--txt-4);font-size:.75rem}
 .media-preview__badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.75);color:var(--lime);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px}
-
-/* LIST */
 .list-item{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px;background:var(--bg-2);transition:.2s var(--ease)}
 .list-item:hover{border-color:var(--line-2)}
 .list-item__head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
@@ -100,16 +86,10 @@ input,textarea,select{outline:none}
 .list-item__btn{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;color:var(--txt-3);transition:.15s var(--ease)}
 .list-item__btn:hover{background:var(--bg-4);color:var(--txt)}
 .list-item__btn--danger:hover{color:var(--red);background:rgba(255,95,87,.1)}
-.list-add{display:flex;align-items:center;gap:8px;padding:12px 16px;border:1px dashed var(--line-2);border-radius:10px;color:var(--txt-2);font-size:.8rem;font-weight:500;transition:.2s var(--ease);width:100%;justify-content:center}
-.list-add:hover{border-color:var(--lime-line);color:var(--lime);background:var(--lime-dim)}
-
-/* EMAIL BANNER */
 .email-banner{background:linear-gradient(135deg,rgba(94,234,212,.08),rgba(200,245,66,.05));border:1px solid rgba(94,234,212,.28);border-radius:10px;padding:16px 20px;margin-bottom:22px;display:flex;gap:14px;align-items:flex-start}
 .email-banner svg{width:20px;height:20px;color:var(--cyan);flex-shrink:0;margin-top:1px;stroke-width:2}
 .email-banner__text{font-size:.8rem;color:var(--txt-2);line-height:1.6}
 .email-banner__text strong{color:var(--cyan);display:block;margin-bottom:3px;font-weight:600}
-
-/* MODAL */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:250;display:none;place-items:center;padding:24px}
 .modal.is-open{display:grid}
 .modal__dialog{background:var(--bg-1);border:1px solid var(--line-2);border-radius:16px;padding:28px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto}
@@ -117,8 +97,6 @@ input,textarea,select{outline:none}
 .modal__text{font-size:.85rem;color:var(--txt-2);line-height:1.65;margin-bottom:22px}
 .modal__text code{font-family:var(--mono);font-size:.78rem;background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--lime)}
 .modal__actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px}
-
-/* TOAST */
 .toast-stack{position:fixed;bottom:24px;right:24px;z-index:300;display:flex;flex-direction:column;gap:10px;pointer-events:none}
 .toast{background:var(--bg-3);border:1px solid var(--line-2);border-radius:10px;padding:12px 18px;font-size:.83rem;color:var(--txt);box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;align-items:center;gap:10px;pointer-events:auto;min-width:260px;max-width:420px;animation:toastIn .3s var(--ease)}
 .toast--success{border-color:rgba(40,200,64,.3)}
@@ -129,8 +107,6 @@ input,textarea,select{outline:none}
 .toast__icon{width:18px;height:18px;flex-shrink:0}
 @keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* BOOT */
 .boot{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:9999;text-align:center;padding:40px}
 .boot__inner{max-width:600px}
 .boot__logo{font-family:var(--display);font-size:1.4rem;font-weight:800;letter-spacing:.14em;margin-bottom:24px}
@@ -140,12 +116,10 @@ input,textarea,select{outline:none}
 .boot__error{background:var(--bg-2);border:1px solid rgba(255,95,87,.3);border-radius:12px;padding:22px;margin-top:20px;text-align:left}
 .boot__error pre{font-family:var(--mono);font-size:.78rem;color:var(--red);white-space:pre-wrap;word-break:break-word;line-height:1.6}
 .boot--hidden{display:none}
-
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--bg-4);border-radius:5px;border:2px solid var(--bg)}
 ::-webkit-scrollbar-thumb:hover{background:var(--line-2)}
-
 @media (max-width:900px){
   .app{grid-template-columns:1fr}
   .sidebar{position:fixed;inset:0 25% 0 0;z-index:100;transform:translateX(-100%);transition:.3s var(--ease)}
@@ -282,7 +256,8 @@ input,textarea,select{outline:none}
   const DEFAULT_CONTENT = {
     site: {
       brandName: "KORAL",
-      brandTagline: "Portable solar-powered energy ecosystems. Built for a world beyond the grid."
+      brandTagline: "Portable solar-powered energy ecosystems. Built for a world beyond the grid.",
+      logoUrl: ""
     },
     email: {
       formRecipient: "partners@koral.energy",
@@ -301,6 +276,7 @@ input,textarea,select{outline:none}
         label: "Next-Gen Energy Ecosystem",
         title: "Redefining Energy Freedom, Untethered.",
         subtitle: "Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",
+        bgImage: "",
         stats: [
           { value: "2.4 kW", label: "Solar Generation" },
           { value: "0", label: "Grid Dependence" },
@@ -313,7 +289,8 @@ input,textarea,select{outline:none}
         eyebrow: "Autonomous Infrastructure",
         title: "Powering a Decentralized Future.",
         text: "As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",
-        pills: ["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"]
+        pills: ["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"],
+        bgImage: ""
       },
       carousel: {
         slides: [
@@ -326,6 +303,7 @@ input,textarea,select{outline:none}
       features: {
         eyebrow: "Core Technology",
         title: "Engineered for Uncompromised Reliability.",
+        bgImage: "",
         items: [
           { title: "Proprietary Storage Cells", text: "Advanced Lithium Iron Phosphate chemistries and high-efficiency MPPT controllers delivering maximum energy density and long cycle life.", imageUrl: "" },
           { title: "Complete Off-Grid Autonomy", text: "Self-replenishing ecosystems integrating solar generation, storage reserves and fast charging in a single weather-sealed enclosure.", imageUrl: "" },
@@ -346,6 +324,7 @@ input,textarea,select{outline:none}
       stats: {
         eyebrow: "Benchmarks",
         title: "Performance Metrics.",
+        bgImage: "",
         items: [
           { category: "System Efficiency", koral: "92%", industry: "68%" },
           { category: "Cycle Durability", koral: "88/100", industry: "62/100" },
@@ -355,6 +334,7 @@ input,textarea,select{outline:none}
       industries: {
         eyebrow: "Use Cases",
         title: "Deployed Across Critical Industries.",
+        bgImage: "",
         items: [
           { title: "Commercial Fleets", text: "Rapid battery buffer depots for delivery logistics, municipal transit and commercial EV fleets — without expensive grid expansion.", imageUrl: "" },
           { title: "Emergency Response", text: "Instant, disaster-resilient mobile energy for medical command posts, wildfire operations and civil defence during blackouts.", imageUrl: "" },
@@ -372,17 +352,18 @@ input,textarea,select{outline:none}
       testimonials: {
         eyebrow: "Field Reports",
         title: "Trusted Where the Grid Ends.",
+        bgImage: "",
         items: [
           { quote: "We eliminated a six-figure trenching quote by deploying Koral Depot units at two depots. Charging uptime has been flawless for eleven months.", initials: "MR", name: "M. Reyes", role: "Fleet Director, Regional Transit", avatarUrl: "" },
           { quote: "The Responder units powered our field hospital for nine days after the storm. Setup took one person and under ten minutes.", initials: "AK", name: "A. Kaur", role: "Logistics Lead, Civil Defence", avatarUrl: "" },
           { quote: "Trevoli gives us per-asset telemetry we simply never had. We now schedule maintenance before failures instead of after.", initials: "JT", name: "J. Thompson", role: "Operations Manager, Mining", avatarUrl: "" }
         ]
       },
-      cta: { eyebrow: "Get Started", title: "Power Shouldn't Be Bound by the Grid.", text: "Join the next generation of energy independence with Koral." }
+      cta: { eyebrow: "Get Started", title: "Power Shouldn't Be Bound by the Grid.", text: "Join the next generation of energy independence with Koral.", bgImage: "" }
     },
     about: {
-      hero: { eyebrow: "Our Story", title: "We Build Power That Doesn't Ask Permission.", subtitle: "Koral exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed." },
-      mission: { eyebrow: "Mission", title: "Decentralize the Grid. Permanently.", text1: "Centralised energy infrastructure was designed for a different century. It's expensive to extend, slow to permit and fragile under stress. Our mission is to make autonomous clean energy the default choice — not the backup plan — for fleets, industry and emergency services.", text2: "We do this by building the entire stack ourselves: solar harvesting, storage chemistry, power electronics and the software that orchestrates all of it.", badgeValue: "2030", badgeLabel: "1 GWh Deployed Target", imageUrl: "" },
+      hero: { eyebrow: "Our Story", title: "We Build Power That Doesn't Ask Permission.", subtitle: "Koral exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.", bgImage: "" },
+      mission: { eyebrow: "Mission", title: "Decentralize the Grid. Permanently.", text1: "Centralised energy infrastructure was designed for a different century. It's expensive to extend, slow to permit and fragile under stress. Our mission is to make autonomous clean energy the default choice — not the backup plan — for fleets, industry and emergency services.", text2: "We do this by building the entire stack ourselves: solar harvesting, storage chemistry, power electronics and the software that orchestrates all of it.", badgeValue: "2030", badgeLabel: "1 GWh Deployed Target", imageUrl: "", bgImage: "" },
       values: { eyebrow: "Principles", title: "What We Optimize For.", items: [
         { num: "01", title: "Field Reliability", text: "If it can't survive a dust storm, a monsoon and a -20°C night, it doesn't ship. Every enclosure is tested beyond its rated envelope." },
         { num: "02", title: "Radical Simplicity", text: "Complex energy systems fail at the seams. We reduce part counts, remove single points of failure and design for one-person deployment." },
@@ -408,10 +389,10 @@ input,textarea,select{outline:none}
         { initials: "LF", name: "L. Ferreira", role: "Head of Storage Systems", avatarUrl: "" },
         { initials: "PH", name: "P. Halvorsen", role: "Head of Trevoli", avatarUrl: "" }
       ]},
-      cta: { title: "Build the Decentralized Grid With Us.", text: "We're hiring engineers and partnering with operators worldwide." }
+      cta: { title: "Build the Decentralized Grid With Us.", text: "We're hiring engineers and partnering with operators worldwide.", bgImage: "" }
     },
     products: {
-      hero: { eyebrow: "Hardware Line", title: "Three Platforms. One Ecosystem.", subtitle: "Every Koral unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works." },
+      hero: { eyebrow: "Hardware Line", title: "Three Platforms. One Ecosystem.", subtitle: "Every Koral unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.", bgImage: "" },
       items: [
         { category: "portable", code: "KRL-01", tag: "Portable", title: "Koral Nomad", desc: "Foldable 400W solar array paired with a 2.4 kWh LFP pack. Designed for field teams, survey crews and mobile EV top-up charging.", imageUrl: "", specs: { Capacity: "2.4 kWh", Output: "3.6 kW", Weight: "34 kg", Deploy: "5 min" } },
         { category: "stationary", code: "KRL-02", tag: "Stationary", title: "Koral Depot", desc: "Containerised 60 kWh buffer storage for commercial EV fleets. Installs without grid expansion, trenching or permitting delays.", imageUrl: "", specs: { Capacity: "60 kWh", Output: "22 kW", Footprint: "1.8 m²", Rating: "IP65" } },
@@ -442,10 +423,10 @@ input,textarea,select{outline:none}
         { q: "Can I monitor multiple sites at once?", a: "Yes. Trevoli aggregates telemetry across your entire fleet into a single dashboard, with per-asset drill-down, alerting and exportable reporting." },
         { q: "What is the warranty period?", a: "Storage systems carry a 10-year performance warranty. Power electronics carry 5 years. Full terms are provided with every quotation." }
       ]},
-      cta: { title: "Need a Configuration for Your Site?", text: "Send us your load profile and we'll size a system within 48 hours." }
+      cta: { title: "Need a Configuration for Your Site?", text: "Send us your load profile and we'll size a system within 48 hours.", bgImage: "" }
     },
     trevoli: {
-      hero: { eyebrow: "Software Layer", title: "Trevoli Manages Every Watt.", subtitle: "The intelligence layer across the Koral ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system." },
+      hero: { eyebrow: "Software Layer", title: "Trevoli Manages Every Watt.", subtitle: "The intelligence layer across the Koral ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.", bgImage: "" },
       dashboard: { title: "trevoli.koral — fleet overview", sidebar: ["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],
         stats: [
           { label: "Fleet State of Charge", value: "87%" },
@@ -469,10 +450,10 @@ input,textarea,select{outline:none}
         { title: "Optimize", text: "New optimisation parameters push back down to each unit over the air, improving performance without any site visit." }
       ]},
       security: { eyebrow: "Security", title: "Your Data Stays Yours.", text: "Telemetry is encrypted in transit and at rest. Customers retain full ownership of operational data, and every export format is open and documented — no proprietary lock-in, ever.", items: ["Role-based access with per-site permission scoping","Full audit trail for every access and configuration change","Biometric verification at the physical unit","No third-party data resale, at any tier"], badgeValue: "AES-256", badgeLabel: "End-to-End Encryption", imageUrl: "" },
-      cta: { title: "See Trevoli Running on Your Fleet.", text: "Book a walkthrough with our team and we'll model your site live." }
+      cta: { title: "See Trevoli Running on Your Fleet.", text: "Book a walkthrough with our team and we'll model your site live.", bgImage: "" }
     },
     partner: {
-      hero: { eyebrow: "Partner Program", title: "Let's Deploy Power Together.", subtitle: "Whether you're a fleet operator, systems integrator, distributor or deployment partner — tell us about your site and we'll size a system within 48 hours." },
+      hero: { eyebrow: "Partner Program", title: "Let's Deploy Power Together.", subtitle: "Whether you're a fleet operator, systems integrator, distributor or deployment partner — tell us about your site and we'll size a system within 48 hours.", bgImage: "" },
       types: { eyebrow: "Who We Work With", title: "Four Ways to Partner.", items: [
         { title: "Fleet Operators", text: "Transit authorities, logistics companies and delivery fleets looking to electrify depots without grid expansion costs." },
         { title: "Systems Integrators", text: "Engineering firms specifying autonomous power for remote sites, industrial facilities or critical infrastructure." },
@@ -492,12 +473,12 @@ input,textarea,select{outline:none}
         { title: "Technical Support", email: "support@koral.energy" },
         { title: "Press & Media", email: "press@koral.energy" }
       ]},
-      cta: { title: "Power Shouldn't Be Bound by the Grid.", text: "Start your deployment conversation today." }
+      cta: { title: "Power Shouldn't Be Bound by the Grid.", text: "Start your deployment conversation today.", bgImage: "" }
     },
     footer: {
       brand: { name: "KORAL", tagline: "Portable solar-powered energy ecosystems. Built for a world beyond the grid.", socials: [
         { label: "in", url: "#" }, { label: "X", url: "#" }, { label: "YT", url: "#" }
-      ]},
+      ], logoUrl: "" },
       company: { title: "Company", links: [
         { label: "About Us", nav: "about" }, { label: "Careers", nav: "about" }, { label: "Contact", nav: "partner" }
       ]},
@@ -645,9 +626,10 @@ input,textarea,select{outline:none}
   // ============================================================
   function renderSite() {
     return `
-      ${card('Brand Identity', 'Site name and tagline.', [
+      ${card('Brand Identity', 'Site name, tagline, and logo image.', [
         field('Brand Name', 'text', 'site.brandName', content.site.brandName),
-        field('Brand Tagline', 'textarea', 'site.brandTagline', content.site.brandTagline)
+        field('Brand Tagline', 'textarea', 'site.brandTagline', content.site.brandTagline),
+        field('Logo Image (replaces text if set)', 'media', 'site.logoUrl', content.site.logoUrl, 'image')
       ])}
     `;
   }
@@ -700,10 +682,11 @@ input,textarea,select{outline:none}
   function renderHome() {
     const h = content.home;
     return `
-      ${card('Hero Section', 'Main headline at top of home page.', [
+      ${card('Hero Section', 'Main headline at top of home page. Background image optional.', [
         field('Eyebrow Label', 'text', 'home.hero.label', h.hero.label),
         field('Main Title', 'text', 'home.hero.title', h.hero.title),
-        field('Subtitle', 'textarea', 'home.hero.subtitle', h.hero.subtitle)
+        field('Subtitle', 'textarea', 'home.hero.subtitle', h.hero.subtitle),
+        field('Hero Background Image', 'media', 'home.hero.bgImage', h.hero.bgImage, 'image')
       ])}
 
       ${listCard('Hero Stats', 'Numbered stats under the hero.', 'home.hero.stats', h.hero.stats, [
@@ -718,7 +701,8 @@ input,textarea,select{outline:none}
       ${card('Decentralized Section', 'Section 2 — above the video carousel.', [
         field('Eyebrow', 'text', 'home.decentralized.eyebrow', h.decentralized.eyebrow),
         field('Title', 'text', 'home.decentralized.title', h.decentralized.title),
-        field('Description', 'textarea', 'home.decentralized.text', h.decentralized.text)
+        field('Description', 'textarea', 'home.decentralized.text', h.decentralized.text),
+        field('Section Background Image', 'media', 'home.decentralized.bgImage', h.decentralized.bgImage, 'image')
       ])}
 
       ${listCard('Section 2 Pills', 'Small tags under the description.', 'home.decentralized.pills', h.decentralized.pills, [
@@ -729,10 +713,11 @@ input,textarea,select{outline:none}
 
       ${card('Features Header', '', [
         field('Eyebrow', 'text', 'home.features.eyebrow', h.features.eyebrow),
-        field('Title', 'text', 'home.features.title', h.features.title)
+        field('Title', 'text', 'home.features.title', h.features.title),
+        field('Section Background Image', 'media', 'home.features.bgImage', h.features.bgImage, 'image')
       ])}
 
-      ${listCard('Feature Cards', 'Four feature cards.', 'home.features.items', h.features.items, [
+      ${listCard('Feature Cards', 'Four feature cards with optional images.', 'home.features.items', h.features.items, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' },
         { key: 'imageUrl', label: 'Image', type: 'media', mediaType: 'image' }
@@ -754,7 +739,8 @@ input,textarea,select{outline:none}
 
       ${card('Stats Comparison Header', '', [
         field('Eyebrow', 'text', 'home.stats.eyebrow', h.stats.eyebrow),
-        field('Title', 'text', 'home.stats.title', h.stats.title)
+        field('Title', 'text', 'home.stats.title', h.stats.title),
+        field('Section Background Image', 'media', 'home.stats.bgImage', h.stats.bgImage, 'image')
       ])}
 
       ${listCard('Stat Comparisons', 'Koral vs Industry Avg.', 'home.stats.items', h.stats.items, [
@@ -765,10 +751,11 @@ input,textarea,select{outline:none}
 
       ${card('Industries Header', '', [
         field('Eyebrow', 'text', 'home.industries.eyebrow', h.industries.eyebrow),
-        field('Title', 'text', 'home.industries.title', h.industries.title)
+        field('Title', 'text', 'home.industries.title', h.industries.title),
+        field('Section Background Image', 'media', 'home.industries.bgImage', h.industries.bgImage, 'image')
       ])}
 
-      ${listCard('Industry Cards', 'Three industry use cases.', 'home.industries.items', h.industries.items, [
+      ${listCard('Industry Cards', 'Three industry use cases with optional images.', 'home.industries.items', h.industries.items, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' },
         { key: 'imageUrl', label: 'Image', type: 'media', mediaType: 'image' }
@@ -780,12 +767,13 @@ input,textarea,select{outline:none}
         field('Description', 'textarea', 'home.trevoliTeaser.text', h.trevoliTeaser.text),
         field('Badge Value', 'text', 'home.trevoliTeaser.badgeValue', h.trevoliTeaser.badgeValue),
         field('Badge Label', 'text', 'home.trevoliTeaser.badgeLabel', h.trevoliTeaser.badgeLabel),
-        field('Visual Image', 'media', 'home.trevoliTeaser.imageUrl', h.trevoliTeaser.imageUrl, 'image')
+        field('Visual Image (replaces badge)', 'media', 'home.trevoliTeaser.imageUrl', h.trevoliTeaser.imageUrl, 'image')
       ])}
 
       ${card('Testimonials Header', '', [
         field('Eyebrow', 'text', 'home.testimonials.eyebrow', h.testimonials.eyebrow),
-        field('Title', 'text', 'home.testimonials.title', h.testimonials.title)
+        field('Title', 'text', 'home.testimonials.title', h.testimonials.title),
+        field('Section Background Image', 'media', 'home.testimonials.bgImage', h.testimonials.bgImage, 'image')
       ])}
 
       ${listCard('Testimonials', 'Customer quotes.', 'home.testimonials.items', h.testimonials.items, [
@@ -796,10 +784,11 @@ input,textarea,select{outline:none}
         { key: 'avatarUrl', label: 'Avatar Photo', type: 'media', mediaType: 'image' }
       ])}
 
-      ${card('Bottom CTA', '', [
+      ${card('Bottom CTA', 'Final call-to-action.', [
         field('Eyebrow', 'text', 'home.cta.eyebrow', h.cta.eyebrow),
         field('Title', 'text', 'home.cta.title', h.cta.title),
-        field('Description', 'textarea', 'home.cta.text', h.cta.text)
+        field('Description', 'textarea', 'home.cta.text', h.cta.text),
+        field('Background Image', 'media', 'home.cta.bgImage', h.cta.bgImage, 'image')
       ])}
     `;
   }
@@ -871,10 +860,11 @@ input,textarea,select{outline:none}
   function renderAbout() {
     const a = content.about;
     return `
-      ${card('Hero Section', '', [
+      ${card('Hero Section', 'Page intro with optional background image.', [
         field('Eyebrow', 'text', 'about.hero.eyebrow', a.hero.eyebrow),
         field('Title', 'text', 'about.hero.title', a.hero.title),
-        field('Subtitle', 'textarea', 'about.hero.subtitle', a.hero.subtitle)
+        field('Subtitle', 'textarea', 'about.hero.subtitle', a.hero.subtitle),
+        field('Hero Background Image', 'media', 'about.hero.bgImage', a.hero.bgImage, 'image')
       ])}
 
       ${card('Mission Section', '', [
@@ -884,7 +874,8 @@ input,textarea,select{outline:none}
         field('Paragraph 2', 'textarea', 'about.mission.text2', a.mission.text2),
         field('Badge Value', 'text', 'about.mission.badgeValue', a.mission.badgeValue),
         field('Badge Label', 'text', 'about.mission.badgeLabel', a.mission.badgeLabel),
-        field('Visual Image', 'media', 'about.mission.imageUrl', a.mission.imageUrl, 'image')
+        field('Visual Image (replaces badge)', 'media', 'about.mission.imageUrl', a.mission.imageUrl, 'image'),
+        field('Section Background Image', 'media', 'about.mission.bgImage', a.mission.bgImage, 'image')
       ])}
 
       ${card('Values Header', '', [
@@ -925,7 +916,7 @@ input,textarea,select{outline:none}
         field('Description', 'textarea', 'about.team.text', a.team.text)
       ])}
 
-      ${listCard('Team Members', '', 'about.team.items', a.team.items, [
+      ${listCard('Team Members', 'Team member cards with optional photos.', 'about.team.items', a.team.items, [
         { key: 'initials', label: 'Initials', type: 'text' },
         { key: 'name', label: 'Name', type: 'text' },
         { key: 'role', label: 'Role', type: 'text' },
@@ -934,7 +925,8 @@ input,textarea,select{outline:none}
 
       ${card('CTA', '', [
         field('Title', 'text', 'about.cta.title', a.cta.title),
-        field('Description', 'textarea', 'about.cta.text', a.cta.text)
+        field('Description', 'textarea', 'about.cta.text', a.cta.text),
+        field('Background Image', 'media', 'about.cta.bgImage', a.cta.bgImage, 'image')
       ])}
     `;
   }
@@ -948,7 +940,8 @@ input,textarea,select{outline:none}
       ${card('Hero Section', '', [
         field('Eyebrow', 'text', 'products.hero.eyebrow', p.hero.eyebrow),
         field('Title', 'text', 'products.hero.title', p.hero.title),
-        field('Subtitle', 'textarea', 'products.hero.subtitle', p.hero.subtitle)
+        field('Subtitle', 'textarea', 'products.hero.subtitle', p.hero.subtitle),
+        field('Hero Background Image', 'media', 'products.hero.bgImage', p.hero.bgImage, 'image')
       ])}
 
       ${listCard('Product Catalog', 'Shown in the tabbed catalog.', 'products.items', p.items, [
@@ -971,7 +964,7 @@ input,textarea,select{outline:none}
         field('Description', 'textarea', 'products.deepDive.text', p.deepDive.text),
         field('Badge Value', 'text', 'products.deepDive.badgeValue', p.deepDive.badgeValue),
         field('Badge Label', 'text', 'products.deepDive.badgeLabel', p.deepDive.badgeLabel),
-        field('Visual Image', 'media', 'products.deepDive.imageUrl', p.deepDive.imageUrl, 'image')
+        field('Visual Image (replaces badge)', 'media', 'products.deepDive.imageUrl', p.deepDive.imageUrl, 'image')
       ])}
 
       ${listCard('Deep Dive Bullets', '', 'products.deepDive.items', p.deepDive.items, [
@@ -990,7 +983,8 @@ input,textarea,select{outline:none}
 
       ${card('CTA', '', [
         field('Title', 'text', 'products.cta.title', p.cta.title),
-        field('Description', 'textarea', 'products.cta.text', p.cta.text)
+        field('Description', 'textarea', 'products.cta.text', p.cta.text),
+        field('Background Image', 'media', 'products.cta.bgImage', p.cta.bgImage, 'image')
       ])}
     `;
   }
@@ -1004,7 +998,8 @@ input,textarea,select{outline:none}
       ${card('Hero Section', '', [
         field('Eyebrow', 'text', 'trevoli.hero.eyebrow', t.hero.eyebrow),
         field('Title', 'text', 'trevoli.hero.title', t.hero.title),
-        field('Subtitle', 'textarea', 'trevoli.hero.subtitle', t.hero.subtitle)
+        field('Subtitle', 'textarea', 'trevoli.hero.subtitle', t.hero.subtitle),
+        field('Hero Background Image', 'media', 'trevoli.hero.bgImage', t.hero.bgImage, 'image')
       ])}
 
       ${card('Dashboard Mockup', 'The fake app interface preview.', [
@@ -1054,7 +1049,7 @@ input,textarea,select{outline:none}
         field('Description', 'textarea', 'trevoli.security.text', t.security.text),
         field('Badge Value', 'text', 'trevoli.security.badgeValue', t.security.badgeValue),
         field('Badge Label', 'text', 'trevoli.security.badgeLabel', t.security.badgeLabel),
-        field('Visual Image', 'media', 'trevoli.security.imageUrl', t.security.imageUrl, 'image')
+        field('Visual Image (replaces badge)', 'media', 'trevoli.security.imageUrl', t.security.imageUrl, 'image')
       ])}
 
       ${listCard('Security Bullets', '', 'trevoli.security.items', t.security.items, [
@@ -1063,7 +1058,8 @@ input,textarea,select{outline:none}
 
       ${card('CTA', '', [
         field('Title', 'text', 'trevoli.cta.title', t.cta.title),
-        field('Description', 'textarea', 'trevoli.cta.text', t.cta.text)
+        field('Description', 'textarea', 'trevoli.cta.text', t.cta.text),
+        field('Background Image', 'media', 'trevoli.cta.bgImage', t.cta.bgImage, 'image')
       ])}
     `;
   }
@@ -1077,7 +1073,8 @@ input,textarea,select{outline:none}
       ${card('Hero Section', '', [
         field('Eyebrow', 'text', 'partner.hero.eyebrow', p.hero.eyebrow),
         field('Title', 'text', 'partner.hero.title', p.hero.title),
-        field('Subtitle', 'textarea', 'partner.hero.subtitle', p.hero.subtitle)
+        field('Subtitle', 'textarea', 'partner.hero.subtitle', p.hero.subtitle),
+        field('Hero Background Image', 'media', 'partner.hero.bgImage', p.hero.bgImage, 'image')
       ])}
 
       ${card('Partner Types Header', '', [
@@ -1117,7 +1114,8 @@ input,textarea,select{outline:none}
 
       ${card('CTA', '', [
         field('Title', 'text', 'partner.cta.title', p.cta.title),
-        field('Description', 'textarea', 'partner.cta.text', p.cta.text)
+        field('Description', 'textarea', 'partner.cta.text', p.cta.text),
+        field('Background Image', 'media', 'partner.cta.bgImage', p.cta.bgImage, 'image')
       ])}
     `;
   }
@@ -1130,7 +1128,8 @@ input,textarea,select{outline:none}
     return `
       ${card('Brand', '', [
         field('Brand Name', 'text', 'footer.brand.name', f.brand.name),
-        field('Tagline', 'textarea', 'footer.brand.tagline', f.brand.tagline)
+        field('Tagline', 'textarea', 'footer.brand.tagline', f.brand.tagline),
+        field('Footer Logo (optional override)', 'media', 'footer.brand.logoUrl', f.brand.logoUrl, 'image')
       ])}
 
       ${listCard('Social Links', '', 'footer.brand.socials', f.brand.socials, [
@@ -1331,7 +1330,6 @@ input,textarea,select{outline:none}
       });
     });
 
-    // Upload buttons
     area.querySelectorAll('.upload-btn').forEach(btn => bindUploadButton(btn));
   }
 
@@ -1561,7 +1559,7 @@ input,textarea,select{outline:none}
   function bindTopbar() {
     document.getElementById('btnPreview').addEventListener('click', () => {
       localStorage.setItem(LS_KEY, JSON.stringify(content));
-      toast('Saved locally. Open your site and add ?preview=1 to the URL.', 'info');
+      toast('Saved locally. Opening preview with your changes.', 'info');
       window.open('../index.html?preview=1', '_blank');
     });
 

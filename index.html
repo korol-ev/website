@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Korol — Powering the Future, Untethered</title>
-<meta name="description" content="Korol builds portable solar-powered EV charging, high-capacity energy storage and Trevoli smart energy management for a world beyond the grid.">
+<title>KOROL — Powering the Future, Untethered</title>
+<meta name="description" content="KOROL builds portable solar-powered EV charging, high-capacity energy storage and Trevoli smart energy management for a world beyond the grid.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -249,30 +249,41 @@ td.no{color:var(--txt-3)}
 .page-hero.page-hero-has-bg{background-size:cover;background-position:center;background-repeat:no-repeat}
 .page-hero.page-hero-has-bg::before{background:linear-gradient(to bottom,rgba(10,10,10,.85),rgba(10,10,10,.92));width:100%;height:100%;top:0;right:0;z-index:0}
 .page-hero.page-hero-has-bg::after{display:none}
-.Korol-carousel{width:100%;position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-2);border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.5)}
-.Korol-carousel__viewport{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.Korol-carousel__viewport::-webkit-scrollbar{display:none}
-.Korol-carousel__slide{flex:0 0 100%;scroll-snap-align:start;position:relative;aspect-ratio:16/9;background:#000}
-.Korol-carousel__slide video{width:100%;height:100%;object-fit:cover;display:block}
-.Korol-carousel__overlay{position:absolute;bottom:0;left:0;right:0;padding:60px 44px 40px;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.35) 55%,transparent 100%);pointer-events:none}
-.Korol-carousel__overlay h3{font-family:var(--display);font-size:1.6rem;font-weight:700;margin-bottom:8px;letter-spacing:-.02em;color:#fff}
-.Korol-carousel__overlay p{font-size:.9rem;color:rgba(255,255,255,.72);max-width:520px;line-height:1.6}
-.Korol-carousel__controls{display:flex;justify-content:center;align-items:center;gap:14px;padding:18px 24px;background:var(--bg-2);border-top:1px solid var(--line)}
-.Korol-carousel__playpause{background:none;border:none;color:var(--txt-2);cursor:pointer;padding:4px;display:grid;place-items:center;transition:color .2s ease}
-.Korol-carousel__playpause:hover{color:var(--lime)}
-.Korol-carousel__playpause svg{width:16px;height:16px;fill:currentColor}
-.Korol-carousel__dots{display:flex;align-items:center;gap:8px}
-.Korol-carousel__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18);border:none;cursor:pointer;padding:0;transition:background .3s ease,transform .3s ease,width .3s ease}
-.Korol-carousel__dot:hover{background:rgba(255,255,255,.5)}
-.Korol-carousel__dot.is-active{background:var(--lime);width:26px;border-radius:4px}
-.Korol-carousel__progress{width:100%;max-width:140px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;position:relative}
-.Korol-carousel__progress-inner{height:100%;width:0%;background:var(--lime);border-radius:2px;transition:width .08s linear}
-.Korol-carousel__slide-count{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.12em;color:var(--txt-3);min-width:44px;text-align:right}
-.Korol-carousel__slide-count strong{color:var(--lime)}
+.koral-carousel{width:100%;position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-2);border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.koral-carousel__viewport{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.koral-carousel__viewport::-webkit-scrollbar{display:none}
+.koral-carousel__slide{flex:0 0 100%;scroll-snap-align:start;position:relative;aspect-ratio:16/9;background:#000}
+.koral-carousel__slide video{width:100%;height:100%;object-fit:cover;display:block}
+.koral-carousel__overlay{position:absolute;bottom:0;left:0;right:0;padding:60px 44px 40px;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.35) 55%,transparent 100%);pointer-events:none}
+.koral-carousel__overlay h3{font-family:var(--display);font-size:1.6rem;font-weight:700;margin-bottom:8px;letter-spacing:-.02em;color:#fff}
+.koral-carousel__overlay p{font-size:.9rem;color:rgba(255,255,255,.72);max-width:520px;line-height:1.6}
+.koral-carousel__controls{display:flex;justify-content:center;align-items:center;gap:14px;padding:18px 24px;background:var(--bg-2);border-top:1px solid var(--line)}
+.koral-carousel__playpause{background:none;border:none;color:var(--txt-2);cursor:pointer;padding:4px;display:grid;place-items:center;transition:color .2s ease}
+.koral-carousel__playpause:hover{color:var(--lime)}
+.koral-carousel__playpause svg{width:16px;height:16px;fill:currentColor}
+.koral-carousel__dots{display:flex;align-items:center;gap:8px}
+.koral-carousel__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18);border:none;cursor:pointer;padding:0;transition:background .3s ease,transform .3s ease,width .3s ease}
+.koral-carousel__dot:hover{background:rgba(255,255,255,.5)}
+.koral-carousel__dot.is-active{background:var(--lime);width:26px;border-radius:4px}
+.koral-carousel__progress{width:100%;max-width:140px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;position:relative}
+.koral-carousel__progress-inner{height:100%;width:0%;background:var(--lime);border-radius:2px;transition:width .08s linear}
+.koral-carousel__slide-count{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.12em;color:var(--txt-3);min-width:44px;text-align:right}
+.koral-carousel__slide-count strong{color:var(--lime)}
 .home-decentralized{display:flex;flex-direction:column;gap:56px}
 .home-decentralized__text{max-width:780px;margin:0 auto;text-align:center}
 .home-decentralized__text .lead{margin:0 auto;max-width:640px}
 .home-decentralized__text .pill-row{justify-content:center}
+
+/* Partner logos marquee */
+.partners-marquee{position:relative;overflow:hidden;padding:20px 0;-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
+.partners-marquee__track{display:flex;width:max-content;align-items:center;animation:partnersSlide 40s linear infinite;will-change:transform}
+.partners-marquee:hover .partners-marquee__track{animation-play-state:paused}
+.partner-logo{flex-shrink:0;height:64px;margin-right:80px;display:flex;align-items:center;justify-content:center;opacity:.5;filter:grayscale(100%);transition:opacity .35s var(--ease),filter .35s var(--ease),transform .35s var(--ease);text-decoration:none}
+.partner-logo:hover{opacity:1;filter:grayscale(0%);transform:scale(1.05)}
+.partner-logo img{max-height:64px;max-width:180px;width:auto;height:auto;object-fit:contain;display:block}
+.partner-logo__name{font-family:var(--display);font-size:1.15rem;font-weight:700;letter-spacing:.08em;color:var(--txt-2);white-space:nowrap;text-transform:uppercase}
+@keyframes partnersSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:768px){.partner-logo{height:48px;margin-right:56px}.partner-logo img{max-height:48px;max-width:140px}.partners-marquee__track{animation-duration:28s}}
 
 /* LOADING + ERROR */
 .site-loading{position:fixed;inset:0;background:var(--bg);display:grid;place-items:center;z-index:10000;transition:opacity .35s var(--ease);text-align:center;padding:40px}
@@ -288,7 +299,7 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
 
 @media (max-width:1024px){.grid--4{grid-template-columns:repeat(2,1fr)}.app__body{grid-template-columns:1fr}.app__side{display:none}}
 @media (max-width:900px){.section{padding:calc(var(--section-pad) * .75) 0}.split,.feature-row{grid-template-columns:1fr;gap:44px}.feature-row .visual{order:-1}.grid--3{grid-template-columns:1fr 1fr}.footer__grid{grid-template-columns:1fr 1fr;gap:40px}.app__row{grid-template-columns:1fr}}
-@media (max-width:768px){.nav__menu{display:none}.nav__actions .btn{display:none}.burger{display:flex}.grid--3,.grid--2{grid-template-columns:1fr}.hero{min-height:auto;padding-top:calc(var(--nav-h) + 60px)}.hero__stats{gap:34px;margin-top:44px}.page-hero{padding:calc(var(--nav-h) + 70px) 0 70px}.field-row{grid-template-columns:1fr}.form-card{padding:calc(var(--card-pad) * .75)}.footer__grid{grid-template-columns:1fr;gap:36px}.cta-band{padding:calc(var(--section-pad) * .75) 0}.btn-group{flex-direction:column;align-items:stretch}.btn-group .btn{width:100%}.step{padding:26px 24px}.step::before{position:static;display:block;margin-bottom:8px}.Korol-carousel__overlay{padding:36px 24px 24px}.Korol-carousel__overlay h3{font-size:1.15rem}.Korol-carousel__overlay p{font-size:.8rem}.Korol-carousel__progress{max-width:80px}.Korol-carousel__slide-count{display:none}.logo img{height:48px;max-width:180px}.logo{font-size:1.4rem}}
+@media (max-width:768px){.nav__menu{display:none}.nav__actions .btn{display:none}.burger{display:flex}.grid--3,.grid--2{grid-template-columns:1fr}.hero{min-height:auto;padding-top:calc(var(--nav-h) + 60px)}.hero__stats{gap:34px;margin-top:44px}.page-hero{padding:calc(var(--nav-h) + 70px) 0 70px}.field-row{grid-template-columns:1fr}.form-card{padding:calc(var(--card-pad) * .75)}.footer__grid{grid-template-columns:1fr;gap:36px}.cta-band{padding:calc(var(--section-pad) * .75) 0}.btn-group{flex-direction:column;align-items:stretch}.btn-group .btn{width:100%}.step{padding:26px 24px}.step::before{position:static;display:block;margin-bottom:8px}.koral-carousel__overlay{padding:36px 24px 24px}.koral-carousel__overlay h3{font-size:1.15rem}.koral-carousel__overlay p{font-size:.8rem}.koral-carousel__progress{max-width:80px}.koral-carousel__slide-count{display:none}.logo img{height:48px;max-width:180px}.logo{font-size:1.4rem}}
 @media (max-width:560px){.grid--4{grid-template-columns:1fr}.specs{grid-template-columns:1fr}.logo img{height:40px;max-width:150px}}
 </style>
 </head>
@@ -297,7 +308,7 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
 <!-- LOADING / ERROR OVERLAY -->
 <div class="site-loading" id="siteLoading">
   <div class="site-loading__inner">
-    <div class="site-loading__logo"><span>Korol</span></div>
+    <div class="site-loading__logo"><span>KOROL</span></div>
     <div class="site-loading__spinner" id="loadingSpinner"></div>
     <div class="site-loading__msg" id="loadingMsg">Loading site content…</div>
     <div id="loadingError" style="display:none"></div>
@@ -346,6 +357,18 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
 
   <div class="marquee"><div class="marquee__track" id="marquee-track"></div></div>
 
+  <section class="section section--flush reveal" id="partners-section" style="display:none">
+    <div class="container">
+      <div class="section-head section-head--center" style="margin-bottom:32px">
+        <span class="eyebrow" data-content="home.partners.eyebrow"></span>
+        <h2 class="h2" data-content="home.partners.title"></h2>
+      </div>
+    </div>
+    <div class="partners-marquee">
+      <div class="partners-marquee__track" id="partners-track"></div>
+    </div>
+  </section>
+
   <section class="section reveal" id="decentralized-section">
     <div class="container">
       <div class="home-decentralized">
@@ -355,16 +378,16 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
           <p class="lead" style="margin-top:18px" data-content="home.decentralized.text"></p>
           <div class="pill-row" id="decentralized-pills"></div>
         </div>
-        <div class="Korol-carousel" id="KorolCarousel">
-          <div class="Korol-carousel__viewport" id="carouselViewport" tabindex="0" aria-label="Product showcase"></div>
-          <div class="Korol-carousel__controls">
-            <button class="Korol-carousel__playpause" id="playPauseBtn" aria-label="Pause">
+        <div class="koral-carousel" id="koralCarousel">
+          <div class="koral-carousel__viewport" id="carouselViewport" tabindex="0" aria-label="Product showcase"></div>
+          <div class="koral-carousel__controls">
+            <button class="koral-carousel__playpause" id="playPauseBtn" aria-label="Pause">
               <svg id="pauseIcon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
               <svg id="playIcon" viewBox="0 0 24 24" style="display:none"><path d="M8 5v14l11-7z"/></svg>
             </button>
-            <div class="Korol-carousel__dots" id="carouselDots"></div>
-            <div class="Korol-carousel__progress"><div class="Korol-carousel__progress-inner" id="progressBar"></div></div>
-            <div class="Korol-carousel__slide-count" id="slideCount"></div>
+            <div class="koral-carousel__dots" id="carouselDots"></div>
+            <div class="koral-carousel__progress"><div class="koral-carousel__progress-inner" id="progressBar"></div></div>
+            <div class="koral-carousel__slide-count" id="slideCount"></div>
           </div>
         </div>
       </div>
@@ -736,9 +759,8 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  const loadingEl = document.getElementById('siteLoading');
-  const loadingMsg = document.getElementById('loadingMsg');
   const loadingSpinner = document.getElementById('loadingSpinner');
+  const loadingMsg = document.getElementById('loadingMsg');
   const loadingError = document.getElementById('loadingError');
 
   function showError(msg, hint) {
@@ -750,7 +772,6 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
 
   // ============================================================
   // CONTENT SHAPE — empty skeleton only (no fallback text)
-  // content.json merges over this.
   // ============================================================
   const CONTENT_SHAPE = {
     site:{brandName:"",brandTagline:"",logoUrl:""},
@@ -758,6 +779,7 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
     home:{
       hero:{label:"",title:"",subtitle:"",bgImage:"",stats:[]},
       marquee:[],
+      partners:{eyebrow:"",title:"",items:[]},
       decentralized:{eyebrow:"",title:"",text:"",pills:[],bgImage:""},
       carousel:{slides:[]},
       features:{eyebrow:"",title:"",bgImage:"",items:[]},
@@ -824,17 +846,11 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
     return target;
   }
 
-  // ============================================================
-  // LOAD CONTENT
-  // Strict: content.json (or localStorage in ?preview=1). No fallback.
-  // ============================================================
   async function loadContent() {
     const isPreview = new URLSearchParams(location.search).has('preview');
-
-    // Preview mode: read localStorage
     if (isPreview) {
       try {
-        const saved = localStorage.getItem('Korol-content-v1');
+        const saved = localStorage.getItem('koral-content-v1');
         if (saved) {
           const parsed = JSON.parse(saved);
           return deepMerge(JSON.parse(JSON.stringify(CONTENT_SHAPE)), parsed);
@@ -843,29 +859,20 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
         throw new Error('Preview load failed: ' + e.message);
       }
     }
-
-    // Normal mode: fetch content.json
     try {
       const res = await fetch('content.json?_=' + Date.now(), { cache: 'no-store' });
       if (!res.ok) {
-        if (res.status === 404) {
-          throw new Error('content.json not found');
-        }
+        if (res.status === 404) throw new Error('CONTENT_MISSING');
         throw new Error('Server returned ' + res.status);
       }
       const json = await res.json();
       return deepMerge(JSON.parse(JSON.stringify(CONTENT_SHAPE)), json);
     } catch(e) {
-      if (e.message === 'content.json not found') {
-        throw new Error('CONTENT_MISSING');
-      }
+      if (e.message === 'CONTENT_MISSING') throw new Error('CONTENT_MISSING');
       throw new Error('Could not load content.json: ' + e.message);
     }
   }
 
-  // ============================================================
-  // BOOT
-  // ============================================================
   (async function boot(){
     let data;
     try {
@@ -889,7 +896,7 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
       return;
     }
 
-    // ---------- Apply typography + spacing variables ----------
+    // ---------- Typography + spacing ----------
     if (data.typography) {
       const t = data.typography, root = document.documentElement.style;
       if (t.baseSize) root.setProperty('--base-size', t.baseSize + 'px');
@@ -905,7 +912,7 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
       if (s.gridGap) root.setProperty('--grid-gap', s.gridGap + 'px');
     }
 
-    // ---------- Text replacement via data-content ----------
+    // ---------- Text via data-content ----------
     function setText(path, value) {
       if (value === undefined || value === null) return;
       document.querySelectorAll('[data-content="' + path + '"]').forEach(el => { el.textContent = value; });
@@ -992,6 +999,29 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
       marquee.innerHTML = items.map(i => '<span class="marquee__item">' + i + '</span>').join('');
     }
 
+    // ---------- PARTNER LOGOS ----------
+    const partnersSection = document.getElementById('partners-section');
+    const partnersTrack = document.getElementById('partners-track');
+    const partners = data.home?.partners;
+    if (partnersSection && partnersTrack && partners && partners.items && partners.items.length > 0) {
+      let sequence = partners.items.slice();
+      while (sequence.length < 6 && sequence.length > 0) {
+        sequence = sequence.concat(partners.items);
+      }
+      const loopItems = sequence.concat(sequence);
+      partnersTrack.innerHTML = loopItems.map(p => {
+        const inner = p.logoUrl
+          ? '<img src="' + p.logoUrl + '" alt="' + (p.name || 'Partner') + '" loading="lazy">'
+          : '<span class="partner-logo__name">' + (p.name || 'Partner') + '</span>';
+        const openTag = p.url
+          ? '<a href="' + p.url + '" target="_blank" rel="noopener" class="partner-logo" title="' + (p.name || '') + '">'
+          : '<div class="partner-logo" title="' + (p.name || '') + '">';
+        const closeTag = p.url ? '</a>' : '</div>';
+        return openTag + inner + closeTag;
+      }).join('');
+      partnersSection.style.display = '';
+    }
+
     // ---------- PILLS ----------
     const pills = document.getElementById('decentralized-pills');
     if (pills && data.home?.decentralized?.pills) {
@@ -1032,7 +1062,7 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
     if (statsGrid && data.home?.stats?.items) {
       statsGrid.innerHTML = data.home.stats.items.map(s =>
         '<div class="compare"><div class="compare__cat">' + s.category + '</div><div class="compare__row">' +
-          '<div><span class="compare__val compare__val--k">' + s.Korol + '</span><span class="compare__name">Korol</span></div>' +
+          '<div><span class="compare__val compare__val--k">' + s.koral + '</span><span class="compare__name">KOROL</span></div>' +
           '<div class="compare__div"></div>' +
           '<div><span class="compare__val compare__val--i">' + s.industry + '</span><span class="compare__name">Industry Avg</span></div>' +
         '</div></div>'
@@ -1216,7 +1246,7 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
     renderFooterLinks('footer-products-links', data.footer?.products?.links);
     renderFooterLinks('footer-resources-links', data.footer?.resources?.links);
 
-    // ============ CAROUSEL — dynamic from content.json ============
+    // ============ CAROUSEL — dynamic ============
     function renderCarouselSlides(slides) {
       const viewport = document.getElementById('carouselViewport');
       if (!viewport) return;
@@ -1225,11 +1255,11 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
         return;
       }
       viewport.innerHTML = slides.map(s =>
-        '<div class="Korol-carousel__slide">' +
+        '<div class="koral-carousel__slide">' +
           '<video muted playsinline loop preload="metadata"' + (s.posterUrl ? ' poster="' + s.posterUrl + '"' : '') + '>' +
             '<source src="' + s.videoUrl + '" type="video/mp4">' +
           '</video>' +
-          '<div class="Korol-carousel__overlay">' +
+          '<div class="koral-carousel__overlay">' +
             '<h3>' + s.title + '</h3>' +
             '<p>' + s.text + '</p>' +
           '</div>' +
@@ -1238,10 +1268,10 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
     }
     renderCarouselSlides(data.home?.carousel?.slides || []);
 
-    const carousel = document.getElementById('KorolCarousel');
+    const carousel = document.getElementById('koralCarousel');
     if (carousel) {
       const viewport = document.getElementById('carouselViewport');
-      const slides = viewport.querySelectorAll('.Korol-carousel__slide');
+      const slides = viewport.querySelectorAll('.koral-carousel__slide');
       const videos = viewport.querySelectorAll('video');
       const progressBar = document.getElementById('progressBar');
       const playPauseBtn = document.getElementById('playPauseBtn');
@@ -1250,97 +1280,93 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
       const dotsContainer = document.getElementById('carouselDots');
       const slideCount = document.getElementById('slideCount');
 
-      if (slides.length === 0) return;
-
-      let currentIndex = 0, isPlaying = true, slideDuration = 7000, startTime = null, animationFrame = null, isInView = false;
-
-      dotsContainer.innerHTML = Array.from(slides).map((_, i) =>
-        '<button class="Korol-carousel__dot ' + (i===0?'is-active':'') + '" data-index="' + i + '" aria-label="Go to slide ' + (i+1) + '"></button>'
-      ).join('');
-      const dots = dotsContainer.querySelectorAll('.Korol-carousel__dot');
-      function updateCount() { slideCount.innerHTML = '<strong>' + String(currentIndex+1).padStart(2,'0') + '</strong> / ' + String(slides.length).padStart(2,'0'); }
-      updateCount();
-
-      new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          isInView = entry.isIntersecting;
-          if (isInView && isPlaying) startTimer(); else stopTimer();
-        });
-      }, { threshold: 0.25 }).observe(carousel);
-
-      function startTimer() { stopTimer(); startTime = performance.now(); tick(); }
-      function tick() {
-        if (!isPlaying || !isInView) return;
-        const elapsed = performance.now() - startTime;
-        const progress = Math.min(elapsed / slideDuration, 1);
-        progressBar.style.width = (progress * 100) + '%';
-        if (progress >= 1) { goToNext(); return; }
-        animationFrame = requestAnimationFrame(tick);
-      }
-      function stopTimer() { if (animationFrame) { cancelAnimationFrame(animationFrame); animationFrame = null; } }
-      function goToSlide(index) {
-        currentIndex = index;
-        viewport.scrollTo({ left: viewport.offsetWidth * currentIndex, behavior: 'smooth' });
-        progressBar.style.width = '0%';
-        startTime = performance.now();
+      if (slides.length > 0) {
+        let currentIndex = 0, isPlaying = true, slideDuration = 7000, startTime = null, animationFrame = null, isInView = false;
+        dotsContainer.innerHTML = Array.from(slides).map((_, i) =>
+          '<button class="koral-carousel__dot ' + (i===0?'is-active':'') + '" data-index="' + i + '" aria-label="Go to slide ' + (i+1) + '"></button>'
+        ).join('');
+        const dots = dotsContainer.querySelectorAll('.koral-carousel__dot');
+        function updateCount() { slideCount.innerHTML = '<strong>' + String(currentIndex+1).padStart(2,'0') + '</strong> / ' + String(slides.length).padStart(2,'0'); }
         updateCount();
-        dots.forEach((d, i) => d.classList.toggle('is-active', i === currentIndex));
-        videos.forEach((v, i) => {
-          if (i === currentIndex) { v.currentTime = 0; v.play().catch(() => {}); } else { v.pause(); }
+        new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            isInView = entry.isIntersecting;
+            if (isInView && isPlaying) startTimer(); else stopTimer();
+          });
+        }, { threshold: 0.25 }).observe(carousel);
+        function startTimer() { stopTimer(); startTime = performance.now(); tick(); }
+        function tick() {
+          if (!isPlaying || !isInView) return;
+          const elapsed = performance.now() - startTime;
+          const progress = Math.min(elapsed / slideDuration, 1);
+          progressBar.style.width = (progress * 100) + '%';
+          if (progress >= 1) { goToNext(); return; }
+          animationFrame = requestAnimationFrame(tick);
+        }
+        function stopTimer() { if (animationFrame) { cancelAnimationFrame(animationFrame); animationFrame = null; } }
+        function goToSlide(index) {
+          currentIndex = index;
+          viewport.scrollTo({ left: viewport.offsetWidth * currentIndex, behavior: 'smooth' });
+          progressBar.style.width = '0%';
+          startTime = performance.now();
+          updateCount();
+          dots.forEach((d, i) => d.classList.toggle('is-active', i === currentIndex));
+          videos.forEach((v, i) => {
+            if (i === currentIndex) { v.currentTime = 0; v.play().catch(() => {}); } else { v.pause(); }
+          });
+          if (isPlaying && isInView) startTimer();
+        }
+        function goToNext() { goToSlide((currentIndex + 1) % slides.length); }
+        dots.forEach(dot => dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index, 10))));
+        playPauseBtn.addEventListener('click', () => {
+          isPlaying = !isPlaying;
+          if (isPlaying) {
+            pauseIcon.style.display = 'block'; playIcon.style.display = 'none';
+            playPauseBtn.setAttribute('aria-label', 'Pause');
+            startTimer(); videos[currentIndex].play().catch(() => {});
+          } else {
+            pauseIcon.style.display = 'none'; playIcon.style.display = 'block';
+            playPauseBtn.setAttribute('aria-label', 'Play');
+            stopTimer(); videos[currentIndex].pause();
+          }
         });
-        if (isPlaying && isInView) startTimer();
-      }
-      function goToNext() { goToSlide((currentIndex + 1) % slides.length); }
-
-      dots.forEach(dot => dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index, 10))));
-      playPauseBtn.addEventListener('click', () => {
-        isPlaying = !isPlaying;
-        if (isPlaying) {
-          pauseIcon.style.display = 'block'; playIcon.style.display = 'none';
-          playPauseBtn.setAttribute('aria-label', 'Pause');
-          startTimer(); videos[currentIndex].play().catch(() => {});
-        } else {
+        let wasPlayingBefore = false;
+        carousel.addEventListener('mouseenter', () => { if (isPlaying && isInView) { wasPlayingBefore = true; stopTimer(); videos[currentIndex].pause(); } });
+        carousel.addEventListener('mouseleave', () => { if (wasPlayingBefore && isPlaying && isInView) { wasPlayingBefore = false; videos[currentIndex].play().catch(() => {}); startTimer(); } });
+        carousel.addEventListener('touchstart', () => { if (isPlaying && isInView) { wasPlayingBefore = true; stopTimer(); videos[currentIndex].pause(); } }, { passive: true });
+        carousel.addEventListener('touchend', () => { if (wasPlayingBefore && isPlaying && isInView) { wasPlayingBefore = false; videos[currentIndex].play().catch(() => {}); startTimer(); } });
+        let scrollTimeout;
+        viewport.addEventListener('scroll', () => {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            const newIndex = Math.round(viewport.scrollLeft / viewport.offsetWidth);
+            if (newIndex !== currentIndex) {
+              currentIndex = newIndex;
+              updateCount();
+              dots.forEach((d, i) => d.classList.toggle('is-active', i === currentIndex));
+              progressBar.style.width = '0%';
+              startTime = performance.now();
+              videos.forEach((v, i) => {
+                if (i === currentIndex) { v.currentTime = 0; v.play().catch(() => {}); } else { v.pause(); }
+              });
+              if (isPlaying && isInView) startTimer();
+            }
+          }, 150);
+        });
+        viewport.addEventListener('keydown', e => {
+          if (e.key === 'ArrowRight') { e.preventDefault(); goToNext(); }
+          else if (e.key === 'ArrowLeft') { e.preventDefault(); goToSlide((currentIndex - 1 + slides.length) % slides.length); }
+        });
+        videos[0]?.play().catch(() => {
+          isPlaying = false;
           pauseIcon.style.display = 'none'; playIcon.style.display = 'block';
           playPauseBtn.setAttribute('aria-label', 'Play');
-          stopTimer(); videos[currentIndex].pause();
+        });
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          isPlaying = false;
+          pauseIcon.style.display = 'none'; playIcon.style.display = 'block';
+          playPauseBtn.setAttribute('aria-label', 'Play');
         }
-      });
-      let wasPlayingBefore = false;
-      carousel.addEventListener('mouseenter', () => { if (isPlaying && isInView) { wasPlayingBefore = true; stopTimer(); videos[currentIndex].pause(); } });
-      carousel.addEventListener('mouseleave', () => { if (wasPlayingBefore && isPlaying && isInView) { wasPlayingBefore = false; videos[currentIndex].play().catch(() => {}); startTimer(); } });
-      carousel.addEventListener('touchstart', () => { if (isPlaying && isInView) { wasPlayingBefore = true; stopTimer(); videos[currentIndex].pause(); } }, { passive: true });
-      carousel.addEventListener('touchend', () => { if (wasPlayingBefore && isPlaying && isInView) { wasPlayingBefore = false; videos[currentIndex].play().catch(() => {}); startTimer(); } });
-      let scrollTimeout;
-      viewport.addEventListener('scroll', () => {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          const newIndex = Math.round(viewport.scrollLeft / viewport.offsetWidth);
-          if (newIndex !== currentIndex) {
-            currentIndex = newIndex;
-            updateCount();
-            dots.forEach((d, i) => d.classList.toggle('is-active', i === currentIndex));
-            progressBar.style.width = '0%';
-            startTime = performance.now();
-            videos.forEach((v, i) => {
-              if (i === currentIndex) { v.currentTime = 0; v.play().catch(() => {}); } else { v.pause(); }
-            });
-            if (isPlaying && isInView) startTimer();
-          }
-        }, 150);
-      });
-      viewport.addEventListener('keydown', e => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); goToNext(); }
-        else if (e.key === 'ArrowLeft') { e.preventDefault(); goToSlide((currentIndex - 1 + slides.length) % slides.length); }
-      });
-      videos[0]?.play().catch(() => {
-        isPlaying = false;
-        pauseIcon.style.display = 'none'; playIcon.style.display = 'block';
-        playPauseBtn.setAttribute('aria-label', 'Play');
-      });
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        isPlaying = false;
-        pauseIcon.style.display = 'none'; playIcon.style.display = 'block';
-        playPauseBtn.setAttribute('aria-label', 'Play');
       }
     }
 
@@ -1471,7 +1497,6 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
     const valid = ['home','about','products','trevoli','partner'];
     navigate(valid.includes(hash) ? hash : 'home');
 
-    // Hide loading overlay — content is ready
     document.body.classList.add('content-loaded');
   })();
 })();

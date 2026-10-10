@@ -65,13 +65,18 @@
           "url": ""
         },
         {
-          "name": "Yavilo Robotics",
-          "logoUrl": "assets/images/1791625093475-1.png",
+          "name": "Trevoli",
+          "logoUrl": "assets/images/1791625382941-trevoli-logo.pdf",
           "url": ""
         },
         {
           "name": "Buy Brands",
-          "logoUrl": "",
+          "logoUrl": "assets/images/1791625448457-buybrands_logo.jpeg",
+          "url": ""
+        },
+        {
+          "name": "Yavilo Robotics",
+          "logoUrl": "assets/images/1791625093475-1.png",
           "url": ""
         }
       ]

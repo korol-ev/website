@@ -58,6 +58,21 @@
           "name": "Nexus Learn",
           "logoUrl": "assets/images/1791624602645-idk_logo.jpeg",
           "url": ""
+        },
+        {
+          "name": "PBC",
+          "logoUrl": "assets/images/1791625112093-pbc-logo.png",
+          "url": ""
+        },
+        {
+          "name": "Yavilo Robotics",
+          "logoUrl": "assets/images/1791625093475-1.png",
+          "url": ""
+        },
+        {
+          "name": "Buy Brands",
+          "logoUrl": "",
+          "url": ""
         }
       ]
     },

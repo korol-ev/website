@@ -54,12 +54,7 @@
       "eyebrow": "Autonomous Infrastructure",
       "title": "Powering a Decentralized Future.",
       "text": "As global energy demands rise and traditional utility grids face growing vulnerabilities, korol provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",
-      "pills": [
-        "MPPT Controllers",
-        "LFP Chemistry",
-        "Weather-Sealed",
-        "Zero Emissions"
-      ],
+      "pills": [],
       "bgImage": ""
     },
     "carousel": {

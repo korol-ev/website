@@ -3,15 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>korol — Powering the Future, Untethered</title>
-<meta name="description" content="korol builds portable solar-powered EV charging, high-capacity energy storage and Trevoli smart energy management for a world beyond the grid.">
+<title>Koral — Powering the Future, Untethered</title>
+<meta name="description" content="Koral builds portable solar-powered EV charging, high-capacity energy storage and Trevoli smart energy management for a world beyond the grid.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0a0a;--bg-1:#0f0f0f;--bg-2:#141414;--bg-3:#1a1a1a;--line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.13);--lime:#c8f542;--lime-2:#d9ff5e;--lime-dim:rgba(200,245,66,.1);--lime-line:rgba(200,245,66,.28);--cyan:#5eead4;--cyan-dim:rgba(94,234,212,.1);--txt:#f2f2f2;--txt-2:#8f8f8f;--txt-3:#5a5a5a;--display:'Outfit',sans-serif;--body:'Inter',sans-serif;--max:1200px;--nav-h:72px;--r:14px;--r-lg:22px;--ease:cubic-bezier(.22,.61,.36,1)}
+:root{
+  --bg:#0a0a0a;--bg-1:#0f0f0f;--bg-2:#141414;--bg-3:#1a1a1a;
+  --line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.13);
+  --lime:#c8f542;--lime-2:#d9ff5e;--lime-dim:rgba(200,245,66,.1);--lime-line:rgba(200,245,66,.28);
+  --cyan:#5eead4;--cyan-dim:rgba(94,234,212,.1);
+  --txt:#f2f2f2;--txt-2:#8f8f8f;--txt-3:#5a5a5a;
+  --display:'Outfit',sans-serif;--body:'Inter',sans-serif;
+  --max:1200px;--nav-h:72px;--r:14px;--r-lg:22px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --base-size:16px;--heading-scale:1;--heading-weight:700;--heading-tracking:-.025em;
+  --section-pad:110px;--container-pad:24px;--card-pad:34px;--grid-gap:22px;
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;font-size:var(--base-size)}
 body{font-family:var(--body);background:var(--bg);color:var(--txt);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -20,18 +31,18 @@ ul{list-style:none}
 .page{display:none}
 .page.active{display:block;animation:fade .4s var(--ease)}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
-.section{padding:110px 0;border-top:1px solid var(--line);position:relative}
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--container-pad)}
+.section{padding:var(--section-pad) 0;border-top:1px solid var(--line);position:relative}
 .section--alt{background:var(--bg-1)}
 .section--flush{border-top:none}
 .section-head{max-width:640px;margin-bottom:56px}
 .section-head--center{margin-left:auto;margin-right:auto;text-align:center}
 .eyebrow{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);margin-bottom:16px}
 .eyebrow--boxed{padding:6px 14px;border:1px solid var(--lime-line);border-radius:100px;background:var(--lime-dim)}
-h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.025em;line-height:1.12;font-weight:700}
-.h1{font-size:clamp(2.4rem,6vw,4.4rem);font-weight:800}
-.h2{font-size:clamp(1.8rem,4vw,2.75rem)}
-.h3{font-size:clamp(1.3rem,2.4vw,1.7rem)}
+h1,h2,h3,h4{font-family:var(--display);letter-spacing:var(--heading-tracking);line-height:1.12;font-weight:var(--heading-weight)}
+.h1{font-size:calc(clamp(2.4rem,6vw,4.4rem) * var(--heading-scale));font-weight:800}
+.h2{font-size:calc(clamp(1.8rem,4vw,2.75rem) * var(--heading-scale))}
+.h3{font-size:calc(clamp(1.3rem,2.4vw,1.7rem) * var(--heading-scale))}
 .lead{font-size:1.02rem;color:var(--txt-2);line-height:1.75}
 .accent{background:linear-gradient(120deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:.83rem;font-weight:600;padding:12px 24px;border-radius:9px;border:1px solid transparent;background:transparent;cursor:pointer;transition:all .25s var(--ease);white-space:nowrap}
@@ -43,27 +54,27 @@ h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.025em;line-height:1.12;f
 .btn--lg{padding:15px 32px;font-size:.9rem}
 .btn--block{width:100%}
 .btn-group{display:flex;gap:14px;flex-wrap:wrap}
-.grid{display:grid;gap:22px}
+.grid{display:grid;gap:var(--grid-gap)}
 .grid--2{grid-template-columns:repeat(2,1fr)}
 .grid--3{grid-template-columns:repeat(3,1fr)}
 .grid--4{grid-template-columns:repeat(4,1fr)}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.card{position:relative;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:34px 30px;transition:.3s var(--ease);overflow:hidden}
+.card{position:relative;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:var(--card-pad) calc(var(--card-pad) - 4px);transition:.3s var(--ease);overflow:hidden}
 .card:hover{border-color:var(--lime-line);background:var(--bg-3);transform:translateY(-3px)}
 .card__num{font-family:var(--display);font-size:.66rem;font-weight:700;letter-spacing:.18em;color:var(--lime);display:block;margin-bottom:18px}
 .card__title{font-size:1.05rem;font-weight:600;margin-bottom:11px;font-family:var(--display)}
 .card__text{font-size:.87rem;color:var(--txt-2);line-height:1.72}
 .card--rail::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--lime);transition:height .45s var(--ease)}
 .card--rail:hover::before{height:100%}
-.card__media{margin:-34px -30px 22px;border-radius:14px 14px 0 0;overflow:hidden}
+.card__media{margin:calc(-1 * var(--card-pad)) calc(-1 * (var(--card-pad) - 4px)) 22px;border-radius:14px 14px 0 0;overflow:hidden}
 .card__media img{width:100%;height:170px;object-fit:cover;display:block}
 .tile{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--lime-dim);border:1px solid var(--lime-line);color:var(--lime);margin-bottom:20px}
 .tile svg{width:21px;height:21px;stroke-width:1.7}
 .nav{position:fixed;inset:0 0 auto 0;z-index:1000;height:var(--nav-h);background:rgba(10,10,10,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);transition:border-color .3s}
-.nav__inner{max-width:var(--max);margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo{font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:.14em;cursor:pointer;display:flex;align-items:center;gap:10px}
+.nav__inner{max-width:var(--max);margin:0 auto;padding:0 var(--container-pad);height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.6rem;letter-spacing:.14em;cursor:pointer;display:flex;align-items:center;gap:10px}
 .logo span{background:linear-gradient(120deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.logo img{height:36px;width:auto;max-width:180px;object-fit:contain;display:block}
+.logo img{height:60px;width:auto;max-width:240px;object-fit:contain;display:block}
 .nav__menu{display:flex;align-items:center;gap:34px}
 .nav__link{position:relative;font-size:.85rem;font-weight:500;color:var(--txt-2);transition:color .25s;cursor:pointer;background:none;border:0;padding:0}
 .nav__link:hover{color:var(--txt)}
@@ -80,7 +91,7 @@ h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.025em;line-height:1.12;f
 .drawer button{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--txt-2);padding:15px 32px;border-radius:10px;width:100%;max-width:340px;text-align:center;transition:.25s var(--ease);background:none;border:0;cursor:pointer}
 .drawer button:hover,.drawer button.is-active{color:var(--txt);background:rgba(255,255,255,.05)}
 .drawer .btn{margin-top:18px;max-width:220px}
-.page-hero{position:relative;overflow:hidden;padding:calc(var(--nav-h) + 100px) 0 90px;border-bottom:1px solid var(--line)}
+.page-hero{position:relative;overflow:hidden;padding:calc(var(--nav-h) + var(--section-pad)) 0 calc(var(--section-pad) - 20px);border-bottom:1px solid var(--line)}
 .page-hero::before{content:'';position:absolute;top:-45%;right:-12%;width:640px;height:640px;background:radial-gradient(circle,rgba(200,245,66,.07),transparent 70%);pointer-events:none;z-index:1}
 .page-hero::after{content:'';position:absolute;bottom:-45%;left:-12%;width:520px;height:520px;background:radial-gradient(circle,rgba(94,234,212,.05),transparent 70%);pointer-events:none;z-index:1}
 .page-hero__inner{position:relative;z-index:2;max-width:760px}
@@ -90,7 +101,7 @@ h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.025em;line-height:1.12;f
 .crumbs button{background:none;border:0;cursor:pointer;color:inherit}
 .crumbs button:hover{color:var(--lime)}
 .crumbs span{opacity:.5}
-.hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav-h) + 70px) 0 90px}
+.hero{position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav-h) + 70px) 0 calc(var(--section-pad) - 20px)}
 .hero::before{content:'';position:absolute;top:-32%;right:-14%;width:760px;height:760px;background:radial-gradient(circle,rgba(200,245,66,.07),transparent 70%);pointer-events:none;z-index:1}
 .hero::after{content:'';position:absolute;bottom:-25%;left:-12%;width:560px;height:560px;background:radial-gradient(circle,rgba(94,234,212,.05),transparent 70%);pointer-events:none;z-index:1}
 .hero__inner{position:relative;z-index:2}
@@ -114,7 +125,7 @@ h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.025em;line-height:1.12;f
 .visual.has-image::before{display:none}
 .visual.has-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg)}
 .visual.has-image .visual__badge{display:none}
-.compare{text-align:center;padding:34px 22px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);transition:border-color .3s}
+.compare{text-align:center;padding:var(--card-pad) 22px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg-2);transition:border-color .3s}
 .compare:hover{border-color:var(--lime-line)}
 .compare__cat{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-3);margin-bottom:26px}
 .compare__row{display:flex;justify-content:center;align-items:center;gap:26px}
@@ -123,7 +134,7 @@ h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.025em;line-height:1.12;f
 .compare__val--i{color:var(--txt-3)}
 .compare__name{font-size:.62rem;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--txt-3)}
 .compare__div{width:1px;height:42px;background:var(--line)}
-.quote{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:34px 30px;transition:border-color .3s var(--ease)}
+.quote{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r);padding:var(--card-pad);transition:border-color .3s var(--ease)}
 .quote:hover{border-color:var(--lime-line)}
 .quote p{font-size:.92rem;color:var(--txt-2);line-height:1.78;margin-bottom:24px}
 .quote__who{display:flex;align-items:center;gap:13px}
@@ -139,7 +150,7 @@ h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.025em;line-height:1.12;f
 .tl-year{font-family:var(--display);font-size:.72rem;font-weight:700;letter-spacing:.16em;color:var(--lime);margin-bottom:8px;display:block}
 .tl-title{font-size:1.05rem;font-weight:600;margin-bottom:8px;font-family:var(--display)}
 .tl-text{font-size:.87rem;color:var(--txt-2);line-height:1.72;max-width:520px}
-.team-card{text-align:center;padding:30px 20px}
+.team-card{text-align:center;padding:var(--card-pad) 20px}
 .team-card .avatar{width:76px;height:76px;font-size:1.4rem;margin:0 auto 18px}
 .team-card h4{font-family:var(--display);font-size:1rem;font-weight:600;margin-bottom:5px}
 .team-card span{font-size:.76rem;color:var(--txt-3)}
@@ -154,7 +165,7 @@ h1,h2,h3,h4{font-family:var(--display);letter-spacing:-.025em;line-height:1.12;f
 .product__media::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(200,245,66,.1),transparent 65%)}
 .product__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .product__glyph{position:relative;z-index:1;font-family:var(--display);font-size:1.6rem;font-weight:800;letter-spacing:.05em;color:var(--lime);opacity:.85}
-.product__body{padding:26px 26px 30px;display:flex;flex-direction:column;flex:1}
+.product__body{padding:26px 26px var(--card-pad);display:flex;flex-direction:column;flex:1}
 .product__tag{font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
 .product__title{font-family:var(--display);font-size:1.15rem;font-weight:600;margin-bottom:10px}
 .product__desc{font-size:.85rem;color:var(--txt-2);line-height:1.7;margin-bottom:22px;flex:1}
@@ -197,7 +208,7 @@ td.no{color:var(--txt-3)}
 .step::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:28px;top:28px;font-family:var(--display);font-size:1.5rem;font-weight:800;color:var(--lime-line)}
 .step h4{font-family:var(--display);font-size:1.02rem;font-weight:600;margin-bottom:9px}
 .step p{font-size:.86rem;color:var(--txt-2);line-height:1.72}
-.form-card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:40px}
+.form-card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--card-pad)}
 .field{margin-bottom:20px}
 .field label{display:block;font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3);margin-bottom:9px}
 .field input,.field select,.field textarea{width:100%;padding:13px 16px;border-radius:9px;background:var(--bg);border:1px solid var(--line-2);color:var(--txt);font-size:.88rem;transition:.25s var(--ease);outline:none}
@@ -216,7 +227,7 @@ td.no{color:var(--txt-3)}
 .faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg);border-color:var(--lime)}
 .faq details[open] summary{color:var(--lime)}
 .faq p{font-size:.88rem;color:var(--txt-2);line-height:1.78;padding:0 44px 26px 0;max-width:760px}
-.cta-band{position:relative;overflow:hidden;text-align:center;padding:110px 0}
+.cta-band{position:relative;overflow:hidden;text-align:center;padding:var(--section-pad) 0}
 .cta-band::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:660px;height:660px;pointer-events:none;background:radial-gradient(circle,rgba(200,245,66,.07),transparent 70%);z-index:1}
 .cta-band__inner{position:relative;z-index:2}
 .cta-band .h2{max-width:700px;margin:0 auto 20px}
@@ -237,8 +248,6 @@ td.no{color:var(--txt-3)}
 .footer__bottom{border-top:1px solid var(--line);padding:24px 0;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:.76rem;color:var(--txt-3)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.is-visible{opacity:1;transform:none}
-
-/* SECTION BACKGROUNDS */
 .section.section-has-bg,.cta-band.cta-band-has-bg{background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed}
 @media (max-width:768px){.section.section-has-bg,.cta-band.cta-band-has-bg{background-attachment:scroll}}
 .section.section-has-bg::after{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(to bottom,rgba(10,10,10,.88),rgba(10,10,10,.94));pointer-events:none}
@@ -250,37 +259,34 @@ td.no{color:var(--txt-3)}
 .page-hero.page-hero-has-bg{background-size:cover;background-position:center;background-repeat:no-repeat}
 .page-hero.page-hero-has-bg::before{background:linear-gradient(to bottom,rgba(10,10,10,.85),rgba(10,10,10,.92));width:100%;height:100%;top:0;right:0;z-index:0}
 .page-hero.page-hero-has-bg::after{display:none}
-
-/* VIDEO CAROUSEL */
-.korol-carousel{width:100%;position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-2);border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.5)}
-.korol-carousel__viewport{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-.korol-carousel__viewport::-webkit-scrollbar{display:none}
-.korol-carousel__slide{flex:0 0 100%;scroll-snap-align:start;position:relative;aspect-ratio:16/9;background:#000}
-.korol-carousel__slide video{width:100%;height:100%;object-fit:cover;display:block}
-.korol-carousel__overlay{position:absolute;bottom:0;left:0;right:0;padding:60px 44px 40px;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.35) 55%,transparent 100%);pointer-events:none}
-.korol-carousel__overlay h3{font-family:var(--display);font-size:1.6rem;font-weight:700;margin-bottom:8px;letter-spacing:-.02em;color:#fff}
-.korol-carousel__overlay p{font-size:.9rem;color:rgba(255,255,255,.72);max-width:520px;line-height:1.6}
-.korol-carousel__controls{display:flex;justify-content:center;align-items:center;gap:14px;padding:18px 24px;background:var(--bg-2);border-top:1px solid var(--line)}
-.korol-carousel__playpause{background:none;border:none;color:var(--txt-2);cursor:pointer;padding:4px;display:grid;place-items:center;transition:color .2s ease}
-.korol-carousel__playpause:hover{color:var(--lime)}
-.korol-carousel__playpause svg{width:16px;height:16px;fill:currentColor}
-.korol-carousel__dots{display:flex;align-items:center;gap:8px}
-.korol-carousel__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18);border:none;cursor:pointer;padding:0;transition:background .3s ease,transform .3s ease,width .3s ease}
-.korol-carousel__dot:hover{background:rgba(255,255,255,.5)}
-.korol-carousel__dot.is-active{background:var(--lime);width:26px;border-radius:4px}
-.korol-carousel__progress{width:100%;max-width:140px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;position:relative}
-.korol-carousel__progress-inner{height:100%;width:0%;background:var(--lime);border-radius:2px;transition:width .08s linear}
-.korol-carousel__slide-count{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.12em;color:var(--txt-3);min-width:44px;text-align:right}
-.korol-carousel__slide-count strong{color:var(--lime)}
+.koral-carousel{width:100%;position:relative;border-radius:var(--r-lg);overflow:hidden;background:var(--bg-2);border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.koral-carousel__viewport{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.koral-carousel__viewport::-webkit-scrollbar{display:none}
+.koral-carousel__slide{flex:0 0 100%;scroll-snap-align:start;position:relative;aspect-ratio:16/9;background:#000}
+.koral-carousel__slide video{width:100%;height:100%;object-fit:cover;display:block}
+.koral-carousel__overlay{position:absolute;bottom:0;left:0;right:0;padding:60px 44px 40px;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.35) 55%,transparent 100%);pointer-events:none}
+.koral-carousel__overlay h3{font-family:var(--display);font-size:1.6rem;font-weight:700;margin-bottom:8px;letter-spacing:-.02em;color:#fff}
+.koral-carousel__overlay p{font-size:.9rem;color:rgba(255,255,255,.72);max-width:520px;line-height:1.6}
+.koral-carousel__controls{display:flex;justify-content:center;align-items:center;gap:14px;padding:18px 24px;background:var(--bg-2);border-top:1px solid var(--line)}
+.koral-carousel__playpause{background:none;border:none;color:var(--txt-2);cursor:pointer;padding:4px;display:grid;place-items:center;transition:color .2s ease}
+.koral-carousel__playpause:hover{color:var(--lime)}
+.koral-carousel__playpause svg{width:16px;height:16px;fill:currentColor}
+.koral-carousel__dots{display:flex;align-items:center;gap:8px}
+.koral-carousel__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18);border:none;cursor:pointer;padding:0;transition:background .3s ease,transform .3s ease,width .3s ease}
+.koral-carousel__dot:hover{background:rgba(255,255,255,.5)}
+.koral-carousel__dot.is-active{background:var(--lime);width:26px;border-radius:4px}
+.koral-carousel__progress{width:100%;max-width:140px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;position:relative}
+.koral-carousel__progress-inner{height:100%;width:0%;background:var(--lime);border-radius:2px;transition:width .08s linear}
+.koral-carousel__slide-count{font-family:var(--display);font-size:.72rem;font-weight:600;letter-spacing:.12em;color:var(--txt-3);min-width:44px;text-align:right}
+.koral-carousel__slide-count strong{color:var(--lime)}
 .home-decentralized{display:flex;flex-direction:column;gap:56px}
 .home-decentralized__text{max-width:780px;margin:0 auto;text-align:center}
 .home-decentralized__text .lead{margin:0 auto;max-width:640px}
 .home-decentralized__text .pill-row{justify-content:center}
-
 @media (max-width:1024px){.grid--4{grid-template-columns:repeat(2,1fr)}.app__body{grid-template-columns:1fr}.app__side{display:none}}
-@media (max-width:900px){.section{padding:84px 0}.split,.feature-row{grid-template-columns:1fr;gap:44px}.feature-row .visual{order:-1}.grid--3{grid-template-columns:1fr 1fr}.footer__grid{grid-template-columns:1fr 1fr;gap:40px}.app__row{grid-template-columns:1fr}}
-@media (max-width:768px){.nav__menu{display:none}.nav__actions .btn{display:none}.burger{display:flex}.grid--3,.grid--2{grid-template-columns:1fr}.hero{min-height:auto;padding-top:calc(var(--nav-h) + 60px)}.hero__stats{gap:34px;margin-top:44px}.page-hero{padding:calc(var(--nav-h) + 70px) 0 70px}.field-row{grid-template-columns:1fr}.form-card{padding:28px 22px}.footer__grid{grid-template-columns:1fr;gap:36px}.cta-band{padding:84px 0}.btn-group{flex-direction:column;align-items:stretch}.btn-group .btn{width:100%}.step{padding:26px 24px}.step::before{position:static;display:block;margin-bottom:8px}.korol-carousel__overlay{padding:36px 24px 24px}.korol-carousel__overlay h3{font-size:1.15rem}.korol-carousel__overlay p{font-size:.8rem}.korol-carousel__progress{max-width:80px}.korol-carousel__slide-count{display:none}.logo img{height:30px;max-width:140px}}
-@media (max-width:560px){.grid--4{grid-template-columns:1fr}.specs{grid-template-columns:1fr}}
+@media (max-width:900px){.section{padding:calc(var(--section-pad) * .75) 0}.split,.feature-row{grid-template-columns:1fr;gap:44px}.feature-row .visual{order:-1}.grid--3{grid-template-columns:1fr 1fr}.footer__grid{grid-template-columns:1fr 1fr;gap:40px}.app__row{grid-template-columns:1fr}}
+@media (max-width:768px){.nav__menu{display:none}.nav__actions .btn{display:none}.burger{display:flex}.grid--3,.grid--2{grid-template-columns:1fr}.hero{min-height:auto;padding-top:calc(var(--nav-h) + 60px)}.hero__stats{gap:34px;margin-top:44px}.page-hero{padding:calc(var(--nav-h) + 70px) 0 70px}.field-row{grid-template-columns:1fr}.form-card{padding:calc(var(--card-pad) * .75)}.footer__grid{grid-template-columns:1fr;gap:36px}.cta-band{padding:calc(var(--section-pad) * .75) 0}.btn-group{flex-direction:column;align-items:stretch}.btn-group .btn{width:100%}.step{padding:26px 24px}.step::before{position:static;display:block;margin-bottom:8px}.koral-carousel__overlay{padding:36px 24px 24px}.koral-carousel__overlay h3{font-size:1.15rem}.koral-carousel__overlay p{font-size:.8rem}.koral-carousel__progress{max-width:80px}.koral-carousel__slide-count{display:none}.logo img{height:48px;max-width:180px}.logo{font-size:1.4rem}}
+@media (max-width:560px){.grid--4{grid-template-columns:1fr}.specs{grid-template-columns:1fr}.logo img{height:40px;max-width:150px}}
 </style>
 </head>
 <body>
@@ -288,7 +294,7 @@ td.no{color:var(--txt-3)}
 <header class="nav">
   <div class="nav__inner">
     <div class="logo" data-nav="home" id="siteLogo">
-      <span data-content="site.brandName">korol</span>
+      <span data-content="site.brandName">KORAL</span>
     </div>
     <nav class="nav__menu">
       <button class="nav__link is-active" data-nav="home">Home</button>
@@ -313,13 +319,13 @@ td.no{color:var(--txt-3)}
 
 <main>
 
+<!-- HOME -->
 <div class="page active" id="page-home">
-
   <section class="hero" id="hero-section">
     <div class="container hero__inner">
       <span class="eyebrow eyebrow--boxed" data-content="home.hero.label">Next-Gen Energy Ecosystem</span>
       <h1 class="h1" data-content="home.hero.title">Redefining Energy Freedom, Untethered.</h1>
-      <p class="lead" data-content="home.hero.subtitle">korol delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.</p>
+      <p class="lead" data-content="home.hero.subtitle">Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.</p>
       <div class="btn-group">
         <button class="btn btn--primary btn--lg" data-nav="products">Explore Products</button>
         <button class="btn btn--ghost btn--lg" data-nav="partner">Partner With Us</button>
@@ -336,58 +342,56 @@ td.no{color:var(--txt-3)}
         <div class="home-decentralized__text">
           <span class="eyebrow" data-content="home.decentralized.eyebrow">Autonomous Infrastructure</span>
           <h2 class="h2" data-content="home.decentralized.title">Powering a Decentralized Future.</h2>
-          <p class="lead" style="margin-top:18px" data-content="home.decentralized.text">As global energy demands rise and traditional utility grids face growing vulnerabilities, korol provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.</p>
+          <p class="lead" style="margin-top:18px" data-content="home.decentralized.text">As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.</p>
           <div class="pill-row" id="decentralized-pills"></div>
         </div>
-
-        <div class="korol-carousel" id="korolCarousel">
-          <div class="korol-carousel__viewport" id="carouselViewport" tabindex="0" aria-label="Product showcase">
-            <div class="korol-carousel__slide">
-              <video muted playsinline loop preload="metadata" poster="https://picsum.photos/seed/korol-nomad/1280/720">
+        <div class="koral-carousel" id="koralCarousel">
+          <div class="koral-carousel__viewport" id="carouselViewport" tabindex="0" aria-label="Product showcase">
+            <div class="koral-carousel__slide">
+              <video muted playsinline loop preload="metadata" poster="https://picsum.photos/seed/koral-nomad/1280/720">
                 <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
               </video>
-              <div class="korol-carousel__overlay">
-                <h3 data-content="home.carousel.slides.0.title">korol Nomad</h3>
+              <div class="koral-carousel__overlay">
+                <h3 data-content="home.carousel.slides.0.title">Koral Nomad</h3>
                 <p data-content="home.carousel.slides.0.text">Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.</p>
               </div>
             </div>
-            <div class="korol-carousel__slide">
-              <video muted playsinline loop preload="metadata" poster="https://picsum.photos/seed/korol-depot/1280/720">
+            <div class="koral-carousel__slide">
+              <video muted playsinline loop preload="metadata" poster="https://picsum.photos/seed/koral-depot/1280/720">
                 <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
               </video>
-              <div class="korol-carousel__overlay">
-                <h3 data-content="home.carousel.slides.1.title">korol Depot</h3>
+              <div class="koral-carousel__overlay">
+                <h3 data-content="home.carousel.slides.1.title">Koral Depot</h3>
                 <p data-content="home.carousel.slides.1.text">Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.</p>
               </div>
             </div>
-            <div class="korol-carousel__slide">
-              <video muted playsinline loop preload="metadata" poster="https://picsum.photos/seed/korol-responder/1280/720">
+            <div class="koral-carousel__slide">
+              <video muted playsinline loop preload="metadata" poster="https://picsum.photos/seed/koral-responder/1280/720">
                 <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
               </video>
-              <div class="korol-carousel__overlay">
-                <h3 data-content="home.carousel.slides.2.title">korol Responder</h3>
+              <div class="koral-carousel__overlay">
+                <h3 data-content="home.carousel.slides.2.title">Koral Responder</h3>
                 <p data-content="home.carousel.slides.2.text">Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.</p>
               </div>
             </div>
-            <div class="korol-carousel__slide">
+            <div class="koral-carousel__slide">
               <video muted playsinline loop preload="metadata" poster="https://picsum.photos/seed/trevoli-ems/1280/720">
                 <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4">
               </video>
-              <div class="korol-carousel__overlay">
+              <div class="koral-carousel__overlay">
                 <h3 data-content="home.carousel.slides.3.title">Trevoli EMS</h3>
-                <p data-content="home.carousel.slides.3.text">Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every korol unit.</p>
+                <p data-content="home.carousel.slides.3.text">Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every Koral unit.</p>
               </div>
             </div>
           </div>
-
-          <div class="korol-carousel__controls">
-            <button class="korol-carousel__playpause" id="playPauseBtn" aria-label="Pause">
+          <div class="koral-carousel__controls">
+            <button class="koral-carousel__playpause" id="playPauseBtn" aria-label="Pause">
               <svg id="pauseIcon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
               <svg id="playIcon" viewBox="0 0 24 24" style="display:none"><path d="M8 5v14l11-7z"/></svg>
             </button>
-            <div class="korol-carousel__dots" id="carouselDots"></div>
-            <div class="korol-carousel__progress"><div class="korol-carousel__progress-inner" id="progressBar"></div></div>
-            <div class="korol-carousel__slide-count" id="slideCount"><strong>01</strong> / 04</div>
+            <div class="koral-carousel__dots" id="carouselDots"></div>
+            <div class="koral-carousel__progress"><div class="koral-carousel__progress-inner" id="progressBar"></div></div>
+            <div class="koral-carousel__slide-count" id="slideCount"><strong>01</strong> / 04</div>
           </div>
         </div>
       </div>
@@ -442,7 +446,7 @@ td.no{color:var(--txt-3)}
         <div>
           <span class="eyebrow" data-content="home.trevoliTeaser.eyebrow">Software Layer</span>
           <h2 class="h2" data-content="home.trevoliTeaser.title">Trevoli Manages Every Watt.</h2>
-          <p class="lead" style="margin-top:18px" data-content="home.trevoliTeaser.text">Trevoli is the intelligence layer across the korol ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.</p>
+          <p class="lead" style="margin-top:18px" data-content="home.trevoliTeaser.text">Trevoli is the intelligence layer across the Koral ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.</p>
           <div class="btn-group" style="margin-top:32px"><button class="btn btn--primary" data-nav="trevoli">Discover Trevoli</button></div>
         </div>
       </div>
@@ -463,24 +467,24 @@ td.no{color:var(--txt-3)}
     <div class="container cta-band__inner">
       <span class="eyebrow" data-content="home.cta.eyebrow">Get Started</span>
       <h2 class="h2" data-content="home.cta.title">Power Shouldn't Be Bound by the Grid.</h2>
-      <p class="lead" data-content="home.cta.text">Join the next generation of energy independence with korol.</p>
+      <p class="lead" data-content="home.cta.text">Join the next generation of energy independence with Koral.</p>
       <div class="btn-group">
         <button class="btn btn--primary btn--lg" data-nav="partner">Partner With Us</button>
         <button class="btn btn--ghost btn--lg" data-nav="products">Explore Products</button>
       </div>
     </div>
   </section>
-
   <div class="custom-sections" data-custom-page="home"></div>
 </div>
 
+<!-- ABOUT -->
 <div class="page" id="page-about">
   <section class="page-hero" id="about-hero-section">
     <div class="container page-hero__inner">
       <div class="crumbs"><button data-nav="home">Home</button><span>/</span>About Us</div>
       <span class="eyebrow eyebrow--boxed" data-content="about.hero.eyebrow">Our Story</span>
       <h1 class="h1" data-content="about.hero.title">We Build Power That Doesn't Ask Permission.</h1>
-      <p class="lead" data-content="about.hero.subtitle">korol exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.</p>
+      <p class="lead" data-content="about.hero.subtitle">Koral exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.</p>
     </div>
   </section>
   <section class="section section--flush reveal" id="about-mission-section">
@@ -538,17 +542,17 @@ td.no{color:var(--txt-3)}
       </div>
     </div>
   </section>
-
   <div class="custom-sections" data-custom-page="about"></div>
 </div>
 
+<!-- PRODUCTS -->
 <div class="page" id="page-products">
   <section class="page-hero">
     <div class="container page-hero__inner">
       <div class="crumbs"><button data-nav="home">Home</button><span>/</span>Products</div>
       <span class="eyebrow eyebrow--boxed" data-content="products.hero.eyebrow">Hardware Line</span>
       <h1 class="h1" data-content="products.hero.title">Three Platforms. One Ecosystem.</h1>
-      <p class="lead" data-content="products.hero.subtitle">Every korol unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.</p>
+      <p class="lead" data-content="products.hero.subtitle">Every Koral unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.</p>
     </div>
   </section>
   <section class="section section--flush reveal" id="products-grid-section">
@@ -592,17 +596,17 @@ td.no{color:var(--txt-3)}
       </div>
     </div>
   </section>
-
   <div class="custom-sections" data-custom-page="products"></div>
 </div>
 
+<!-- TREVOLI -->
 <div class="page" id="page-trevoli">
   <section class="page-hero">
     <div class="container page-hero__inner">
       <div class="crumbs"><button data-nav="home">Home</button><span>/</span>Trevoli</div>
       <span class="eyebrow eyebrow--boxed" data-content="trevoli.hero.eyebrow">Software Layer</span>
       <h1 class="h1" data-content="trevoli.hero.title">Trevoli Manages Every Watt.</h1>
-      <p class="lead" data-content="trevoli.hero.subtitle">The intelligence layer across the korol ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.</p>
+      <p class="lead" data-content="trevoli.hero.subtitle">The intelligence layer across the Koral ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.</p>
       <div class="btn-group" style="margin-top:36px">
         <button class="btn btn--primary btn--lg" data-nav="partner">Request a Demo</button>
         <button class="btn btn--ghost btn--lg" data-nav="products">See Hardware</button>
@@ -612,7 +616,7 @@ td.no{color:var(--txt-3)}
   <section class="section section--flush reveal">
     <div class="container">
       <div class="app">
-        <div class="app__bar"><span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span><span class="app__title" data-content="trevoli.dashboard.title">trevoli.korol — fleet overview</span></div>
+        <div class="app__bar"><span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span><span class="app__title" data-content="trevoli.dashboard.title">trevoli.koral — fleet overview</span></div>
         <div class="app__body">
           <aside class="app__side" id="app-side"></aside>
           <div class="app__main">
@@ -638,7 +642,7 @@ td.no{color:var(--txt-3)}
         <div>
           <span class="eyebrow" data-content="trevoli.architecture.eyebrow">Architecture</span>
           <h2 class="h2" style="margin-bottom:20px" data-content="trevoli.architecture.title">How Trevoli Works.</h2>
-          <p class="lead" data-content="trevoli.architecture.text">A lightweight edge controller runs on every korol unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.</p>
+          <p class="lead" data-content="trevoli.architecture.text">A lightweight edge controller runs on every Koral unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.</p>
           <div class="pill-row" style="margin-top:28px" id="architecture-pills"></div>
         </div>
         <div class="steps" id="architecture-steps"></div>
@@ -668,10 +672,10 @@ td.no{color:var(--txt-3)}
       </div>
     </div>
   </section>
-
   <div class="custom-sections" data-custom-page="trevoli"></div>
 </div>
 
+<!-- PARTNER -->
 <div class="page" id="page-partner">
   <section class="page-hero">
     <div class="container page-hero__inner">
@@ -733,7 +737,6 @@ td.no{color:var(--txt-3)}
       </div>
     </div>
   </section>
-
   <div class="custom-sections" data-custom-page="partner"></div>
 </div>
 
@@ -744,26 +747,17 @@ td.no{color:var(--txt-3)}
     <div class="footer__grid">
       <div class="footer__brand">
         <div class="logo" data-nav="home" id="footerLogo">
-          <span data-content="footer.brand.name">korol</span>
+          <span data-content="footer.brand.name">KORAL</span>
         </div>
         <p data-content="footer.brand.tagline">Portable solar-powered energy ecosystems. Built for a world beyond the grid.</p>
         <div class="socials" id="socials-container"></div>
       </div>
-      <div>
-        <h5 data-content="footer.company.title">Company</h5>
-        <ul id="footer-company-links"></ul>
-      </div>
-      <div>
-        <h5 data-content="footer.products.title">Products</h5>
-        <ul id="footer-products-links"></ul>
-      </div>
-      <div>
-        <h5 data-content="footer.resources.title">Resources</h5>
-        <ul id="footer-resources-links"></ul>
-      </div>
+      <div><h5 data-content="footer.company.title">Company</h5><ul id="footer-company-links"></ul></div>
+      <div><h5 data-content="footer.products.title">Products</h5><ul id="footer-products-links"></ul></div>
+      <div><h5 data-content="footer.resources.title">Resources</h5><ul id="footer-resources-links"></ul></div>
     </div>
     <div class="footer__bottom">
-      <span>© <span id="yr"></span> <span data-content="footer.copyright.name">korol</span>. All rights reserved.</span>
+      <span>© <span id="yr"></span> <span data-content="footer.copyright.name">Koral</span>. All rights reserved.</span>
       <span data-content="footer.copyright.legal">Privacy · Terms</span>
     </div>
   </div>
@@ -775,17 +769,17 @@ td.no{color:var(--txt-3)}
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   const DEFAULT_CONTENT = {
-    site:{brandName:"korol",brandTagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",logoUrl:""},
-    email:{formRecipient:"partners@korol.energy",replyTo:"partners@korol.energy",formSubject:"New partnership enquiry from {name}",autoReplyEnabled:true,autoReplySubject:"Thanks for reaching out to korol",autoReplyBody:"Hi {firstName},\n\nThanks for contacting korol.",smtpHost:"",smtpPort:"587",smtpUser:"",smtpPassword:""},
+    site:{brandName:"KORAL",brandTagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",logoUrl:""},
+    email:{formRecipient:"partners@koral.energy",replyTo:"partners@koral.energy",formSubject:"New partnership enquiry from {name}",autoReplyEnabled:true,autoReplySubject:"Thanks for reaching out to Koral",autoReplyBody:"Hi {firstName},\n\nThanks for contacting Koral.",smtpHost:"",smtpPort:"587",smtpUser:"",smtpPassword:""},
     home:{
-      hero:{label:"Next-Gen Energy Ecosystem",title:"Redefining Energy Freedom, Untethered.",subtitle:"korol delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",bgImage:"",stats:[{value:"2.4 kW",label:"Solar Generation"},{value:"0",label:"Grid Dependence"},{value:"100%",label:"Renewable Input"},{value:"24/7",label:"Autonomous Power"}]},
+      hero:{label:"Next-Gen Energy Ecosystem",title:"Redefining Energy Freedom, Untethered.",subtitle:"Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",bgImage:"",stats:[{value:"2.4 kW",label:"Solar Generation"},{value:"0",label:"Grid Dependence"},{value:"100%",label:"Renewable Input"},{value:"24/7",label:"Autonomous Power"}]},
       marquee:["Solar Harvesting","LFP Storage","Off-Grid EV Charging","Trevoli EMS","Fleet Depots","Disaster Response","Remote Industry"],
-      decentralized:{eyebrow:"Autonomous Infrastructure",title:"Powering a Decentralized Future.",text:"As global energy demands rise and traditional utility grids face growing vulnerabilities, korol provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",pills:["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"],bgImage:""},
+      decentralized:{eyebrow:"Autonomous Infrastructure",title:"Powering a Decentralized Future.",text:"As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",pills:["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"],bgImage:""},
       carousel:{slides:[
-        {title:"korol Nomad",text:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",posterUrl:"https://picsum.photos/seed/korol-nomad/1280/720"},
-        {title:"korol Depot",text:"Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",posterUrl:"https://picsum.photos/seed/korol-depot/1280/720"},
-        {title:"korol Responder",text:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",posterUrl:"https://picsum.photos/seed/korol-responder/1280/720"},
-        {title:"Trevoli EMS",text:"Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every korol unit.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",posterUrl:"https://picsum.photos/seed/trevoli-ems/1280/720"}
+        {title:"Koral Nomad",text:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",posterUrl:"https://picsum.photos/seed/koral-nomad/1280/720"},
+        {title:"Koral Depot",text:"Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",posterUrl:"https://picsum.photos/seed/koral-depot/1280/720"},
+        {title:"Koral Responder",text:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",posterUrl:"https://picsum.photos/seed/koral-responder/1280/720"},
+        {title:"Trevoli EMS",text:"Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every Koral unit.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",posterUrl:"https://picsum.photos/seed/trevoli-ems/1280/720"}
       ]},
       features:{eyebrow:"Core Technology",title:"Engineered for Uncompromised Reliability.",bgImage:"",items:[
         {title:"Proprietary Storage Cells",text:"Advanced Lithium Iron Phosphate chemistries and high-efficiency MPPT controllers delivering maximum energy density and long cycle life.",imageUrl:""},
@@ -794,27 +788,27 @@ td.no{color:var(--txt-3)}
         {title:"Sustainable Lifecycle",text:"Recyclable materials, non-toxic compositions and zero direct emissions designed to reduce impact at every stage.",imageUrl:""}
       ]},
       productsTeaser:{eyebrow:"Hardware Line",title:"Built for the Edge of the Grid.",text:"Three platforms. One ecosystem. Every unit ships grid-independent.",items:[
-        {code:"KRL-01",tag:"Portable",title:"korol Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW"}},
-        {code:"KRL-02",tag:"Stationary",title:"korol Depot",desc:"Containerised buffer storage for commercial EV fleets. Deploys without grid expansion or trenching.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW"}},
-        {code:"KRL-03",tag:"Rapid Response",title:"korol Responder",desc:"Towable energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW"}}
+        {code:"KRL-01",tag:"Portable",title:"Koral Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW"}},
+        {code:"KRL-02",tag:"Stationary",title:"Koral Depot",desc:"Containerised buffer storage for commercial EV fleets. Deploys without grid expansion or trenching.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW"}},
+        {code:"KRL-03",tag:"Rapid Response",title:"Koral Responder",desc:"Towable energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW"}}
       ]},
-      stats:{eyebrow:"Benchmarks",title:"Performance Metrics.",bgImage:"",items:[{category:"System Efficiency",korol:"92%",industry:"68%"},{category:"Cycle Durability",korol:"88/100",industry:"62/100"},{category:"Operational Ease",korol:"95/100",industry:"58/100"}]},
+      stats:{eyebrow:"Benchmarks",title:"Performance Metrics.",bgImage:"",items:[{category:"System Efficiency",koral:"92%",industry:"68%"},{category:"Cycle Durability",koral:"88/100",industry:"62/100"},{category:"Operational Ease",koral:"95/100",industry:"58/100"}]},
       industries:{eyebrow:"Use Cases",title:"Deployed Across Critical Industries.",bgImage:"",items:[
         {title:"Commercial Fleets",text:"Rapid battery buffer depots for delivery logistics, municipal transit and commercial EV fleets — without expensive grid expansion.",imageUrl:""},
         {title:"Emergency Response",text:"Instant, disaster-resilient mobile energy for medical command posts, wildfire operations and civil defence during blackouts.",imageUrl:""},
         {title:"Remote Industry",text:"Continuous power for off-grid mining sites, agricultural machinery, remote construction and field research facilities.",imageUrl:""}
       ]},
-      trevoliTeaser:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",text:"Trevoli is the intelligence layer across the korol ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",badgeValue:"Trevoli",badgeLabel:"Smart Energy OS",imageUrl:""},
+      trevoliTeaser:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",text:"Trevoli is the intelligence layer across the Koral ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",badgeValue:"Trevoli",badgeLabel:"Smart Energy OS",imageUrl:""},
       testimonials:{eyebrow:"Field Reports",title:"Trusted Where the Grid Ends.",bgImage:"",items:[
-        {quote:"We eliminated a six-figure trenching quote by deploying korol Depot units at two depots. Charging uptime has been flawless for eleven months.",initials:"MR",name:"M. Reyes",role:"Fleet Director, Regional Transit",avatarUrl:""},
+        {quote:"We eliminated a six-figure trenching quote by deploying Koral Depot units at two depots. Charging uptime has been flawless for eleven months.",initials:"MR",name:"M. Reyes",role:"Fleet Director, Regional Transit",avatarUrl:""},
         {quote:"The Responder units powered our field hospital for nine days after the storm. Setup took one person and under ten minutes.",initials:"AK",name:"A. Kaur",role:"Logistics Lead, Civil Defence",avatarUrl:""},
         {quote:"Trevoli gives us per-asset telemetry we simply never had. We now schedule maintenance before failures instead of after.",initials:"JT",name:"J. Thompson",role:"Operations Manager, Mining",avatarUrl:""}
       ]},
-      cta:{eyebrow:"Get Started",title:"Power Shouldn't Be Bound by the Grid.",text:"Join the next generation of energy independence with korol.",bgImage:""}
+      cta:{eyebrow:"Get Started",title:"Power Shouldn't Be Bound by the Grid.",text:"Join the next generation of energy independence with Koral.",bgImage:""}
     },
     about:{
-      hero:{eyebrow:"Our Story",title:"We Build Power That Doesn't Ask Permission.",subtitle:"korol exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.",bgImage:""},
-      mission:{eyebrow:"Mission",title:"Decentralize the Grid. Permanently.",text1:"Centralised energy infrastructure was designed for a different century. It's expensive to extend, slow to permit and fragile under stress. Our mission is to make autonomous clean energy the default choice.",text2:"We do this by building the entire stack ourselves: solar harvesting, storage chemistry, power electronics and the software that orchestrates all of it.",badgeValue:"2030",badgeLabel:"1 GWh Deployed Target",imageUrl:"",bgImage:""},
+      hero:{eyebrow:"Our Story",title:"We Build Power That Doesn't Ask Permission.",subtitle:"Koral exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.",bgImage:""},
+      mission:{eyebrow:"Mission",title:"Decentralize the Grid. Permanently.",text1:"Centralised energy infrastructure was designed for a different century. It's expensive to extend, slow to permit and fragile under stress. Our mission is to make autonomous clean energy the default choice — not the backup plan — for fleets, industry and emergency services.",text2:"We do this by building the entire stack ourselves: solar harvesting, storage chemistry, power electronics and the software that orchestrates all of it.",badgeValue:"2030",badgeLabel:"1 GWh Deployed Target",imageUrl:"",bgImage:""},
       values:{eyebrow:"Principles",title:"What We Optimize For.",items:[
         {num:"01",title:"Field Reliability",text:"If it can't survive a dust storm, a monsoon and a -20°C night, it doesn't ship."},
         {num:"02",title:"Radical Simplicity",text:"Complex energy systems fail at the seams. We reduce part counts and single points of failure."},
@@ -823,8 +817,8 @@ td.no{color:var(--txt-3)}
       ]},
       timeline:{eyebrow:"Trajectory",title:"How We Got Here.",items:[
         {year:"2021",title:"Founded in a Workshop",text:"Three engineers, one prototype LFP pack and a problem statement."},
-        {year:"2022",title:"First Field Deployment",text:"korol Nomad units deployed with remote survey teams."},
-        {year:"2023",title:"korol Depot Goes Live",text:"Containerised 60 kWh buffer storage installed at two municipal transit depots."},
+        {year:"2022",title:"First Field Deployment",text:"Koral Nomad units deployed with remote survey teams."},
+        {year:"2023",title:"Koral Depot Goes Live",text:"Containerised 60 kWh buffer storage installed at two municipal transit depots."},
         {year:"2024",title:"Trevoli Platform Launch",text:"Our energy management OS ships with fleet telemetry."},
         {year:"2025",title:"Solid-State Program",text:"R&D transitions toward solid-state cells for higher density."}
       ]},
@@ -840,21 +834,21 @@ td.no{color:var(--txt-3)}
       cta:{title:"Build the Decentralized Grid With Us.",text:"We're hiring engineers and partnering with operators worldwide.",bgImage:""}
     },
     products:{
-      hero:{eyebrow:"Hardware Line",title:"Three Platforms. One Ecosystem.",subtitle:"Every korol unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency.",bgImage:""},
+      hero:{eyebrow:"Hardware Line",title:"Three Platforms. One Ecosystem.",subtitle:"Every Koral unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency.",bgImage:""},
       items:[
-        {category:"portable",code:"KRL-01",tag:"Portable",title:"korol Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW",Weight:"34 kg",Deploy:"5 min"}},
-        {category:"stationary",code:"KRL-02",tag:"Stationary",title:"korol Depot",desc:"Containerised 60 kWh buffer storage for commercial EV fleets.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW",Footprint:"1.8 m²",Rating:"IP65"}},
-        {category:"rapid",code:"KRL-03",tag:"Rapid Response",title:"korol Responder",desc:"Towable 18 kWh energy unit for disaster zones.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW","Tow Rating":"750 kg",Deploy:"10 min"}},
-        {category:"portable",code:"KRL-04",tag:"Portable",title:"korol Array 400",desc:"Standalone foldable photovoltaic array.",imageUrl:"",specs:{Peak:"400 W",Folded:"0.4 m²",Cell:"Monocrystalline",Rating:"IP67"}},
-        {category:"stationary",code:"KRL-05",tag:"Stationary",title:"korol Depot XL",desc:"Cascadable 180 kWh storage block for industrial sites.",imageUrl:"",specs:{Capacity:"180 kWh",Output:"60 kW",Cascade:"Up to 8",Rating:"IP65"}},
-        {category:"rapid",code:"KRL-06",tag:"Rapid Response",title:"korol Relay",desc:"Backpack-portable 900 Wh unit for single-operator deployment.",imageUrl:"",specs:{Capacity:"900 Wh",Output:"1.2 kW",Weight:"9 kg",Rating:"IP66"}}
+        {category:"portable",code:"KRL-01",tag:"Portable",title:"Koral Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW",Weight:"34 kg",Deploy:"5 min"}},
+        {category:"stationary",code:"KRL-02",tag:"Stationary",title:"Koral Depot",desc:"Containerised 60 kWh buffer storage for commercial EV fleets.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW",Footprint:"1.8 m²",Rating:"IP65"}},
+        {category:"rapid",code:"KRL-03",tag:"Rapid Response",title:"Koral Responder",desc:"Towable 18 kWh energy unit for disaster zones.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW","Tow Rating":"750 kg",Deploy:"10 min"}},
+        {category:"portable",code:"KRL-04",tag:"Portable",title:"Koral Array 400",desc:"Standalone foldable photovoltaic array.",imageUrl:"",specs:{Peak:"400 W",Folded:"0.4 m²",Cell:"Monocrystalline",Rating:"IP67"}},
+        {category:"stationary",code:"KRL-05",tag:"Stationary",title:"Koral Depot XL",desc:"Cascadable 180 kWh storage block for industrial sites.",imageUrl:"",specs:{Capacity:"180 kWh",Output:"60 kW",Cascade:"Up to 8",Rating:"IP65"}},
+        {category:"rapid",code:"KRL-06",tag:"Rapid Response",title:"Koral Relay",desc:"Backpack-portable 900 Wh unit for single-operator deployment.",imageUrl:"",specs:{Capacity:"900 Wh",Output:"1.2 kW",Weight:"9 kg",Rating:"IP66"}}
       ],
       comparison:{eyebrow:"Side by Side",title:"Platform Comparison.",headers:["Specification","Nomad","Depot","Responder"],rows:[
         ["Usable Capacity","2.4 kWh","60 kWh","18 kWh"],["Continuous Output","3.6 kW","22 kW","9 kW"],["Solar Input","400 W","2.4 kW","1.2 kW"],["Cell Chemistry","LFP","LFP","LFP"],["Cycle Life","4,000","6,000","4,500"],["Ingress Rating","IP67","IP65","IP66"],["Trevoli Enabled","Yes","Yes","Yes"],["Grid Connection Required","No","No","No"],["Single-Person Deploy","Yes","2 crew","Yes"]
       ]},
       deepDive:{eyebrow:"Inside the Enclosure",title:"Every Component Is Ours.",text:"We didn't assemble off-the-shelf parts. The BMS, the MPPT controller, the thermal management layer and the firmware running on top are all designed and validated in-house.",items:["Custom battery management system with per-cell monitoring","High-efficiency MPPT tracking with dual-input channel support","Passive and active thermal regulation for -20°C to 55°C operation","Over-the-air firmware updates via Trevoli"],badgeValue:"IP65+",badgeLabel:"Environmental Rating",imageUrl:""},
       faq:{eyebrow:"Questions",title:"Frequently Asked.",items:[
-        {q:"Do korol units need any grid connection at all?",a:"No. Every platform generates and stores its own power from solar input."},
+        {q:"Do Koral units need any grid connection at all?",a:"No. Every platform generates and stores its own power from solar input."},
         {q:"How long does installation take?",a:"Nomad and Responder units deploy in under ten minutes with one person."},
         {q:"What happens during extended cloudy weather?",a:"Every system is sized with a reserve margin based on your regional irradiance profile."},
         {q:"Can I monitor multiple sites at once?",a:"Yes. Trevoli aggregates telemetry across your entire fleet into a single dashboard."},
@@ -863,8 +857,8 @@ td.no{color:var(--txt-3)}
       cta:{title:"Need a Configuration for Your Site?",text:"Send us your load profile and we'll size a system within 48 hours.",bgImage:""}
     },
     trevoli:{
-      hero:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",subtitle:"The intelligence layer across the korol ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control.",bgImage:""},
-      dashboard:{title:"trevoli.korol — fleet overview",sidebar:["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],stats:[{label:"Fleet State of Charge",value:"87%"},{label:"Active Assets",value:"342"},{label:"Alerts",value:"2"}],chartTitle:"Daily Harvest — Last 12 Days",chartUnit:"kWh",chartData:"42,55,48,67,72,61,80,88,76,91,84,96"},
+      hero:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",subtitle:"The intelligence layer across the Koral ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control.",bgImage:""},
+      dashboard:{title:"trevoli.koral — fleet overview",sidebar:["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],stats:[{label:"Fleet State of Charge",value:"87%"},{label:"Active Assets",value:"342"},{label:"Alerts",value:"2"}],chartTitle:"Daily Harvest — Last 12 Days",chartUnit:"kWh",chartData:"42,55,48,67,72,61,80,88,76,91,84,96"},
       capabilities:{eyebrow:"Capabilities",title:"Built Into Every Unit.",items:[
         {title:"Predictive Load Balancing",text:"Trevoli forecasts demand against irradiance and stored reserve."},
         {title:"Real-Time Telemetry",text:"Per-cell voltage, temperature, cycle count and throughput streamed continuously."},
@@ -873,7 +867,7 @@ td.no{color:var(--txt-3)}
         {title:"Anomaly Detection",text:"Deviation from expected charge and discharge curves triggers an alert."},
         {title:"Reporting & Export",text:"Carbon avoided, energy served and uptime metrics exportable."}
       ]},
-      architecture:{eyebrow:"Architecture",title:"How Trevoli Works.",text:"A lightweight edge controller runs on every korol unit, collecting high-frequency data and executing local decisions even when offline.",pills:["Edge-first","Offline capable","Encrypted sync","Open export"],steps:[
+      architecture:{eyebrow:"Architecture",title:"How Trevoli Works.",text:"A lightweight edge controller runs on every Koral unit, collecting high-frequency data and executing local decisions even when offline.",pills:["Edge-first","Offline capable","Encrypted sync","Open export"],steps:[
         {title:"Sense",text:"The edge controller samples cell voltage, current, temperature and irradiance."},
         {title:"Decide",text:"Local models balance charge distribution, thermal load and output priority."},
         {title:"Sync",text:"Aggregated telemetry syncs securely to your Trevoli workspace."},
@@ -899,19 +893,21 @@ td.no{color:var(--txt-3)}
         {title:"Ongoing Support",text:"Continuous remote monitoring and over-the-air updates."}
       ]},
       contact:{items:[
-        {title:"Sales & Partnerships",email:"partners@korol.energy"},
-        {title:"Technical Support",email:"support@korol.energy"},
-        {title:"Press & Media",email:"press@korol.energy"}
+        {title:"Sales & Partnerships",email:"partners@koral.energy"},
+        {title:"Technical Support",email:"support@koral.energy"},
+        {title:"Press & Media",email:"press@koral.energy"}
       ]},
       cta:{title:"Power Shouldn't Be Bound by the Grid.",text:"Start your deployment conversation today.",bgImage:""}
     },
     footer:{
-      brand:{name:"korol",tagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",socials:[{label:"in",url:"#"},{label:"X",url:"#"},{label:"YT",url:"#"}],logoUrl:""},
+      brand:{name:"KORAL",tagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",socials:[{label:"in",url:"#"},{label:"X",url:"#"},{label:"YT",url:"#"}],logoUrl:""},
       company:{title:"Company",links:[{label:"About Us",nav:"about"},{label:"Careers",nav:"about"},{label:"Contact",nav:"partner"}]},
-      products:{title:"Products",links:[{label:"korol Nomad",nav:"products"},{label:"korol Depot",nav:"products"},{label:"korol Responder",nav:"products"},{label:"Trevoli",nav:"trevoli"}]},
+      products:{title:"Products",links:[{label:"Koral Nomad",nav:"products"},{label:"Koral Depot",nav:"products"},{label:"Koral Responder",nav:"products"},{label:"Trevoli",nav:"trevoli"}]},
       resources:{title:"Resources",links:[{label:"Specifications",nav:"products"},{label:"FAQ",nav:"products"},{label:"Partner Program",nav:"partner"}]},
-      copyright:{name:"korol",legal:"Privacy · Terms"}
+      copyright:{name:"Koral",legal:"Privacy · Terms"}
     },
+    typography:{baseSize:16,headingScale:1,headingWeight:700,headingTracking:"-0.025em"},
+    spacing:{sectionPadding:110,containerPadding:24,cardPadding:34,gridGap:22,density:"default"},
     customSections:[]
   };
 
@@ -919,7 +915,7 @@ td.no{color:var(--txt-3)}
     const isPreview = new URLSearchParams(location.search).has('preview');
     if (isPreview) {
       try {
-        const saved = localStorage.getItem('korol-content-v1');
+        const saved = localStorage.getItem('koral-content-v1');
         if (saved) return deepMerge(JSON.parse(JSON.stringify(DEFAULT_CONTENT)), JSON.parse(saved));
       } catch(e) {}
     }
@@ -958,6 +954,25 @@ td.no{color:var(--txt-3)}
       }
     }
     walk(data, '');
+
+    // Apply typography
+    if (data.typography) {
+      const t = data.typography;
+      const root = document.documentElement.style;
+      if (t.baseSize) root.setProperty('--base-size', t.baseSize + 'px');
+      if (t.headingScale) root.setProperty('--heading-scale', t.headingScale);
+      if (t.headingWeight) root.setProperty('--heading-weight', t.headingWeight);
+      if (t.headingTracking) root.setProperty('--heading-tracking', t.headingTracking);
+    }
+    // Apply spacing
+    if (data.spacing) {
+      const s = data.spacing;
+      const root = document.documentElement.style;
+      if (s.sectionPadding) root.setProperty('--section-pad', s.sectionPadding + 'px');
+      if (s.containerPadding) root.setProperty('--container-pad', s.containerPadding + 'px');
+      if (s.cardPadding) root.setProperty('--card-pad', s.cardPadding + 'px');
+      if (s.gridGap) root.setProperty('--grid-gap', s.gridGap + 'px');
+    }
 
     function applyLogo(el, logoUrl, brandName) {
       if (!el || !logoUrl) return;
@@ -1057,7 +1072,7 @@ td.no{color:var(--txt-3)}
     if (statsGrid && data.home?.stats?.items) {
       statsGrid.innerHTML = data.home.stats.items.map(s =>
         '<div class="compare"><div class="compare__cat">' + s.category + '</div><div class="compare__row">' +
-          '<div><span class="compare__val compare__val--k">' + s.korol + '</span><span class="compare__name">korol</span></div>' +
+          '<div><span class="compare__val compare__val--k">' + s.koral + '</span><span class="compare__name">Koral</span></div>' +
           '<div class="compare__div"></div>' +
           '<div><span class="compare__val compare__val--i">' + s.industry + '</span><span class="compare__name">Industry Avg</span></div>' +
         '</div></div>'
@@ -1234,13 +1249,11 @@ td.no{color:var(--txt-3)}
     renderFooterLinks('footer-products-links', data.footer?.products?.links);
     renderFooterLinks('footer-resources-links', data.footer?.resources?.links);
 
-    // ============================================================
-    // VIDEO CAROUSEL
-    // ============================================================
-    const carousel = document.getElementById('korolCarousel');
+    // ============ VIDEO CAROUSEL ============
+    const carousel = document.getElementById('koralCarousel');
     if (carousel) {
       const viewport = document.getElementById('carouselViewport');
-      const slides = viewport.querySelectorAll('.korol-carousel__slide');
+      const slides = viewport.querySelectorAll('.koral-carousel__slide');
       const videos = viewport.querySelectorAll('video');
       const progressBar = document.getElementById('progressBar');
       const playPauseBtn = document.getElementById('playPauseBtn');
@@ -1248,24 +1261,20 @@ td.no{color:var(--txt-3)}
       const playIcon = document.getElementById('playIcon');
       const dotsContainer = document.getElementById('carouselDots');
       const slideCount = document.getElementById('slideCount');
-
       let currentIndex = 0, isPlaying = true, slideDuration = 7000, startTime = null, animationFrame = null, isInView = false;
 
       dotsContainer.innerHTML = Array.from(slides).map((_, i) =>
-        '<button class="korol-carousel__dot ' + (i===0?'is-active':'') + '" data-index="' + i + '" aria-label="Go to slide ' + (i+1) + '"></button>'
+        '<button class="koral-carousel__dot ' + (i===0?'is-active':'') + '" data-index="' + i + '" aria-label="Go to slide ' + (i+1) + '"></button>'
       ).join('');
-      const dots = dotsContainer.querySelectorAll('.korol-carousel__dot');
-
+      const dots = dotsContainer.querySelectorAll('.koral-carousel__dot');
       function updateCount() { slideCount.innerHTML = '<strong>' + String(currentIndex+1).padStart(2,'0') + '</strong> / ' + String(slides.length).padStart(2,'0'); }
       updateCount();
-
       new IntersectionObserver(entries => {
         entries.forEach(entry => {
           isInView = entry.isIntersecting;
           if (isInView && isPlaying) startTimer(); else stopTimer();
         });
       }, { threshold: 0.25 }).observe(carousel);
-
       function startTimer() { stopTimer(); startTime = performance.now(); tick(); }
       function tick() {
         if (!isPlaying || !isInView) return;
@@ -1289,9 +1298,7 @@ td.no{color:var(--txt-3)}
         if (isPlaying && isInView) startTimer();
       }
       function goToNext() { goToSlide((currentIndex + 1) % slides.length); }
-
       dots.forEach(dot => dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index, 10))));
-
       playPauseBtn.addEventListener('click', () => {
         isPlaying = !isPlaying;
         if (isPlaying) {
@@ -1304,19 +1311,13 @@ td.no{color:var(--txt-3)}
           stopTimer(); videos[currentIndex].pause();
         }
       });
-
       let wasPlayingBefore = false;
-      function pauseForInteraction() {
-        if (isPlaying && isInView) { wasPlayingBefore = true; stopTimer(); videos[currentIndex].pause(); }
-      }
-      function resumeAfterInteraction() {
-        if (wasPlayingBefore && isPlaying && isInView) { wasPlayingBefore = false; videos[currentIndex].play().catch(() => {}); startTimer(); }
-      }
+      function pauseForInteraction() { if (isPlaying && isInView) { wasPlayingBefore = true; stopTimer(); videos[currentIndex].pause(); } }
+      function resumeAfterInteraction() { if (wasPlayingBefore && isPlaying && isInView) { wasPlayingBefore = false; videos[currentIndex].play().catch(() => {}); startTimer(); } }
       carousel.addEventListener('mouseenter', pauseForInteraction);
       carousel.addEventListener('mouseleave', resumeAfterInteraction);
       carousel.addEventListener('touchstart', pauseForInteraction, { passive: true });
       carousel.addEventListener('touchend', resumeAfterInteraction);
-
       let scrollTimeout;
       viewport.addEventListener('scroll', () => {
         clearTimeout(scrollTimeout);
@@ -1335,12 +1336,10 @@ td.no{color:var(--txt-3)}
           }
         }, 150);
       });
-
       viewport.addEventListener('keydown', e => {
         if (e.key === 'ArrowRight') { e.preventDefault(); goToNext(); }
         else if (e.key === 'ArrowLeft') { e.preventDefault(); goToSlide((currentIndex - 1 + slides.length) % slides.length); }
       });
-
       if (videos.length > 0) {
         videos[0].play().catch(() => {
           isPlaying = false;
@@ -1355,9 +1354,7 @@ td.no{color:var(--txt-3)}
       }
     }
 
-    // ============================================================
-    // CUSTOM SECTIONS (Page Builder)
-    // ============================================================
+    // ============ CUSTOM SECTIONS ============
     function renderCustomSections() {
       const list = data.customSections || [];
       document.querySelectorAll('[data-custom-page]').forEach(container => {
@@ -1366,10 +1363,8 @@ td.no{color:var(--txt-3)}
         container.innerHTML = pageSections.map(renderCustomSection).join('');
       });
     }
-
     function renderCustomSection(sec) {
       const e = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
       switch (sec.type) {
         case 'text':
           return '<section class="section reveal"><div class="container">' +
@@ -1378,7 +1373,6 @@ td.no{color:var(--txt-3)}
               (sec.title ? '<h2 class="h2">' + e(sec.title) + '</h2>' : '') +
               (sec.body ? '<p class="lead" style="margin-top:18px">' + e(sec.body) + '</p>' : '') +
             '</div></div></section>';
-
         case 'image': {
           const img = sec.imageUrl ? '<img src="' + e(sec.imageUrl) + '" alt="" style="width:100%;border-radius:var(--r-lg);display:block">' : '';
           const content = sec.width === 'full' ? img : '<div class="container">' + img + '</div>';
@@ -1387,7 +1381,6 @@ td.no{color:var(--txt-3)}
           const overlay = sec.bgImage ? '<div style="position:absolute;inset:0;background:rgba(10,10,10,.85);z-index:0"></div>' : '';
           return '<section class="section reveal"' + bg + '>' + overlay + '<div style="position:relative;z-index:1">' + content + caption + '</div></section>';
         }
-
         case 'video':
           return '<section class="section reveal"><div class="container">' +
             '<video ' + (sec.posterUrl ? 'poster="' + e(sec.posterUrl) + '"' : '') + ' muted playsinline loop controls style="width:100%;border-radius:var(--r-lg);display:block;background:#000">' +
@@ -1395,7 +1388,6 @@ td.no{color:var(--txt-3)}
             '</video>' +
             (sec.caption ? '<p style="text-align:center;margin-top:14px;color:var(--txt-3);font-size:.82rem">' + e(sec.caption) + '</p>' : '') +
           '</div></section>';
-
         case 'split': {
           const media = sec.mediaType === 'video'
             ? '<div class="visual"><video src="' + e(sec.mediaUrl) + '" muted playsinline loop controls style="width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg)"></video></div>'
@@ -1409,14 +1401,12 @@ td.no{color:var(--txt-3)}
           const content = sec.reverse ? media + textBlock : textBlock + media;
           return '<section class="section reveal"><div class="container"><div class="feature-row">' + content + '</div></div></section>';
         }
-
         case 'marquee': {
           const items = (sec.items || []).concat(sec.items || []);
           return '<div class="marquee"><div class="marquee__track">' +
             items.map(t => '<span class="marquee__item">' + e(t) + '</span>').join('') +
           '</div></div>';
         }
-
         case 'cards':
           return '<section class="section reveal"><div class="container">' +
             ((sec.eyebrow || sec.title) ? '<div class="section-head">' +
@@ -1433,7 +1423,6 @@ td.no{color:var(--txt-3)}
               ).join('') +
             '</div>' +
           '</div></section>';
-
         case 'cta': {
           const bg = sec.bgImage ? ' style="background-image:url(' + e(sec.bgImage) + ');background-size:cover;background-position:center"' : '';
           const overlay = sec.bgImage ? '<div style="position:absolute;inset:0;background:rgba(10,10,10,.85);z-index:1"></div>' : '';
@@ -1445,7 +1434,6 @@ td.no{color:var(--txt-3)}
               (sec.secondaryLabel ? '<button class="btn btn--ghost btn--lg" data-nav="' + e(sec.secondaryLink || 'products') + '">' + e(sec.secondaryLabel) + '</button>' : '') +
             '</div></div></section>';
         }
-
         case 'hero': {
           const bg = sec.bgImage ? ' style="background-image:url(' + e(sec.bgImage) + ');background-size:cover;background-position:center"' : '';
           const overlay = sec.bgImage ? '<div style="position:absolute;inset:0;background:rgba(10,10,10,.75);z-index:0"></div>' : '';
@@ -1455,20 +1443,15 @@ td.no{color:var(--txt-3)}
             (sec.primaryLabel ? '<div class="btn-group" style="margin-top:36px"><button class="btn btn--primary btn--lg" data-nav="' + e(sec.primaryLink || 'products') + '">' + e(sec.primaryLabel) + '</button></div>' : '') +
           '</div></section>';
         }
-
         default: return '';
       }
     }
-
     renderCustomSections();
 
-    // ============================================================
-    // ROUTER
-    // ============================================================
+    // ============ ROUTER ============
     const pages = document.querySelectorAll('.page');
     const drawer = document.querySelector('.drawer');
     const burger = document.querySelector('.burger');
-
     function navigate(id) {
       pages.forEach(p => p.classList.toggle('active', p.id === 'page-' + id));
       document.querySelectorAll('.nav__menu .nav__link').forEach(b => b.classList.toggle('is-active', b.dataset.nav === id));
@@ -1484,23 +1467,19 @@ td.no{color:var(--txt-3)}
       });
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
-
     document.addEventListener('click', e => {
       const btn = e.target.closest('[data-nav]');
       if (btn) { e.preventDefault(); navigate(btn.dataset.nav); }
     });
-
     burger.addEventListener('click', () => {
       const open = drawer.classList.toggle('is-open');
       burger.classList.toggle('is-open', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-
     const nav = document.querySelector('.nav');
     window.addEventListener('scroll', () => {
       nav.style.borderBottomColor = window.scrollY > 20 ? 'rgba(200,245,66,.16)' : 'rgba(255,255,255,.07)';
     }, { passive: true });
-
     const hash = (location.hash || '#home').slice(1);
     const valid = ['home','about','products','trevoli','partner'];
     navigate(valid.includes(hash) ? hash : 'home');

@@ -1,16 +1,16 @@
 {
   "site": {
-    "brandName": "korol",
+    "brandName": "",
     "brandTagline": "Portable solar-powered energy ecosystems. Built for a world beyond the grid.",
-    "logoUrl": "assets/images/1791619334161-logo1.png"
+    "logoUrl": "assets/images/1791459937457-logo12.png"
   },
   "email": {
-    "formRecipient": "partners@korol.energy",
-    "replyTo": "partners@korol.energy",
+    "formRecipient": "partners@koral.energy",
+    "replyTo": "partners@koral.energy",
     "formSubject": "New partnership enquiry from {name}",
     "autoReplyEnabled": true,
-    "autoReplySubject": "Thanks for reaching out to korol",
-    "autoReplyBody": "Hi {firstName},\n\nThanks for contacting korol. We've received your enquiry and a member of our partnerships team will respond within two business days.\n\n— The korol Team",
+    "autoReplySubject": "Thanks for reaching out to Koral",
+    "autoReplyBody": "Hi {firstName},\n\nThanks for contacting Koral. We've received your enquiry and a member of our partnerships team will respond within two business days.\n\n— The Koral Team",
     "smtpHost": "",
     "smtpPort": "587",
     "smtpUser": "",
@@ -20,8 +20,8 @@
     "hero": {
       "label": "Next-Gen Energy Ecosystem",
       "title": "Redefining Energy Freedom, Untethered.",
-      "subtitle": "korol delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",
-      "bgImage": "assets/images/1791618666140-herobanner.png",
+      "subtitle": "Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",
+      "bgImage": "assets/images/1791619560253-banner.png",
       "stats": [
         {
           "value": "2.4 kW",
@@ -53,38 +53,33 @@
     "decentralized": {
       "eyebrow": "Autonomous Infrastructure",
       "title": "Powering a Decentralized Future.",
-      "text": "As global energy demands rise and traditional utility grids face growing vulnerabilities, korol provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",
-      "pills": [
-        "MPPT Controllers",
-        "LFP Chemistry",
-        "Weather-Sealed",
-        "Zero Emissions"
-      ],
+      "text": "As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",
+      "pills": [],
       "bgImage": ""
     },
     "carousel": {
       "slides": [
         {
-          "title": "korol Nomad",
+          "title": "Koral Nomad",
           "text": "Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.",
           "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-          "posterUrl": "https://picsum.photos/seed/korol-nomad/1280/720"
+          "posterUrl": ""
         },
         {
-          "title": "korol Depot",
+          "title": "Koral Depot",
           "text": "Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.",
           "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-          "posterUrl": "https://picsum.photos/seed/korol-depot/1280/720"
+          "posterUrl": "https://picsum.photos/seed/koral-depot/1280/720"
         },
         {
-          "title": "korol Responder",
+          "title": "Koral Responder",
           "text": "Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",
           "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          "posterUrl": "https://picsum.photos/seed/korol-responder/1280/720"
+          "posterUrl": "https://picsum.photos/seed/koral-responder/1280/720"
         },
         {
           "title": "Trevoli EMS",
-          "text": "Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every korol unit.",
+          "text": "Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every Koral unit.",
           "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
           "posterUrl": "https://picsum.photos/seed/trevoli-ems/1280/720"
         }
@@ -125,7 +120,7 @@
         {
           "code": "KRL-01",
           "tag": "Portable",
-          "title": "korol Nomad",
+          "title": "Koral Nomad",
           "desc": "Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging.",
           "imageUrl": "",
           "specs": {
@@ -136,7 +131,7 @@
         {
           "code": "KRL-02",
           "tag": "Stationary",
-          "title": "korol Depot",
+          "title": "Koral Depot",
           "desc": "Containerised buffer storage for commercial EV fleets. Deploys without grid expansion or trenching.",
           "imageUrl": "",
           "specs": {
@@ -147,7 +142,7 @@
         {
           "code": "KRL-03",
           "tag": "Rapid Response",
-          "title": "korol Responder",
+          "title": "Koral Responder",
           "desc": "Towable energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",
           "imageUrl": "",
           "specs": {
@@ -164,17 +159,17 @@
       "items": [
         {
           "category": "System Efficiency",
-          "korol": "92%",
+          "koral": "92%",
           "industry": "68%"
         },
         {
           "category": "Cycle Durability",
-          "korol": "88/100",
+          "koral": "88/100",
           "industry": "62/100"
         },
         {
           "category": "Operational Ease",
-          "korol": "95/100",
+          "koral": "95/100",
           "industry": "58/100"
         }
       ]
@@ -204,7 +199,7 @@
     "trevoliTeaser": {
       "eyebrow": "Software Layer",
       "title": "Trevoli Manages Every Watt.",
-      "text": "Trevoli is the intelligence layer across the korol ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",
+      "text": "Trevoli is the intelligence layer across the Koral ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",
       "badgeValue": "Trevoli",
       "badgeLabel": "Smart Energy OS",
       "imageUrl": ""
@@ -215,7 +210,7 @@
       "bgImage": "",
       "items": [
         {
-          "quote": "We eliminated a six-figure trenching quote by deploying korol Depot units at two depots. Charging uptime has been flawless for eleven months.",
+          "quote": "We eliminated a six-figure trenching quote by deploying Koral Depot units at two depots. Charging uptime has been flawless for eleven months.",
           "initials": "MR",
           "name": "M. Reyes",
           "role": "Fleet Director, Regional Transit",
@@ -240,15 +235,15 @@
     "cta": {
       "eyebrow": "Get Started",
       "title": "Power Shouldn't Be Bound by the Grid.",
-      "text": "Join the next generation of energy independence with korol.",
-      "bgImage": "korol-ev/website"
+      "text": "Join the next generation of energy independence with Koral.",
+      "bgImage": ""
     }
   },
   "about": {
     "hero": {
       "eyebrow": "Our Story",
       "title": "We Build Power That Doesn't Ask Permission.",
-      "subtitle": "korol exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.",
+      "subtitle": "Koral exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.",
       "bgImage": ""
     },
     "mission": {
@@ -299,11 +294,11 @@
         {
           "year": "2022",
           "title": "First Field Deployment",
-          "text": "korol Nomad units deployed with remote survey teams, logging 4,000+ hours of continuous off-grid operation."
+          "text": "Koral Nomad units deployed with remote survey teams, logging 4,000+ hours of continuous off-grid operation."
         },
         {
           "year": "2023",
-          "title": "korol Depot Goes Live",
+          "title": "Koral Depot Goes Live",
           "text": "Containerised 60 kWh buffer storage installed at two municipal transit depots, eliminating grid expansion costs entirely."
         },
         {
@@ -381,7 +376,7 @@
     "hero": {
       "eyebrow": "Hardware Line",
       "title": "Three Platforms. One Ecosystem.",
-      "subtitle": "Every korol unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.",
+      "subtitle": "Every Koral unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.",
       "bgImage": ""
     },
     "items": [
@@ -389,7 +384,7 @@
         "category": "portable",
         "code": "KRL-01",
         "tag": "Portable",
-        "title": "korol Nomad",
+        "title": "Koral Nomad",
         "desc": "Foldable 400W solar array paired with a 2.4 kWh LFP pack. Designed for field teams, survey crews and mobile EV top-up charging.",
         "imageUrl": "",
         "specs": {
@@ -403,7 +398,7 @@
         "category": "stationary",
         "code": "KRL-02",
         "tag": "Stationary",
-        "title": "korol Depot",
+        "title": "Koral Depot",
         "desc": "Containerised 60 kWh buffer storage for commercial EV fleets. Installs without grid expansion, trenching or permitting delays.",
         "imageUrl": "",
         "specs": {
@@ -417,7 +412,7 @@
         "category": "rapid",
         "code": "KRL-03",
         "tag": "Rapid Response",
-        "title": "korol Responder",
+        "title": "Koral Responder",
         "desc": "Towable 18 kWh energy unit for disaster zones and emergency medical posts. One person can deploy it in under ten minutes.",
         "imageUrl": "",
         "specs": {
@@ -431,8 +426,8 @@
         "category": "portable",
         "code": "KRL-04",
         "tag": "Portable",
-        "title": "korol Array 400",
-        "desc": "Standalone foldable photovoltaic array. Stacks with any korol storage unit to increase daily harvest without adding battery weight.",
+        "title": "Koral Array 400",
+        "desc": "Standalone foldable photovoltaic array. Stacks with any Koral storage unit to increase daily harvest without adding battery weight.",
         "imageUrl": "",
         "specs": {
           "Peak": "400 W",
@@ -445,7 +440,7 @@
         "category": "stationary",
         "code": "KRL-05",
         "tag": "Stationary",
-        "title": "korol Depot XL",
+        "title": "Koral Depot XL",
         "desc": "Cascadable 180 kWh storage block for industrial sites and multi-bay charging depots. Scales linearly with fleet size.",
         "imageUrl": "",
         "specs": {
@@ -459,7 +454,7 @@
         "category": "rapid",
         "code": "KRL-06",
         "tag": "Rapid Response",
-        "title": "korol Relay",
+        "title": "Koral Relay",
         "desc": "Backpack-portable 900 Wh unit for single-operator field deployment. Powers radios, medical devices and laptops indefinitely.",
         "imageUrl": "",
         "specs": {
@@ -555,7 +550,7 @@
       "title": "Frequently Asked.",
       "items": [
         {
-          "q": "Do korol units need any grid connection at all?",
+          "q": "Do Koral units need any grid connection at all?",
           "a": "No. Every platform generates and stores its own power from solar input. A grid connection is optional and only used if you want to top up during extended low-irradiance periods — the system operates fully without one."
         },
         {
@@ -586,11 +581,11 @@
     "hero": {
       "eyebrow": "Software Layer",
       "title": "Trevoli Manages Every Watt.",
-      "subtitle": "The intelligence layer across the korol ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.",
+      "subtitle": "The intelligence layer across the Koral ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.",
       "bgImage": ""
     },
     "dashboard": {
-      "title": "trevoli.korol — fleet overview",
+      "title": "trevoli.koral — fleet overview",
       "sidebar": [
         "Overview",
         "Assets",
@@ -650,7 +645,7 @@
     "architecture": {
       "eyebrow": "Architecture",
       "title": "How Trevoli Works.",
-      "text": "A lightweight edge controller runs on every korol unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.",
+      "text": "A lightweight edge controller runs on every Koral unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.",
       "pills": [
         "Edge-first",
         "Offline capable",
@@ -766,15 +761,15 @@
       "items": [
         {
           "title": "Sales & Partnerships",
-          "email": "partners@korol.energy"
+          "email": "partners@koral.energy"
         },
         {
           "title": "Technical Support",
-          "email": "support@korol.energy"
+          "email": "support@koral.energy"
         },
         {
           "title": "Press & Media",
-          "email": "press@korol.energy"
+          "email": "press@koral.energy"
         }
       ]
     },
@@ -786,7 +781,7 @@
   },
   "footer": {
     "brand": {
-      "name": "korol",
+      "name": "KORAL",
       "tagline": "Portable solar-powered energy ecosystems. Built for a world beyond the grid.",
       "socials": [
         {
@@ -825,15 +820,15 @@
       "title": "Products",
       "links": [
         {
-          "label": "korol Nomad",
+          "label": "Koral Nomad",
           "nav": "products"
         },
         {
-          "label": "korol Depot",
+          "label": "Koral Depot",
           "nav": "products"
         },
         {
-          "label": "korol Responder",
+          "label": "Koral Responder",
           "nav": "products"
         },
         {
@@ -860,9 +855,22 @@
       ]
     },
     "copyright": {
-      "name": "korol",
+      "name": "Koral",
       "legal": "Privacy · Terms"
     }
+  },
+  "typography": {
+    "baseSize": 16,
+    "headingScale": 1,
+    "headingWeight": 700,
+    "headingTracking": "-0.025em"
+  },
+  "spacing": {
+    "sectionPadding": 110,
+    "containerPadding": 24,
+    "cardPadding": 34,
+    "gridGap": 22,
+    "density": "default"
   },
   "customSections": []
 }

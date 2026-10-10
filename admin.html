@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Koral — Admin Console</title>
+<title>korol — Admin Console</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -124,7 +124,7 @@ input,textarea,select{outline:none}
 
 <div class="boot" id="boot">
   <div class="boot__inner">
-    <div class="boot__logo"><span>KORAL</span></div>
+    <div class="boot__logo"><span>korol</span></div>
     <div class="boot__spinner"></div>
     <div class="boot__msg" id="bootMsg">Loading admin console...</div>
     <div id="bootError" style="display:none"></div>
@@ -134,7 +134,7 @@ input,textarea,select{outline:none}
 <div class="app" id="app" style="display:none">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar__head">
-      <div class="sidebar__logo"><span>KORAL</span></div>
+      <div class="sidebar__logo"><span>korol</span></div>
       <div class="sidebar__sub">Admin Console</div>
     </div>
     <nav class="sidebar__nav" id="sidebarNav"></nav>
@@ -188,7 +188,7 @@ input,textarea,select{outline:none}
 
     <div class="field">
       <label class="field__label">Repository (owner/name)</label>
-      <input class="field__input" id="ghRepo" placeholder="username/koral-site">
+      <input class="field__input" id="ghRepo" placeholder="username/korol-site">
     </div>
     <div class="field-row">
       <div class="field">
@@ -225,8 +225,8 @@ input,textarea,select{outline:none}
   const boot = document.getElementById('boot');
   const bootMsg = document.getElementById('bootMsg');
   const bootError = document.getElementById('bootError');
-  const LS_KEY = 'koral-content-v1';
-  const LS_GH = 'koral-github-config';
+  const LS_KEY = 'korol-content-v1';
+  const LS_GH = 'korol-github-config';
 
   window.addEventListener('error', e => showBootError('Unexpected error: ' + e.message));
   function showBootError(msg) {
@@ -236,17 +236,17 @@ input,textarea,select{outline:none}
   }
 
   const DEFAULT_CONTENT = {
-    site:{brandName:"KORAL",brandTagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",logoUrl:""},
-    email:{formRecipient:"partners@koral.energy",replyTo:"partners@koral.energy",formSubject:"New partnership enquiry from {name}",autoReplyEnabled:true,autoReplySubject:"Thanks for reaching out to Koral",autoReplyBody:"Hi {firstName},\n\nThanks for contacting Koral. We've received your enquiry and a member of our partnerships team will respond within two business days.\n\n— The Koral Team",smtpHost:"",smtpPort:"587",smtpUser:"",smtpPassword:""},
+    site:{brandName:"korol",brandTagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",logoUrl:""},
+    email:{formRecipient:"partners@korol.energy",replyTo:"partners@korol.energy",formSubject:"New partnership enquiry from {name}",autoReplyEnabled:true,autoReplySubject:"Thanks for reaching out to korol",autoReplyBody:"Hi {firstName},\n\nThanks for contacting korol. We've received your enquiry and a member of our partnerships team will respond within two business days.\n\n— The korol Team",smtpHost:"",smtpPort:"587",smtpUser:"",smtpPassword:""},
     home:{
-      hero:{label:"Next-Gen Energy Ecosystem",title:"Redefining Energy Freedom, Untethered.",subtitle:"Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",bgImage:"",stats:[{value:"2.4 kW",label:"Solar Generation"},{value:"0",label:"Grid Dependence"},{value:"100%",label:"Renewable Input"},{value:"24/7",label:"Autonomous Power"}]},
+      hero:{label:"Next-Gen Energy Ecosystem",title:"Redefining Energy Freedom, Untethered.",subtitle:"korol delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",bgImage:"",stats:[{value:"2.4 kW",label:"Solar Generation"},{value:"0",label:"Grid Dependence"},{value:"100%",label:"Renewable Input"},{value:"24/7",label:"Autonomous Power"}]},
       marquee:["Solar Harvesting","LFP Storage","Off-Grid EV Charging","Trevoli EMS","Fleet Depots","Disaster Response","Remote Industry"],
-      decentralized:{eyebrow:"Autonomous Infrastructure",title:"Powering a Decentralized Future.",text:"As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",pills:["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"],bgImage:""},
+      decentralized:{eyebrow:"Autonomous Infrastructure",title:"Powering a Decentralized Future.",text:"As global energy demands rise and traditional utility grids face growing vulnerabilities, korol provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",pills:["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"],bgImage:""},
       carousel:{slides:[
-        {title:"Koral Nomad",text:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",posterUrl:"https://picsum.photos/seed/koral-nomad/1280/720"},
-        {title:"Koral Depot",text:"Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",posterUrl:"https://picsum.photos/seed/koral-depot/1280/720"},
-        {title:"Koral Responder",text:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",posterUrl:"https://picsum.photos/seed/koral-responder/1280/720"},
-        {title:"Trevoli EMS",text:"Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every Koral unit.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",posterUrl:"https://picsum.photos/seed/trevoli-ems/1280/720"}
+        {title:"korol Nomad",text:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",posterUrl:"https://picsum.photos/seed/korol-nomad/1280/720"},
+        {title:"korol Depot",text:"Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",posterUrl:"https://picsum.photos/seed/korol-depot/1280/720"},
+        {title:"korol Responder",text:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",posterUrl:"https://picsum.photos/seed/korol-responder/1280/720"},
+        {title:"Trevoli EMS",text:"Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every korol unit.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",posterUrl:"https://picsum.photos/seed/trevoli-ems/1280/720"}
       ]},
       features:{eyebrow:"Core Technology",title:"Engineered for Uncompromised Reliability.",bgImage:"",items:[
         {title:"Proprietary Storage Cells",text:"Advanced Lithium Iron Phosphate chemistries and high-efficiency MPPT controllers delivering maximum energy density and long cycle life.",imageUrl:""},
@@ -255,26 +255,26 @@ input,textarea,select{outline:none}
         {title:"Sustainable Lifecycle",text:"Recyclable materials, non-toxic compositions and zero direct emissions designed to reduce impact at every stage.",imageUrl:""}
       ]},
       productsTeaser:{eyebrow:"Hardware Line",title:"Built for the Edge of the Grid.",text:"Three platforms. One ecosystem. Every unit ships grid-independent.",items:[
-        {code:"KRL-01",tag:"Portable",title:"Koral Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW"}},
-        {code:"KRL-02",tag:"Stationary",title:"Koral Depot",desc:"Containerised buffer storage for commercial EV fleets. Deploys without grid expansion or trenching.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW"}},
-        {code:"KRL-03",tag:"Rapid Response",title:"Koral Responder",desc:"Towable energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW"}}
+        {code:"KRL-01",tag:"Portable",title:"korol Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW"}},
+        {code:"KRL-02",tag:"Stationary",title:"korol Depot",desc:"Containerised buffer storage for commercial EV fleets. Deploys without grid expansion or trenching.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW"}},
+        {code:"KRL-03",tag:"Rapid Response",title:"korol Responder",desc:"Towable energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW"}}
       ]},
-      stats:{eyebrow:"Benchmarks",title:"Performance Metrics.",bgImage:"",items:[{category:"System Efficiency",koral:"92%",industry:"68%"},{category:"Cycle Durability",koral:"88/100",industry:"62/100"},{category:"Operational Ease",koral:"95/100",industry:"58/100"}]},
+      stats:{eyebrow:"Benchmarks",title:"Performance Metrics.",bgImage:"",items:[{category:"System Efficiency",korol:"92%",industry:"68%"},{category:"Cycle Durability",korol:"88/100",industry:"62/100"},{category:"Operational Ease",korol:"95/100",industry:"58/100"}]},
       industries:{eyebrow:"Use Cases",title:"Deployed Across Critical Industries.",bgImage:"",items:[
         {title:"Commercial Fleets",text:"Rapid battery buffer depots for delivery logistics, municipal transit and commercial EV fleets — without expensive grid expansion.",imageUrl:""},
         {title:"Emergency Response",text:"Instant, disaster-resilient mobile energy for medical command posts, wildfire operations and civil defence during blackouts.",imageUrl:""},
         {title:"Remote Industry",text:"Continuous power for off-grid mining sites, agricultural machinery, remote construction and field research facilities.",imageUrl:""}
       ]},
-      trevoliTeaser:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",text:"Trevoli is the intelligence layer across the Koral ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",badgeValue:"Trevoli",badgeLabel:"Smart Energy OS",imageUrl:""},
+      trevoliTeaser:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",text:"Trevoli is the intelligence layer across the korol ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",badgeValue:"Trevoli",badgeLabel:"Smart Energy OS",imageUrl:""},
       testimonials:{eyebrow:"Field Reports",title:"Trusted Where the Grid Ends.",bgImage:"",items:[
-        {quote:"We eliminated a six-figure trenching quote by deploying Koral Depot units at two depots. Charging uptime has been flawless for eleven months.",initials:"MR",name:"M. Reyes",role:"Fleet Director, Regional Transit",avatarUrl:""},
+        {quote:"We eliminated a six-figure trenching quote by deploying korol Depot units at two depots. Charging uptime has been flawless for eleven months.",initials:"MR",name:"M. Reyes",role:"Fleet Director, Regional Transit",avatarUrl:""},
         {quote:"The Responder units powered our field hospital for nine days after the storm. Setup took one person and under ten minutes.",initials:"AK",name:"A. Kaur",role:"Logistics Lead, Civil Defence",avatarUrl:""},
         {quote:"Trevoli gives us per-asset telemetry we simply never had. We now schedule maintenance before failures instead of after.",initials:"JT",name:"J. Thompson",role:"Operations Manager, Mining",avatarUrl:""}
       ]},
-      cta:{eyebrow:"Get Started",title:"Power Shouldn't Be Bound by the Grid.",text:"Join the next generation of energy independence with Koral.",bgImage:""}
+      cta:{eyebrow:"Get Started",title:"Power Shouldn't Be Bound by the Grid.",text:"Join the next generation of energy independence with korol.",bgImage:""}
     },
     about:{
-      hero:{eyebrow:"Our Story",title:"We Build Power That Doesn't Ask Permission.",subtitle:"Koral exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.",bgImage:""},
+      hero:{eyebrow:"Our Story",title:"We Build Power That Doesn't Ask Permission.",subtitle:"korol exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.",bgImage:""},
       mission:{eyebrow:"Mission",title:"Decentralize the Grid. Permanently.",text1:"Centralised energy infrastructure was designed for a different century. It's expensive to extend, slow to permit and fragile under stress. Our mission is to make autonomous clean energy the default choice — not the backup plan — for fleets, industry and emergency services.",text2:"We do this by building the entire stack ourselves: solar harvesting, storage chemistry, power electronics and the software that orchestrates all of it.",badgeValue:"2030",badgeLabel:"1 GWh Deployed Target",imageUrl:"",bgImage:""},
       values:{eyebrow:"Principles",title:"What We Optimize For.",items:[
         {num:"01",title:"Field Reliability",text:"If it can't survive a dust storm, a monsoon and a -20°C night, it doesn't ship. Every enclosure is tested beyond its rated envelope."},
@@ -284,8 +284,8 @@ input,textarea,select{outline:none}
       ]},
       timeline:{eyebrow:"Trajectory",title:"How We Got Here.",items:[
         {year:"2021",title:"Founded in a Workshop",text:"Three engineers, one prototype LFP pack and a problem statement: why does off-grid EV charging cost more than the vehicle?"},
-        {year:"2022",title:"First Field Deployment",text:"Koral Nomad units deployed with remote survey teams, logging 4,000+ hours of continuous off-grid operation."},
-        {year:"2023",title:"Koral Depot Goes Live",text:"Containerised 60 kWh buffer storage installed at two municipal transit depots, eliminating grid expansion costs entirely."},
+        {year:"2022",title:"First Field Deployment",text:"korol Nomad units deployed with remote survey teams, logging 4,000+ hours of continuous off-grid operation."},
+        {year:"2023",title:"korol Depot Goes Live",text:"Containerised 60 kWh buffer storage installed at two municipal transit depots, eliminating grid expansion costs entirely."},
         {year:"2024",title:"Trevoli Platform Launch",text:"Our energy management OS ships with fleet telemetry, predictive load balancing and biometric access control."},
         {year:"2025",title:"Solid-State Program",text:"R&D transitions toward solid-state cells for higher density and extended thermal stability in extreme climates."}
       ]},
@@ -301,21 +301,21 @@ input,textarea,select{outline:none}
       cta:{title:"Build the Decentralized Grid With Us.",text:"We're hiring engineers and partnering with operators worldwide.",bgImage:""}
     },
     products:{
-      hero:{eyebrow:"Hardware Line",title:"Three Platforms. One Ecosystem.",subtitle:"Every Koral unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.",bgImage:""},
+      hero:{eyebrow:"Hardware Line",title:"Three Platforms. One Ecosystem.",subtitle:"Every korol unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.",bgImage:""},
       items:[
-        {category:"portable",code:"KRL-01",tag:"Portable",title:"Koral Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Designed for field teams, survey crews and mobile EV top-up charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW",Weight:"34 kg",Deploy:"5 min"}},
-        {category:"stationary",code:"KRL-02",tag:"Stationary",title:"Koral Depot",desc:"Containerised 60 kWh buffer storage for commercial EV fleets. Installs without grid expansion, trenching or permitting delays.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW",Footprint:"1.8 m²",Rating:"IP65"}},
-        {category:"rapid",code:"KRL-03",tag:"Rapid Response",title:"Koral Responder",desc:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. One person can deploy it in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW","Tow Rating":"750 kg",Deploy:"10 min"}},
-        {category:"portable",code:"KRL-04",tag:"Portable",title:"Koral Array 400",desc:"Standalone foldable photovoltaic array. Stacks with any Koral storage unit to increase daily harvest without adding battery weight.",imageUrl:"",specs:{Peak:"400 W",Folded:"0.4 m²",Cell:"Monocrystalline",Rating:"IP67"}},
-        {category:"stationary",code:"KRL-05",tag:"Stationary",title:"Koral Depot XL",desc:"Cascadable 180 kWh storage block for industrial sites and multi-bay charging depots. Scales linearly with fleet size.",imageUrl:"",specs:{Capacity:"180 kWh",Output:"60 kW",Cascade:"Up to 8",Rating:"IP65"}},
-        {category:"rapid",code:"KRL-06",tag:"Rapid Response",title:"Koral Relay",desc:"Backpack-portable 900 Wh unit for single-operator field deployment. Powers radios, medical devices and laptops indefinitely.",imageUrl:"",specs:{Capacity:"900 Wh",Output:"1.2 kW",Weight:"9 kg",Rating:"IP66"}}
+        {category:"portable",code:"KRL-01",tag:"Portable",title:"korol Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Designed for field teams, survey crews and mobile EV top-up charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW",Weight:"34 kg",Deploy:"5 min"}},
+        {category:"stationary",code:"KRL-02",tag:"Stationary",title:"korol Depot",desc:"Containerised 60 kWh buffer storage for commercial EV fleets. Installs without grid expansion, trenching or permitting delays.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW",Footprint:"1.8 m²",Rating:"IP65"}},
+        {category:"rapid",code:"KRL-03",tag:"Rapid Response",title:"korol Responder",desc:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. One person can deploy it in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW","Tow Rating":"750 kg",Deploy:"10 min"}},
+        {category:"portable",code:"KRL-04",tag:"Portable",title:"korol Array 400",desc:"Standalone foldable photovoltaic array. Stacks with any korol storage unit to increase daily harvest without adding battery weight.",imageUrl:"",specs:{Peak:"400 W",Folded:"0.4 m²",Cell:"Monocrystalline",Rating:"IP67"}},
+        {category:"stationary",code:"KRL-05",tag:"Stationary",title:"korol Depot XL",desc:"Cascadable 180 kWh storage block for industrial sites and multi-bay charging depots. Scales linearly with fleet size.",imageUrl:"",specs:{Capacity:"180 kWh",Output:"60 kW",Cascade:"Up to 8",Rating:"IP65"}},
+        {category:"rapid",code:"KRL-06",tag:"Rapid Response",title:"korol Relay",desc:"Backpack-portable 900 Wh unit for single-operator field deployment. Powers radios, medical devices and laptops indefinitely.",imageUrl:"",specs:{Capacity:"900 Wh",Output:"1.2 kW",Weight:"9 kg",Rating:"IP66"}}
       ],
       comparison:{eyebrow:"Side by Side",title:"Platform Comparison.",headers:["Specification","Nomad","Depot","Responder"],rows:[
         ["Usable Capacity","2.4 kWh","60 kWh","18 kWh"],["Continuous Output","3.6 kW","22 kW","9 kW"],["Solar Input","400 W","2.4 kW","1.2 kW"],["Cell Chemistry","LFP","LFP","LFP"],["Cycle Life","4,000","6,000","4,500"],["Ingress Rating","IP67","IP65","IP66"],["Trevoli Enabled","Yes","Yes","Yes"],["Grid Connection Required","No","No","No"],["Single-Person Deploy","Yes","2 crew","Yes"]
       ]},
       deepDive:{eyebrow:"Inside the Enclosure",title:"Every Component Is Ours.",text:"We didn't assemble off-the-shelf parts. The BMS, the MPPT controller, the thermal management layer and the firmware running on top are all designed and validated in-house — which is why we can guarantee the numbers on the datasheet.",items:["Custom battery management system with per-cell monitoring","High-efficiency MPPT tracking with dual-input channel support","Passive and active thermal regulation for -20°C to 55°C operation","Over-the-air firmware updates via Trevoli"],badgeValue:"IP65+",badgeLabel:"Environmental Rating",imageUrl:""},
       faq:{eyebrow:"Questions",title:"Frequently Asked.",items:[
-        {q:"Do Koral units need any grid connection at all?",a:"No. Every platform generates and stores its own power from solar input. A grid connection is optional and only used if you want to top up during extended low-irradiance periods — the system operates fully without one."},
+        {q:"Do korol units need any grid connection at all?",a:"No. Every platform generates and stores its own power from solar input. A grid connection is optional and only used if you want to top up during extended low-irradiance periods — the system operates fully without one."},
         {q:"How long does installation take?",a:"Nomad and Responder units deploy in under ten minutes with one person. Depot installations typically complete within a single working day and require no trenching, permitting or civil works."},
         {q:"What happens during extended cloudy weather?",a:"Every system is sized with a reserve margin based on your regional irradiance profile. Trevoli also provides predictive load balancing that prioritises critical loads as stored energy declines."},
         {q:"Can I monitor multiple sites at once?",a:"Yes. Trevoli aggregates telemetry across your entire fleet into a single dashboard, with per-asset drill-down, alerting and exportable reporting."},
@@ -324,8 +324,8 @@ input,textarea,select{outline:none}
       cta:{title:"Need a Configuration for Your Site?",text:"Send us your load profile and we'll size a system within 48 hours.",bgImage:""}
     },
     trevoli:{
-      hero:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",subtitle:"The intelligence layer across the Koral ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.",bgImage:""},
-      dashboard:{title:"trevoli.koral — fleet overview",sidebar:["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],stats:[{label:"Fleet State of Charge",value:"87%"},{label:"Active Assets",value:"342"},{label:"Alerts",value:"2"}],chartTitle:"Daily Harvest — Last 12 Days",chartUnit:"kWh",chartData:"42,55,48,67,72,61,80,88,76,91,84,96"},
+      hero:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",subtitle:"The intelligence layer across the korol ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.",bgImage:""},
+      dashboard:{title:"trevoli.korol — fleet overview",sidebar:["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],stats:[{label:"Fleet State of Charge",value:"87%"},{label:"Active Assets",value:"342"},{label:"Alerts",value:"2"}],chartTitle:"Daily Harvest — Last 12 Days",chartUnit:"kWh",chartData:"42,55,48,67,72,61,80,88,76,91,84,96"},
       capabilities:{eyebrow:"Capabilities",title:"Built Into Every Unit.",items:[
         {title:"Predictive Load Balancing",text:"Trevoli forecasts demand against irradiance and stored reserve, then shifts non-critical loads automatically as energy margins tighten."},
         {title:"Real-Time Telemetry",text:"Per-cell voltage, temperature, cycle count and throughput streamed continuously from every asset in the fleet."},
@@ -334,7 +334,7 @@ input,textarea,select{outline:none}
         {title:"Anomaly Detection",text:"Deviation from expected charge and discharge curves triggers an alert before it becomes a failure or a safety event."},
         {title:"Reporting & Export",text:"Carbon avoided, energy served and uptime metrics exportable to CSV, JSON or your existing BI tooling."}
       ]},
-      architecture:{eyebrow:"Architecture",title:"How Trevoli Works.",text:"A lightweight edge controller runs on every Koral unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.",pills:["Edge-first","Offline capable","Encrypted sync","Open export"],steps:[
+      architecture:{eyebrow:"Architecture",title:"How Trevoli Works.",text:"A lightweight edge controller runs on every korol unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.",pills:["Edge-first","Offline capable","Encrypted sync","Open export"],steps:[
         {title:"Sense",text:"The edge controller samples cell voltage, current, temperature and irradiance at high frequency across every module."},
         {title:"Decide",text:"Local models balance charge distribution, thermal load and output priority without waiting for a round trip to the cloud."},
         {title:"Sync",text:"Aggregated telemetry syncs securely to your Trevoli workspace, where fleet-wide trends and alerts are generated."},
@@ -360,18 +360,18 @@ input,textarea,select{outline:none}
         {title:"Ongoing Support",text:"Continuous remote monitoring, over-the-air updates and scheduled maintenance keep every asset at peak availability."}
       ]},
       contact:{items:[
-        {title:"Sales & Partnerships",email:"partners@koral.energy"},
-        {title:"Technical Support",email:"support@koral.energy"},
-        {title:"Press & Media",email:"press@koral.energy"}
+        {title:"Sales & Partnerships",email:"partners@korol.energy"},
+        {title:"Technical Support",email:"support@korol.energy"},
+        {title:"Press & Media",email:"press@korol.energy"}
       ]},
       cta:{title:"Power Shouldn't Be Bound by the Grid.",text:"Start your deployment conversation today.",bgImage:""}
     },
     footer:{
-      brand:{name:"KORAL",tagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",socials:[{label:"in",url:"#"},{label:"X",url:"#"},{label:"YT",url:"#"}],logoUrl:""},
+      brand:{name:"korol",tagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",socials:[{label:"in",url:"#"},{label:"X",url:"#"},{label:"YT",url:"#"}],logoUrl:""},
       company:{title:"Company",links:[{label:"About Us",nav:"about"},{label:"Careers",nav:"about"},{label:"Contact",nav:"partner"}]},
-      products:{title:"Products",links:[{label:"Koral Nomad",nav:"products"},{label:"Koral Depot",nav:"products"},{label:"Koral Responder",nav:"products"},{label:"Trevoli",nav:"trevoli"}]},
+      products:{title:"Products",links:[{label:"korol Nomad",nav:"products"},{label:"korol Depot",nav:"products"},{label:"korol Responder",nav:"products"},{label:"Trevoli",nav:"trevoli"}]},
       resources:{title:"Resources",links:[{label:"Specifications",nav:"products"},{label:"FAQ",nav:"products"},{label:"Partner Program",nav:"partner"}]},
-      copyright:{name:"Koral",legal:"Privacy · Terms"}
+      copyright:{name:"korol",legal:"Privacy · Terms"}
     },
     customSections:[]
   };
@@ -596,9 +596,9 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'home.stats.title', h.stats.title),
         field('Section Background Image', 'media', 'home.stats.bgImage', h.stats.bgImage, 'image')
       ])}
-      ${listCard('Stat Comparisons', 'Koral vs Industry Avg.', 'home.stats.items', h.stats.items, [
+      ${listCard('Stat Comparisons', 'korol vs Industry Avg.', 'home.stats.items', h.stats.items, [
         { key: 'category', label: 'Category', type: 'text' },
-        { key: 'koral', label: 'Koral Value', type: 'text' },
+        { key: 'korol', label: 'korol Value', type: 'text' },
         { key: 'industry', label: 'Industry Value', type: 'text' }
       ])}
       ${card('Industries Header', '', [

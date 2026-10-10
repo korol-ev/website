@@ -7,105 +7,105 @@
 <title>KOROL — Admin Console</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#07131b;--ink2:#0c2029;--ink3:#112a33;--green:#39f59a;--green2:#22d97c;--paper:#f5f8f7;--paper2:#eef3f1;--line-soft:#dce6e3;--line-soft2:#c9d6d1;--txt:#101d26;--txt-2:#63747b;--txt-3:#82979f;--red:#d63b30;--amber:#e8a13a;--display:'Outfit',sans-serif;--body:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.22,.61,.36,1);--r:10px;--r-lg:14px}
+:root{--bg:#0a0a0a;--bg-1:#0f0f0f;--bg-2:#141414;--bg-3:#1a1a1a;--line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.13);--lime:#c8f542;--lime-2:#d9ff5e;--lime-dim:rgba(200,245,66,.1);--lime-line:rgba(200,245,66,.28);--cyan:#5eead4;--txt:#f2f2f2;--txt-2:#8f8f8f;--txt-3:#5a5a5a;--red:#ff5f57;--green:#28c840;--amber:#febc2e;--display:'Outfit',sans-serif;--body:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--ease:cubic-bezier(.22,.61,.36,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
-body{font-family:var(--body);background:var(--paper);color:var(--txt);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{font-family:var(--body);background:var(--bg);color:var(--txt);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
 button,input,textarea,select{font:inherit;color:inherit}
 button{cursor:pointer;border:0;background:none}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
 input,textarea,select{outline:none}
 .app{display:grid;grid-template-columns:280px 1fr;height:100vh;overflow:hidden}
-.sidebar{background:var(--ink);color:#fff;display:flex;flex-direction:column;overflow:hidden}
-.sidebar__head{padding:22px 22px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
-.sidebar__logo{font-family:var(--display);font-size:1.15rem;font-weight:900;letter-spacing:.2em;color:#fff}
-.sidebar__logo b{color:var(--green)}
-.sidebar__sub{font-size:.68rem;color:#7d9199;margin-top:4px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.sidebar{background:var(--bg-1);border-right:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
+.sidebar__head{padding:22px 22px 18px;border-bottom:1px solid var(--line)}
+.sidebar__logo{font-family:var(--display);font-size:1.15rem;font-weight:800;letter-spacing:.18em;color:var(--txt)}
+.sidebar__logo b{background:linear-gradient(120deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+.sidebar__sub{font-size:.68rem;color:var(--txt-3);margin-top:4px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .sidebar__nav{flex:1;overflow-y:auto;padding:16px 12px}
 .sidebar__group{margin-bottom:22px}
-.sidebar__group-label{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4d6169;padding:0 10px;margin-bottom:8px}
-.sidebar__item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;font-size:.85rem;color:#c2d0d6;cursor:pointer;transition:.15s var(--ease);width:100%;text-align:left;font-weight:500}
-.sidebar__item:hover{background:rgba(255,255,255,.06);color:#fff}
-.sidebar__item.is-active{background:rgba(57,245,154,.14);color:var(--green);font-weight:700}
+.sidebar__group-label{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3a3a3a;padding:0 10px;margin-bottom:8px}
+.sidebar__item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;font-size:.85rem;color:var(--txt-2);cursor:pointer;transition:.15s var(--ease);width:100%;text-align:left;font-weight:500}
+.sidebar__item:hover{background:var(--bg-2);color:var(--txt)}
+.sidebar__item.is-active{background:var(--lime-dim);color:var(--lime);font-weight:700}
 .sidebar__item svg{width:15px;height:15px;flex-shrink:0;stroke-width:1.8}
-.sidebar__foot{padding:14px 18px;border-top:1px solid rgba(255,255,255,.08);font-size:.72rem;color:#7d9199;display:flex;align-items:center;gap:8px}
+.sidebar__foot{padding:14px 18px;border-top:1px solid var(--line);font-size:.72rem;color:var(--txt-2);display:flex;align-items:center;gap:8px}
 .status-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px currentColor}
 .status-dot.warn{background:var(--amber)}
 .status-dot.err{background:var(--red)}
-.main{display:flex;flex-direction:column;overflow:hidden;background:var(--paper)}
-.topbar{height:66px;border-bottom:1px solid var(--line-soft);display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:#fff;flex-shrink:0;gap:20px}
+.main{display:flex;flex-direction:column;overflow:hidden;background:var(--bg)}
+.topbar{height:66px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:var(--bg-1);flex-shrink:0;gap:20px}
 .topbar__title{font-family:var(--display);font-size:1.02rem;font-weight:700;letter-spacing:-.01em}
 .topbar__title small{color:var(--txt-3);font-weight:400;font-size:.78rem;font-family:var(--body);margin-left:10px}
 .topbar__actions{display:flex;gap:8px;align-items:center}
 .content{flex:1;overflow-y:auto;padding:32px 40px 80px;max-width:1100px;width:100%}
 .btn{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:700;padding:9px 16px;border-radius:999px;transition:.2s var(--ease);white-space:nowrap;border:1px solid transparent}
 .btn svg{width:14px;height:14px;stroke-width:2}
-.btn--primary{background:var(--green);color:#052015}
-.btn--primary:hover{filter:brightness(1.05);transform:translateY(-1px)}
-.btn--ghost{border-color:var(--line-soft2);color:var(--txt);background:#fff}
-.btn--ghost:hover{border-color:var(--green);color:var(--green2);background:#f2fbf7}
-.btn--danger{border-color:rgba(214,59,48,.3);color:var(--red);background:#fff}
-.btn--danger:hover{background:rgba(214,59,48,.06)}
+.btn--primary{background:var(--lime);color:#0a0a0a}
+.btn--primary:hover{background:var(--lime-2);box-shadow:0 0 20px rgba(200,245,66,.28);transform:translateY(-1px)}
+.btn--ghost{border-color:var(--line-2);color:var(--txt);background:transparent}
+.btn--ghost:hover{border-color:var(--lime-line);color:var(--lime);background:var(--lime-dim)}
+.btn--danger{border-color:rgba(255,95,87,.3);color:var(--red)}
+.btn--danger:hover{background:rgba(255,95,87,.1)}
 .btn--sm{padding:6px 12px;font-size:.73rem}
 .btn:disabled{opacity:.5;cursor:not-allowed}
-.section-card{background:#fff;border:1px solid var(--line-soft);border-radius:14px;padding:26px 28px;margin-bottom:18px}
-.section-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line-soft)}
+.section-card{background:var(--bg-1);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:18px}
+.section-card__head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .section-card__title{font-family:var(--display);font-size:.95rem;font-weight:700;letter-spacing:-.01em}
 .section-card__desc{font-size:.78rem;color:var(--txt-2);margin-top:3px;line-height:1.55}
-.section-card__desc code{font-family:var(--mono);font-size:.72rem;background:var(--paper2);padding:2px 6px;border-radius:4px;color:var(--green2)}
+.section-card__desc code{font-family:var(--mono);font-size:.72rem;background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--lime)}
 .field{margin-bottom:18px}
 .field:last-child{margin-bottom:0}
 .field__label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-2);margin-bottom:7px}
 .field__hint{font-size:.72rem;color:var(--txt-3);margin-top:5px;line-height:1.5}
-.field__input,.field__textarea,.field__select{width:100%;padding:10px 13px;border-radius:9px;background:var(--paper);border:1px solid var(--line-soft);color:var(--txt);font-size:.85rem;transition:.15s var(--ease);font-family:var(--body)}
+.field__input,.field__textarea,.field__select{width:100%;padding:10px 13px;border-radius:9px;background:var(--bg-2);border:1px solid var(--line-2);color:var(--txt);font-size:.85rem;transition:.15s var(--ease);font-family:var(--body)}
 .field__textarea{resize:vertical;min-height:80px;line-height:1.6}
-.field__input:focus,.field__textarea:focus,.field__select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(57,245,154,.14);background:#fff}
+.field__input:focus,.field__textarea:focus,.field__select:focus{border-color:var(--lime-line);box-shadow:0 0 0 3px var(--lime-dim);background:var(--bg-3)}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.media-preview{margin-top:10px;border:1px solid var(--line-soft);border-radius:9px;overflow:hidden;background:var(--paper);position:relative;min-height:60px;display:grid;place-items:center}
+.media-preview{margin-top:10px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--bg-2);position:relative;min-height:60px;display:grid;place-items:center}
 .media-preview img,.media-preview video{width:100%;max-height:240px;object-fit:cover;display:block}
 .media-preview__empty{padding:20px;text-align:center;color:var(--txt-3);font-size:.75rem}
-.media-preview__badge{position:absolute;top:8px;left:8px;background:var(--ink);color:var(--green);font-size:.65rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px}
-.list-item{border:1px solid var(--line-soft);border-radius:10px;padding:18px 20px;margin-bottom:12px;background:var(--paper);transition:.2s var(--ease)}
-.list-item:hover{border-color:var(--line-soft2);background:#f8fbfa}
+.media-preview__badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.75);color:var(--lime);font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px}
+.list-item{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px;background:var(--bg-2);transition:.2s var(--ease)}
+.list-item:hover{border-color:var(--line-2);background:var(--bg-3)}
 .list-item__head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-.list-item__title{font-size:.76rem;font-weight:800;color:var(--green2);letter-spacing:.1em;text-transform:uppercase}
+.list-item__title{font-size:.76rem;font-weight:700;color:var(--lime);letter-spacing:.1em;text-transform:uppercase}
 .list-item__controls{display:flex;gap:4px}
 .list-item__btn{width:28px;height:28px;border-radius:7px;display:grid;place-items:center;color:var(--txt-2);transition:.15s var(--ease);border:1px solid transparent}
-.list-item__btn:hover{background:#fff;color:var(--txt);border-color:var(--line-soft)}
-.list-item__btn--danger:hover{color:var(--red);background:rgba(214,59,48,.06);border-color:rgba(214,59,48,.3)}
-.modal{position:fixed;inset:0;background:rgba(7,19,27,.6);backdrop-filter:blur(8px);z-index:250;display:none;place-items:center;padding:24px}
+.list-item__btn:hover{background:var(--bg-3);color:var(--txt);border-color:var(--line-2)}
+.list-item__btn--danger:hover{color:var(--red);background:rgba(255,95,87,.1);border-color:rgba(255,95,87,.3)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:250;display:none;place-items:center;padding:24px}
 .modal.is-open{display:grid}
-.modal__dialog{background:#fff;border-radius:18px;padding:30px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.modal__dialog{background:var(--bg-1);border:1px solid var(--line-2);border-radius:18px;padding:30px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto}
 .modal__title{font-family:var(--display);font-size:1.15rem;font-weight:800;margin-bottom:10px}
 .modal__text{font-size:.85rem;color:var(--txt-2);line-height:1.65;margin-bottom:22px}
-.modal__text code{font-family:var(--mono);font-size:.78rem;background:var(--paper2);padding:2px 6px;border-radius:4px;color:var(--green2)}
+.modal__text code{font-family:var(--mono);font-size:.78rem;background:var(--bg-3);padding:2px 6px;border-radius:4px;color:var(--lime)}
 .modal__actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px}
 .toast-stack{position:fixed;bottom:24px;right:24px;z-index:300;display:flex;flex-direction:column;gap:10px;pointer-events:none}
-.toast{background:var(--ink);color:#fff;border-radius:10px;padding:14px 20px;font-size:.83rem;box-shadow:0 10px 40px rgba(0,0,0,.4);display:flex;align-items:center;gap:10px;pointer-events:auto;min-width:280px;max-width:420px;animation:toastIn .3s var(--ease);border-left:3px solid var(--green)}
+.toast{background:var(--bg-3);color:var(--txt);border-radius:10px;padding:14px 20px;font-size:.83rem;box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;align-items:center;gap:10px;pointer-events:auto;min-width:280px;max-width:420px;animation:toastIn .3s var(--ease);border-left:3px solid var(--lime);border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .toast--success{border-left-color:var(--green)}
 .toast--error{border-left-color:var(--red)}
-.toast--info{border-left-color:#5eb8ff}
+.toast--info{border-left-color:var(--cyan)}
 .toast__icon{width:18px;height:18px;flex-shrink:0}
 .toast--success .toast__icon{color:var(--green)}
 .toast--error .toast__icon{color:var(--red)}
-.toast--info .toast__icon{color:#5eb8ff}
+.toast--info .toast__icon{color:var(--cyan)}
 @keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes spin{to{transform:rotate(360deg)}}
-.boot{position:fixed;inset:0;display:grid;place-items:center;background:var(--paper);z-index:9999;text-align:center;padding:40px}
-.boot__logo{font-family:var(--display);font-size:1.5rem;font-weight:900;letter-spacing:.22em;margin-bottom:24px;color:var(--ink)}
-.boot__logo b{color:var(--green)}
-.boot__spinner{width:34px;height:34px;border:3px solid var(--line-soft);border-top-color:var(--green);border-radius:50%;margin:0 auto 20px;animation:spin 1s linear infinite}
+.boot{position:fixed;inset:0;display:grid;place-items:center;background:var(--bg);z-index:9999;text-align:center;padding:40px}
+.boot__logo{font-family:var(--display);font-size:1.5rem;font-weight:800;letter-spacing:.22em;margin-bottom:24px;color:var(--txt)}
+.boot__logo b{background:linear-gradient(120deg,var(--lime),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.boot__spinner{width:34px;height:34px;border:3px solid var(--line-2);border-top-color:var(--lime);border-radius:50%;margin:0 auto 20px;animation:spin 1s linear infinite}
 .boot__msg{font-size:.9rem;color:var(--txt-2)}
-.boot__error{background:#fff;border:1px solid rgba(214,59,48,.3);border-radius:12px;padding:22px;margin-top:20px;text-align:left}
+.boot__error{background:var(--bg-2);border:1px solid rgba(255,95,87,.3);border-radius:12px;padding:22px;margin-top:20px;text-align:left}
 .boot__error pre{font-family:var(--mono);font-size:.78rem;color:var(--red);white-space:pre-wrap;word-break:break-word;line-height:1.6}
 .boot--hidden{display:none}
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#c9d6d1;border-radius:5px;border:2px solid var(--paper)}
-::-webkit-scrollbar-thumb:hover{background:#a8b8b2}
+::-webkit-scrollbar-thumb{background:var(--bg-3);border-radius:5px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--line-2)}
 @media (max-width:900px){
   .app{grid-template-columns:1fr}
   .sidebar{position:fixed;inset:0 25% 0 0;z-index:100;transform:translateX(-100%);transition:.3s var(--ease)}
@@ -456,29 +456,25 @@ input,textarea,select{outline:none}
       }
     } catch (err) {
       console.error(err);
-      html = `<div class="section-card" style="border-color:rgba(214,59,48,.3)"><div class="section-card__title" style="color:var(--red)">Render error</div><div class="section-card__desc" style="color:var(--txt-2);margin-top:8px;font-family:var(--mono);font-size:.78rem">${esc(err.message)}</div></div>`;
+      html = `<div class="section-card" style="border-color:rgba(255,95,87,.3)"><div class="section-card__title" style="color:var(--red)">Render error</div><div class="section-card__desc" style="color:var(--txt-2);margin-top:8px;font-family:var(--mono);font-size:.78rem">${esc(err.message)}</div></div>`;
     }
     area.innerHTML = html;
     bindSectionEvents();
   }
 
-  // ============ SITE ============
   function renderSite() {
-    return `
-      ${card('Brand Identity', 'Site name, tagline and logo.', [
-        field('Brand Name', 'text', 'site.brandName', content.site.brandName),
-        field('Brand Tagline', 'textarea', 'site.brandTagline', content.site.brandTagline),
-        field('Logo Image (replaces text if set)', 'media', 'site.logoUrl', content.site.logoUrl, 'image')
-      ])}
-    `;
+    return `${card('Brand Identity', 'Site name, tagline and logo.', [
+      field('Brand Name', 'text', 'site.brandName', content.site.brandName),
+      field('Brand Tagline', 'textarea', 'site.brandTagline', content.site.brandTagline),
+      field('Logo Image (replaces text if set)', 'media', 'site.logoUrl', content.site.logoUrl, 'image')
+    ])}`;
   }
 
-  // ============ TYPOGRAPHY ============
   function renderTypography() {
     const t = content.typography || {};
     const base = t.baseSize || 16, hs = t.headingScale || 1, hw = t.headingWeight || 800, ht = t.headingTracking || '-0.04em';
     return `
-      ${card('Font Size & Scale', 'Adjust base font size and heading scale across the entire site.', [
+      ${card('Font Size & Scale', 'Adjust base font size and heading scale.', [
         numberField('Base Font Size (px)', 'typography.baseSize', base, 1, 12, 22, 'Controls body text. Default 16.'),
         numberField('Heading Scale', 'typography.headingScale', hs, 0.05, 0.5, 2, 'Multiplier for headings. Default 1.'),
         field('Heading Weight', 'select', 'typography.headingWeight', String(hw), null, [
@@ -506,7 +502,6 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ SPACING ============
   function renderSpacing() {
     const s = content.spacing || {};
     const sp = s.sectionPadding || 82, cp = s.containerPadding || 4, cd = s.cardPadding || 26, gg = s.gridGap || 18;
@@ -530,7 +525,6 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ HOME ============
   function renderHome() {
     const h = content.home;
     return `
@@ -542,43 +536,36 @@ input,textarea,select{outline:none}
         field('Secondary Button Label', 'text', 'home.hero.button2Label', h.hero.button2Label),
         field('Hero Background Image', 'media', 'home.hero.bgImage', h.hero.bgImage, 'image')
       ])}
-
       ${listCard('Stats Bar', 'Four quick stats shown under the hero.', 'home.stats', h.stats, [
         { key: 'value', label: 'Value', type: 'text' },
         { key: 'label', label: 'Label', type: 'text' }
       ])}
-
       ${card('Partners Header', 'Logo strip. Leave empty to hide.', [
         field('Eyebrow', 'text', 'home.partners.eyebrow', h.partners?.eyebrow || ''),
         field('Title', 'text', 'home.partners.title', h.partners?.title || '')
       ])}
-
       ${listCard('Partner Logos', 'Logos scroll horizontally. Upload image, or leave empty to show name as text.', 'home.partners.items', (h.partners && h.partners.items) || [], [
         { key: 'name', label: 'Company Name', type: 'text' },
         { key: 'logoUrl', label: 'Logo Image', type: 'media', mediaType: 'image' },
         { key: 'url', label: 'Link URL (optional)', type: 'text' }
       ])}
-
-      ${card('Features Section', 'Three-to-four feature cards.', [
+      ${card('Features Section', '', [
         field('Eyebrow', 'text', 'home.features.eyebrow', h.features.eyebrow),
         field('Title', 'text', 'home.features.title', h.features.title),
         field('Subtitle', 'textarea', 'home.features.subtitle', h.features.subtitle)
       ])}
-
       ${listCard('Feature Cards', '', 'home.features.items', h.features.items, [
         { key: 'icon', label: 'Icon (emoji or text)', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' },
         { key: 'imageUrl', label: 'Image (optional)', type: 'media', mediaType: 'image' }
       ])}
-
       ${card('Vehicles Section', 'Vehicle lineup shown on home.', [
         field('Eyebrow', 'text', 'home.vehicles.eyebrow', h.vehicles.eyebrow),
         field('Title', 'text', 'home.vehicles.title', h.vehicles.title),
         field('Subtitle', 'textarea', 'home.vehicles.subtitle', h.vehicles.subtitle),
         field('Button Label', 'text', 'home.vehicles.buttonLabel', h.vehicles.buttonLabel)
       ])}
-
       ${listCard('Vehicle Cards', '', 'home.vehicles.items', h.vehicles.items, [
         { key: 'name', label: 'Name', type: 'text' },
         { key: 'desc', label: 'Description', type: 'textarea' },
@@ -586,20 +573,17 @@ input,textarea,select{outline:none}
         { key: 'symbol', label: 'Emoji Symbol', type: 'text' },
         { key: 'imageUrl', label: 'Image', type: 'media', mediaType: 'image' }
       ])}
-
-      ${card('Charging Solutions', 'Dark section with 2 cards.', [
+      ${card('Charging Solutions', '', [
         field('Eyebrow', 'text', 'home.charging.eyebrow', h.charging.eyebrow),
         field('Title', 'text', 'home.charging.title', h.charging.title),
         field('Subtitle', 'textarea', 'home.charging.subtitle', h.charging.subtitle)
       ])}
-
       ${listCard('Charging Cards', '', 'home.charging.items', h.charging.items, [
         { key: 'icon', label: 'Icon', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' },
         { key: 'linkLabel', label: 'Link Label', type: 'text' }
       ])}
-
       ${card('App Showcase', 'Phone mockup + benefits.', [
         field('Eyebrow', 'text', 'home.app.eyebrow', h.app.eyebrow),
         field('Title', 'text', 'home.app.title', h.app.title),
@@ -611,28 +595,23 @@ input,textarea,select{outline:none}
         field('Phone Station Type', 'text', 'home.app.phoneStationType', h.app.phoneStationType),
         field('Phone Button Label', 'text', 'home.app.phoneButton', h.app.phoneButton)
       ])}
-
       ${listCard('App Benefits', '', 'home.app.benefits', h.app.benefits, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
-
       ${card('Technology Section', '', [
         field('Eyebrow', 'text', 'home.technology.eyebrow', h.technology.eyebrow),
         field('Title', 'text', 'home.technology.title', h.technology.title)
       ])}
-
       ${listCard('Technology Cards', '', 'home.technology.items', h.technology.items, [
         { key: 'eyebrow', label: 'Eyebrow (e.g. 01 / Connected)', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
-
       ${card('Testimonials Header', '', [
         field('Eyebrow', 'text', 'home.testimonials.eyebrow', h.testimonials.eyebrow),
         field('Title', 'text', 'home.testimonials.title', h.testimonials.title)
       ])}
-
       ${listCard('Testimonials', '', 'home.testimonials.items', h.testimonials.items, [
         { key: 'quote', label: 'Quote', type: 'textarea' },
         { key: 'initials', label: 'Initials', type: 'text' },
@@ -640,7 +619,6 @@ input,textarea,select{outline:none}
         { key: 'role', label: 'Role', type: 'text' },
         { key: 'avatarUrl', label: 'Avatar Photo', type: 'media', mediaType: 'image' }
       ])}
-
       ${card('Bottom CTA', 'Dark CTA band with 2 buttons.', [
         field('Eyebrow', 'text', 'home.cta.eyebrow', h.cta.eyebrow),
         field('Title', 'text', 'home.cta.title', h.cta.title),
@@ -652,7 +630,6 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ VEHICLES ============
   function renderVehicles() {
     const v = content.vehicles;
     return `
@@ -661,7 +638,6 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'vehicles.hero.title', v.hero.title),
         field('Subtitle', 'textarea', 'vehicles.hero.subtitle', v.hero.subtitle)
       ])}
-
       ${listCard('Vehicles Grid', '', 'vehicles.hero.items', v.hero.items, [
         { key: 'name', label: 'Name', type: 'text' },
         { key: 'desc', label: 'Description', type: 'textarea' },
@@ -669,7 +645,6 @@ input,textarea,select{outline:none}
         { key: 'symbol', label: 'Emoji Symbol', type: 'text' },
         { key: 'imageUrl', label: 'Image', type: 'media', mediaType: 'image' }
       ])}
-
       ${card('Bottom CTA', '', [
         field('Eyebrow', 'text', 'vehicles.cta.eyebrow', v.cta.eyebrow),
         field('Title', 'text', 'vehicles.cta.title', v.cta.title),
@@ -678,7 +653,6 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ CHARGING ============
   function renderCharging() {
     const c = content.charging;
     return `
@@ -687,25 +661,21 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'charging.hero.title', c.hero.title),
         field('Subtitle', 'textarea', 'charging.hero.subtitle', c.hero.subtitle)
       ])}
-
       ${listCard('Charging Cards', '', 'charging.hero.items', c.hero.items, [
         { key: 'icon', label: 'Icon', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' },
         { key: 'linkLabel', label: 'Link Label', type: 'text' }
       ])}
-
       ${card('Process Header', '', [
         field('Eyebrow', 'text', 'charging.process.eyebrow', c.process.eyebrow),
         field('Title', 'text', 'charging.process.title', c.process.title)
       ])}
-
       ${listCard('Process Steps', '', 'charging.process.items', c.process.items, [
         { key: 'eyebrow', label: 'Eyebrow', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
-
       ${card('Bottom CTA', '', [
         field('Title', 'text', 'charging.cta.title', c.cta.title),
         field('Subtitle', 'textarea', 'charging.cta.subtitle', c.cta.subtitle)
@@ -713,7 +683,6 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ BUSINESS ============
   function renderBusiness() {
     const b = content.business;
     return `
@@ -722,12 +691,10 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'business.hero.title', b.hero.title),
         field('Subtitle', 'textarea', 'business.hero.subtitle', b.hero.subtitle)
       ])}
-
       ${listCard('Partner Benefits', '', 'business.hero.benefits', b.hero.benefits, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
-
       ${card('Form Header', '', [
         field('Eyebrow', 'text', 'business.form.eyebrow', b.form.eyebrow),
         field('Title', 'text', 'business.form.title', b.form.title)
@@ -735,7 +702,6 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ ABOUT ============
   function renderAbout() {
     const a = content.about;
     return `
@@ -744,14 +710,12 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'about.hero.title', a.hero.title),
         field('Subtitle', 'textarea', 'about.hero.subtitle', a.hero.subtitle)
       ])}
-
       ${listCard('Values / Principles', '', 'about.hero.values', a.hero.values, [
         { key: 'eyebrow', label: 'Eyebrow', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
       ])}
-
-      ${card('Mission Band', 'Dark section below the intro.', [
+      ${card('Mission Band', '', [
         field('Eyebrow', 'text', 'about.mission.eyebrow', a.mission.eyebrow),
         field('Title', 'text', 'about.mission.title', a.mission.title),
         field('Description', 'textarea', 'about.mission.text', a.mission.text)
@@ -759,7 +723,6 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ APP ============
   function renderApp() {
     const a = content.app;
     return `
@@ -768,7 +731,6 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'app.hero.title', a.hero.title),
         field('Subtitle', 'textarea', 'app.hero.subtitle', a.hero.subtitle)
       ])}
-
       ${listCard('App Benefits', '', 'app.hero.benefits', a.hero.benefits, [
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' }
@@ -776,7 +738,6 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ FOOTER ============
   function renderFooter() {
     const f = content.footer;
     return `
@@ -785,33 +746,27 @@ input,textarea,select{outline:none}
         field('Tagline', 'textarea', 'footer.brand.tagline', f.brand.tagline),
         field('Footer Logo (optional)', 'media', 'footer.brand.logoUrl', f.brand.logoUrl, 'image')
       ])}
-
       ${listCard('Social Links', '', 'footer.brand.socials', f.brand.socials, [
         { key: 'label', label: 'Label', type: 'text' },
         { key: 'url', label: 'URL', type: 'text' }
       ])}
-
       ${card('Column Headings', '', [
         field('Explore Column Title', 'text', 'footer.explore.title', f.explore.title),
         field('Company Column Title', 'text', 'footer.company.title', f.company.title),
         field('Contact Column Title', 'text', 'footer.contact.title', f.contact.title)
       ])}
-
       ${listCard('Explore Links', '', 'footer.explore.links', f.explore.links, [
         { key: 'label', label: 'Label', type: 'text' },
-        { key: 'nav', label: 'Page (home/vehicles/charging/business/about/app)', type: 'text' }
+        { key: 'nav', label: 'Page', type: 'text' }
       ])}
-
       ${listCard('Company Links', '', 'footer.company.links', f.company.links, [
         { key: 'label', label: 'Label', type: 'text' },
         { key: 'nav', label: 'Page', type: 'text' }
       ])}
-
       ${listCard('Contact Links', '', 'footer.contact.links', f.contact.links, [
         { key: 'label', label: 'Label', type: 'text' },
         { key: 'nav', label: 'Page', type: 'text' }
       ])}
-
       ${card('Copyright', '', [
         field('Brand Name', 'text', 'footer.copyright.name', f.copyright.name),
         field('Legal Text', 'text', 'footer.copyright.legal', f.copyright.legal)
@@ -819,19 +774,14 @@ input,textarea,select{outline:none}
     `;
   }
 
-  // ============ PAGE BUILDER ============
   function renderBuilder() {
     const items = content.customSections || [];
     return `
       <div class="section-card">
-        <div class="section-card__head">
-          <div><div class="section-card__title">Add New Section</div><div class="section-card__desc">Pick a section type. It gets added to the chosen page.</div></div>
-        </div>
+        <div class="section-card__head"><div><div class="section-card__title">Add New Section</div><div class="section-card__desc">Pick a section type. It gets added to the chosen page.</div></div></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px">
           ${['text','image','video','split','marquee','cards','cta','hero'].map(t => `
-            <button class="btn btn--ghost" data-add-custom="${t}" style="flex-direction:column;padding:18px 12px;gap:6px;height:auto">
-              <span style="font-size:.85rem;font-weight:700">${t.charAt(0).toUpperCase()+t.slice(1)}</span>
-            </button>
+            <button class="btn btn--ghost" data-add-custom="${t}" style="flex-direction:column;padding:18px 12px;gap:6px;height:auto"><span style="font-size:.85rem;font-weight:700">${t.charAt(0).toUpperCase()+t.slice(1)}</span></button>
           `).join('')}
         </div>
       </div>
@@ -842,76 +792,20 @@ input,textarea,select{outline:none}
   function renderCustomEditor(sec, i) {
     const path = 'customSections.' + i;
     const pageOptions = [
-      { value:'home', label:'Home' },
-      { value:'vehicles', label:'Vehicles' },
-      { value:'charging', label:'Charging' },
-      { value:'business', label:'Business' },
-      { value:'about', label:'About' },
-      { value:'app', label:'App' }
+      { value:'home', label:'Home' }, { value:'vehicles', label:'Vehicles' },
+      { value:'charging', label:'Charging' }, { value:'business', label:'Business' },
+      { value:'about', label:'About' }, { value:'app', label:'App' }
     ];
     let body = '';
     switch (sec.type) {
-      case 'text':
-        body = field('Eyebrow (optional)', 'text', path+'.eyebrow', sec.eyebrow) +
-          field('Title', 'text', path+'.title', sec.title) +
-          field('Body', 'textarea', path+'.body', sec.body) +
-          field('Alignment', 'select', path+'.align', sec.align || 'center', null, [
-            { value:'center', label:'Center' }, { value:'left', label:'Left' }
-          ]);
-        break;
-      case 'image':
-        body = mediaFieldHTML({ label:'Image', kind:'image', path: path+'.imageUrl', value: sec.imageUrl }) +
-          field('Caption (optional)', 'text', path+'.caption', sec.caption) +
-          field('Width', 'select', path+'.width', sec.width || 'boxed', null, [
-            { value:'boxed', label:'Boxed' }, { value:'full', label:'Full width' }
-          ]);
-        break;
-      case 'video':
-        body = mediaFieldHTML({ label:'Video', kind:'video', path: path+'.videoUrl', value: sec.videoUrl }) +
-          mediaFieldHTML({ label:'Poster (optional)', kind:'image', path: path+'.posterUrl', value: sec.posterUrl }) +
-          field('Caption', 'text', path+'.caption', sec.caption);
-        break;
-      case 'split':
-        body = field('Eyebrow', 'text', path+'.eyebrow', sec.eyebrow) +
-          field('Title', 'text', path+'.title', sec.title) +
-          field('Text', 'textarea', path+'.text', sec.text) +
-          listCard('Bullets', '', path+'.bullets', sec.bullets || [], [{ key:'', label:'Text', type:'text' }], 'simple') +
-          field('Media Type', 'select', path+'.mediaType', sec.mediaType || 'image', null, [
-            { value:'image', label:'Image' }, { value:'video', label:'Video' }
-          ]) +
-          mediaFieldHTML({ label:'Media', kind: sec.mediaType || 'image', path: path+'.mediaUrl', value: sec.mediaUrl }) +
-          field('Media Position', 'select', path+'.reverse', String(sec.reverse || false), null, [
-            { value:'false', label:'Media on right' }, { value:'true', label:'Media on left' }
-          ]);
-        break;
-      case 'marquee':
-        body = listCard('Items', '', path+'.items', sec.items || [], [{ key:'', label:'Text', type:'text' }], 'simple');
-        break;
-      case 'cards':
-        body = field('Eyebrow', 'text', path+'.eyebrow', sec.eyebrow) +
-          field('Title', 'text', path+'.title', sec.title) +
-          listCard('Cards', '', path+'.items', sec.items || [], [
-            { key:'title', label:'Title', type:'text' },
-            { key:'text', label:'Description', type:'textarea' },
-            { key:'imageUrl', label:'Image', type:'media', mediaType:'image' }
-          ]);
-        break;
-      case 'cta':
-        body = field('Title', 'text', path+'.title', sec.title) +
-          field('Description', 'textarea', path+'.text', sec.text) +
-          field('Primary Button Label', 'text', path+'.primaryLabel', sec.primaryLabel) +
-          field('Primary Button Link', 'select', path+'.primaryLink', sec.primaryLink || 'business', null, pageOptions) +
-          field('Secondary Button Label', 'text', path+'.secondaryLabel', sec.secondaryLabel) +
-          field('Secondary Button Link', 'select', path+'.secondaryLink', sec.secondaryLink || 'vehicles', null, pageOptions) +
-          mediaFieldHTML({ label:'Background Image', kind:'image', path: path+'.bgImage', value: sec.bgImage });
-        break;
-      case 'hero':
-        body = field('Title', 'text', path+'.title', sec.title) +
-          field('Subtitle', 'textarea', path+'.subtitle', sec.subtitle) +
-          mediaFieldHTML({ label:'Background Image', kind:'image', path: path+'.bgImage', value: sec.bgImage }) +
-          field('Primary Button Label', 'text', path+'.primaryLabel', sec.primaryLabel) +
-          field('Primary Button Link', 'select', path+'.primaryLink', sec.primaryLink || 'vehicles', null, pageOptions);
-        break;
+      case 'text': body = field('Eyebrow', 'text', path+'.eyebrow', sec.eyebrow) + field('Title', 'text', path+'.title', sec.title) + field('Body', 'textarea', path+'.body', sec.body) + field('Alignment', 'select', path+'.align', sec.align || 'center', null, [{ value:'center', label:'Center' }, { value:'left', label:'Left' }]); break;
+      case 'image': body = mediaFieldHTML({ label:'Image', kind:'image', path: path+'.imageUrl', value: sec.imageUrl }) + field('Caption', 'text', path+'.caption', sec.caption) + field('Width', 'select', path+'.width', sec.width || 'boxed', null, [{ value:'boxed', label:'Boxed' }, { value:'full', label:'Full width' }]); break;
+      case 'video': body = mediaFieldHTML({ label:'Video', kind:'video', path: path+'.videoUrl', value: sec.videoUrl }) + mediaFieldHTML({ label:'Poster', kind:'image', path: path+'.posterUrl', value: sec.posterUrl }) + field('Caption', 'text', path+'.caption', sec.caption); break;
+      case 'split': body = field('Eyebrow', 'text', path+'.eyebrow', sec.eyebrow) + field('Title', 'text', path+'.title', sec.title) + field('Text', 'textarea', path+'.text', sec.text) + listCard('Bullets', '', path+'.bullets', sec.bullets || [], [{ key:'', label:'Text', type:'text' }], 'simple') + field('Media Type', 'select', path+'.mediaType', sec.mediaType || 'image', null, [{ value:'image', label:'Image' }, { value:'video', label:'Video' }]) + mediaFieldHTML({ label:'Media', kind: sec.mediaType || 'image', path: path+'.mediaUrl', value: sec.mediaUrl }) + field('Media Position', 'select', path+'.reverse', String(sec.reverse || false), null, [{ value:'false', label:'Media on right' }, { value:'true', label:'Media on left' }]); break;
+      case 'marquee': body = listCard('Items', '', path+'.items', sec.items || [], [{ key:'', label:'Text', type:'text' }], 'simple'); break;
+      case 'cards': body = field('Eyebrow', 'text', path+'.eyebrow', sec.eyebrow) + field('Title', 'text', path+'.title', sec.title) + listCard('Cards', '', path+'.items', sec.items || [], [{ key:'title', label:'Title', type:'text' }, { key:'text', label:'Description', type:'textarea' }, { key:'imageUrl', label:'Image', type:'media', mediaType:'image' }]); break;
+      case 'cta': body = field('Title', 'text', path+'.title', sec.title) + field('Description', 'textarea', path+'.text', sec.text) + field('Primary Button Label', 'text', path+'.primaryLabel', sec.primaryLabel) + field('Primary Button Link', 'select', path+'.primaryLink', sec.primaryLink || 'business', null, pageOptions) + field('Secondary Button Label', 'text', path+'.secondaryLabel', sec.secondaryLabel) + field('Secondary Button Link', 'select', path+'.secondaryLink', sec.secondaryLink || 'vehicles', null, pageOptions) + mediaFieldHTML({ label:'Background Image', kind:'image', path: path+'.bgImage', value: sec.bgImage }); break;
+      case 'hero': body = field('Title', 'text', path+'.title', sec.title) + field('Subtitle', 'textarea', path+'.subtitle', sec.subtitle) + mediaFieldHTML({ label:'Background Image', kind:'image', path: path+'.bgImage', value: sec.bgImage }) + field('Primary Button Label', 'text', path+'.primaryLabel', sec.primaryLabel) + field('Primary Button Link', 'select', path+'.primaryLink', sec.primaryLink || 'vehicles', null, pageOptions); break;
     }
     return `
       <div class="section-card">
@@ -923,12 +817,7 @@ input,textarea,select{outline:none}
             <button class="list-item__btn list-item__btn--danger" data-remove-custom="${i}" title="Delete"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg></button>
           </div>
         </div>
-        <div class="field">
-          <label class="field__label">Page</label>
-          <select class="field__select" data-path="${path}.page">
-            ${pageOptions.map(o => `<option value="${o.value}" ${sec.page === o.value ? 'selected' : ''}>${o.label}</option>`).join('')}
-          </select>
-        </div>
+        <div class="field"><label class="field__label">Page</label><select class="field__select" data-path="${path}.page">${pageOptions.map(o => `<option value="${o.value}" ${sec.page === o.value ? 'selected' : ''}>${o.label}</option>`).join('')}</select></div>
         ${body}
       </div>
     `;
@@ -962,7 +851,6 @@ input,textarea,select{outline:none}
     renderSection('builder');
   }
 
-  // ============ COMPONENT HELPERS ============
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
   function card(title, desc, fields) {
@@ -1013,7 +901,6 @@ input,textarea,select{outline:none}
     return `<div class="section-card"><div class="section-card__head"><div><div class="section-card__title">${title}</div>${desc ? `<div class="section-card__desc">${desc}</div>` : ''}</div><div><button class="btn btn--ghost btn--sm" data-add="${path}" data-add-simple="${isSimple ? '1' : '0'}">+ Add</button></div></div>${listItems || '<div style="padding:20px 0;color:var(--txt-3);font-size:.85rem;text-align:center">No items yet. Click "+ Add" to create one.</div>'}</div>`;
   }
 
-  // ============ EVENTS ============
   function bindSectionEvents() {
     const area = document.getElementById('contentArea');
     area.querySelectorAll('[data-path]').forEach(el => { el.addEventListener('input', onFieldInput); el.addEventListener('change', onFieldInput); });
@@ -1124,13 +1011,12 @@ input,textarea,select{outline:none}
     toast(name.charAt(0).toUpperCase() + name.slice(1) + ' applied', 'success');
   }
 
-  // ============ UPLOAD ============
   async function uploadFileToGitHub(file, targetPath) {
     const repo = document.getElementById('ghRepo').value.trim();
     const branch = document.getElementById('ghBranch').value.trim() || 'main';
     const token = document.getElementById('ghToken').value.trim();
-    if (!repo || !token) { toast('Open "Publish to GitHub" first and enter your repo + token', 'error'); return null; }
-    if (file.size > 100 * 1024 * 1024) { toast('File is too large (max 100 MB)', 'error'); return null; }
+    if (!repo || !token) { toast('Open "Publish to GitHub" first', 'error'); return null; }
+    if (file.size > 100 * 1024 * 1024) { toast('File too large (max 100 MB)', 'error'); return null; }
     const base64 = await new Promise((resolve, reject) => {
       const r = new FileReader();
       r.onload = () => resolve(r.result.split(',')[1]);
@@ -1139,8 +1025,7 @@ input,textarea,select{outline:none}
     });
     let sha = null;
     try {
-      const g = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}?ref=${branch}`,
-        { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } });
+      const g = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}?ref=${branch}`, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } });
       if (g.ok) sha = (await g.json()).sha;
     } catch(e) {}
     const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}`, {
@@ -1220,7 +1105,6 @@ input,textarea,select{outline:none}
     if (label) label.textContent = text;
   }
 
-  // ============ TOPBAR ============
   function bindTopbar() {
     document.getElementById('btnPreview').addEventListener('click', () => {
       localStorage.setItem(LS_KEY, JSON.stringify(content));
@@ -1254,7 +1138,6 @@ input,textarea,select{outline:none}
     toast('content.json downloaded — commit it to your repo', 'success');
   }
 
-  // ============ PUBLISH ============
   function bindPublishModal() {
     const modal = document.getElementById('publishModal');
     document.getElementById('publishCancel').addEventListener('click', () => modal.classList.remove('is-open'));
@@ -1323,7 +1206,6 @@ input,textarea,select{outline:none}
     }
   }
 
-  // ============ CONFIRM ============
   let confirmCallback = null;
   function confirmAction(title, text, onOk) {
     document.getElementById('confirmTitle').textContent = title;
@@ -1334,7 +1216,6 @@ input,textarea,select{outline:none}
   document.getElementById('confirmCancel').addEventListener('click', () => { document.getElementById('confirmModal').classList.remove('is-open'); confirmCallback = null; });
   document.getElementById('confirmOk').addEventListener('click', () => { if (confirmCallback) confirmCallback(); document.getElementById('confirmModal').classList.remove('is-open'); confirmCallback = null; });
 
-  // ============ TOAST ============
   function toast(message, kind) {
     kind = kind || 'info';
     const stack = document.getElementById('toastStack');

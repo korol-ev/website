@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>korol — Admin Console</title>
+<title>Koral — Admin Console</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -124,7 +124,7 @@ input,textarea,select{outline:none}
 
 <div class="boot" id="boot">
   <div class="boot__inner">
-    <div class="boot__logo"><span>korol</span></div>
+    <div class="boot__logo"><span>KORAL</span></div>
     <div class="boot__spinner"></div>
     <div class="boot__msg" id="bootMsg">Loading admin console...</div>
     <div id="bootError" style="display:none"></div>
@@ -134,7 +134,7 @@ input,textarea,select{outline:none}
 <div class="app" id="app" style="display:none">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar__head">
-      <div class="sidebar__logo"><span>korol</span></div>
+      <div class="sidebar__logo"><span>KORAL</span></div>
       <div class="sidebar__sub">Admin Console</div>
     </div>
     <nav class="sidebar__nav" id="sidebarNav"></nav>
@@ -143,7 +143,6 @@ input,textarea,select{outline:none}
       <span id="saveStatusText">Ready</span>
     </div>
   </aside>
-
   <main class="main">
     <header class="topbar">
       <div class="topbar__title" id="pageTitle">Home Page <small>Edit all content without touching code</small></div>
@@ -185,10 +184,9 @@ input,textarea,select{outline:none}
   <div class="modal__dialog">
     <h2 class="modal__title">Publish to GitHub</h2>
     <p class="modal__text">Commits <code>content.json</code> directly to your repository. GitHub Pages rebuilds automatically.</p>
-
     <div class="field">
       <label class="field__label">Repository (owner/name)</label>
-      <input class="field__input" id="ghRepo" placeholder="username/korol-site">
+      <input class="field__input" id="ghRepo" placeholder="username/koral-site">
     </div>
     <div class="field-row">
       <div class="field">
@@ -209,7 +207,6 @@ input,textarea,select{outline:none}
       <label class="field__label">Commit Message</label>
       <input class="field__input" id="ghMessage" value="Update site content">
     </div>
-
     <div class="modal__actions">
       <button class="btn btn--ghost" id="publishCancel">Cancel</button>
       <button class="btn btn--primary" id="publishConfirm">Publish Now</button>
@@ -225,8 +222,8 @@ input,textarea,select{outline:none}
   const boot = document.getElementById('boot');
   const bootMsg = document.getElementById('bootMsg');
   const bootError = document.getElementById('bootError');
-  const LS_KEY = 'korol-content-v1';
-  const LS_GH = 'korol-github-config';
+  const LS_KEY = 'koral-content-v1';
+  const LS_GH = 'koral-github-config';
 
   window.addEventListener('error', e => showBootError('Unexpected error: ' + e.message));
   function showBootError(msg) {
@@ -236,17 +233,17 @@ input,textarea,select{outline:none}
   }
 
   const DEFAULT_CONTENT = {
-    site:{brandName:"korol",brandTagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",logoUrl:""},
-    email:{formRecipient:"partners@korol.energy",replyTo:"partners@korol.energy",formSubject:"New partnership enquiry from {name}",autoReplyEnabled:true,autoReplySubject:"Thanks for reaching out to korol",autoReplyBody:"Hi {firstName},\n\nThanks for contacting korol. We've received your enquiry and a member of our partnerships team will respond within two business days.\n\n— The korol Team",smtpHost:"",smtpPort:"587",smtpUser:"",smtpPassword:""},
+    site:{brandName:"KORAL",brandTagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",logoUrl:""},
+    email:{formRecipient:"partners@koral.energy",replyTo:"partners@koral.energy",formSubject:"New partnership enquiry from {name}",autoReplyEnabled:true,autoReplySubject:"Thanks for reaching out to Koral",autoReplyBody:"Hi {firstName},\n\nThanks for contacting Koral. We've received your enquiry and a member of our partnerships team will respond within two business days.\n\n— The Koral Team",smtpHost:"",smtpPort:"587",smtpUser:"",smtpPassword:""},
     home:{
-      hero:{label:"Next-Gen Energy Ecosystem",title:"Redefining Energy Freedom, Untethered.",subtitle:"korol delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",bgImage:"",stats:[{value:"2.4 kW",label:"Solar Generation"},{value:"0",label:"Grid Dependence"},{value:"100%",label:"Renewable Input"},{value:"24/7",label:"Autonomous Power"}]},
+      hero:{label:"Next-Gen Energy Ecosystem",title:"Redefining Energy Freedom, Untethered.",subtitle:"Koral delivers clean, solar-driven EV charging hardware and high-capacity battery storage built for uncompromised off-grid mobility, commercial fleets and remote operations.",bgImage:"",stats:[{value:"2.4 kW",label:"Solar Generation"},{value:"0",label:"Grid Dependence"},{value:"100%",label:"Renewable Input"},{value:"24/7",label:"Autonomous Power"}]},
       marquee:["Solar Harvesting","LFP Storage","Off-Grid EV Charging","Trevoli EMS","Fleet Depots","Disaster Response","Remote Industry"],
-      decentralized:{eyebrow:"Autonomous Infrastructure",title:"Powering a Decentralized Future.",text:"As global energy demands rise and traditional utility grids face growing vulnerabilities, korol provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",pills:["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"],bgImage:""},
+      decentralized:{eyebrow:"Autonomous Infrastructure",title:"Powering a Decentralized Future.",text:"As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",pills:["MPPT Controllers","LFP Chemistry","Weather-Sealed","Zero Emissions"],bgImage:""},
       carousel:{slides:[
-        {title:"korol Nomad",text:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",posterUrl:"https://picsum.photos/seed/korol-nomad/1280/720"},
-        {title:"korol Depot",text:"Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",posterUrl:"https://picsum.photos/seed/korol-depot/1280/720"},
-        {title:"korol Responder",text:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",posterUrl:"https://picsum.photos/seed/korol-responder/1280/720"},
-        {title:"Trevoli EMS",text:"Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every korol unit.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",posterUrl:"https://picsum.photos/seed/trevoli-ems/1280/720"}
+        {title:"Koral Nomad",text:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",posterUrl:"https://picsum.photos/seed/koral-nomad/1280/720"},
+        {title:"Koral Depot",text:"Containerised 60 kWh buffer storage for commercial EV fleets. No trenching, no permits, no grid expansion.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",posterUrl:"https://picsum.photos/seed/koral-depot/1280/720"},
+        {title:"Koral Responder",text:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",posterUrl:"https://picsum.photos/seed/koral-responder/1280/720"},
+        {title:"Trevoli EMS",text:"Predictive load balancing, fleet telemetry and biometric access control — the intelligence layer across every Koral unit.",videoUrl:"https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",posterUrl:"https://picsum.photos/seed/trevoli-ems/1280/720"}
       ]},
       features:{eyebrow:"Core Technology",title:"Engineered for Uncompromised Reliability.",bgImage:"",items:[
         {title:"Proprietary Storage Cells",text:"Advanced Lithium Iron Phosphate chemistries and high-efficiency MPPT controllers delivering maximum energy density and long cycle life.",imageUrl:""},
@@ -255,26 +252,26 @@ input,textarea,select{outline:none}
         {title:"Sustainable Lifecycle",text:"Recyclable materials, non-toxic compositions and zero direct emissions designed to reduce impact at every stage.",imageUrl:""}
       ]},
       productsTeaser:{eyebrow:"Hardware Line",title:"Built for the Edge of the Grid.",text:"Three platforms. One ecosystem. Every unit ships grid-independent.",items:[
-        {code:"KRL-01",tag:"Portable",title:"korol Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW"}},
-        {code:"KRL-02",tag:"Stationary",title:"korol Depot",desc:"Containerised buffer storage for commercial EV fleets. Deploys without grid expansion or trenching.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW"}},
-        {code:"KRL-03",tag:"Rapid Response",title:"korol Responder",desc:"Towable energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW"}}
+        {code:"KRL-01",tag:"Portable",title:"Koral Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW"}},
+        {code:"KRL-02",tag:"Stationary",title:"Koral Depot",desc:"Containerised buffer storage for commercial EV fleets. Deploys without grid expansion or trenching.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW"}},
+        {code:"KRL-03",tag:"Rapid Response",title:"Koral Responder",desc:"Towable energy unit for disaster zones and emergency medical posts. Deploys in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW"}}
       ]},
-      stats:{eyebrow:"Benchmarks",title:"Performance Metrics.",bgImage:"",items:[{category:"System Efficiency",korol:"92%",industry:"68%"},{category:"Cycle Durability",korol:"88/100",industry:"62/100"},{category:"Operational Ease",korol:"95/100",industry:"58/100"}]},
+      stats:{eyebrow:"Benchmarks",title:"Performance Metrics.",bgImage:"",items:[{category:"System Efficiency",koral:"92%",industry:"68%"},{category:"Cycle Durability",koral:"88/100",industry:"62/100"},{category:"Operational Ease",koral:"95/100",industry:"58/100"}]},
       industries:{eyebrow:"Use Cases",title:"Deployed Across Critical Industries.",bgImage:"",items:[
         {title:"Commercial Fleets",text:"Rapid battery buffer depots for delivery logistics, municipal transit and commercial EV fleets — without expensive grid expansion.",imageUrl:""},
         {title:"Emergency Response",text:"Instant, disaster-resilient mobile energy for medical command posts, wildfire operations and civil defence during blackouts.",imageUrl:""},
         {title:"Remote Industry",text:"Continuous power for off-grid mining sites, agricultural machinery, remote construction and field research facilities.",imageUrl:""}
       ]},
-      trevoliTeaser:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",text:"Trevoli is the intelligence layer across the korol ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",badgeValue:"Trevoli",badgeLabel:"Smart Energy OS",imageUrl:""},
+      trevoliTeaser:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",text:"Trevoli is the intelligence layer across the Koral ecosystem — predictive load balancing, remote diagnostics, fleet telemetry and biometric access control, all from a single dashboard.",badgeValue:"Trevoli",badgeLabel:"Smart Energy OS",imageUrl:""},
       testimonials:{eyebrow:"Field Reports",title:"Trusted Where the Grid Ends.",bgImage:"",items:[
-        {quote:"We eliminated a six-figure trenching quote by deploying korol Depot units at two depots. Charging uptime has been flawless for eleven months.",initials:"MR",name:"M. Reyes",role:"Fleet Director, Regional Transit",avatarUrl:""},
+        {quote:"We eliminated a six-figure trenching quote by deploying Koral Depot units at two depots. Charging uptime has been flawless for eleven months.",initials:"MR",name:"M. Reyes",role:"Fleet Director, Regional Transit",avatarUrl:""},
         {quote:"The Responder units powered our field hospital for nine days after the storm. Setup took one person and under ten minutes.",initials:"AK",name:"A. Kaur",role:"Logistics Lead, Civil Defence",avatarUrl:""},
         {quote:"Trevoli gives us per-asset telemetry we simply never had. We now schedule maintenance before failures instead of after.",initials:"JT",name:"J. Thompson",role:"Operations Manager, Mining",avatarUrl:""}
       ]},
-      cta:{eyebrow:"Get Started",title:"Power Shouldn't Be Bound by the Grid.",text:"Join the next generation of energy independence with korol.",bgImage:""}
+      cta:{eyebrow:"Get Started",title:"Power Shouldn't Be Bound by the Grid.",text:"Join the next generation of energy independence with Koral.",bgImage:""}
     },
     about:{
-      hero:{eyebrow:"Our Story",title:"We Build Power That Doesn't Ask Permission.",subtitle:"korol exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.",bgImage:""},
+      hero:{eyebrow:"Our Story",title:"We Build Power That Doesn't Ask Permission.",subtitle:"Koral exists because energy access shouldn't be a function of geography, infrastructure budgets or utility timelines. We engineer systems that generate, store and deliver power wherever it's needed.",bgImage:""},
       mission:{eyebrow:"Mission",title:"Decentralize the Grid. Permanently.",text1:"Centralised energy infrastructure was designed for a different century. It's expensive to extend, slow to permit and fragile under stress. Our mission is to make autonomous clean energy the default choice — not the backup plan — for fleets, industry and emergency services.",text2:"We do this by building the entire stack ourselves: solar harvesting, storage chemistry, power electronics and the software that orchestrates all of it.",badgeValue:"2030",badgeLabel:"1 GWh Deployed Target",imageUrl:"",bgImage:""},
       values:{eyebrow:"Principles",title:"What We Optimize For.",items:[
         {num:"01",title:"Field Reliability",text:"If it can't survive a dust storm, a monsoon and a -20°C night, it doesn't ship. Every enclosure is tested beyond its rated envelope."},
@@ -284,8 +281,8 @@ input,textarea,select{outline:none}
       ]},
       timeline:{eyebrow:"Trajectory",title:"How We Got Here.",items:[
         {year:"2021",title:"Founded in a Workshop",text:"Three engineers, one prototype LFP pack and a problem statement: why does off-grid EV charging cost more than the vehicle?"},
-        {year:"2022",title:"First Field Deployment",text:"korol Nomad units deployed with remote survey teams, logging 4,000+ hours of continuous off-grid operation."},
-        {year:"2023",title:"korol Depot Goes Live",text:"Containerised 60 kWh buffer storage installed at two municipal transit depots, eliminating grid expansion costs entirely."},
+        {year:"2022",title:"First Field Deployment",text:"Koral Nomad units deployed with remote survey teams, logging 4,000+ hours of continuous off-grid operation."},
+        {year:"2023",title:"Koral Depot Goes Live",text:"Containerised 60 kWh buffer storage installed at two municipal transit depots, eliminating grid expansion costs entirely."},
         {year:"2024",title:"Trevoli Platform Launch",text:"Our energy management OS ships with fleet telemetry, predictive load balancing and biometric access control."},
         {year:"2025",title:"Solid-State Program",text:"R&D transitions toward solid-state cells for higher density and extended thermal stability in extreme climates."}
       ]},
@@ -301,21 +298,21 @@ input,textarea,select{outline:none}
       cta:{title:"Build the Decentralized Grid With Us.",text:"We're hiring engineers and partnering with operators worldwide.",bgImage:""}
     },
     products:{
-      hero:{eyebrow:"Hardware Line",title:"Three Platforms. One Ecosystem.",subtitle:"Every korol unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.",bgImage:""},
+      hero:{eyebrow:"Hardware Line",title:"Three Platforms. One Ecosystem.",subtitle:"Every Koral unit generates, stores and delivers its own power. No trenching, no permits, no grid dependency — deploy it and it works.",bgImage:""},
       items:[
-        {category:"portable",code:"KRL-01",tag:"Portable",title:"korol Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Designed for field teams, survey crews and mobile EV top-up charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW",Weight:"34 kg",Deploy:"5 min"}},
-        {category:"stationary",code:"KRL-02",tag:"Stationary",title:"korol Depot",desc:"Containerised 60 kWh buffer storage for commercial EV fleets. Installs without grid expansion, trenching or permitting delays.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW",Footprint:"1.8 m²",Rating:"IP65"}},
-        {category:"rapid",code:"KRL-03",tag:"Rapid Response",title:"korol Responder",desc:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. One person can deploy it in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW","Tow Rating":"750 kg",Deploy:"10 min"}},
-        {category:"portable",code:"KRL-04",tag:"Portable",title:"korol Array 400",desc:"Standalone foldable photovoltaic array. Stacks with any korol storage unit to increase daily harvest without adding battery weight.",imageUrl:"",specs:{Peak:"400 W",Folded:"0.4 m²",Cell:"Monocrystalline",Rating:"IP67"}},
-        {category:"stationary",code:"KRL-05",tag:"Stationary",title:"korol Depot XL",desc:"Cascadable 180 kWh storage block for industrial sites and multi-bay charging depots. Scales linearly with fleet size.",imageUrl:"",specs:{Capacity:"180 kWh",Output:"60 kW",Cascade:"Up to 8",Rating:"IP65"}},
-        {category:"rapid",code:"KRL-06",tag:"Rapid Response",title:"korol Relay",desc:"Backpack-portable 900 Wh unit for single-operator field deployment. Powers radios, medical devices and laptops indefinitely.",imageUrl:"",specs:{Capacity:"900 Wh",Output:"1.2 kW",Weight:"9 kg",Rating:"IP66"}}
+        {category:"portable",code:"KRL-01",tag:"Portable",title:"Koral Nomad",desc:"Foldable 400W solar array paired with a 2.4 kWh LFP pack. Designed for field teams, survey crews and mobile EV top-up charging.",imageUrl:"",specs:{Capacity:"2.4 kWh",Output:"3.6 kW",Weight:"34 kg",Deploy:"5 min"}},
+        {category:"stationary",code:"KRL-02",tag:"Stationary",title:"Koral Depot",desc:"Containerised 60 kWh buffer storage for commercial EV fleets. Installs without grid expansion, trenching or permitting delays.",imageUrl:"",specs:{Capacity:"60 kWh",Output:"22 kW",Footprint:"1.8 m²",Rating:"IP65"}},
+        {category:"rapid",code:"KRL-03",tag:"Rapid Response",title:"Koral Responder",desc:"Towable 18 kWh energy unit for disaster zones and emergency medical posts. One person can deploy it in under ten minutes.",imageUrl:"",specs:{Capacity:"18 kWh",Output:"9 kW","Tow Rating":"750 kg",Deploy:"10 min"}},
+        {category:"portable",code:"KRL-04",tag:"Portable",title:"Koral Array 400",desc:"Standalone foldable photovoltaic array. Stacks with any Koral storage unit to increase daily harvest without adding battery weight.",imageUrl:"",specs:{Peak:"400 W",Folded:"0.4 m²",Cell:"Monocrystalline",Rating:"IP67"}},
+        {category:"stationary",code:"KRL-05",tag:"Stationary",title:"Koral Depot XL",desc:"Cascadable 180 kWh storage block for industrial sites and multi-bay charging depots. Scales linearly with fleet size.",imageUrl:"",specs:{Capacity:"180 kWh",Output:"60 kW",Cascade:"Up to 8",Rating:"IP65"}},
+        {category:"rapid",code:"KRL-06",tag:"Rapid Response",title:"Koral Relay",desc:"Backpack-portable 900 Wh unit for single-operator field deployment. Powers radios, medical devices and laptops indefinitely.",imageUrl:"",specs:{Capacity:"900 Wh",Output:"1.2 kW",Weight:"9 kg",Rating:"IP66"}}
       ],
       comparison:{eyebrow:"Side by Side",title:"Platform Comparison.",headers:["Specification","Nomad","Depot","Responder"],rows:[
         ["Usable Capacity","2.4 kWh","60 kWh","18 kWh"],["Continuous Output","3.6 kW","22 kW","9 kW"],["Solar Input","400 W","2.4 kW","1.2 kW"],["Cell Chemistry","LFP","LFP","LFP"],["Cycle Life","4,000","6,000","4,500"],["Ingress Rating","IP67","IP65","IP66"],["Trevoli Enabled","Yes","Yes","Yes"],["Grid Connection Required","No","No","No"],["Single-Person Deploy","Yes","2 crew","Yes"]
       ]},
       deepDive:{eyebrow:"Inside the Enclosure",title:"Every Component Is Ours.",text:"We didn't assemble off-the-shelf parts. The BMS, the MPPT controller, the thermal management layer and the firmware running on top are all designed and validated in-house — which is why we can guarantee the numbers on the datasheet.",items:["Custom battery management system with per-cell monitoring","High-efficiency MPPT tracking with dual-input channel support","Passive and active thermal regulation for -20°C to 55°C operation","Over-the-air firmware updates via Trevoli"],badgeValue:"IP65+",badgeLabel:"Environmental Rating",imageUrl:""},
       faq:{eyebrow:"Questions",title:"Frequently Asked.",items:[
-        {q:"Do korol units need any grid connection at all?",a:"No. Every platform generates and stores its own power from solar input. A grid connection is optional and only used if you want to top up during extended low-irradiance periods — the system operates fully without one."},
+        {q:"Do Koral units need any grid connection at all?",a:"No. Every platform generates and stores its own power from solar input. A grid connection is optional and only used if you want to top up during extended low-irradiance periods — the system operates fully without one."},
         {q:"How long does installation take?",a:"Nomad and Responder units deploy in under ten minutes with one person. Depot installations typically complete within a single working day and require no trenching, permitting or civil works."},
         {q:"What happens during extended cloudy weather?",a:"Every system is sized with a reserve margin based on your regional irradiance profile. Trevoli also provides predictive load balancing that prioritises critical loads as stored energy declines."},
         {q:"Can I monitor multiple sites at once?",a:"Yes. Trevoli aggregates telemetry across your entire fleet into a single dashboard, with per-asset drill-down, alerting and exportable reporting."},
@@ -324,8 +321,8 @@ input,textarea,select{outline:none}
       cta:{title:"Need a Configuration for Your Site?",text:"Send us your load profile and we'll size a system within 48 hours.",bgImage:""}
     },
     trevoli:{
-      hero:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",subtitle:"The intelligence layer across the korol ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.",bgImage:""},
-      dashboard:{title:"trevoli.korol — fleet overview",sidebar:["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],stats:[{label:"Fleet State of Charge",value:"87%"},{label:"Active Assets",value:"342"},{label:"Alerts",value:"2"}],chartTitle:"Daily Harvest — Last 12 Days",chartUnit:"kWh",chartData:"42,55,48,67,72,61,80,88,76,91,84,96"},
+      hero:{eyebrow:"Software Layer",title:"Trevoli Manages Every Watt.",subtitle:"The intelligence layer across the Koral ecosystem. Predictive load balancing, remote diagnostics, fleet telemetry and biometric access control — in one operating system.",bgImage:""},
+      dashboard:{title:"trevoli.koral — fleet overview",sidebar:["Overview","Assets","Energy Flow","Diagnostics","Access Control","Reports"],stats:[{label:"Fleet State of Charge",value:"87%"},{label:"Active Assets",value:"342"},{label:"Alerts",value:"2"}],chartTitle:"Daily Harvest — Last 12 Days",chartUnit:"kWh",chartData:"42,55,48,67,72,61,80,88,76,91,84,96"},
       capabilities:{eyebrow:"Capabilities",title:"Built Into Every Unit.",items:[
         {title:"Predictive Load Balancing",text:"Trevoli forecasts demand against irradiance and stored reserve, then shifts non-critical loads automatically as energy margins tighten."},
         {title:"Real-Time Telemetry",text:"Per-cell voltage, temperature, cycle count and throughput streamed continuously from every asset in the fleet."},
@@ -334,7 +331,7 @@ input,textarea,select{outline:none}
         {title:"Anomaly Detection",text:"Deviation from expected charge and discharge curves triggers an alert before it becomes a failure or a safety event."},
         {title:"Reporting & Export",text:"Carbon avoided, energy served and uptime metrics exportable to CSV, JSON or your existing BI tooling."}
       ]},
-      architecture:{eyebrow:"Architecture",title:"How Trevoli Works.",text:"A lightweight edge controller runs on every korol unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.",pills:["Edge-first","Offline capable","Encrypted sync","Open export"],steps:[
+      architecture:{eyebrow:"Architecture",title:"How Trevoli Works.",text:"A lightweight edge controller runs on every Koral unit, collecting high-frequency data and executing local decisions even when offline. When connectivity is available, it syncs to the cloud for fleet-wide optimisation and reporting.",pills:["Edge-first","Offline capable","Encrypted sync","Open export"],steps:[
         {title:"Sense",text:"The edge controller samples cell voltage, current, temperature and irradiance at high frequency across every module."},
         {title:"Decide",text:"Local models balance charge distribution, thermal load and output priority without waiting for a round trip to the cloud."},
         {title:"Sync",text:"Aggregated telemetry syncs securely to your Trevoli workspace, where fleet-wide trends and alerts are generated."},
@@ -360,19 +357,21 @@ input,textarea,select{outline:none}
         {title:"Ongoing Support",text:"Continuous remote monitoring, over-the-air updates and scheduled maintenance keep every asset at peak availability."}
       ]},
       contact:{items:[
-        {title:"Sales & Partnerships",email:"partners@korol.energy"},
-        {title:"Technical Support",email:"support@korol.energy"},
-        {title:"Press & Media",email:"press@korol.energy"}
+        {title:"Sales & Partnerships",email:"partners@koral.energy"},
+        {title:"Technical Support",email:"support@koral.energy"},
+        {title:"Press & Media",email:"press@koral.energy"}
       ]},
       cta:{title:"Power Shouldn't Be Bound by the Grid.",text:"Start your deployment conversation today.",bgImage:""}
     },
     footer:{
-      brand:{name:"korol",tagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",socials:[{label:"in",url:"#"},{label:"X",url:"#"},{label:"YT",url:"#"}],logoUrl:""},
+      brand:{name:"KORAL",tagline:"Portable solar-powered energy ecosystems. Built for a world beyond the grid.",socials:[{label:"in",url:"#"},{label:"X",url:"#"},{label:"YT",url:"#"}],logoUrl:""},
       company:{title:"Company",links:[{label:"About Us",nav:"about"},{label:"Careers",nav:"about"},{label:"Contact",nav:"partner"}]},
-      products:{title:"Products",links:[{label:"korol Nomad",nav:"products"},{label:"korol Depot",nav:"products"},{label:"korol Responder",nav:"products"},{label:"Trevoli",nav:"trevoli"}]},
+      products:{title:"Products",links:[{label:"Koral Nomad",nav:"products"},{label:"Koral Depot",nav:"products"},{label:"Koral Responder",nav:"products"},{label:"Trevoli",nav:"trevoli"}]},
       resources:{title:"Resources",links:[{label:"Specifications",nav:"products"},{label:"FAQ",nav:"products"},{label:"Partner Program",nav:"partner"}]},
-      copyright:{name:"korol",legal:"Privacy · Terms"}
+      copyright:{name:"Koral",legal:"Privacy · Terms"}
     },
+    typography:{baseSize:16,headingScale:1,headingWeight:700,headingTracking:"-0.025em"},
+    spacing:{sectionPadding:110,containerPadding:24,cardPadding:34,gridGap:22,density:"default"},
     customSections:[]
   };
 
@@ -382,6 +381,8 @@ input,textarea,select{outline:none}
 
   const sections = [
     { id: 'site', label: 'Site Settings', icon: '<circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6M4.2 19.8l4.3-4.3M15.5 8.5l4.3-4.3"/>' },
+    { id: 'typography', label: 'Typography', icon: '<path d="M4 7V4h16v3"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/>' },
+    { id: 'spacing', label: 'Spacing & Layout', icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/>' },
     { id: 'email', label: 'Email & Backend', icon: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>' },
     { id: 'home', label: 'Home Page', icon: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>' },
     { id: 'about', label: 'About Page', icon: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>' },
@@ -439,7 +440,7 @@ input,textarea,select{outline:none}
   function renderSidebar() {
     const nav = document.getElementById('sidebarNav');
     const groups = [
-      { label: 'Configuration', items: ['site', 'email'] },
+      { label: 'Configuration', items: ['site', 'typography', 'spacing', 'email'] },
       { label: 'Pages', items: ['home', 'about', 'products', 'trevoli', 'partner'] },
       { label: 'Content Tools', items: ['builder'] },
       { label: 'Global', items: ['footer'] }
@@ -468,22 +469,24 @@ input,textarea,select{outline:none}
   }
 
   function renderSection(id) {
-    const titles = { site: 'Site Settings', email: 'Email & Backend', home: 'Home Page', about: 'About Page', products: 'Products Page', trevoli: 'Trevoli Page', partner: 'Partner Page', builder: 'Page Builder', footer: 'Footer' };
+    const titles = { site: 'Site Settings', typography: 'Typography', spacing: 'Spacing & Layout', email: 'Email & Backend', home: 'Home Page', about: 'About Page', products: 'Products Page', trevoli: 'Trevoli Page', partner: 'Partner Page', builder: 'Page Builder', footer: 'Footer' };
     document.getElementById('pageTitle').innerHTML = `${titles[id] || id} <small>Edit all content without touching code</small>`;
 
     const area = document.getElementById('contentArea');
     let html = '';
     try {
       switch (id) {
-        case 'site':     html = renderSite(); break;
-        case 'email':    html = renderEmail(); break;
-        case 'home':     html = renderHome(); break;
-        case 'about':    html = renderAbout(); break;
-        case 'products': html = renderProducts(); break;
-        case 'trevoli':  html = renderTrevoli(); break;
-        case 'partner':  html = renderPartner(); break;
-        case 'builder':  html = renderBuilder(); break;
-        case 'footer':   html = renderFooter(); break;
+        case 'site':       html = renderSite(); break;
+        case 'typography': html = renderTypography(); break;
+        case 'spacing':    html = renderSpacing(); break;
+        case 'email':      html = renderEmail(); break;
+        case 'home':       html = renderHome(); break;
+        case 'about':      html = renderAbout(); break;
+        case 'products':   html = renderProducts(); break;
+        case 'trevoli':    html = renderTrevoli(); break;
+        case 'partner':    html = renderPartner(); break;
+        case 'builder':    html = renderBuilder(); break;
+        case 'footer':     html = renderFooter(); break;
         default: html = '<div class="section-card"><p>Unknown section.</p></div>';
       }
     } catch (err) {
@@ -501,6 +504,152 @@ input,textarea,select{outline:none}
         field('Brand Tagline', 'textarea', 'site.brandTagline', content.site.brandTagline),
         field('Logo Image (replaces text if set)', 'media', 'site.logoUrl', content.site.logoUrl, 'image')
       ])}
+    `;
+  }
+
+  function renderTypography() {
+    const t = content.typography || {};
+    const base = t.baseSize || 16;
+    const hs = t.headingScale || 1;
+    const hw = t.headingWeight || 700;
+    const ht = t.headingTracking || '-0.025em';
+    return `
+      ${card('Font Size & Scale', 'Adjust the base font size and heading scale across the entire site. Changes apply instantly after Publish.', [
+        numberField('Base Font Size (px)', 'typography.baseSize', base, 1, 12, 22, 'Controls the size of all body text and most UI elements. Default 16.'),
+        numberField('Heading Scale', 'typography.headingScale', hs, 0.05, 0.5, 2, 'Multiplier applied to all H1/H2/H3 headings. Default 1.'),
+        field('Heading Weight', 'select', 'typography.headingWeight', String(hw), null, [
+          { value:'600', label:'600 — Semibold' },
+          { value:'700', label:'700 — Bold (default)' },
+          { value:'800', label:'800 — Extra Bold' }
+        ]),
+        field('Heading Letter Spacing', 'select', 'typography.headingTracking', ht, null, [
+          { value:'-0.05em', label:'Very Tight (-0.05em)' },
+          { value:'-0.025em', label:'Tight (-0.025em) — default' },
+          { value:'-0.01em', label:'Slight (-0.01em)' },
+          { value:'0', label:'Normal (0)' },
+          { value:'0.02em', label:'Wide (0.02em)' }
+        ])
+      ])}
+
+      <div class="section-card">
+        <div class="section-card__head">
+          <div>
+            <div class="section-card__title">Quick Presets</div>
+            <div class="section-card__desc">One-click apply common typography settings. You can still fine-tune after.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px">
+          <button class="btn btn--ghost" data-typo-preset="compact" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Compact</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">14px · smaller headings</span>
+          </button>
+          <button class="btn btn--ghost" data-typo-preset="default" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Default</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">16px · balanced</span>
+          </button>
+          <button class="btn btn--ghost" data-typo-preset="comfortable" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Comfortable</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">17px · easier reading</span>
+          </button>
+          <button class="btn btn--ghost" data-typo-preset="large" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Large</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">18px · bolder headings</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card__head">
+          <div>
+            <div class="section-card__title">Live Preview</div>
+            <div class="section-card__desc">Approximation of how the site will look with these settings.</div>
+          </div>
+        </div>
+        <div style="padding:28px 24px;background:var(--bg-2);border-radius:10px;border:1px solid var(--line);overflow:hidden">
+          <div style="font-family:var(--display);font-weight:${hw};letter-spacing:${ht};font-size:calc(${hs} * 40px);line-height:1.12;color:#f0f0f0;margin-bottom:16px">Redefining Energy Freedom.</div>
+          <div style="font-family:var(--display);font-weight:${hw};letter-spacing:${ht};font-size:calc(${hs} * 24px);line-height:1.15;color:#f0f0f0;margin-bottom:14px">Powering a Decentralized Future.</div>
+          <div style="font-size:${base}px;line-height:1.65;color:var(--txt-2);max-width:600px;margin-bottom:12px">
+            This is how body text will render on the site. The base font size applies globally across every page and section.
+          </div>
+          <div style="font-size:calc(${base}px * 0.9);color:var(--txt-3)">
+            This is smaller secondary text — captions, labels, and metadata.
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderSpacing() {
+    const s = content.spacing || {};
+    const sp = s.sectionPadding || 110;
+    const cp = s.containerPadding || 24;
+    const cd = s.cardPadding || 34;
+    const gg = s.gridGap || 22;
+    return `
+      ${card('Section Spacing', 'Controls the vertical breathing room between every section on the site.', [
+        numberField('Section Vertical Padding (px)', 'spacing.sectionPadding', sp, 5, 20, 250, 'Space above + below each section. Default 110. Try 60 for a denser feel or 160 for more air.'),
+        numberField('Container Side Padding (px)', 'spacing.containerPadding', cp, 2, 8, 60, 'Left + right padding on the main container. Default 24.'),
+        numberField('Card Padding (px)', 'spacing.cardPadding', cd, 2, 12, 80, 'Inner padding inside every card (features, products, testimonials, etc). Default 34.'),
+        numberField('Grid Gap (px)', 'spacing.gridGap', gg, 2, 8, 60, 'Gap between grid items (cards, products, etc). Default 22.')
+      ])}
+
+      <div class="section-card">
+        <div class="section-card__head">
+          <div>
+            <div class="section-card__title">Density Presets</div>
+            <div class="section-card__desc">One-click spacing adjustments. You can still fine-tune after applying.</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">
+          <button class="btn btn--ghost" data-spacing-preset="tight" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Tight</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">60 · 16 · 24 · 14</span>
+          </button>
+          <button class="btn btn--ghost" data-spacing-preset="compact" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Compact</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">80 · 20 · 28 · 18</span>
+          </button>
+          <button class="btn btn--ghost" data-spacing-preset="default" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Default</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">110 · 24 · 34 · 22</span>
+          </button>
+          <button class="btn btn--ghost" data-spacing-preset="relaxed" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Relaxed</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">140 · 28 · 40 · 28</span>
+          </button>
+          <button class="btn btn--ghost" data-spacing-preset="spacious" style="flex-direction:column;padding:16px 12px;gap:4px;height:auto">
+            <span style="font-size:.85rem;font-weight:600">Spacious</span>
+            <span style="font-size:.65rem;color:var(--txt-3);font-weight:400;text-transform:none;letter-spacing:0">180 · 32 · 48 · 36</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-card__head">
+          <div>
+            <div class="section-card__title">Live Preview</div>
+            <div class="section-card__desc">Approximation of spacing with these settings.</div>
+          </div>
+        </div>
+        <div style="background:var(--bg);border-radius:10px;border:1px solid var(--line);overflow:hidden">
+          <div style="padding:${sp}px ${cp}px;border-bottom:1px solid var(--line)">
+            <div style="font-family:var(--display);font-size:1.5rem;font-weight:700;color:#f0f0f0;margin-bottom:10px">Section Title</div>
+            <div style="color:var(--txt-2);font-size:.9rem;line-height:1.6">Section vertical padding is ${sp}px. This creates the space above and below this content block.</div>
+          </div>
+          <div style="padding:${sp}px ${cp}px;background:var(--bg-1)">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:${gg}px">
+              <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:${cd}px">
+                <div style="font-weight:600;margin-bottom:8px;color:#f0f0f0">Card</div>
+                <div style="color:var(--txt-2);font-size:.85rem">Card padding ${cd}px</div>
+              </div>
+              <div style="background:var(--bg-2);border:1px solid var(--line);border-radius:10px;padding:${cd}px">
+                <div style="font-weight:600;margin-bottom:8px;color:#f0f0f0">Card</div>
+                <div style="color:var(--txt-2);font-size:.85rem">Grid gap ${gg}px</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     `;
   }
 
@@ -596,9 +745,9 @@ input,textarea,select{outline:none}
         field('Title', 'text', 'home.stats.title', h.stats.title),
         field('Section Background Image', 'media', 'home.stats.bgImage', h.stats.bgImage, 'image')
       ])}
-      ${listCard('Stat Comparisons', 'korol vs Industry Avg.', 'home.stats.items', h.stats.items, [
+      ${listCard('Stat Comparisons', 'Koral vs Industry Avg.', 'home.stats.items', h.stats.items, [
         { key: 'category', label: 'Category', type: 'text' },
-        { key: 'korol', label: 'korol Value', type: 'text' },
+        { key: 'koral', label: 'Koral Value', type: 'text' },
         { key: 'industry', label: 'Industry Value', type: 'text' }
       ])}
       ${card('Industries Header', '', [
@@ -1169,19 +1318,27 @@ input,textarea,select{outline:none}
     return `<div class="field"><label class="field__label">${label}</label><input class="field__input" type="${type}" data-path="${path}" value="${v}"></div>`;
   }
 
+  function numberField(label, path, value, step, min, max, hint) {
+    return `
+      <div class="field">
+        <label class="field__label">${label}</label>
+        <input class="field__input" type="number" step="${step||1}" min="${min||0}" max="${max||100}" data-path="${path}" value="${value}">
+        ${hint ? '<div class="field__hint">' + hint + '</div>' : ''}
+      </div>
+    `;
+  }
+
   function mediaFieldHTML(opts) {
     const isList = opts.listPath !== undefined && opts.listPath !== '' && opts.listIndex !== null && opts.listIndex !== undefined;
     const attrs = isList ? `data-list-path="${opts.listPath}" data-list-index="${opts.listIndex}" data-list-key="${opts.listKey}"` : `data-path="${opts.path}"`;
     const uploadAttrs = isList
       ? `data-upload-kind="${opts.kind}" data-upload-list-path="${opts.listPath}" data-upload-list-index="${opts.listIndex}" data-upload-list-key="${opts.listKey}"`
       : `data-upload-kind="${opts.kind}" data-upload-path="${opts.path}"`;
-
     const preview = opts.value
       ? (opts.kind === 'video'
           ? `<video src="${esc(opts.value)}" muted playsinline preload="metadata"></video><span class="media-preview__badge">Video Preview</span>`
           : `<img src="${esc(opts.value)}" alt="" loading="lazy"><span class="media-preview__badge">Image Preview</span>`)
       : `<div class="media-preview__empty">No ${opts.kind === 'video' ? 'video' : 'image'} yet — paste a URL or click Upload</div>`;
-
     return `
       <div class="field">
         <label class="field__label">${opts.label}</label>
@@ -1303,6 +1460,14 @@ input,textarea,select{outline:none}
         moveCustomSection(parseInt(btn.dataset.index, 10), btn.dataset.moveCustom === 'up' ? -1 : 1);
       });
     });
+
+    area.querySelectorAll('[data-typo-preset]').forEach(btn => {
+      btn.addEventListener('click', () => applyTypoPreset(btn.dataset.typoPreset));
+    });
+
+    area.querySelectorAll('[data-spacing-preset]').forEach(btn => {
+      btn.addEventListener('click', () => applySpacingPreset(btn.dataset.spacingPreset));
+    });
   }
 
   function onFieldInput(e) {
@@ -1311,6 +1476,14 @@ input,textarea,select{outline:none}
     let value = e.target.value;
     if (path === 'email.autoReplyEnabled') value = value === 'true';
     if (path.endsWith('.reverse')) value = value === 'true';
+    if (path.startsWith('typography.') && path !== 'typography.headingTracking') {
+      const num = parseFloat(value);
+      if (!isNaN(num)) value = num;
+    }
+    if (path.startsWith('spacing.') && path !== 'spacing.density') {
+      const num = parseFloat(value);
+      if (!isNaN(num)) value = num;
+    }
     setByPath(content, path, value);
     scheduleSave();
   }
@@ -1385,6 +1558,37 @@ input,textarea,select{outline:none}
     renderSection(currentSection);
   }
 
+  function applyTypoPreset(name) {
+    const presets = {
+      compact:     { baseSize: 14, headingScale: 0.92, headingWeight: 700, headingTracking: '-0.03em' },
+      default:     { baseSize: 16, headingScale: 1,    headingWeight: 700, headingTracking: '-0.025em' },
+      comfortable: { baseSize: 17, headingScale: 1.05, headingWeight: 700, headingTracking: '-0.02em' },
+      large:       { baseSize: 18, headingScale: 1.15, headingWeight: 800, headingTracking: '-0.03em' }
+    };
+    const p = presets[name];
+    if (!p) return;
+    content.typography = Object.assign({}, content.typography || {}, p);
+    scheduleSave();
+    renderSection('typography');
+    toast(name.charAt(0).toUpperCase() + name.slice(1) + ' applied', 'success');
+  }
+
+  function applySpacingPreset(name) {
+    const presets = {
+      tight:    { sectionPadding: 60,  containerPadding: 16, cardPadding: 24, gridGap: 14 },
+      compact:  { sectionPadding: 80,  containerPadding: 20, cardPadding: 28, gridGap: 18 },
+      default:  { sectionPadding: 110, containerPadding: 24, cardPadding: 34, gridGap: 22 },
+      relaxed:  { sectionPadding: 140, containerPadding: 28, cardPadding: 40, gridGap: 28 },
+      spacious: { sectionPadding: 180, containerPadding: 32, cardPadding: 48, gridGap: 36 }
+    };
+    const p = presets[name];
+    if (!p) return;
+    content.spacing = Object.assign({}, content.spacing || {}, p, { density: name });
+    scheduleSave();
+    renderSection('spacing');
+    toast(name.charAt(0).toUpperCase() + name.slice(1) + ' spacing applied', 'success');
+  }
+
   // ============================================================
   // UPLOAD
   // ============================================================
@@ -1392,31 +1596,26 @@ input,textarea,select{outline:none}
     const repo = document.getElementById('ghRepo').value.trim();
     const branch = document.getElementById('ghBranch').value.trim() || 'main';
     const token = document.getElementById('ghToken').value.trim();
-
     if (!repo || !token) { toast('Open "Publish to GitHub" first and enter your repo + token', 'error'); return null; }
     if (file.size > 100 * 1024 * 1024) { toast('File is ' + (file.size/1048576).toFixed(1) + ' MB — GitHub max is 100 MB', 'error'); return null; }
     if (file.size > 25 * 1024 * 1024) { toast('Large file (' + (file.size/1048576).toFixed(1) + ' MB) — may load slowly', 'info'); }
-
     const base64 = await new Promise((resolve, reject) => {
       const r = new FileReader();
       r.onload = () => resolve(r.result.split(',')[1]);
       r.onerror = () => reject(new Error('Could not read file'));
       r.readAsDataURL(file);
     });
-
     let sha = null;
     try {
       const g = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}?ref=${branch}`,
         { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } });
       if (g.ok) sha = (await g.json()).sha;
     } catch(e) {}
-
     const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${targetPath}`, {
       method: 'PUT',
       headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: 'Upload ' + targetPath, content: base64, branch, ...(sha ? { sha } : {}) })
     });
-
     if (!putRes.ok) {
       const err = await putRes.json().catch(() => ({}));
       throw new Error(err.message || 'Upload failed (' + putRes.status + ')');
@@ -1431,23 +1630,18 @@ input,textarea,select{outline:none}
       const listPath = btn.dataset.uploadListPath;
       const listIndex = btn.dataset.uploadListIndex ? parseInt(btn.dataset.uploadListIndex, 10) : null;
       const listKey = btn.dataset.uploadListKey;
-
       const input = document.createElement('input');
       input.type = 'file';
       input.accept = kind === 'video' ? 'video/mp4,video/webm,video/quicktime' : 'image/*';
-
       input.addEventListener('change', async () => {
         const file = input.files[0];
         if (!file) return;
-
         const safeName = file.name.toLowerCase().replace(/[^a-z0-9.\-_]/g, '-').replace(/-+/g, '-');
         const folder = kind === 'video' ? 'assets/videos' : 'assets/images';
         const targetPath = folder + '/' + Date.now() + '-' + safeName;
-
         const originalHTML = btn.innerHTML;
         btn.disabled = true;
         btn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 1 1-3-6.7"/></svg> Uploading...';
-
         try {
           const result = await uploadFileToGitHub(file, targetPath);
           if (result) {
@@ -1470,7 +1664,6 @@ input,textarea,select{outline:none}
           btn.innerHTML = originalHTML;
         }
       });
-
       input.click();
     });
   }
@@ -1506,7 +1699,6 @@ input,textarea,select{outline:none}
       toast('Saved locally. Opening preview with your changes.', 'info');
       window.open('../index.html?preview=1', '_blank');
     });
-
     document.getElementById('btnReset').addEventListener('click', () => {
       confirmAction('Discard all local changes?', 'This will delete everything you have edited but not yet exported.', () => {
         localStorage.removeItem(LS_KEY);
@@ -1515,7 +1707,6 @@ input,textarea,select{outline:none}
         toast('Reset to defaults', 'success');
       });
     });
-
     document.getElementById('btnDownload').addEventListener('click', downloadJSON);
     document.getElementById('btnPublish').addEventListener('click', () => {
       document.getElementById('publishModal').classList.add('is-open');
@@ -1576,35 +1767,28 @@ input,textarea,select{outline:none}
     const path = document.getElementById('ghPath').value.trim() || 'content.json';
     const token = document.getElementById('ghToken').value.trim();
     const message = document.getElementById('ghMessage').value.trim() || 'Update site content';
-
     if (!repo || !token) { toast('Repository and token are required', 'error'); return; }
     if (!/^[^/]+\/[^/]+$/.test(repo)) { toast('Repository must be in owner/repo format', 'error'); return; }
-
     const btn = document.getElementById('publishConfirm');
     btn.disabled = true;
     btn.textContent = 'Publishing...';
-
     try {
       const getUrl = `https://api.github.com/repos/${repo}/contents/${path}?ref=${branch}`;
       let sha = null;
       const getRes = await fetch(getUrl, { headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' } });
       if (getRes.ok) { const j = await getRes.json(); sha = j.sha; }
       else if (getRes.status !== 404) { throw new Error(`Cannot read current file (${getRes.status})`); }
-
       const contentStr = JSON.stringify(content, null, 2);
       const encoded = btoa(unescape(encodeURIComponent(contentStr)));
-
       const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
         method: 'PUT',
         headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
         body: JSON.stringify({ message, content: encoded, branch, ...(sha ? { sha } : {}) })
       });
-
       if (!putRes.ok) {
         const err = await putRes.json().catch(() => ({}));
         throw new Error(err.message || `GitHub returned ${putRes.status}`);
       }
-
       toast('Published to GitHub! Pages will rebuild in ~1 minute', 'success');
       document.getElementById('publishModal').classList.remove('is-open');
     } catch (e) {

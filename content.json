@@ -54,12 +54,7 @@
       "eyebrow": "Autonomous Infrastructure",
       "title": "Powering a Decentralized Future.",
       "text": "As global energy demands rise and traditional utility grids face growing vulnerabilities, Koral provides autonomous, clean energy infrastructure. We combine high-efficiency solar harvesting, scalable storage and smart software to deliver dependable power anywhere on Earth.",
-      "pills": [
-        "MPPT Controllers",
-        "LFP Chemistry",
-        "Weather-Sealed",
-        "Zero Emissions"
-      ],
+      "pills": [],
       "bgImage": ""
     },
     "carousel": {
@@ -68,7 +63,7 @@
           "title": "Koral Nomad",
           "text": "Foldable 400W solar array paired with a 2.4 kWh LFP pack. Built for field teams and mobile charging anywhere.",
           "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-          "posterUrl": "https://picsum.photos/seed/koral-nomad/1280/720"
+          "posterUrl": ""
         },
         {
           "title": "Koral Depot",

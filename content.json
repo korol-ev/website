@@ -106,22 +106,26 @@
         {
           "power": "240 kW",
           "title": "Ultra-Fast DC",
-          "desc": "Highway corridor charging for rapid long-distance journeys."
+          "desc": "Highway corridor charging for rapid long-distance journeys.",
+          "imageUrl": "assets/images/1792569566392-k1.png"
         },
         {
           "power": "180 kW",
           "title": "Fast DC",
-          "desc": "Public fast charging for high-turnover city locations."
+          "desc": "Public fast charging for high-turnover city locations.",
+          "imageUrl": "assets/images/1792569601109-k3.png"
         },
         {
           "power": "120 kW",
           "title": "Standard DC",
-          "desc": "Everyday fast top-ups for urban commuters and fleets."
+          "desc": "Everyday fast top-ups for urban commuters and fleets.",
+          "imageUrl": "assets/images/1792569614258-k2.png"
         },
         {
           "power": "60 kW",
           "title": "Destination AC/DC",
-          "desc": "Workplace and retail charging for longer parking periods."
+          "desc": "Workplace and retail charging for longer parking periods.",
+          "imageUrl": "assets/images/1792569624775-k5.png"
         }
       ]
     },

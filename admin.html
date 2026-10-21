@@ -247,10 +247,10 @@ input,textarea,select{outline:none}
         {icon:"🔋",title:"Vehicle-first",text:"Clear compatibility info before every session, no surprises.",imageUrl:""}
       ]},
       chargingStations:{eyebrow:"Charging Infrastructure",title:"Four power levels. One network.",subtitle:"From rapid highway top-ups to overnight AC charging, KOROL stations are built for every scenario.",items:[
-        {power:"240 kW",title:"Ultra-Fast DC",desc:"Highway corridor charging for rapid long-distance journeys."},
-        {power:"180 kW",title:"Fast DC",desc:"Public fast charging for high-turnover city locations."},
-        {power:"120 kW",title:"Standard DC",desc:"Everyday fast top-ups for urban commuters and fleets."},
-        {power:"60 kW",title:"Destination AC/DC",desc:"Workplace and retail charging for longer parking periods."}
+        {power:"240 kW",title:"Ultra-Fast DC",desc:"Highway corridor charging for rapid long-distance journeys.",imageUrl:""},
+        {power:"180 kW",title:"Fast DC",desc:"Public fast charging for high-turnover city locations.",imageUrl:""},
+        {power:"120 kW",title:"Standard DC",desc:"Everyday fast top-ups for urban commuters and fleets.",imageUrl:""},
+        {power:"60 kW",title:"Destination AC/DC",desc:"Workplace and retail charging for longer parking periods.",imageUrl:""}
       ]},
       charging:{eyebrow:"Charging solutions",title:"Flexible. Scalable. Future-ready.",subtitle:"A charging ecosystem for homes, workplaces, public locations and fleet operators.",items:[
         {icon:"ϟ",title:"AC charging",text:"For homes, offices and longer parking periods. Final power levels depend on the selected charger and site capacity.",linkLabel:"Discuss a site →"},
@@ -558,6 +558,7 @@ input,textarea,select{outline:none}
         { key: 'text', label: 'Description', type: 'textarea' },
         { key: 'imageUrl', label: 'Image (optional)', type: 'media', mediaType: 'image' }
       ])}
+      
       ${card('Charging Stations Header', 'The 4 power levels shown on the home page.', [
         field('Eyebrow', 'text', 'home.chargingStations.eyebrow', h.chargingStations?.eyebrow || ''),
         field('Title', 'text', 'home.chargingStations.title', h.chargingStations?.title || ''),
@@ -566,8 +567,10 @@ input,textarea,select{outline:none}
       ${listCard('Charging Station Cards', 'The 4 power blocks (240, 180, 120, 60 kW).', 'home.chargingStations.items', (h.chargingStations && h.chargingStations.items) || [], [
         { key: 'power', label: 'Power (e.g. 240 kW)', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
-        { key: 'desc', label: 'Description', type: 'textarea' }
+        { key: 'desc', label: 'Description', type: 'textarea' },
+        { key: 'imageUrl', label: 'Station Photo', type: 'media', mediaType: 'image' }
       ])}
+
       ${card('AC/DC Charging Solutions', '', [
         field('Eyebrow', 'text', 'home.charging.eyebrow', h.charging.eyebrow),
         field('Title', 'text', 'home.charging.title', h.charging.title),

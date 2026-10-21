@@ -123,9 +123,13 @@ h1 span,h2 span{background:linear-gradient(120deg,var(--lime),var(--cyan));-webk
 
 /* ============ CHARGING STATIONS (NEW) ============ */
 .stations-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gap);margin-top:8px}
-.station-card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:36px 24px;text-align:center;position:relative;overflow:hidden;transition:.3s var(--ease)}
+.station-card{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:0 24px 36px;text-align:center;position:relative;overflow:hidden;transition:.3s var(--ease);display:flex;flex-direction:column}
+.station-card.no-img{padding-top:36px}
 .station-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%, rgba(200,245,66,.12), transparent 70%);pointer-events:none;z-index:0}
 .station-card:hover{border-color:var(--lime-line);transform:translateY(-4px);background:var(--bg-3)}
+.station-card__img{height:180px;margin:0 -24px 24px;overflow:hidden;border-bottom:1px solid var(--line);position:relative;z-index:1}
+.station-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.station-card:hover .station-card__img img{transform:scale(1.05)}
 .station-card__power{font-family:var(--display);font-size:2.6rem;font-weight:800;color:var(--lime);line-height:1;margin-bottom:14px;position:relative;z-index:1}
 .station-card__title{font-family:var(--display);font-size:1.1rem;font-weight:600;color:var(--txt);margin-bottom:8px;position:relative;z-index:1}
 .station-card__desc{font-size:.85rem;color:var(--txt-2);line-height:1.5;position:relative;z-index:1}
@@ -351,7 +355,7 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
     </div>
   </section>
 
-  <!-- CHARGING STATIONS (NEW) -->
+  <!-- CHARGING STATIONS -->
   <section class="section section--alt" id="charging-stations-section">
     <div class="container">
       <div class="section-head">
@@ -777,11 +781,12 @@ body.content-loaded .site-loading{opacity:0;pointer-events:none}
       ).join('');
     }
 
-    // CHARGING STATIONS (NEW)
+    // CHARGING STATIONS (WITH IMAGES)
     const stationsGrid = document.getElementById('stations-grid');
     if (stationsGrid && data.home?.chargingStations?.items) {
       stationsGrid.innerHTML = data.home.chargingStations.items.map(s =>
-        '<div class="station-card">' +
+        '<div class="station-card' + (!s.imageUrl ? ' no-img' : '') + '">' +
+          (s.imageUrl ? '<div class="station-card__img"><img src="' + s.imageUrl + '" alt="" loading="lazy"></div>' : '') +
           '<div class="station-card__power">' + s.power + '</div>' +
           '<div class="station-card__title">' + s.title + '</div>' +
           '<div class="station-card__desc">' + s.desc + '</div>' +

@@ -246,13 +246,11 @@ input,textarea,select{outline:none}
         {icon:"📱",title:"App connected",text:"Find stations, plan routes and pay digitally from a single app.",imageUrl:""},
         {icon:"🔋",title:"Vehicle-first",text:"Clear compatibility info before every session, no surprises.",imageUrl:""}
       ]},
-      vehicles:{eyebrow:"Our electric mobility range",title:"Built for every journey.",subtitle:"From everyday city rides to longer adventures, discover the KOROL concept lineup.",buttonLabel:"Partner with us →",items:[
-        {name:"Danaus",desc:"Electric bike concept for agile everyday mobility.",tag:"Concept model",symbol:"🛵",imageUrl:""},
-        {name:"Apis",desc:"Electric scooter concept designed for city trips.",tag:"Concept model",symbol:"🛵",imageUrl:""},
-        {name:"APIS X",desc:"Flagship leaning tri-wheel platform with connected features.",tag:"Flagship concept",symbol:"🏍️",imageUrl:""},
-        {name:"Ant 440",desc:"Electric scooter concept for practical daily travel.",tag:"Concept model",symbol:"🛵",imageUrl:""},
-        {name:"Youth",desc:"A compact electric mobility concept for urban lifestyles.",tag:"Concept model",symbol:"🛵",imageUrl:""},
-        {name:"Icarus",desc:"Electric motorcycle concept with a bold road presence.",tag:"Concept model",symbol:"🏍️",imageUrl:""}
+      chargingStations:{eyebrow:"Charging Infrastructure",title:"Four power levels. One network.",subtitle:"From rapid highway top-ups to overnight AC charging, KOROL stations are built for every scenario.",items:[
+        {power:"240 kW",title:"Ultra-Fast DC",desc:"Highway corridor charging for rapid long-distance journeys."},
+        {power:"180 kW",title:"Fast DC",desc:"Public fast charging for high-turnover city locations."},
+        {power:"120 kW",title:"Standard DC",desc:"Everyday fast top-ups for urban commuters and fleets."},
+        {power:"60 kW",title:"Destination AC/DC",desc:"Workplace and retail charging for longer parking periods."}
       ]},
       charging:{eyebrow:"Charging solutions",title:"Flexible. Scalable. Future-ready.",subtitle:"A charging ecosystem for homes, workplaces, public locations and fleet operators.",items:[
         {icon:"ϟ",title:"AC charging",text:"For homes, offices and longer parking periods. Final power levels depend on the selected charger and site capacity.",linkLabel:"Discuss a site →"},
@@ -560,25 +558,22 @@ input,textarea,select{outline:none}
         { key: 'text', label: 'Description', type: 'textarea' },
         { key: 'imageUrl', label: 'Image (optional)', type: 'media', mediaType: 'image' }
       ])}
-      ${card('Vehicles Section', 'Vehicle lineup shown on home.', [
-        field('Eyebrow', 'text', 'home.vehicles.eyebrow', h.vehicles.eyebrow),
-        field('Title', 'text', 'home.vehicles.title', h.vehicles.title),
-        field('Subtitle', 'textarea', 'home.vehicles.subtitle', h.vehicles.subtitle),
-        field('Button Label', 'text', 'home.vehicles.buttonLabel', h.vehicles.buttonLabel)
+      ${card('Charging Stations Header', 'The 4 power levels shown on the home page.', [
+        field('Eyebrow', 'text', 'home.chargingStations.eyebrow', h.chargingStations?.eyebrow || ''),
+        field('Title', 'text', 'home.chargingStations.title', h.chargingStations?.title || ''),
+        field('Subtitle', 'textarea', 'home.chargingStations.subtitle', h.chargingStations?.subtitle || '')
       ])}
-      ${listCard('Vehicle Cards', '', 'home.vehicles.items', h.vehicles.items, [
-        { key: 'name', label: 'Name', type: 'text' },
-        { key: 'desc', label: 'Description', type: 'textarea' },
-        { key: 'tag', label: 'Tag', type: 'text' },
-        { key: 'symbol', label: 'Emoji Symbol', type: 'text' },
-        { key: 'imageUrl', label: 'Image', type: 'media', mediaType: 'image' }
+      ${listCard('Charging Station Cards', 'The 4 power blocks (240, 180, 120, 60 kW).', 'home.chargingStations.items', (h.chargingStations && h.chargingStations.items) || [], [
+        { key: 'power', label: 'Power (e.g. 240 kW)', type: 'text' },
+        { key: 'title', label: 'Title', type: 'text' },
+        { key: 'desc', label: 'Description', type: 'textarea' }
       ])}
-      ${card('Charging Solutions', '', [
+      ${card('AC/DC Charging Solutions', '', [
         field('Eyebrow', 'text', 'home.charging.eyebrow', h.charging.eyebrow),
         field('Title', 'text', 'home.charging.title', h.charging.title),
         field('Subtitle', 'textarea', 'home.charging.subtitle', h.charging.subtitle)
       ])}
-      ${listCard('Charging Cards', '', 'home.charging.items', h.charging.items, [
+      ${listCard('Charging Solution Cards', '', 'home.charging.items', h.charging.items, [
         { key: 'icon', label: 'Icon', type: 'text' },
         { key: 'title', label: 'Title', type: 'text' },
         { key: 'text', label: 'Description', type: 'textarea' },

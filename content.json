@@ -73,25 +73,25 @@
       "subtitle": "Everything we build is designed around real journeys — from the daily commute to the road trip.",
       "items": [
         {
-          "icon": "⚡",
+          "icon": "",
           "title": "Fast charging",
           "text": "DC fast charging at key locations, AC charging where vehicles park longer.",
           "imageUrl": ""
         },
         {
-          "icon": "🌐",
+          "icon": "",
           "title": "One network",
           "text": "Consistent experience across every KOROL charger, city or highway.",
           "imageUrl": ""
         },
         {
-          "icon": "📱",
+          "icon": "",
           "title": "App connected",
           "text": "Find stations, plan routes and pay digitally from a single app.",
           "imageUrl": ""
         },
         {
-          "icon": "🔋",
+          "icon": "",
           "title": "Vehicle-first",
           "text": "Clear compatibility info before every session, no surprises.",
           "imageUrl": ""
@@ -131,13 +131,13 @@
       "subtitle": "A charging ecosystem for homes, workplaces, public locations and fleet operators.",
       "items": [
         {
-          "icon": "ϟ",
+          "icon": "",
           "title": "AC charging",
           "text": "For homes, offices and longer parking periods. Final power levels depend on the selected charger and site capacity.",
           "linkLabel": "Discuss a site →"
         },
         {
-          "icon": "⚡",
+          "icon": "",
           "title": "DC fast charging",
           "text": "For high-turnover public sites and suitable fleets. Vehicle compatibility and charge speed vary by model and conditions.",
           "linkLabel": "Explore partnership →"

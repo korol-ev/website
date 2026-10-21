@@ -119,13 +119,13 @@
           "power": "120 kW",
           "title": "Standard DC",
           "desc": "Everyday fast top-ups for urban commuters and fleets.",
-          "imageUrl": "assets/images/1792569614258-k2.png"
+          "imageUrl": "assets/images/1792569639369-k2.png"
         },
         {
           "power": "60 kW",
           "title": "Destination AC/DC",
           "desc": "Workplace and retail charging for longer parking periods.",
-          "imageUrl": "assets/images/1792569624775-k5.png"
+          "imageUrl": "assets/images/1792569654450-k5.png"
         }
       ]
     },
@@ -294,42 +294,42 @@
           "name": "Danaus",
           "desc": "Electric bike concept for agile everyday mobility.",
           "tag": "Concept model",
-          "symbol": "🛵",
+          "symbol": "",
           "imageUrl": ""
         },
         {
           "name": "Apis",
           "desc": "Electric scooter concept designed for city trips.",
           "tag": "Concept model",
-          "symbol": "🛵",
+          "symbol": "",
           "imageUrl": ""
         },
         {
           "name": "APIS X",
           "desc": "Flagship leaning tri-wheel platform with connected features.",
           "tag": "Flagship concept",
-          "symbol": "🏍️",
+          "symbol": "",
           "imageUrl": ""
         },
         {
           "name": "Ant 440",
           "desc": "Electric scooter concept for practical daily travel.",
           "tag": "Concept model",
-          "symbol": "🛵",
+          "symbol": "",
           "imageUrl": ""
         },
         {
           "name": "Youth",
           "desc": "A compact electric mobility concept for urban lifestyles.",
           "tag": "Concept model",
-          "symbol": "🛵",
+          "symbol": "",
           "imageUrl": ""
         },
         {
           "name": "Icarus",
           "desc": "Electric motorcycle concept with a bold road presence.",
           "tag": "Concept model",
-          "symbol": "🏍️",
+          "symbol": "",
           "imageUrl": ""
         }
       ]
@@ -347,13 +347,13 @@
       "subtitle": "AC for where vehicles park, DC fast for high-turnover locations.",
       "items": [
         {
-          "icon": "ϟ",
+          "icon": "",
           "title": "AC charging",
           "text": "For homes, offices and longer parking periods. Final power levels depend on the selected charger and site capacity.",
           "linkLabel": "Discuss a site →"
         },
         {
-          "icon": "⚡",
+          "icon": "",
           "title": "DC fast charging",
           "text": "For high-turnover public sites and suitable fleets. Vehicle compatibility and charge speed vary by model and conditions.",
           "linkLabel": "Explore partnership →"
